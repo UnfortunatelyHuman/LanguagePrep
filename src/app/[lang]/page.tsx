@@ -4,6 +4,9 @@ import { SkillCard } from "@/components/SkillCard";
 import { SkillStatus, SkillStatusPending } from "@/components/SkillStatus";
 import { getTrack, isTrack } from "@/lib/exams";
 
+// Awaits params and blocks on navigation; opt out of instant validation.
+export const instant = false;
+
 export default async function Dashboard({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!isTrack(lang)) notFound();

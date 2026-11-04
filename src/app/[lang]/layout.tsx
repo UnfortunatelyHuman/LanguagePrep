@@ -2,6 +2,9 @@ import { notFound } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { TRACKS, isTrack } from "@/lib/exams";
 
+// Awaits params and blocks on navigation; opt out of instant validation.
+export const instant = false;
+
 export function generateStaticParams() {
   return TRACKS.map((lang) => ({ lang }));
 }
