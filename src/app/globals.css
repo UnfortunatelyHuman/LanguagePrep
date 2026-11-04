@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f8fa;
+  --surface: #ffffff;
+  --surface-subtle: #f1f3f7;
+  --foreground: #15181d;
+  --muted: #5b6472;
+  --border: #e2e6ed;
+  --accent: #1f5fd0;
+  --accent-soft: #e8f0fd;
+  --good: #117a55;
+  --warn: #9a5b00;
+}
+
+/* The French track leans on Canada red so you can tell the two tracks apart at a glance. */
+[data-track="fr"] {
+  --accent: #c8102e;
+  --accent-soft: #fdeaed;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-good: var(--good);
+  --color-warn: var(--warn);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0d1014;
+    --surface: #161a20;
+    --surface-subtle: #1d222a;
+    --foreground: #eceef2;
+    --muted: #9aa4b2;
+    --border: #272d37;
+    --accent: #6fa0f5;
+    --accent-soft: #16233a;
+    --good: #45c89a;
+    --warn: #e0a95c;
+  }
+
+  [data-track="fr"] {
+    --accent: #ff8a9b;
+    --accent-soft: #351a20;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}

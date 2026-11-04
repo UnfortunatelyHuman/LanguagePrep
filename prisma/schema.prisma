@@ -1,0 +1,59 @@
+// PR Language Prep — CELPIP + TCF Canada practice data.
+// Docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+/// One sitting of one skill (or one task within a skill).
+model Attempt {
+  id   String @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam String
+  /// "listening" | "reading" | "writing" | "speaking"
+  skill String
+  /// Task identifier within the skill, e.g. "writing-task-1". Null for a whole-skill test.
+  task String?
+
+  /// Raw score earned, in the units of the skill (MCQs correct, or a rubric score).
+  score Float?
+  /// Maximum the raw score could have been, so `score` stays interpretable later.
+  maxScore Float?
+  /// Band this maps to: "CLB 10" for CELPIP, "NCLC 7" for TCF. AI/heuristic estimate, not official.
+  estimatedLevel String?
+
+  /// Seconds the attempt actually took, for pacing against the real exam limits.
+  durationSeconds Int?
+
+  createdAt DateTime @default(now())
+
+  responses Response[]
+
+  @@index([exam, skill, createdAt])
+}
+
+/// What was produced during an attempt: written text, a speech transcript, or picked answers.
+model Response {
+  id        String  @id @default(cuid())
+  attemptId String
+  attempt   Attempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+
+  /// Question/task this answers, e.g. a question id from the content JSON. Null for a single free-form task.
+  questionId String?
+  /// The written answer or the speech-to-text transcript.
+  text String?
+  /// Object URL or file path of the kept speaking recording.
+  audioPath String?
+
+  /// AI feedback as JSON: rubric scores, strengths, corrected version, fixes.
+  feedback Json?
+
+  createdAt DateTime @default(now())
+
+  @@index([attemptId])
+}
