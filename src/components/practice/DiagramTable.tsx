@@ -1,4 +1,4 @@
-import type { Diagram } from "@/lib/reading/types";
+import type { Diagram } from "@/lib/practice/types";
 
 /** The CELPIP Part 2 diagram. Scrolls sideways inside its box on narrow screens. */
 export function DiagramTable({ diagram }: { diagram: Diagram }) {

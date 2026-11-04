@@ -2,19 +2,58 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { PassageView } from "@/components/reading/PassageView";
-import { formatClock, optionsFor } from "@/lib/reading/numbering";
+import {
+  ListeningClip,
+  Transcript,
+  type ClipStatus,
+} from "@/components/practice/ListeningClip";
+import { PassageView } from "@/components/practice/PassageView";
+import { localeFor } from "@/lib/practice/speech";
+import { formatClock, optionsFor } from "@/lib/practice/numbering";
 import type {
-  ClientReadingSet,
+  Clip,
+  ClientTestSet,
   ClientSection,
-  ReadingResult,
-} from "@/lib/reading/types";
+  Speaker,
+  TestResult,
+} from "@/lib/practice/types";
+
+/** Replayable clip plus its transcript, both only available in the review. */
+function AudioReview({
+  clip,
+  speakers,
+  exam,
+}: {
+  clip: Clip;
+  speakers: Record<string, Speaker>;
+  exam: ClientTestSet["exam"];
+}) {
+  const [status, setStatus] = useState<ClipStatus>("idle");
+  return (
+    <details className="group">
+      <summary className="cursor-pointer text-sm text-accent">
+        Listen again and read the transcript
+      </summary>
+      <div className="mt-3 flex flex-col gap-3">
+        <ListeningClip
+          clip={clip}
+          speakers={speakers}
+          locale={localeFor(exam)}
+          status={status}
+          onStatusChange={setStatus}
+          replayable
+        />
+        <Transcript clip={clip} speakers={speakers} />
+      </div>
+    </details>
+  );
+}
 
 function LevelSummary({
   result,
   durationSeconds,
 }: {
-  result: ReadingResult;
+  result: TestResult;
   durationSeconds: number;
 }) {
   const scoreLabel =
@@ -73,14 +112,16 @@ function LevelSummary({
 }
 
 function SectionReview({
+  set,
   section,
   numbers,
   result,
   mistakesOnly,
 }: {
+  set: ClientTestSet;
   section: ClientSection;
   numbers: Record<string, number>;
-  result: ReadingResult;
+  result: TestResult;
   mistakesOnly: boolean;
 }) {
   const questions = section.questions.filter((q) => {
@@ -105,6 +146,9 @@ function SectionReview({
 
   return (
     <div className="flex flex-col gap-3">
+      {section.audio ? (
+        <AudioReview clip={section.audio} speakers={set.speakers ?? {}} exam={set.exam} />
+      ) : null}
       {section.passage ? (
         <details className="group">
           <summary className="cursor-pointer text-sm text-accent">
@@ -157,7 +201,7 @@ function SectionReview({
 }
 
 /** Level, per-part breakdown, then every question with the explanation. */
-export function ReadingResults({
+export function TestResults({
   set,
   track,
   numbers,
@@ -165,10 +209,10 @@ export function ReadingResults({
   durationSeconds,
   onRetake,
 }: {
-  set: ClientReadingSet;
+  set: ClientTestSet;
   track: string;
   numbers: Record<string, number>;
-  result: ReadingResult;
+  result: TestResult;
   durationSeconds: number;
   onRetake: () => void;
 }) {
@@ -187,10 +231,10 @@ export function ReadingResults({
           Take this set again
         </button>
         <Link
-          href={`/${track}/reading`}
+          href={`/${track}/${set.skill}`}
           className="rounded-lg border border-border px-4 py-2 text-sm font-medium"
         >
-          All reading sets
+          All {set.skill} sets
         </Link>
       </div>
 
@@ -216,6 +260,7 @@ export function ReadingResults({
             {part.sections.map((section) => (
               <SectionReview
                 key={section.id}
+                set={set}
                 section={section}
                 numbers={numbers}
                 result={result}

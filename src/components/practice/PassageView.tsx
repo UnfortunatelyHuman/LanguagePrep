@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import { DiagramTable } from "@/components/reading/DiagramTable";
-import { LETTERS, splitBlanks } from "@/lib/reading/numbering";
-import type { Passage } from "@/lib/reading/types";
+import { DiagramTable } from "@/components/practice/DiagramTable";
+import { LETTERS, splitBlanks } from "@/lib/practice/numbering";
+import type { Passage } from "@/lib/practice/types";
 
 /**
  * A reading passage: optional diagram, header lines and paragraphs.

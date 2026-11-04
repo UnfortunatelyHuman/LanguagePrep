@@ -1,0 +1,951 @@
+{
+  "id": "tcf-listening-1",
+  "exam": "tcf",
+  "skill": "listening",
+  "title": "TCF Canada — Compréhension orale, série 1",
+  "summary": "39 enregistrements, des annonces et conversations simples (A1) aux débats et essais radiophoniques (C2).",
+  "questionsAfterAudio": false,
+  "speakers": {
+    "annonce": { "name": "Annonce", "gender": "female" },
+    "radio": { "name": "Journaliste", "gender": "male" },
+    "femme": { "name": "Femme", "gender": "female" },
+    "homme": { "name": "Homme", "gender": "male" },
+    "femme2": { "name": "Femme", "gender": "female" },
+    "homme2": { "name": "Homme", "gender": "male" }
+  },
+  "parts": [
+    {
+      "id": "co",
+      "title": "Compréhension orale",
+      "minutes": 35,
+      "instructions": "Lisez la question, écoutez l'enregistrement (une seule écoute), puis choisissez la bonne réponse. Les questions sont de plus en plus difficiles.",
+      "sections": [
+        {
+          "id": "a01",
+          "audio": {
+            "context": "Dans un lieu public.",
+            "lines": [
+              { "speaker": "femme", "text": "Bonjour, je voudrais un café et un croissant, s'il vous plaît." },
+              { "speaker": "homme", "text": "Voilà. Ça fait cinq dollars." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q01",
+              "level": "A1",
+              "stem": "Où sont ces personnes ?",
+              "options": ["À la banque", "Dans un café", "À l'école", "À la gare"],
+              "answer": 1,
+              "explanation": "She orders “un café et un croissant,” and he gives the price — this is a café or bakery counter."
+            }
+          ]
+        },
+        {
+          "id": "a02",
+          "audio": {
+            "context": "Une annonce.",
+            "lines": [
+              { "speaker": "annonce", "text": "Mesdames et messieurs, le train pour Montréal partira du quai numéro quatre, à quinze heures dix." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q02",
+              "level": "A1",
+              "stem": "De quel quai part le train ?",
+              "options": ["Du quai 2", "Du quai 10", "Du quai 4", "Du quai 15"],
+              "answer": 2,
+              "explanation": "“Du quai numéro quatre.” 15 h 10 is the departure time — a classic number trap."
+            }
+          ]
+        },
+        {
+          "id": "a03",
+          "audio": {
+            "context": "Un message au téléphone.",
+            "lines": [
+              { "speaker": "homme", "text": "Allô, Julie ? C'est Paul. Je ne peux pas venir au cinéma ce soir, je suis malade. On peut y aller samedi ?" }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q03",
+              "level": "A1",
+              "stem": "Pourquoi Paul appelle-t-il ?",
+              "options": [
+                "Pour annuler une sortie",
+                "Pour acheter des billets",
+                "Pour inviter Julie au restaurant",
+                "Pour dire qu'il est en retard"
+              ],
+              "answer": 0,
+              "explanation": "“Je ne peux pas venir au cinéma ce soir” — he can't come tonight because he is sick, and suggests Saturday instead."
+            }
+          ]
+        },
+        {
+          "id": "a04",
+          "audio": {
+            "context": "Une femme parle de sa famille.",
+            "lines": [
+              { "speaker": "femme", "text": "Ma sœur a vingt-huit ans. Elle habite à Québec avec son mari et leurs deux enfants. Elle est infirmière." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q04",
+              "level": "A1",
+              "stem": "Quel est le métier de sa sœur ?",
+              "options": ["Professeure", "Médecin", "Vendeuse", "Infirmière"],
+              "answer": 3,
+              "explanation": "“Elle est infirmière” = she is a nurse."
+            }
+          ]
+        },
+        {
+          "id": "a05",
+          "audio": {
+            "context": "Un message sur un répondeur.",
+            "lines": [
+              { "speaker": "annonce", "text": "Bonjour, ici la clinique dentaire Sourire. Nous vous rappelons votre rendez-vous demain, mardi, à quatorze heures trente. Merci d'arriver dix minutes à l'avance." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q05",
+              "level": "A2",
+              "stem": "Que demande la clinique ?",
+              "options": [
+                "De rappeler la clinique",
+                "D'arriver un peu plus tôt",
+                "D'apporter sa carte d'assurance",
+                "De changer de rendez-vous"
+              ],
+              "answer": 1,
+              "explanation": "“Merci d'arriver dix minutes à l'avance” — arrive ten minutes early. The message is a reminder, not a request to call back."
+            }
+          ]
+        },
+        {
+          "id": "a06",
+          "audio": {
+            "context": "Deux amis parlent.",
+            "lines": [
+              { "speaker": "femme", "text": "Alors, tu aimes ton nouveau travail ?" },
+              { "speaker": "homme", "text": "Oui, mes collègues sont très sympas. Mais c'est loin : je prends le métro, puis le bus. Ça fait une heure de trajet." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q06",
+              "level": "A2",
+              "stem": "Qu'est-ce qui ne plaît pas à l'homme ?",
+              "options": ["Ses collègues", "Son salaire", "La durée du trajet", "Ses horaires"],
+              "answer": 2,
+              "explanation": "“Mais c'est loin … une heure de trajet” — the commute is long. He likes his colleagues (“très sympas”)."
+            }
+          ]
+        },
+        {
+          "id": "a07",
+          "audio": {
+            "context": "Une annonce dans un magasin.",
+            "lines": [
+              { "speaker": "annonce", "text": "Chers clients, aujourd'hui seulement, tous les vêtements d'hiver sont à moitié prix au deuxième étage. Attention : le magasin fermera exceptionnellement à dix-huit heures." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q07",
+              "level": "A2",
+              "stem": "Qu'est-ce qui est vrai aujourd'hui ?",
+              "options": [
+                "Les vêtements d'hiver coûtent moins cher.",
+                "Le magasin ferme plus tard que d'habitude.",
+                "Tout le magasin est en solde.",
+                "Le deuxième étage est fermé."
+              ],
+              "answer": 0,
+              "explanation": "Winter clothes are “à moitié prix” (half price). The store closes early (“exceptionnellement à 18 h”), not late, and only winter clothes are on sale."
+            }
+          ]
+        },
+        {
+          "id": "a08",
+          "audio": {
+            "context": "Dans la rue.",
+            "lines": [
+              { "speaker": "homme", "text": "Excusez-moi, madame, la bibliothèque, s'il vous plaît ?" },
+              { "speaker": "femme", "text": "C'est simple. Vous continuez tout droit jusqu'au feu, puis vous tournez à gauche. C'est le grand bâtiment en face du parc." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q08",
+              "level": "A2",
+              "stem": "Où se trouve la bibliothèque ?",
+              "options": [
+                "À côté de la gare",
+                "Derrière l'école",
+                "En face du parc",
+                "Au feu, à droite"
+              ],
+              "answer": 2,
+              "explanation": "“C'est le grand bâtiment en face du parc.” At the light you turn left (à gauche), not right."
+            }
+          ]
+        },
+        {
+          "id": "a09",
+          "audio": {
+            "context": "Dans un autobus.",
+            "lines": [
+              { "speaker": "homme", "text": "Pardon, madame, ce siège est libre ?" },
+              { "speaker": "femme", "text": "Non, désolée, mon mari arrive. Mais il y a de la place au fond du bus." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q09",
+              "level": "A2",
+              "stem": "Que fait la femme ?",
+              "options": [
+                "Elle descend du bus.",
+                "Elle donne sa place à l'homme.",
+                "Elle demande l'heure.",
+                "Elle garde la place pour quelqu'un."
+              ],
+              "answer": 3,
+              "explanation": "The seat isn't free: “mon mari arrive” — she's keeping it for her husband, and sends the man to the back of the bus."
+            }
+          ]
+        },
+        {
+          "id": "a10",
+          "audio": {
+            "context": "La météo à la radio.",
+            "lines": [
+              { "speaker": "radio", "text": "Demain, il fera beau le matin, mais des averses sont prévues en après-midi. Les températures seront douces pour la saison : jusqu'à douze degrés." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q10",
+              "level": "A2",
+              "stem": "Quel temps fera-t-il demain après-midi ?",
+              "options": ["Il neigera.", "Il pleuvra.", "Il fera très froid.", "Il fera grand soleil."],
+              "answer": 1,
+              "explanation": "“Des averses” are showers of rain, forecast for the afternoon. The sun is in the morning, and it will be mild (douces)."
+            }
+          ]
+        },
+        {
+          "id": "b01",
+          "audio": {
+            "context": "Deux amis parlent de logement.",
+            "lines": [
+              { "speaker": "femme", "text": "Je cherche un appartement plus grand. Avec le bébé, on manque vraiment de place." },
+              { "speaker": "homme", "text": "Tu as regardé dans le quartier Saint-Roch ? Les loyers ont un peu augmenté, mais il y a beaucoup de parcs." },
+              { "speaker": "femme", "text": "Oui, mais c'est loin de mon travail. Je préférerais rester près du centre, même si c'est un peu plus petit que ce qu'on voudrait." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q11",
+              "level": "B1",
+              "stem": "Pourquoi la femme hésite-t-elle à habiter à Saint-Roch ?",
+              "options": [
+                "Les loyers sont trop chers.",
+                "Il n'y a pas de parcs.",
+                "C'est loin de son travail.",
+                "Les appartements sont trop petits."
+              ],
+              "answer": 2,
+              "explanation": "“Oui, mais c'est loin de mon travail.” The rent rise and the parks are what the man mentions."
+            }
+          ]
+        },
+        {
+          "id": "b02",
+          "audio": {
+            "context": "Un message vocal.",
+            "lines": [
+              { "speaker": "homme", "text": "Salut Karine, c'est Olivier. Pour la fête de samedi, finalement on la fait chez moi plutôt qu'au parc, parce qu'ils annoncent de la pluie. Est-ce que tu pourrais apporter des chaises ? J'en ai seulement six." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q12",
+              "level": "B1",
+              "stem": "Pourquoi la fête change-t-elle de lieu ?",
+              "options": [
+                "Le parc est fermé.",
+                "Il va probablement pleuvoir.",
+                "Il y a trop d'invités.",
+                "Olivier a déménagé."
+              ],
+              "answer": 1,
+              "explanation": "“Parce qu'ils annoncent de la pluie” — rain is forecast. The chairs are a separate request."
+            }
+          ]
+        },
+        {
+          "id": "b03",
+          "audio": {
+            "context": "Un avis à la radio.",
+            "lines": [
+              { "speaker": "radio", "text": "La municipalité rappelle aux résidents que le stationnement dans la rue est interdit la nuit, de minuit à sept heures, du premier décembre au trente et un mars, afin de permettre le déneigement. Les véhicules en infraction seront remorqués." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q13",
+              "level": "B1",
+              "stem": "Pourquoi le stationnement est-il interdit la nuit ?",
+              "options": [
+                "Pour des travaux de rue",
+                "Pour réduire le bruit",
+                "Pour un festival d'hiver",
+                "Pour pouvoir enlever la neige"
+              ],
+              "answer": 3,
+              "explanation": "“Afin de permettre le déneigement” — to allow snow clearing. “Remorqués” means towed."
+            }
+          ]
+        },
+        {
+          "id": "b04",
+          "audio": {
+            "context": "Au bureau.",
+            "lines": [
+              { "speaker": "femme", "text": "Marc, la réunion avec le client est déplacée à jeudi. Tu peux préparer la présentation d'ici mercredi midi ?" },
+              { "speaker": "homme", "text": "Mercredi midi, ça va être juste. J'ai déjà deux rapports à finir. Est-ce que Sophie pourrait m'aider pour les graphiques ?" },
+              { "speaker": "femme", "text": "Bonne idée, je lui demande." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q14",
+              "level": "B1",
+              "stem": "Que demande Marc ?",
+              "options": [
+                "L'aide d'une collègue",
+                "Plus de temps pour la présentation",
+                "L'annulation de la réunion",
+                "De rencontrer le client seul"
+              ],
+              "answer": 0,
+              "explanation": "“Est-ce que Sophie pourrait m'aider pour les graphiques ?” He says the deadline is tight (“juste”) but doesn't ask to move it."
+            }
+          ]
+        },
+        {
+          "id": "b05",
+          "audio": {
+            "context": "Une femme parle de ses habitudes.",
+            "lines": [
+              { "speaker": "femme", "text": "Depuis que je vais au travail à vélo, je me sens beaucoup mieux. Au début, j'avais peur de la circulation, mais la ville a construit une piste cyclable sur mon trajet. Maintenant, je ne prends la voiture que quand il neige." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q15",
+              "level": "B1",
+              "stem": "Quand la femme prend-elle sa voiture ?",
+              "options": ["Quand il pleut", "Quand il neige", "Le week-end", "Jamais"],
+              "answer": 1,
+              "explanation": "“Je ne prends la voiture que quand il neige” — “ne … que” means “only”: only when it snows."
+            }
+          ]
+        },
+        {
+          "id": "b06",
+          "audio": {
+            "context": "Une annonce culturelle.",
+            "lines": [
+              { "speaker": "annonce", "text": "Le musée des Beaux-Arts présente, jusqu'au quinze mai, une exposition consacrée aux peintres de la région. L'entrée est gratuite le premier dimanche du mois. Des visites guidées en français et en anglais ont lieu tous les jours à onze heures." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q16",
+              "level": "B1",
+              "stem": "Quand l'entrée est-elle gratuite ?",
+              "options": [
+                "Tous les jours à 11 h",
+                "Le 15 mai",
+                "Le premier dimanche du mois",
+                "Tous les samedis"
+              ],
+              "answer": 2,
+              "explanation": "“L'entrée est gratuite le premier dimanche du mois.” 11 h is the guided tour; 15 May is when the exhibition ends."
+            }
+          ]
+        },
+        {
+          "id": "b07",
+          "audio": {
+            "context": "Dans un magasin d'électronique.",
+            "lines": [
+              { "speaker": "homme", "text": "Bonjour, j'ai acheté cet ordinateur la semaine dernière, mais l'écran s'éteint tout seul." },
+              { "speaker": "femme", "text": "Il est encore sous garantie. Je peux l'envoyer en réparation, mais ça prendra environ trois semaines. Ou, si vous préférez, je vous l'échange tout de suite contre le même modèle." },
+              { "speaker": "homme", "text": "Je préfère l'échange. J'en ai besoin pour mes cours." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q17",
+              "level": "B1",
+              "stem": "Que choisit l'homme ?",
+              "options": [
+                "Un remboursement",
+                "Une réparation",
+                "Un modèle différent",
+                "Un échange immédiat"
+              ],
+              "answer": 3,
+              "explanation": "“Je préfère l'échange” — swapped “tout de suite” for the same model, because a three-week repair is too long for his classes."
+            }
+          ]
+        },
+        {
+          "id": "b08",
+          "audio": {
+            "context": "Une information à la radio.",
+            "lines": [
+              { "speaker": "radio", "text": "Selon un sondage récent, six Canadiens sur dix disent lire moins de livres qu'il y a cinq ans. La principale raison invoquée : le manque de temps. Pourtant, les ventes de livres audio ont doublé pendant la même période." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q18",
+              "level": "B1",
+              "stem": "Qu'est-ce qui a augmenté ?",
+              "options": [
+                "Les ventes de livres audio",
+                "Le nombre de lecteurs",
+                "Le temps libre des Canadiens",
+                "Le prix des livres"
+              ],
+              "answer": 0,
+              "explanation": "“Les ventes de livres audio ont doublé.” People report reading fewer books, mainly for lack of time."
+            }
+          ]
+        },
+        {
+          "id": "b09",
+          "audio": {
+            "context": "Deux amis parlent.",
+            "lines": [
+              { "speaker": "femme", "text": "Tu viens au cours de yoga ce soir ?" },
+              { "speaker": "homme", "text": "Je ne peux pas, ma fille a un match de soccer. Mais je pourrais venir jeudi, s'il reste de la place." },
+              { "speaker": "femme", "text": "Jeudi, c'est complet. Mais il y a un cours samedi matin." },
+              { "speaker": "homme", "text": "Samedi, parfait." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q19",
+              "level": "B1",
+              "stem": "Quand l'homme ira-t-il au cours ?",
+              "options": ["Ce soir", "Samedi matin", "Jeudi", "Dimanche"],
+              "answer": 1,
+              "explanation": "Tonight he has his daughter's game, and Thursday is “complet” (full), so he agrees to Saturday morning."
+            }
+          ]
+        },
+        {
+          "id": "c01",
+          "audio": {
+            "context": "Un reportage.",
+            "lines": [
+              { "speaker": "radio", "text": "De plus en plus d'entreprises québécoises proposent la semaine de quatre jours. Selon les employeurs interrogés, cette mesure les aide surtout à recruter, dans un marché du travail difficile. Les employés, eux, apprécient d'avoir plus de temps pour leur famille, même si certains disent que leurs journées sont devenues plus intenses." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q20",
+              "level": "B2",
+              "stem": "Selon les employeurs, quel est le principal avantage de cette mesure ?",
+              "options": [
+                "Réduire les coûts",
+                "Attirer de nouveaux employés",
+                "Augmenter les ventes",
+                "Diminuer les absences"
+              ],
+              "answer": 1,
+              "explanation": "“Cette mesure les aide surtout à recruter” — mainly helps them hire. Family time is the employees' view."
+            }
+          ]
+        },
+        {
+          "id": "c02",
+          "audio": {
+            "context": "Une entrevue à la radio.",
+            "lines": [
+              { "speaker": "radio", "text": "Madame Lavoie, votre organisme aide les nouveaux arrivants à trouver un emploi. Quelle est leur principale difficulté ?" },
+              { "speaker": "femme", "text": "Ce n'est pas tant la langue, contrairement à ce qu'on pense. C'est surtout la reconnaissance des diplômes. Un ingénieur formé à l'étranger peut attendre deux ans avant de pouvoir exercer, et entre-temps, il accepte des emplois bien en dessous de ses compétences." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q21",
+              "level": "B2",
+              "stem": "Selon Mme Lavoie, quel est le principal obstacle ?",
+              "options": [
+                "La langue",
+                "Le manque d'emplois",
+                "Le logement",
+                "La reconnaissance des diplômes"
+              ],
+              "answer": 3,
+              "explanation": "“Ce n'est pas tant la langue … C'est surtout la reconnaissance des diplômes.” The structure “ce n'est pas tant X, c'est surtout Y” rejects X."
+            }
+          ]
+        },
+        {
+          "id": "c03",
+          "audio": {
+            "context": "Un reportage local.",
+            "lines": [
+              { "speaker": "radio", "text": "La ville a décidé de transformer une partie du stationnement du centre-ville en marché public, ouvert de mai à octobre. Les commerçants du secteur sont partagés. Certains espèrent attirer plus de clients ; d'autres craignent que leur clientèle ne trouve plus où se garer." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q22",
+              "level": "B2",
+              "stem": "Pourquoi certains commerçants sont-ils inquiets ?",
+              "options": [
+                "Le marché va leur faire concurrence.",
+                "Le marché sera fermé l'hiver.",
+                "Leurs clients auront du mal à se stationner.",
+                "Leurs loyers vont augmenter."
+              ],
+              "answer": 2,
+              "explanation": "They fear their customers “ne trouve plus où se garer” — won't find parking, since part of the lot becomes the market."
+            }
+          ]
+        },
+        {
+          "id": "c04",
+          "audio": {
+            "context": "Deux collègues parlent.",
+            "lines": [
+              { "speaker": "femme", "text": "J'ai entendu dire que tu voulais quitter ton poste ?" },
+              { "speaker": "homme", "text": "Pas exactement. On m'a proposé une promotion, mais il faudrait que je déménage à Toronto. Le salaire est intéressant, mais ma femme vient de commencer un nouvel emploi ici, et les enfants sont bien à l'école. Je vais sûrement refuser, même si ce n'est pas facile." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q23",
+              "level": "B2",
+              "stem": "Que va probablement faire l'homme ?",
+              "options": [
+                "Refuser l'offre",
+                "Accepter la promotion",
+                "Démissionner",
+                "Déménager seul à Toronto"
+              ],
+              "answer": 0,
+              "explanation": "“Je vais sûrement refuser” — his wife's new job and the children's school outweigh the salary. “Pas exactement” corrects the idea that he's quitting."
+            }
+          ]
+        },
+        {
+          "id": "c05",
+          "audio": {
+            "context": "Une chronique santé.",
+            "lines": [
+              { "speaker": "femme2", "text": "On recommande souvent de boire huit verres d'eau par jour. Pourtant, cette règle n'a pas de base scientifique solide. Une grande partie de l'eau dont nous avons besoin vient déjà de notre alimentation : fruits, légumes, soupes. Le meilleur indicateur reste la soif, sauf chez les personnes âgées, chez qui cette sensation diminue." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q24",
+              "level": "B2",
+              "stem": "Selon la chronique, qui doit faire particulièrement attention ?",
+              "options": [
+                "Les sportifs",
+                "Les enfants",
+                "Les personnes âgées",
+                "Les femmes enceintes"
+              ],
+              "answer": 2,
+              "explanation": "Thirst is the best guide “sauf chez les personnes âgées, chez qui cette sensation diminue” — older people feel less thirsty, so they can't rely on it."
+            }
+          ]
+        },
+        {
+          "id": "c06",
+          "audio": {
+            "context": "Deux collègues parlent.",
+            "lines": [
+              { "speaker": "homme", "text": "Tu as vu le nouveau logiciel pour les demandes de congé ? Je le trouve compliqué." },
+              { "speaker": "femme", "text": "Au début, oui. Mais une fois qu'on a compris, c'est beaucoup plus rapide qu'avant : plus besoin d'attendre la signature du gestionnaire sur papier. Les demandes sont approuvées en un jour au lieu d'une semaine." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q25",
+              "level": "B2",
+              "stem": "Selon la femme, quel est l'avantage du nouveau logiciel ?",
+              "options": [
+                "Il est simple dès le départ.",
+                "Il accélère l'approbation des demandes.",
+                "Il donne droit à plus de congés.",
+                "Il remplace les gestionnaires."
+              ],
+              "answer": 1,
+              "explanation": "Requests are approved “en un jour au lieu d'une semaine.” She agrees it's complicated at first (“Au début, oui”)."
+            }
+          ]
+        },
+        {
+          "id": "c07",
+          "audio": {
+            "context": "Une annonce du gouvernement.",
+            "lines": [
+              { "speaker": "annonce", "text": "Le gouvernement provincial lance un programme de subventions pour aider les propriétaires à remplacer leur chauffage au mazout par une thermopompe. La subvention peut couvrir jusqu'à la moitié du coût d'installation, à condition que les travaux soient réalisés par un entrepreneur certifié." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q26",
+              "level": "B2",
+              "stem": "Quelle condition faut-il respecter pour obtenir la subvention ?",
+              "options": [
+                "Être locataire",
+                "Payer l'installation à l'avance",
+                "Habiter en ville",
+                "Faire faire les travaux par un professionnel reconnu"
+              ],
+              "answer": 3,
+              "explanation": "“À condition que les travaux soient réalisés par un entrepreneur certifié.” The program is for owners (propriétaires), not tenants."
+            }
+          ]
+        },
+        {
+          "id": "c08",
+          "audio": {
+            "context": "Une entrevue avec une commerçante.",
+            "lines": [
+              { "speaker": "radio", "text": "Vous avez ouvert une épicerie zéro déchet il y a deux ans. Est-ce que c'est rentable ?" },
+              { "speaker": "femme", "text": "Les premiers mois ont été difficiles. Les gens étaient curieux, mais ils ne revenaient pas. Ce qui a tout changé, c'est quand on a commencé à offrir des ateliers : comment cuisiner en vrac, fabriquer ses produits ménagers… Les participants sont devenus des clients fidèles." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q27",
+              "level": "B2",
+              "stem": "Qu'est-ce qui a permis à l'épicerie de réussir ?",
+              "options": [
+                "Des prix plus bas",
+                "La publicité",
+                "L'organisation d'ateliers",
+                "La livraison à domicile"
+              ],
+              "answer": 2,
+              "explanation": "“Ce qui a tout changé, c'est quand on a commencé à offrir des ateliers” — workshop participants became loyal customers."
+            }
+          ]
+        },
+        {
+          "id": "c09",
+          "audio": {
+            "context": "Une annonce à l'université.",
+            "lines": [
+              { "speaker": "annonce", "text": "Les étudiants qui souhaitent obtenir le report d'un examen final pour raison médicale doivent présenter un certificat médical au secrétariat dans les cinq jours ouvrables suivant la date de l'examen. Aucune demande ne sera acceptée après ce délai." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q28",
+              "level": "B2",
+              "stem": "Que doit faire un étudiant malade le jour de l'examen ?",
+              "options": [
+                "Fournir un justificatif dans un délai précis",
+                "Prévenir son professeur avant l'examen",
+                "Repasser l'examen le lendemain",
+                "Envoyer un courriel au secrétariat"
+              ],
+              "answer": 0,
+              "explanation": "A medical certificate must reach the office “dans les cinq jours ouvrables” after the exam — within five business days, with no exceptions afterwards."
+            }
+          ]
+        },
+        {
+          "id": "c10",
+          "audio": {
+            "context": "Deux amis parlent d'un voyage.",
+            "lines": [
+              { "speaker": "femme", "text": "Alors, ce voyage en train jusqu'à Vancouver ?" },
+              { "speaker": "homme", "text": "Magnifique, mais je ne le referais pas. Quatre jours, c'est long, et le train avait souvent du retard, parce qu'il doit laisser passer les trains de marchandises. La prochaine fois, je prendrai l'avion et je louerai une voiture dans les Rocheuses." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q29",
+              "level": "B2",
+              "stem": "Pourquoi l'homme ne referait-il pas ce voyage ?",
+              "options": [
+                "Le paysage l'a déçu.",
+                "Le trajet était long et souvent retardé.",
+                "Le billet coûtait trop cher.",
+                "Il n'a pas aimé les Rocheuses."
+              ],
+              "answer": 1,
+              "explanation": "Four days is long, and the train was often late because it had to let freight trains pass. He found it “magnifique,” so the scenery wasn't the problem."
+            }
+          ]
+        },
+        {
+          "id": "d01",
+          "audio": {
+            "context": "Un reportage sur la santé.",
+            "lines": [
+              { "speaker": "radio", "text": "La téléconsultation médicale a connu un essor spectaculaire. Elle évite des déplacements et réduit l'attente, notamment en région. Mais plusieurs médecins mettent en garde : sans examen physique, certains diagnostics risquent d'être manqués, et les patients âgés, moins à l'aise avec la technologie, pourraient être laissés de côté. La plupart plaident donc pour un modèle hybride, plutôt que pour un remplacement." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q30",
+              "level": "C1",
+              "stem": "Quelle position défendent la plupart des médecins ?",
+              "options": [
+                "Abandonner la téléconsultation",
+                "Combiner consultations à distance et en personne",
+                "Réserver la téléconsultation aux personnes âgées",
+                "Remplacer les consultations en cabinet"
+              ],
+              "answer": 1,
+              "explanation": "“Un modèle hybride, plutôt que … un remplacement” — a mix of remote and in-person care. Older patients are the ones who might be left out, so C is backwards."
+            }
+          ]
+        },
+        {
+          "id": "d02",
+          "audio": {
+            "context": "Une entrevue avec une chercheuse.",
+            "lines": [
+              { "speaker": "radio", "text": "Professeure Dubé, on dit souvent que les réseaux sociaux nuisent à la santé mentale des adolescents. Est-ce prouvé ?" },
+              { "speaker": "femme2", "text": "Il faut être prudent. Les études montrent une corrélation, mais pas forcément une causalité. Il est possible que des jeunes déjà fragiles passent plus de temps en ligne, plutôt que l'inverse. Ce qui semble clair, en revanche, c'est que l'usage tard le soir, qui empiète sur le sommeil, a des effets négatifs mesurables." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q31",
+              "level": "C1",
+              "stem": "Selon la professeure, qu'est-ce qui est clairement établi ?",
+              "options": [
+                "Les réseaux sociaux causent la dépression.",
+                "Il n'existe aucun lien entre réseaux sociaux et santé mentale.",
+                "L'usage tard le soir nuit, notamment en réduisant le sommeil.",
+                "Les jeunes fragiles évitent les réseaux sociaux."
+              ],
+              "answer": 2,
+              "explanation": "She separates correlation from causation, then says what is clear (“en revanche”): late-night use that cuts into sleep (“empiète sur le sommeil”) has measurable harm."
+            }
+          ]
+        },
+        {
+          "id": "d03",
+          "audio": {
+            "context": "Un reportage économique.",
+            "lines": [
+              { "speaker": "radio", "text": "Le secteur de la construction fait face à une pénurie de main-d'œuvre sans précédent. Pour y remédier, certains proposent d'accélérer l'immigration de travailleurs qualifiés. D'autres estiment que la solution passe d'abord par la valorisation des métiers manuels auprès des jeunes, encore trop souvent orientés vers l'université par défaut. Les deux approches ne sont d'ailleurs pas incompatibles." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q32",
+              "level": "C1",
+              "stem": "Que suggère la fin du reportage ?",
+              "options": [
+                "Il faut choisir entre les deux solutions.",
+                "L'immigration est la seule solution réaliste.",
+                "Les jeunes doivent continuer à aller à l'université.",
+                "Les deux solutions peuvent être combinées."
+              ],
+              "answer": 3,
+              "explanation": "“Les deux approches ne sont d'ailleurs pas incompatibles” — not incompatible, so they can be used together."
+            }
+          ]
+        },
+        {
+          "id": "d04",
+          "audio": {
+            "context": "Deux personnes discutent d'un projet.",
+            "lines": [
+              { "speaker": "femme", "text": "Le projet d'agrandissement de l'aéroport a été approuvé hier." },
+              { "speaker": "homme", "text": "Oui, et je suis partagé. Sur le plan économique, c'est indéniable : des milliers d'emplois. Mais on parle de raser une zone humide qui sert de refuge à des espèces menacées. On nous promet des mesures de compensation, mais recréer un écosystème ailleurs, ça ne fonctionne pas toujours." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q33",
+              "level": "C1",
+              "stem": "Quelle est l'attitude de l'homme ?",
+              "options": [
+                "Partagée, avec des doutes sur les mesures de compensation",
+                "Enthousiaste",
+                "Totalement opposée au projet",
+                "Indifférente"
+              ],
+              "answer": 0,
+              "explanation": "“Je suis partagé” — he accepts the economic benefit (“indéniable”) but doubts that recreating an ecosystem elsewhere works."
+            }
+          ]
+        },
+        {
+          "id": "d05",
+          "audio": {
+            "context": "Une chronique économique.",
+            "lines": [
+              { "speaker": "homme2", "text": "La hausse des taux d'intérêt devait refroidir le marché immobilier. Elle a effectivement ralenti les ventes, mais les prix, eux, ont peu baissé. Pourquoi ? Parce que l'offre de logements reste nettement insuffisante. Tant que la construction ne suivra pas la croissance démographique, les taux à eux seuls ne régleront pas le problème de l'accessibilité." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q34",
+              "level": "C1",
+              "stem": "Pourquoi les prix ont-ils peu baissé ?",
+              "options": [
+                "Les taux d'intérêt ont diminué.",
+                "Il n'y a pas assez de logements.",
+                "Les ventes ont augmenté.",
+                "La population diminue."
+              ],
+              "answer": 1,
+              "explanation": "“Parce que l'offre de logements reste nettement insuffisante” — supply is too low. Rates went up and sales slowed, and the population is growing."
+            }
+          ]
+        },
+        {
+          "id": "d06",
+          "audio": {
+            "context": "Une entrevue avec une romancière.",
+            "lines": [
+              { "speaker": "radio", "text": "Votre roman se déroule dans un village minier fictif. Pourquoi ne pas avoir choisi un lieu réel ?" },
+              { "speaker": "femme2", "text": "Parce qu'un lieu réel m'aurait obligée à une forme d'exactitude documentaire qui n'était pas mon propos. Je voulais que le lecteur reconnaisse quelque chose de nombreux villages à la fois, sans pouvoir l'enfermer dans un seul. Ici, la fiction sert à généraliser, pas à travestir." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q35",
+              "level": "C1",
+              "stem": "Pourquoi l'auteure a-t-elle inventé ce village ?",
+              "options": [
+                "Pour éviter des poursuites judiciaires",
+                "Parce qu'elle ne connaissait aucun village minier",
+                "Pour donner une portée plus générale à son récit",
+                "Pour tromper le lecteur"
+              ],
+              "answer": 2,
+              "explanation": "She wanted readers to recognize “nombreux villages à la fois”; fiction “sert à généraliser, pas à travestir” (to generalize, not to distort)."
+            }
+          ]
+        },
+        {
+          "id": "e01",
+          "audio": {
+            "context": "Un essai radiophonique.",
+            "lines": [
+              { "speaker": "homme2", "text": "On présente volontiers la lenteur administrative comme un dysfonctionnement. C'est oublier qu'elle est parfois voulue : les délais, les recours, les consultations sont autant de garde-fous contre l'arbitraire. Le problème n'est pas tant la lenteur en elle-même que l'incapacité à distinguer celle qui protège de celle qui ne fait qu'épuiser." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q36",
+              "level": "C2",
+              "stem": "Quelle idée l'auteur exprime-t-il ?",
+              "options": [
+                "Certaines lenteurs administratives ont une fonction protectrice.",
+                "Toute lenteur administrative devrait être supprimée.",
+                "L'administration est toujours arbitraire.",
+                "Les recours sont inutiles."
+              ],
+              "answer": 0,
+              "explanation": "Delays and appeals are “garde-fous contre l'arbitraire” (safeguards). The real problem is telling protective slowness apart from slowness that only exhausts people."
+            }
+          ]
+        },
+        {
+          "id": "e02",
+          "audio": {
+            "context": "Une entrevue avec une philosophe.",
+            "lines": [
+              { "speaker": "radio", "text": "Vous dites que la nostalgie est un sentiment politique ?" },
+              { "speaker": "femme2", "text": "Elle le devient dès lors qu'on transforme un passé idéalisé en programme. Regretter son enfance est inoffensif ; prétendre restaurer une époque qui n'a jamais existé telle qu'on la décrit l'est beaucoup moins. Ce n'est pas la mémoire qui est dangereuse, c'est l'oubli sélectif qui se fait passer pour elle." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q37",
+              "level": "C2",
+              "stem": "Selon la philosophe, qu'est-ce qui pose problème ?",
+              "options": [
+                "Se souvenir de son enfance",
+                "L'étude de l'histoire",
+                "Un passé embelli présenté comme un modèle à restaurer",
+                "La mémoire en général"
+              ],
+              "answer": 2,
+              "explanation": "Nostalgia becomes political when an idealized past is turned into a program; the danger is “l'oubli sélectif qui se fait passer pour [la mémoire]” — selective forgetting posing as memory."
+            }
+          ]
+        },
+        {
+          "id": "e03",
+          "audio": {
+            "context": "Un éditorial à la radio.",
+            "lines": [
+              { "speaker": "homme2", "text": "Il est commode d'opposer l'expertise et la démocratie, comme si consulter les citoyens revenait à ignorer la science. L'expérience suggère l'inverse : les décisions techniquement fondées, mais imposées sans explication, suscitent une défiance qui finit par en compromettre l'application. L'expertise éclaire la décision ; elle ne saurait en tenir lieu." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q38",
+              "level": "C2",
+              "stem": "Que signifie la dernière phrase ?",
+              "options": [
+                "Les experts devraient décider à la place des citoyens.",
+                "Les experts sont inutiles en démocratie.",
+                "La science est contraire à la démocratie.",
+                "L'expertise doit guider la décision sans la remplacer."
+              ],
+              "answer": 3,
+              "explanation": "“Éclaire la décision” = informs it; “ne saurait en tenir lieu” = cannot take its place. Expertise guides but doesn't replace the democratic decision."
+            }
+          ]
+        },
+        {
+          "id": "e04",
+          "audio": {
+            "context": "Deux critiques parlent d'un film.",
+            "lines": [
+              { "speaker": "femme", "text": "Ce film a été encensé pour son audace formelle." },
+              { "speaker": "homme", "text": "Audace, si l'on veut. Je dirais plutôt qu'il accumule les procédés comme on coche des cases : plans-séquences interminables, chronologie éclatée… Tout cela relève davantage de la démonstration que de la nécessité. Une forme n'est audacieuse que si le récit l'exige." },
+              { "speaker": "femme", "text": "C'est sévère, mais je vous accorde que l'émotion peine à affleurer." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c1-q39",
+              "level": "C2",
+              "stem": "Que reproche l'homme au film ?",
+              "options": [
+                "Son manque d'originalité visuelle",
+                "Des choix formels que l'histoire ne justifie pas",
+                "Sa durée excessive",
+                "Un scénario trop simple"
+              ],
+              "answer": 1,
+              "explanation": "The techniques are “démonstration” rather than “nécessité”: “une forme n'est audacieuse que si le récit l'exige.” He criticizes form that the story doesn't call for."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

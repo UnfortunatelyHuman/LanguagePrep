@@ -1,13 +1,15 @@
 /**
- * Shape of a reading test, as authored in /content/{celpip,tcf}/reading/*.json.
+ * Shape of a multiple-choice practice test (reading or listening), as authored
+ * in /content/{celpip,tcf}/{reading,listening}/*.json.
  *
- * A set has parts (CELPIP's four timed parts, or TCF's single 60-minute block).
- * A part has sections — one screen each: a passage and the questions about it.
- * A question whose id appears as `[[id]]` inside the passage is a fill-in blank
- * and is answered in place; every other question is listed below the passage.
+ * A set has parts (CELPIP's timed parts, or TCF's single block). A part has
+ * sections — one screen each: an audio clip and/or a passage, and the questions
+ * about it. A question whose id appears as `[[id]]` inside the passage is a
+ * fill-in blank and is answered in place; every other question is listed.
  */
 
 export type Exam = "celpip" | "tcf";
+export type PracticeSkill = "reading" | "listening";
 
 /** CEFR level of a TCF question, which sets how much it is worth. */
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1" | "C2";
@@ -32,6 +34,25 @@ export type Passage = {
   lettered?: boolean;
 };
 
+/** A voice in the listening scripts. Gender only steers which TTS voice is picked. */
+export type Speaker = {
+  name: string;
+  gender: "female" | "male";
+};
+
+export type AudioLine = {
+  /** Key into the set's `speakers`. */
+  speaker: string;
+  text: string;
+};
+
+/** A listening clip, read aloud by speech synthesis. The lines are the transcript. */
+export type Clip = {
+  /** What you are about to hear, shown before playing (never the content). */
+  context?: string;
+  lines: AudioLine[];
+};
+
 export type Question = {
   id: string;
   /** The question or the statement to match. Optional for inline blanks. */
@@ -48,6 +69,7 @@ export type Question = {
 export type Section = {
   id: string;
   instructions?: string;
+  audio?: Clip;
   passage?: Passage;
   /** Options shared by every question in the section (e.g. paragraphs A–E). */
   options?: string[];
@@ -62,11 +84,16 @@ export type Part = {
   sections: Section[];
 };
 
-export type ReadingSet = {
+export type TestSet = {
   id: string;
   exam: Exam;
+  skill: PracticeSkill;
   title: string;
   summary: string;
+  /** Voices used by the clips (listening only). */
+  speakers?: Record<string, Speaker>;
+  /** Listening: hide the questions until the clip has played (CELPIP). */
+  questionsAfterAudio?: boolean;
   parts: Part[];
 };
 
@@ -77,7 +104,7 @@ export type ClientSection = Omit<Section, "questions"> & {
   questions: ClientQuestion[];
 };
 export type ClientPart = Omit<Part, "sections"> & { sections: ClientSection[] };
-export type ClientReadingSet = Omit<ReadingSet, "parts"> & {
+export type ClientTestSet = Omit<TestSet, "parts"> & {
   parts: ClientPart[];
 };
 
@@ -90,7 +117,7 @@ export type QuestionReview = {
   explanation: string;
 };
 
-export type ReadingResult = {
+export type TestResult = {
   attemptId: string;
   correct: number;
   total: number;

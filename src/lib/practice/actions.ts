@@ -4,27 +4,29 @@ import { revalidatePath } from "next/cache";
 import { examKey } from "@/lib/attempts";
 import { isTrack } from "@/lib/exams";
 import { prisma } from "@/lib/prisma";
-import { findReadingSet, totalMinutes } from "@/lib/reading/content";
-import { sanitizeAnswers, scoreReading } from "@/lib/reading/scoring";
-import type { ReadingResult } from "@/lib/reading/types";
+import { findTestSet, isPracticeSkill, totalMinutes } from "@/lib/practice/content";
+import { sanitizeAnswers, scoreTest } from "@/lib/practice/scoring";
+import type { TestResult } from "@/lib/practice/types";
 
 /**
- * Score a finished reading test on the server (the browser never had the
- * answers), save it as an Attempt with one Response per question, and return
- * the review.
+ * Score a finished reading or listening test on the server (the browser never
+ * had the answers), save it as an Attempt with one Response per question, and
+ * return the review.
  */
-export async function submitReadingAttempt(input: {
+export async function submitAttempt(input: {
   track: string;
+  skill: string;
   setId: string;
   answers: unknown;
   durationSeconds: unknown;
-}): Promise<ReadingResult> {
+}): Promise<TestResult> {
   if (!isTrack(input.track)) throw new Error("Unknown track");
-  const set = findReadingSet(input.track, input.setId);
-  if (!set) throw new Error("Unknown reading set");
+  if (!isPracticeSkill(input.skill)) throw new Error("Unknown skill");
+  const set = findTestSet(input.track, input.skill, input.setId);
+  if (!set) throw new Error("Unknown practice set");
 
   const answers = sanitizeAnswers(set, input.answers);
-  const result = scoreReading(set, answers);
+  const result = scoreTest(set, answers);
 
   const maxSeconds = totalMinutes(set) * 60 + 300;
   const rawDuration = Number(input.durationSeconds);
@@ -35,7 +37,7 @@ export async function submitReadingAttempt(input: {
   const attempt = await prisma.attempt.create({
     data: {
       exam: examKey(input.track),
-      skill: "reading",
+      skill: set.skill,
       task: set.id,
       score: result.score,
       maxScore: result.maxScore,
@@ -52,7 +54,7 @@ export async function submitReadingAttempt(input: {
     select: { id: true },
   });
 
-  // Dashboard and reading index show the latest attempt.
+  // Dashboard and practice index show the latest attempt.
   revalidatePath(`/${input.track}`, "layout");
 
   return { attemptId: attempt.id, ...result };

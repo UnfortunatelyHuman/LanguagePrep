@@ -1,20 +1,29 @@
 "use client";
 
-import { PassageView } from "@/components/reading/PassageView";
-import { LETTERS, blankIds, optionsFor } from "@/lib/reading/numbering";
-import type { Answers, ClientSection } from "@/lib/reading/types";
+import type { ReactNode } from "react";
+import { PassageView } from "@/components/practice/PassageView";
+import { LETTERS, blankIds, optionsFor } from "@/lib/practice/numbering";
+import type { Answers, ClientSection } from "@/lib/practice/types";
 
-/** One test screen: the passage (with dropdown blanks) and the listed questions. */
+/**
+ * One test screen: the audio clip and/or passage (with dropdown blanks) and the
+ * listed questions. `questionsHidden` holds the questions back until a CELPIP
+ * clip has played.
+ */
 export function SectionView({
   section,
   numbers,
   answers,
   onAnswer,
+  audio,
+  questionsHidden = false,
 }: {
   section: ClientSection;
   numbers: Record<string, number>;
   answers: Answers;
   onAnswer: (questionId: string, option: number) => void;
+  audio?: ReactNode;
+  questionsHidden?: boolean;
 }) {
   const blanks = blankIds(section);
   const listed = section.questions.filter((q) => !blanks.has(q.id));
@@ -54,6 +63,13 @@ export function SectionView({
         <p className="text-sm text-muted">{section.instructions}</p>
       ) : null}
 
+      {audio}
+
+      {questionsHidden ? (
+        <p className="rounded-xl border border-dashed border-border p-4 text-sm text-muted">
+          The questions appear when the clip has finished.
+        </p>
+      ) : (
       <div
         className={
           listed.length && section.passage
@@ -115,6 +131,7 @@ export function SectionView({
           </ol>
         ) : null}
       </div>
+      )}
     </div>
   );
 }

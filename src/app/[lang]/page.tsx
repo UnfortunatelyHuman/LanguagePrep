@@ -42,7 +42,11 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
             <SkillCard
               key={skill.id}
               skill={skill}
-              href={skill.id === "reading" ? `/${lang}/reading` : undefined}
+              href={
+                skill.id === "reading" || skill.id === "listening"
+                  ? `/${lang}/${skill.id}`
+                  : undefined
+              }
               status={
                 <Suspense fallback={<SkillStatusPending />}>
                   <SkillStatus track={lang} skill={skill.id} />
@@ -56,9 +60,9 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
       <section className="rounded-xl border border-dashed border-border p-5 text-sm text-muted sm:p-6">
         <h2 className="text-sm font-semibold text-foreground">What is next</h2>
         <p className="mt-2 leading-relaxed">
-          Reading practice is ready: timed {exam} sets with an explanation for
-          every question and an estimated level after each test. Listening,
-          writing and speaking with AI feedback, and progress tracking are still
+          Reading and listening practice are ready: timed {exam} sets with an
+          explanation for every question and an estimated level after each test.
+          Writing and speaking with AI feedback, and progress tracking, are still
           being built.
         </p>
         {lang === "fr" ? (

@@ -1,0 +1,658 @@
+{
+  "id": "celpip-listening-2",
+  "exam": "celpip",
+  "skill": "listening",
+  "title": "CELPIP Listening — Practice Set 2",
+  "summary": "A cancelled flight, a broken zipper, a beginners' running club, produce stands in bus stations, a dog for three roommates and later school start times.",
+  "questionsAfterAudio": true,
+  "speakers": {
+    "omar": { "name": "Omar", "gender": "male" },
+    "agent": { "name": "Agent", "gender": "female" },
+    "nina": { "name": "Nina", "gender": "female" },
+    "clerk": { "name": "Clerk", "gender": "male" },
+    "tom": { "name": "Tom", "gender": "male" },
+    "priya": { "name": "Coach Priya", "gender": "female" },
+    "news": { "name": "Newsreader", "gender": "male" },
+    "ben": { "name": "Ben", "gender": "male" },
+    "chloe": { "name": "Chloe", "gender": "female" },
+    "maya": { "name": "Maya", "gender": "female" },
+    "host": { "name": "Host", "gender": "female" }
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "title": "Part 1: Listening to Problem Solving",
+      "minutes": 9,
+      "instructions": "You will hear a conversation in three sections. After each section, answer the questions about it.",
+      "sections": [
+        {
+          "id": "p1-s1",
+          "audio": {
+            "context": "Section 1 of 3. Omar is at an airline service desk.",
+            "lines": [
+              { "speaker": "omar", "text": "Hi. My flight to Calgary was just cancelled, flight four eighty-two. I have a job interview there tomorrow at ten a.m." },
+              { "speaker": "agent", "text": "I'm sorry, sir. The flight was cancelled because of a mechanical problem with the aircraft. Let me see what I can do. Can I have your booking reference?" },
+              { "speaker": "omar", "text": "It's K, 7, L, Q, 2, P. I really can't miss this interview. It's for a job I've been trying to get for months." },
+              { "speaker": "agent", "text": "I understand. The next direct flight to Calgary with seats is tomorrow at eleven forty a.m., which unfortunately is after your interview." },
+              { "speaker": "omar", "text": "That won't work at all. Is there anything tonight?" },
+              { "speaker": "agent", "text": "There's a flight tonight that connects through Edmonton, but the only seats left are in business class." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q1",
+              "stem": "Why was Omar's flight cancelled?",
+              "options": [
+                "Bad weather.",
+                "A problem with the plane.",
+                "Too few passengers.",
+                "A staff strike."
+              ],
+              "answer": 1,
+              "explanation": "The agent says it was cancelled “because of a mechanical problem with the aircraft.”"
+            },
+            {
+              "id": "l2-q2",
+              "stem": "Why is Omar especially worried?",
+              "options": [
+                "He will miss a family event.",
+                "He has lost his booking reference.",
+                "He could miss an important interview.",
+                "His luggage is on the cancelled plane."
+              ],
+              "answer": 2,
+              "explanation": "He has a job interview in Calgary at 10 a.m. tomorrow for a job he's wanted for months. He gives his booking reference without trouble."
+            },
+            {
+              "id": "l2-q3",
+              "stem": "What is the problem with the next direct flight?",
+              "options": [
+                "It arrives too late for his interview.",
+                "It is already full.",
+                "It costs much more.",
+                "It stops in Edmonton."
+              ],
+              "answer": 0,
+              "explanation": "It leaves tomorrow at 11:40 a.m., “after your interview.” The Edmonton connection is a different flight tonight."
+            }
+          ]
+        },
+        {
+          "id": "p1-s2",
+          "audio": {
+            "context": "Section 2 of 3.",
+            "lines": [
+              { "speaker": "omar", "text": "Business class? How much more would that cost me?" },
+              { "speaker": "agent", "text": "Since the cancellation was our fault, we'd normally move you to another flight in the same cabin at no cost. Business class is an upgrade, so there would be a difference of six hundred and forty dollars." },
+              { "speaker": "omar", "text": "Six hundred and forty. That's a lot. Is there any other option?" },
+              { "speaker": "agent", "text": "Well, another airline has a direct flight at nine fifteen tonight. We have an agreement with them, so I can transfer your ticket for free. But you'd have to pick up your checked bag here and check it in again at their counter in Terminal 3." },
+              { "speaker": "omar", "text": "Terminal 3. How far is that?" },
+              { "speaker": "agent", "text": "It's a ten-minute train ride. Their check-in closes one hour before departure, so you'd need to be there by eight fifteen. It's six forty now, so you'd have plenty of time." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q4",
+              "stem": "Why would the airline normally pay for Omar's change of flight?",
+              "options": [
+                "He is a frequent flyer.",
+                "The cancellation was the airline's responsibility.",
+                "He bought a refundable ticket.",
+                "He complained to the agent."
+              ],
+              "answer": 1,
+              "explanation": "“Since the cancellation was our fault, we'd normally move you … at no cost.”"
+            },
+            {
+              "id": "l2-q5",
+              "stem": "What would Omar have to do to take the other airline's flight?",
+              "options": [
+                "Pay a transfer fee.",
+                "Take a taxi to another airport.",
+                "Change the time of his interview.",
+                "Collect his bag and check it in again."
+              ],
+              "answer": 3,
+              "explanation": "He'd have to “pick up your checked bag here and check it in again at their counter in Terminal 3.” The transfer itself is free."
+            },
+            {
+              "id": "l2-q6",
+              "stem": "By what time must Omar be at the other airline's counter?",
+              "options": ["6:40", "7:15", "8:15", "9:15"],
+              "answer": 2,
+              "explanation": "Check-in closes an hour before the 9:15 departure, so he must be there by 8:15. 6:40 is the time now."
+            }
+          ]
+        },
+        {
+          "id": "p1-s3",
+          "audio": {
+            "context": "Section 3 of 3.",
+            "lines": [
+              { "speaker": "omar", "text": "Okay, let's do that. Please transfer me to the nine fifteen." },
+              { "speaker": "agent", "text": "Done. Your new boarding pass will be sent to your email. Here's a meal voucher for fifteen dollars as well, since you've had to wait. Your bag should come out on carousel six in about twenty minutes." },
+              { "speaker": "omar", "text": "Twenty minutes? Then I'll get something to eat while I wait. One more question. If this flight is delayed too, what should I do?" },
+              { "speaker": "agent", "text": "Call the number on the back of your voucher. They're open twenty-four hours, and since this started with our cancellation, we're still responsible for getting you there. Good luck with your interview." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q7",
+              "stem": "What does the agent give Omar?",
+              "options": [
+                "A voucher for food.",
+                "A hotel room for the night.",
+                "An upgrade to business class.",
+                "A free train ticket."
+              ],
+              "answer": 0,
+              "explanation": "“Here's a meal voucher for fifteen dollars as well, since you've had to wait.”"
+            },
+            {
+              "id": "l2-q8",
+              "stem": "What should Omar do if the new flight is also delayed?",
+              "options": [
+                "Come back to this desk.",
+                "Call a phone line that is open all the time.",
+                "Send an email to the airline.",
+                "Ask the other airline for help."
+              ],
+              "answer": 1,
+              "explanation": "“Call the number on the back of your voucher. They're open twenty-four hours.” The original airline is still responsible."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Part 2: Listening to a Daily Life Conversation",
+      "minutes": 5,
+      "instructions": "You will hear a conversation. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p2-s1",
+          "audio": {
+            "context": "Nina brings a jacket back to a clothing store.",
+            "lines": [
+              { "speaker": "nina", "text": "Hi, I'd like to return this jacket. I bought it two weeks ago, but the zipper broke the second time I wore it." },
+              { "speaker": "clerk", "text": "Oh, I'm sorry about that. Do you have the receipt?" },
+              { "speaker": "nina", "text": "I don't, unfortunately. I think I threw it out with the bag. But I paid with my credit card, if that helps." },
+              { "speaker": "clerk", "text": "It does. I can look up the purchase with your card. Yes, here it is. The Arctic Trail parka, two hundred and ten dollars, on sale from two sixty." },
+              { "speaker": "nina", "text": "That's the one." },
+              { "speaker": "clerk", "text": "So, since it's a defect, there are two options. I can exchange it for the same jacket. We have your size in black, but not in green, I'm afraid. Or I can refund the full amount to your card." },
+              { "speaker": "nina", "text": "Hmm. I really liked the green. Will you be getting more?" },
+              { "speaker": "clerk", "text": "We're expecting a delivery next Wednesday, but I can't promise it'll include a green one in medium. What I can do is hold one for you if it comes in, and give you a call." },
+              { "speaker": "nina", "text": "But then I'm without a winter coat until then, and it's supposed to go down to minus twenty this weekend." },
+              { "speaker": "clerk", "text": "True. Here's another thought. Take the refund today, and if the green comes in, you can buy it again. But the sale ends Sunday, so it would be back at full price by then." },
+              { "speaker": "nina", "text": "So I'd pay fifty dollars more. No, I think I'll just take the black one today. Honestly, it'll go with more of my clothes anyway." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q9",
+              "stem": "Why is Nina returning the jacket?",
+              "options": [
+                "It doesn't fit her.",
+                "Part of it broke.",
+                "She found it cheaper elsewhere.",
+                "It was a gift she didn't like."
+              ],
+              "answer": 1,
+              "explanation": "“The zipper broke the second time I wore it.” The clerk calls it a defect."
+            },
+            {
+              "id": "l2-q10",
+              "stem": "How does the clerk find the purchase?",
+              "options": [
+                "With the receipt.",
+                "With her phone number.",
+                "Using her credit card.",
+                "From the label on the bag."
+              ],
+              "answer": 2,
+              "explanation": "She threw out the receipt but paid by credit card, and he says, “I can look up the purchase with your card.”"
+            },
+            {
+              "id": "l2-q11",
+              "stem": "What is the problem with exchanging the jacket?",
+              "options": [
+                "It isn't available in the colour she wanted.",
+                "The store has none left in her size.",
+                "Exchanges need a receipt.",
+                "The sale has already ended."
+              ],
+              "answer": 0,
+              "explanation": "They have her size “in black, but not in green.” Her size is available, and the sale ends Sunday."
+            },
+            {
+              "id": "l2-q12",
+              "stem": "Why doesn't Nina want to wait for the delivery?",
+              "options": [
+                "She is leaving on a trip on Wednesday.",
+                "The store is too far from her home.",
+                "She needs a warm coat now.",
+                "The green one would cost more."
+              ],
+              "answer": 2,
+              "explanation": "She'd be without a winter coat, and “it's supposed to go down to minus twenty this weekend.” The higher price is the problem with the refund-and-rebuy idea."
+            },
+            {
+              "id": "l2-q13",
+              "stem": "What does Nina decide to do?",
+              "options": [
+                "Get a full refund.",
+                "Wait for the green jacket.",
+                "Buy a different style of coat.",
+                "Exchange it for a black one."
+              ],
+              "answer": 3,
+              "explanation": "“I think I'll just take the black one today,” since it goes with more of her clothes."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Part 3: Listening for Information",
+      "minutes": 6,
+      "instructions": "You will hear a conversation. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p3-s1",
+          "audio": {
+            "context": "Tom asks a coach about a beginners' running club at his community centre.",
+            "lines": [
+              { "speaker": "tom", "text": "Hi, I saw your poster about the beginners' running club. I haven't run since high school. Is it really for beginners?" },
+              { "speaker": "priya", "text": "Absolutely. Most people who join can't run for more than a minute or two at the start. The program lasts ten weeks, and by the end the goal is to run five kilometres without stopping." },
+              { "speaker": "tom", "text": "Ten weeks. And how often do you meet?" },
+              { "speaker": "priya", "text": "Twice a week as a group: Tuesday evenings at six thirty and Saturday mornings at eight. We also give you a plan for one short run on your own each week. That third run is important. People who skip it usually find the group runs much harder." },
+              { "speaker": "tom", "text": "Where do you meet?" },
+              { "speaker": "priya", "text": "On Tuesdays we start from the community centre's front entrance. On Saturdays we meet at the lake trail parking lot, because the trail is flat and there are washrooms." },
+              { "speaker": "tom", "text": "What does it cost?" },
+              { "speaker": "priya", "text": "Sixty dollars for the ten weeks, and that includes a club T-shirt. If money's tight, the community centre has a fee assistance program. Just ask at the front desk. Nobody else needs to know." },
+              { "speaker": "tom", "text": "Do I need any special equipment?" },
+              { "speaker": "priya", "text": "The only thing I'd really invest in is a good pair of running shoes. Go to a proper running store, where they can watch how you walk. Bad shoes are the most common reason beginners get hurt. Don't bother with expensive clothes or a watch for now." },
+              { "speaker": "tom", "text": "Great. Is there still space?" },
+              { "speaker": "priya", "text": "We keep groups to twenty so I can keep an eye on everyone, and there are three spots left. You can register online, or right here today." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q14",
+              "stem": "What is the goal by the end of the program?",
+              "options": [
+                "To run a half marathon.",
+                "To run five kilometres without stopping.",
+                "To run every day of the week.",
+                "To join a racing team."
+              ],
+              "answer": 1,
+              "explanation": "“By the end the goal is to run five kilometres without stopping.”"
+            },
+            {
+              "id": "l2-q15",
+              "stem": "What does the coach say about the weekly run done alone?",
+              "options": [
+                "It is optional.",
+                "It should be the longest run of the week.",
+                "It takes place on Sundays.",
+                "Skipping it makes the group runs harder."
+              ],
+              "answer": 3,
+              "explanation": "“That third run is important. People who skip it usually find the group runs much harder.”"
+            },
+            {
+              "id": "l2-q16",
+              "stem": "Why does the group meet at the lake on Saturdays?",
+              "options": [
+                "The trail is flat and has washrooms.",
+                "It is closer to most members' homes.",
+                "Parking at the community centre costs money.",
+                "The community centre is closed on Saturdays."
+              ],
+              "answer": 0,
+              "explanation": "“Because the trail is flat and there are washrooms.” Nothing is said about parking fees or the centre being closed."
+            },
+            {
+              "id": "l2-q17",
+              "stem": "What is said about the fee assistance program?",
+              "options": [
+                "Only students can apply.",
+                "It also pays for running shoes.",
+                "It is kept private.",
+                "You must apply online."
+              ],
+              "answer": 2,
+              "explanation": "“Just ask at the front desk. Nobody else needs to know.” It's handled discreetly, in person."
+            },
+            {
+              "id": "l2-q18",
+              "stem": "What does the coach recommend buying?",
+              "options": [
+                "A running watch.",
+                "Special running clothes.",
+                "Proper running shoes.",
+                "An extra club T-shirt."
+              ],
+              "answer": 2,
+              "explanation": "Good shoes from a running store, because bad shoes are the most common cause of beginner injuries. She says not to bother with clothes or a watch."
+            },
+            {
+              "id": "l2-q19",
+              "stem": "Why are groups limited to twenty people?",
+              "options": [
+                "The trail is narrow.",
+                "So the coach can watch each runner.",
+                "Because of insurance rules.",
+                "There are only twenty T-shirts."
+              ],
+              "answer": 1,
+              "explanation": "“We keep groups to twenty so I can keep an eye on everyone.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Part 4: Listening to a News Item",
+      "minutes": 5,
+      "instructions": "You will hear a news item. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p4-s1",
+          "audio": {
+            "context": "A city news report.",
+            "lines": [
+              { "speaker": "news", "text": "A pilot project that put fruit and vegetable stands inside three city bus stations has been extended for another year, the city announced today." },
+              { "speaker": "news", "text": "The stands are run by a non-profit called Fresh Route. They opened last fall in neighbourhoods where the nearest grocery store is more than two kilometres away. Prices are kept low because the produce is bought directly from regional farms, and anything that doesn't sell is donated to school breakfast programs at the end of each week." },
+              { "speaker": "news", "text": "According to Fresh Route, about nine hundred customers visit the stands every week, most of them on their way home from work, between four and seven p.m." },
+              { "speaker": "news", "text": "The original plan was to close the stands for the winter, but organizers say sales actually went up in January, so the stands will now stay open all year. The extension will cost the city ninety thousand dollars. Councillor Sam Okoye, who supported the project, said that is far less than the cost of building a new grocery store." },
+              { "speaker": "news", "text": "However, some local shop owners have complained that the stands, which pay no rent to the city, compete unfairly with their businesses. The city says it will review the question of rent before the extension ends." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q20",
+              "stem": "Where are the produce stands?",
+              "options": ["In schools.", "In bus stations.", "On regional farms.", "Inside grocery stores."],
+              "answer": 1,
+              "explanation": "The project put fruit and vegetable stands “inside three city bus stations.”"
+            },
+            {
+              "id": "l2-q21",
+              "stem": "Why are the prices low?",
+              "options": [
+                "The city pays part of the price.",
+                "Volunteers run the stands.",
+                "Only imperfect produce is sold.",
+                "The food is bought straight from farms."
+              ],
+              "answer": 3,
+              "explanation": "“Prices are kept low because the produce is bought directly from regional farms.”"
+            },
+            {
+              "id": "l2-q22",
+              "stem": "What happens to food that isn't sold?",
+              "options": [
+                "It is thrown away.",
+                "It is sold at a discount on Fridays.",
+                "It goes to school breakfast programs.",
+                "It is returned to the farms."
+              ],
+              "answer": 2,
+              "explanation": "Unsold produce “is donated to school breakfast programs at the end of each week.”"
+            },
+            {
+              "id": "l2-q23",
+              "stem": "Why will the stands stay open in winter?",
+              "options": [
+                "Sales increased in January.",
+                "Customers signed a petition.",
+                "Farms now grow food all year.",
+                "The council required it."
+              ],
+              "answer": 0,
+              "explanation": "They planned to close for winter, “but … sales actually went up in January.”"
+            },
+            {
+              "id": "l2-q24",
+              "stem": "What have some shop owners complained about?",
+              "options": [
+                "The stands are too noisy.",
+                "The stands don't pay rent, which gives them an advantage.",
+                "The quality of the produce is poor.",
+                "The stands attract too many customers to the stations."
+              ],
+              "answer": 1,
+              "explanation": "The stands “pay no rent to the city” and so “compete unfairly” with local businesses."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "Part 5: Listening to a Discussion",
+      "minutes": 8,
+      "instructions": "You will hear a discussion. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p5-s1",
+          "audio": {
+            "context": "Three roommates, Ben, Chloe and Maya, talk in their kitchen.",
+            "lines": [
+              { "speaker": "ben", "text": "So, I wanted to bring up the dog idea again. My cousin's dog had puppies, and she's looking for homes for the last two. She'd give us one for free." },
+              { "speaker": "chloe", "text": "Free to get, maybe. But not free to keep. I looked it up. Between food, the vet and insurance, a medium-sized dog costs around two hundred dollars a month." },
+              { "speaker": "ben", "text": "Split three ways, that's less than seventy each. I'd happily pay that." },
+              { "speaker": "maya", "text": "It's not just the money for me. What about our lease? I'm pretty sure there's a no-pets rule." },
+              { "speaker": "ben", "text": "There is, but I already emailed the landlord. She said she'd consider a dog if we pay an extra five hundred dollar pet deposit, and she wants to meet the dog first." },
+              { "speaker": "chloe", "text": "Okay, that's more open than I expected. But who's going to walk it during the day? We all work." },
+              { "speaker": "ben", "text": "I'm home Mondays and Fridays now, since I switched to a hybrid schedule. For the other days, there's a dog walker on our street who charges twenty dollars a walk." },
+              { "speaker": "maya", "text": "That's sixty a week. It adds up. But my bigger worry is a puppy. Puppies chew everything and need a lot of training. Couldn't we adopt an older dog from the shelter instead? They're usually house-trained already, and the adoption fee includes the vaccinations." },
+              { "speaker": "chloe", "text": "I like that idea. An older dog would be calmer, too. And the shelter lets you foster for two weeks first, to see if it's a good fit." },
+              { "speaker": "ben", "text": "Hmm. I was really excited about the puppy. But honestly, a trial period sounds smart. If it doesn't work out with the landlord, we haven't made a permanent decision." },
+              { "speaker": "chloe", "text": "So here's the plan. Ben, you tell your cousin no to the puppy. Maya, can you contact the shelter about fostering? And I'll write up a walking schedule so we're not arguing about it later." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q25",
+              "stem": "What are the roommates mainly discussing?",
+              "options": [
+                "Whether to get a dog.",
+                "Whether to move to a new apartment.",
+                "How to split their rent.",
+                "A visit from Ben's cousin."
+              ],
+              "answer": 0,
+              "explanation": "Ben brings up “the dog idea again,” and the whole conversation is about whether and how to get one."
+            },
+            {
+              "id": "l2-q26",
+              "stem": "What is Chloe's first concern?",
+              "options": [
+                "The apartment is too small.",
+                "The ongoing cost of a dog.",
+                "She is allergic to dogs.",
+                "The landlord won't agree."
+              ],
+              "answer": 1,
+              "explanation": "“Free to get, maybe. But not free to keep”: about $200 a month for food, vet and insurance. It's Maya who raises the lease."
+            },
+            {
+              "id": "l2-q27",
+              "stem": "What has the landlord said?",
+              "options": [
+                "Pets are not allowed under any condition.",
+                "Only cats are allowed.",
+                "She might agree, with a deposit and after meeting the dog.",
+                "She will raise the rent if they get a dog."
+              ],
+              "answer": 2,
+              "explanation": "She'd consider it for an extra $500 pet deposit and wants to meet the dog first."
+            },
+            {
+              "id": "l2-q28",
+              "stem": "Why can Ben walk the dog on some days?",
+              "options": [
+                "He works nights.",
+                "He is between jobs.",
+                "He is on vacation next month.",
+                "He works from home on those days."
+              ],
+              "answer": 3,
+              "explanation": "He's home Mondays and Fridays “since I switched to a hybrid schedule.”"
+            },
+            {
+              "id": "l2-q29",
+              "stem": "Why does Maya prefer an older dog?",
+              "options": [
+                "Older dogs eat less.",
+                "Older dogs are usually already trained.",
+                "Shelter dogs are smaller.",
+                "The landlord prefers older dogs."
+              ],
+              "answer": 1,
+              "explanation": "Puppies chew and need training; shelter dogs are “usually house-trained already,” and vaccinations are included."
+            },
+            {
+              "id": "l2-q30",
+              "stem": "What does Chloe like about the shelter?",
+              "options": [
+                "They can foster a dog before deciding.",
+                "It provides free dog food.",
+                "It is close to their apartment.",
+                "It offers training classes."
+              ],
+              "answer": 0,
+              "explanation": "“The shelter lets you foster for two weeks first, to see if it's a good fit.”"
+            },
+            {
+              "id": "l2-q31",
+              "stem": "How does Ben feel at the end?",
+              "options": [
+                "Angry that the others disagree.",
+                "Disappointed, but he agrees the plan is sensible.",
+                "Relieved, because he never wanted a dog.",
+                "Uninterested in the decision."
+              ],
+              "answer": 1,
+              "explanation": "“I was really excited about the puppy. But honestly, a trial period sounds smart.”"
+            },
+            {
+              "id": "l2-q32",
+              "stem": "What will Maya do next?",
+              "options": [
+                "Call Ben's cousin.",
+                "Write a walking schedule.",
+                "Contact the shelter.",
+                "Email the landlord."
+              ],
+              "answer": 2,
+              "explanation": "Chloe asks, “Maya, can you contact the shelter about fostering?” Ben calls his cousin and Chloe writes the schedule."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "Part 6: Listening for Viewpoints",
+      "minutes": 7,
+      "instructions": "You will hear a report on an issue. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p6-s1",
+          "audio": {
+            "context": "A radio report on education.",
+            "lines": [
+              { "speaker": "host", "text": "Today's topic divides parents and teachers alike: should high schools start later in the morning?" },
+              { "speaker": "host", "text": "The case for a later start comes mostly from sleep science. During adolescence, the body's internal clock shifts, so teenagers naturally feel sleepy later at night and have trouble waking early. Sleep researcher Dr. Amina Farouk says that asking a sixteen-year-old to be alert at eight a.m. is like asking an adult to be alert at six. Schools in several regions that moved their start time to around nine have reported better attendance in first period, and fewer students falling asleep in class." },
+              { "speaker": "host", "text": "But the change isn't simple. Many school boards use the same buses for elementary and high schools, one after the other. If high schools start later, either elementary schools have to start earlier, which brings its own problems for young children, or the board needs more buses and drivers, which costs money it often doesn't have. Parents who work early also say a later start would leave teenagers home alone in the morning, or force them to drop younger brothers and sisters off without supervision." },
+              { "speaker": "host", "text": "Then there are after-school activities. A later start means a later finish, which cuts into sports practices and part-time jobs, and in winter means games end after dark." },
+              { "speaker": "host", "text": "Some schools have tried a compromise: a flexible first period. Students who choose can take their first class online, or in a study hall at eight, while those who prefer to sleep start at nine forty. Supporters say it gives families a choice. Critics say the students who most need the extra sleep are often the least likely to choose it." },
+              { "speaker": "host", "text": "In the end, the research on sleep is fairly clear. What's less clear is whether communities are willing to reorganize transportation, schedules and family routines to act on it." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l2-q33",
+              "stem": "What issue does the report discuss?",
+              "options": [
+                "Whether teenagers should have less homework.",
+                "Whether high schools should start later.",
+                "Whether students should take classes online.",
+                "Whether school buses are safe."
+              ],
+              "answer": 1,
+              "explanation": "The opening question: “should high schools start later in the morning?”"
+            },
+            {
+              "id": "l2-q34",
+              "stem": "Why does Dr. Farouk compare teenagers with adults?",
+              "options": [
+                "To show that an 8 a.m. start is as hard for teens as 6 a.m. is for adults.",
+                "To show that teenagers need less sleep than adults.",
+                "To argue that adults should also start work later.",
+                "To explain why adults don't understand teenagers."
+              ],
+              "answer": 0,
+              "explanation": "Being alert at 8 a.m. for a sixteen-year-old “is like asking an adult to be alert at six,” because teens' body clocks shift later."
+            },
+            {
+              "id": "l2-q35",
+              "stem": "What is the transportation problem?",
+              "options": [
+                "School buses are old.",
+                "Drivers are asking for higher pay.",
+                "Elementary and high schools share the same buses.",
+                "Bus routes are too long."
+              ],
+              "answer": 2,
+              "explanation": "Boards use the same buses for both, one after the other, so moving one start time affects the other or requires more buses."
+            },
+            {
+              "id": "l2-q36",
+              "stem": "What concern do parents who work early have?",
+              "options": [
+                "The cost of extra classes.",
+                "More homework in the evenings.",
+                "Traffic on the way to work.",
+                "Children being left without supervision in the morning."
+              ],
+              "answer": 3,
+              "explanation": "Teenagers would be home alone, or would have to drop younger siblings off “without supervision.”"
+            },
+            {
+              "id": "l2-q37",
+              "stem": "What is the criticism of the flexible first period?",
+              "options": [
+                "It costs too much.",
+                "The students who need sleep most may not choose to sleep in.",
+                "Online classes are of poor quality.",
+                "Teachers refuse to teach at 8 a.m."
+              ],
+              "answer": 1,
+              "explanation": "Critics say “the students who most need the extra sleep are often the least likely to choose it.”"
+            },
+            {
+              "id": "l2-q38",
+              "stem": "What is the speaker's conclusion?",
+              "options": [
+                "The research on sleep is still unclear.",
+                "Schools should start at ten o'clock.",
+                "The science is clear, but making the change is hard.",
+                "Parents should decide for each school."
+              ],
+              "answer": 2,
+              "explanation": "“The research on sleep is fairly clear. What's less clear is whether communities are willing to reorganize” to act on it."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

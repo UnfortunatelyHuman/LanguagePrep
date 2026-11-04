@@ -1,10 +1,11 @@
 import type {
   Answers,
   CefrLevel,
+  PracticeSkill,
   QuestionReview,
-  ReadingResult,
-  ReadingSet,
-} from "@/lib/reading/types";
+  TestResult,
+  TestSet,
+} from "@/lib/practice/types";
 
 /*
  * Neither test publishes an exact raw-to-level table, so these are the widely
@@ -12,19 +13,35 @@ import type {
  * result — the UI says so next to every level it shows.
  */
 
-/** CELPIP Reading: minimum correct answers out of 38 for each CELPIP level (= CLB). */
-const CELPIP_BANDS: { min: number; level: number }[] = [
-  { min: 37, level: 12 },
-  { min: 35, level: 11 },
-  { min: 33, level: 10 },
-  { min: 31, level: 9 },
-  { min: 28, level: 8 },
-  { min: 24, level: 7 },
-  { min: 19, level: 6 },
-  { min: 15, level: 5 },
-  { min: 10, level: 4 },
-  { min: 8, level: 3 },
-];
+type Band = { min: number; level: number };
+
+/** CELPIP: minimum correct answers out of 38 for each CELPIP level (= CLB). */
+const CELPIP_BANDS: Record<PracticeSkill, Band[]> = {
+  reading: [
+    { min: 37, level: 12 },
+    { min: 35, level: 11 },
+    { min: 33, level: 10 },
+    { min: 31, level: 9 },
+    { min: 28, level: 8 },
+    { min: 24, level: 7 },
+    { min: 19, level: 6 },
+    { min: 15, level: 5 },
+    { min: 10, level: 4 },
+    { min: 8, level: 3 },
+  ],
+  listening: [
+    { min: 37, level: 12 },
+    { min: 35, level: 11 },
+    { min: 32, level: 10 },
+    { min: 29, level: 9 },
+    { min: 27, level: 8 },
+    { min: 22, level: 7 },
+    { min: 18, level: 6 },
+    { min: 11, level: 5 },
+    { min: 7, level: 4 },
+    { min: 5, level: 3 },
+  ],
+};
 const CELPIP_RAW_MAX = 38;
 export const CELPIP_TARGET = 10;
 
@@ -40,29 +57,44 @@ export const TCF_POINTS: Record<CefrLevel, number> = {
 const TCF_MIN = 100;
 const TCF_MAX = 699;
 
-/** TCF Canada Compréhension écrite score → NCLC, per IRCC's equivalency table. */
-const TCF_READING_NCLC: { min: number; level: number }[] = [
-  { min: 549, level: 10 },
-  { min: 524, level: 9 },
-  { min: 499, level: 8 },
-  { min: 453, level: 7 },
-  { min: 406, level: 6 },
-  { min: 375, level: 5 },
-  { min: 342, level: 4 },
-];
+/** TCF Canada score → NCLC, per IRCC's equivalency tables. */
+const TCF_NCLC: Record<PracticeSkill, Band[]> = {
+  reading: [
+    { min: 549, level: 10 },
+    { min: 524, level: 9 },
+    { min: 499, level: 8 },
+    { min: 453, level: 7 },
+    { min: 406, level: 6 },
+    { min: 375, level: 5 },
+    { min: 342, level: 4 },
+  ],
+  listening: [
+    { min: 549, level: 10 },
+    { min: 523, level: 9 },
+    { min: 503, level: 8 },
+    { min: 458, level: 7 },
+    { min: 398, level: 6 },
+    { min: 369, level: 5 },
+    { min: 331, level: 4 },
+  ],
+};
 export const TCF_TARGET = 7;
 
-export function celpipLevel(correct: number, total: number): number | null {
+export function celpipLevel(
+  skill: PracticeSkill,
+  correct: number,
+  total: number,
+): number | null {
   // Scale if a set ever has a different length than the real 38.
   const raw = Math.round((correct / total) * CELPIP_RAW_MAX);
-  return CELPIP_BANDS.find((band) => raw >= band.min)?.level ?? null;
+  return CELPIP_BANDS[skill].find((band) => raw >= band.min)?.level ?? null;
 }
 
-export function tcfNclc(score: number): number | null {
-  return TCF_READING_NCLC.find((band) => score >= band.min)?.level ?? null;
+export function tcfNclc(skill: PracticeSkill, score: number): number | null {
+  return TCF_NCLC[skill].find((band) => score >= band.min)?.level ?? null;
 }
 
-function optionCount(set: ReadingSet, questionId: string): number {
+function optionCount(set: TestSet, questionId: string): number {
   for (const part of set.parts) {
     for (const section of part.sections) {
       const question = section.questions.find((q) => q.id === questionId);
@@ -73,7 +105,7 @@ function optionCount(set: ReadingSet, questionId: string): number {
 }
 
 /** Keep only answers to real questions with an in-range option index. */
-export function sanitizeAnswers(set: ReadingSet, raw: unknown): Answers {
+export function sanitizeAnswers(set: TestSet, raw: unknown): Answers {
   if (typeof raw !== "object" || raw === null) return {};
   const answers: Answers = {};
   for (const [id, value] of Object.entries(raw)) {
@@ -85,13 +117,13 @@ export function sanitizeAnswers(set: ReadingSet, raw: unknown): Answers {
   return answers;
 }
 
-export function scoreReading(
-  set: ReadingSet,
+export function scoreTest(
+  set: TestSet,
   answers: Answers,
-): Omit<ReadingResult, "attemptId"> {
+): Omit<TestResult, "attemptId"> {
   const review: Record<string, QuestionReview> = {};
   const byLevel = new Map<CefrLevel, { correct: number; total: number }>();
-  const byPart: ReadingResult["breakdown"] = [];
+  const byPart: TestResult["breakdown"] = [];
   let correct = 0;
   let total = 0;
   let points = 0;
@@ -130,7 +162,7 @@ export function scoreReading(
   }
 
   if (set.exam === "celpip") {
-    const level = celpipLevel(correct, total);
+    const level = celpipLevel(set.skill, correct, total);
     return {
       correct,
       total,
@@ -145,7 +177,7 @@ export function scoreReading(
   }
 
   const score = Math.min(TCF_MAX, Math.max(TCF_MIN, points));
-  const level = tcfNclc(score);
+  const level = tcfNclc(set.skill, score);
   return {
     correct,
     total,

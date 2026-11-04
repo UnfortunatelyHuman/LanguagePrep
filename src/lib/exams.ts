@@ -59,7 +59,7 @@ export const EXAM_TRACKS: Record<Track, ExamTrack> = {
         id: "listening",
         name: "Listening",
         structure:
-          "8 parts: practice task, problem solving, daily-life conversation, information, news item, discussion, viewpoints",
+          "Practice task + 6 scored parts: problem solving, daily-life conversation, information, news item, discussion, viewpoints (38 questions)",
         time: "47–55 min",
         target: "10",
         targetNote: "plays once only",

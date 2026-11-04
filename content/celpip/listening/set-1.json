@@ -1,0 +1,647 @@
+{
+  "id": "celpip-listening-1",
+  "exam": "celpip",
+  "skill": "listening",
+  "title": "CELPIP Listening — Practice Set 1",
+  "summary": "A car that won't start, a dental appointment, a food bank orientation, a new library, an anniversary budget and backyard housing.",
+  "questionsAfterAudio": true,
+  "speakers": {
+    "alicia": { "name": "Alicia", "gender": "female" },
+    "jason": { "name": "Jason", "gender": "male" },
+    "karen": { "name": "Karen", "gender": "female" },
+    "sanjay": { "name": "Sanjay", "gender": "male" },
+    "helen": { "name": "Helen", "gender": "female" },
+    "marcus": { "name": "Marcus", "gender": "male" },
+    "news": { "name": "Newsreader", "gender": "female" },
+    "diane": { "name": "Diane", "gender": "female" },
+    "raj": { "name": "Raj", "gender": "male" },
+    "erin": { "name": "Erin", "gender": "female" },
+    "host": { "name": "Host", "gender": "male" }
+  },
+  "parts": [
+    {
+      "id": "p1",
+      "title": "Part 1: Listening to Problem Solving",
+      "minutes": 9,
+      "instructions": "You will hear a conversation in three sections. After each section, answer the questions about it.",
+      "sections": [
+        {
+          "id": "p1-s1",
+          "audio": {
+            "context": "Section 1 of 3. Alicia knocks on her neighbour Jason's door early one morning.",
+            "lines": [
+              { "speaker": "alicia", "text": "Jason! Sorry to bother you so early. Have you got a minute?" },
+              { "speaker": "jason", "text": "Morning, Alicia. Sure, what's going on? You look stressed." },
+              { "speaker": "alicia", "text": "My car won't start. I turn the key and it just clicks. And today of all days. Maya's class is leaving for the science centre at eight fifteen, and she has to be at the school by eight." },
+              { "speaker": "jason", "text": "Clicking, huh? That usually means the battery's dead. Did you leave the lights on last night?" },
+              { "speaker": "alicia", "text": "I don't think so. Oh, wait. I was unloading groceries in the dark and I turned on the little light inside. I bet I never switched it off." },
+              { "speaker": "jason", "text": "That would do it. Those inside lights can drain a battery overnight, especially in this cold." },
+              { "speaker": "alicia", "text": "Great. It's already seven twenty. And I can't call a cab. The last time I did, it took forty minutes to get here." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q1",
+              "stem": "Why does Alicia need her car this morning?",
+              "options": [
+                "To get to a medical appointment.",
+                "To take her daughter to school for a class trip.",
+                "To pick up groceries.",
+                "To drive Jason to work."
+              ],
+              "answer": 1,
+              "explanation": "Maya's class is leaving for the science centre at 8:15 and she has to be at school by 8:00. The groceries were from the night before."
+            },
+            {
+              "id": "l1-q2",
+              "stem": "What does Jason think is causing the problem?",
+              "options": [
+                "The engine is too cold.",
+                "The key is broken.",
+                "The battery has no power.",
+                "The car is out of gas."
+              ],
+              "answer": 2,
+              "explanation": "He says clicking “usually means the battery's dead,” and Alicia then remembers leaving the inside light on. The cold is only mentioned as making the drain worse."
+            },
+            {
+              "id": "l1-q3",
+              "stem": "Why doesn't Alicia want to call a taxi?",
+              "options": [
+                "Taxis are too expensive.",
+                "Her daughter doesn't like taxis.",
+                "The taxi company is closed in the morning.",
+                "A taxi was very slow to arrive last time."
+              ],
+              "answer": 3,
+              "explanation": "“The last time I did, it took forty minutes to get here.” With only 40 minutes before Maya must be at school, a taxi is too risky."
+            }
+          ]
+        },
+        {
+          "id": "p1-s2",
+          "audio": {
+            "context": "Section 2 of 3.",
+            "lines": [
+              { "speaker": "jason", "text": "Okay, a few options. I've got jumper cables in my truck. We could try to jump-start it. It takes maybe ten minutes, if it works." },
+              { "speaker": "alicia", "text": "And if it doesn't work?" },
+              { "speaker": "jason", "text": "Then the battery might just be old. How long have you had it?" },
+              { "speaker": "alicia", "text": "No idea. It came with the car, and I bought the car used four years ago." },
+              { "speaker": "jason", "text": "Hmm. Then it might not hold a charge even if we get it going. Another option: I could drive Maya to school myself. I don't start work until nine thirty today." },
+              { "speaker": "alicia", "text": "Really? That would be amazing. But I'd still need my car later. I've got a shift at the clinic at noon." },
+              { "speaker": "jason", "text": "Well, if we jump it after I get back, you could drive it straight to the garage on Elm Street. They test batteries for free, and if it needs a new one, they can usually put it in the same day." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q4",
+              "stem": "What does Jason say about jump-starting the car?",
+              "options": [
+                "It is quick if it works.",
+                "It could damage the engine.",
+                "He has never done it before.",
+                "It has to be done at a garage."
+              ],
+              "answer": 0,
+              "explanation": "“It takes maybe ten minutes, if it works.” He has the cables in his own truck, so no garage is needed for the jump."
+            },
+            {
+              "id": "l1-q5",
+              "stem": "Why might the battery need to be replaced?",
+              "options": [
+                "It was damaged in the cold.",
+                "Jason's cables don't fit it.",
+                "The garage has already tested it.",
+                "It may be several years old."
+              ],
+              "answer": 3,
+              "explanation": "Alicia doesn't know its age; it came with a car she bought used four years ago. Jason says an old battery “might not hold a charge even if we get it going.”"
+            },
+            {
+              "id": "l1-q6",
+              "stem": "Why does Alicia still need the car later in the day?",
+              "options": [
+                "To pick Maya up from the science centre.",
+                "To take Jason to work.",
+                "To get to her job.",
+                "To go to the garage on Elm Street."
+              ],
+              "answer": 2,
+              "explanation": "“I've got a shift at the clinic at noon.” The garage visit is Jason's suggestion for fixing the car, not the reason she needs it."
+            }
+          ]
+        },
+        {
+          "id": "p1-s3",
+          "audio": {
+            "context": "Section 3 of 3.",
+            "lines": [
+              { "speaker": "alicia", "text": "Okay, let's do that. You take Maya, and I'll call the clinic in case I'm late." },
+              { "speaker": "jason", "text": "Sounds good. Tell Maya to grab a warm coat. It's minus twelve out there. And make sure she has her permission form. Last year my son was turned away from a field trip because he forgot his." },
+              { "speaker": "alicia", "text": "Oh no, the form! I think I signed it. It's on the fridge. I'll go grab it now." },
+              { "speaker": "jason", "text": "Perfect. When I'm back, around eight thirty, we'll try the cables. If it starts, keep the engine running for at least twenty minutes before you turn it off. Otherwise it'll be dead again." },
+              { "speaker": "alicia", "text": "Got it. Jason, I owe you one. Dinner's on me this weekend." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q7",
+              "stem": "What does Jason remind Alicia about?",
+              "options": [
+                "Calling the school.",
+                "Her daughter's signed permission form.",
+                "Buying Maya a new coat.",
+                "Putting gas in the car."
+              ],
+              "answer": 1,
+              "explanation": "He tells her to make sure Maya has her permission form, because his son was once turned away without one. He mentions a warm coat, but not buying one."
+            },
+            {
+              "id": "l1-q8",
+              "stem": "What should Alicia do if the car starts?",
+              "options": [
+                "Turn it off right away to save the battery.",
+                "Drive directly to the clinic.",
+                "Leave the engine running for a while.",
+                "Call Jason at work."
+              ],
+              "answer": 2,
+              "explanation": "“Keep the engine running for at least twenty minutes before you turn it off,” or the battery will be dead again."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Part 2: Listening to a Daily Life Conversation",
+      "minutes": 5,
+      "instructions": "You will hear a conversation. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p2-s1",
+          "audio": {
+            "context": "Sanjay phones his dentist's office.",
+            "lines": [
+              { "speaker": "karen", "text": "Good afternoon, Bayview Dental. This is Karen speaking." },
+              { "speaker": "sanjay", "text": "Hi, Karen. My name is Sanjay Mehta. I have a cleaning booked for Thursday at ten, but something's come up at work and I need to move it." },
+              { "speaker": "karen", "text": "No problem, Mr. Mehta. Just so you know, we ask for forty-eight hours' notice for changes, otherwise there's a twenty-five dollar fee. But since it's only Monday, you're fine." },
+              { "speaker": "sanjay", "text": "Oh, good. Do you have anything next week? Ideally early in the morning, before work." },
+              { "speaker": "karen", "text": "Let me see. There's a seven forty-five on Tuesday, but that would be with our hygienist, Anna, not with Dr. Novak herself. Is that all right?" },
+              { "speaker": "sanjay", "text": "That's fine. It's just a cleaning. Actually, while I have you, I've had a bit of sensitivity in one of my back teeth when I drink something cold. Should I mention that?" },
+              { "speaker": "karen", "text": "Definitely. In that case, I'll book you a slightly longer appointment so Dr. Novak can take a quick look after Anna is done. Instead of seven forty-five, could you come at seven thirty? Then you'd be finished by nine." },
+              { "speaker": "sanjay", "text": "Seven thirty works. Oh, and my insurance changed in January. Do you need the new card?" },
+              { "speaker": "karen", "text": "Yes, please. You can email a photo of the front and back to the address on our website, or just bring it on Tuesday. If we have it a day ahead, we can tell you what your plan covers before you come in." },
+              { "speaker": "sanjay", "text": "Then I'll email it tonight. Thanks, Karen." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q9",
+              "stem": "Why is Sanjay calling?",
+              "options": [
+                "To book his first appointment.",
+                "To change the time of an appointment.",
+                "To complain about a fee.",
+                "To ask about a bill."
+              ],
+              "answer": 1,
+              "explanation": "He has a cleaning on Thursday but “something's come up at work and I need to move it.”"
+            },
+            {
+              "id": "l1-q10",
+              "stem": "Why doesn't Sanjay have to pay a fee?",
+              "options": [
+                "He gave enough notice.",
+                "He has been a patient for years.",
+                "His insurance covers it.",
+                "The office made a mistake."
+              ],
+              "answer": 0,
+              "explanation": "The fee applies with less than 48 hours' notice. He is calling on Monday about a Thursday appointment, so “you're fine.”"
+            },
+            {
+              "id": "l1-q11",
+              "stem": "Why does Karen change the start time to 7:30?",
+              "options": [
+                "The hygienist is busy at 7:45.",
+                "Sanjay has to be at work by 8:00.",
+                "So the dentist has time to check a tooth that bothers him.",
+                "Because the office opens at 7:30."
+              ],
+              "answer": 2,
+              "explanation": "After he mentions sensitivity in a back tooth, she books “a slightly longer appointment so Dr. Novak can take a quick look,” starting earlier at 7:30."
+            },
+            {
+              "id": "l1-q12",
+              "stem": "Who will Sanjay see first on Tuesday?",
+              "options": ["Karen.", "Dr. Novak.", "A new dentist.", "Anna, the hygienist."],
+              "answer": 3,
+              "explanation": "The cleaning is with the hygienist, Anna; Dr. Novak will look at the tooth “after Anna is done.”"
+            },
+            {
+              "id": "l1-q13",
+              "stem": "What will Sanjay probably do this evening?",
+              "options": [
+                "Call his insurance company.",
+                "Send pictures of his insurance card.",
+                "Book another appointment online.",
+                "Pay the fee online."
+              ],
+              "answer": 1,
+              "explanation": "Karen asks for a photo of the front and back of the new card by email, and he says, “Then I'll email it tonight.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Part 3: Listening for Information",
+      "minutes": 6,
+      "instructions": "You will hear a conversation. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p3-s1",
+          "audio": {
+            "context": "Marcus arrives at a food bank for his first day as a volunteer.",
+            "lines": [
+              { "speaker": "marcus", "text": "Hi, I'm Marcus. I filled in the volunteer form online last week, and I was told to come in today for orientation?" },
+              { "speaker": "helen", "text": "Welcome, Marcus! I'm Helen, the volunteer coordinator. Let me give you the quick version, and then I'll show you around. We have three main areas. The warehouse, where donations are sorted. The client market, where people come in to choose their groceries. And delivery, which takes food to seniors who can't get here." },
+              { "speaker": "marcus", "text": "I was hoping to do delivery. I have a car." },
+              { "speaker": "helen", "text": "Great, we always need drivers. But for delivery you'll need a police check first, since you'll be going into people's homes. It takes about three weeks. In the meantime, most new volunteers start in the warehouse." },
+              { "speaker": "marcus", "text": "That's fine. What's the schedule like?" },
+              { "speaker": "helen", "text": "Shifts are three hours. We ask for at least two shifts a month, and you book them through our app. If you need to cancel, please do it at least a day ahead. The warehouse can't run with fewer than six people." },
+              { "speaker": "marcus", "text": "Makes sense. Is there anything I should bring?" },
+              { "speaker": "helen", "text": "Closed-toe shoes are a must. No sandals in the warehouse, for safety. We provide gloves and aprons. And bring a water bottle. It gets warm back there, even in winter." },
+              { "speaker": "marcus", "text": "And parking?" },
+              { "speaker": "helen", "text": "There's free parking behind the building, but it fills up on Saturdays because of the farmers' market next door. On Saturdays, I'd suggest taking the twenty-two bus. It stops right out front." },
+              { "speaker": "marcus", "text": "Got it. When can I start?" },
+              { "speaker": "helen", "text": "There's a warehouse shift tomorrow at nine. Shall I put you down?" }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q14",
+              "stem": "Where do most new volunteers begin?",
+              "options": ["In delivery.", "In the client market.", "In the warehouse.", "In the office."],
+              "answer": 2,
+              "explanation": "“In the meantime, most new volunteers start in the warehouse.” Delivery needs a police check first."
+            },
+            {
+              "id": "l1-q15",
+              "stem": "Why does Marcus need a police check?",
+              "options": [
+                "He will be going into people's homes.",
+                "He will handle donated money.",
+                "He will drive a food bank truck.",
+                "Every volunteer needs one."
+              ],
+              "answer": 0,
+              "explanation": "It is needed for delivery “since you'll be going into people's homes.” Warehouse volunteers don't need one."
+            },
+            {
+              "id": "l1-q16",
+              "stem": "How often are volunteers expected to work?",
+              "options": [
+                "Every Saturday.",
+                "At least twice a month.",
+                "Once a week.",
+                "Three days a month."
+              ],
+              "answer": 1,
+              "explanation": "“We ask for at least two shifts a month.” Three is the length of a shift in hours, not the number of days."
+            },
+            {
+              "id": "l1-q17",
+              "stem": "Why should volunteers cancel at least a day ahead?",
+              "options": [
+                "The app charges a penalty otherwise.",
+                "Their shift will be given to a paid worker.",
+                "The bus schedule changes daily.",
+                "The warehouse needs a minimum number of people."
+              ],
+              "answer": 3,
+              "explanation": "“The warehouse can't run with fewer than six people,” so the coordinator needs time to find a replacement."
+            },
+            {
+              "id": "l1-q18",
+              "stem": "What must Marcus wear?",
+              "options": ["Gloves.", "An apron.", "Shoes that cover his toes.", "A volunteer T-shirt."],
+              "answer": 2,
+              "explanation": "“Closed-toe shoes are a must.” Gloves and aprons are provided by the food bank."
+            },
+            {
+              "id": "l1-q19",
+              "stem": "What does Helen suggest for Saturdays?",
+              "options": [
+                "Taking the bus.",
+                "Arriving early to find parking.",
+                "Parking at the farmers' market.",
+                "Working a shorter shift."
+              ],
+              "answer": 0,
+              "explanation": "The lot fills up on Saturdays because of the market, so she suggests the number 22 bus, which stops out front."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Part 4: Listening to a News Item",
+      "minutes": 5,
+      "instructions": "You will hear a news item. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p4-s1",
+          "audio": {
+            "context": "A local radio news report.",
+            "lines": [
+              { "speaker": "news", "text": "In local news, the town of Pine Hollow will open its first library branch on the east side next month, after a three-year campaign by residents." },
+              { "speaker": "news", "text": "The branch will be in a former bank building on Cedar Avenue. The town bought the building last spring for one dollar, on the condition that it be used for a public purpose. Renovations cost one point two million dollars, about a third of which came from private donations." },
+              { "speaker": "news", "text": "Library director Ruth Abara says the east side has the town's highest number of young families, but until now the nearest branch was a forty-minute bus ride away." },
+              { "speaker": "news", "text": "The new branch will be smaller than the main library, but it will offer something the main library does not. It will stay open until nine p.m. on weekdays, for parents who work during the day. It will also include a library of things: a collection of items such as tools, camping gear and sewing machines that members can borrow for up to one week." },
+              { "speaker": "news", "text": "The grand opening is on Saturday, March fifteenth, with a children's author reading at ten a.m. Officials are asking visitors to walk or take transit, as there are only twelve parking spaces at the site." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q20",
+              "stem": "How did the town get the building?",
+              "options": [
+                "Residents donated it.",
+                "It bought it for a symbolic price.",
+                "It rents it from a bank.",
+                "It built it with private donations."
+              ],
+              "answer": 1,
+              "explanation": "The town “bought the building last spring for one dollar” on condition it be used for a public purpose. The donations paid for part of the renovation, not the building."
+            },
+            {
+              "id": "l1-q21",
+              "stem": "How was the renovation paid for?",
+              "options": [
+                "Entirely by the town.",
+                "By the bank.",
+                "By a provincial grant.",
+                "Partly by private donors."
+              ],
+              "answer": 3,
+              "explanation": "Of the $1.2 million, “about a third … came from private donations.”"
+            },
+            {
+              "id": "l1-q22",
+              "stem": "Why was a branch needed on the east side?",
+              "options": [
+                "It has many young families and no library nearby.",
+                "The main library is closing.",
+                "The town owns a lot of land there.",
+                "Residents voted for it in an election."
+              ],
+              "answer": 0,
+              "explanation": "The east side has the most young families, and the nearest branch was a 40-minute bus ride away."
+            },
+            {
+              "id": "l1-q23",
+              "stem": "What will be different about the new branch?",
+              "options": [
+                "It will be bigger than the main library.",
+                "It will stay open later on weekdays.",
+                "It will open on Sundays.",
+                "It will charge a membership fee."
+              ],
+              "answer": 1,
+              "explanation": "It will be open until 9 p.m. on weekdays, which the main library doesn't offer. It is smaller, not bigger."
+            },
+            {
+              "id": "l1-q24",
+              "stem": "What are visitors asked to do on opening day?",
+              "options": [
+                "Arrive before 10 a.m.",
+                "Bring tools to donate.",
+                "Avoid driving if they can.",
+                "Register online first."
+              ],
+              "answer": 2,
+              "explanation": "Officials ask people “to walk or take transit” because there are only twelve parking spaces."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "title": "Part 5: Listening to a Discussion",
+      "minutes": 8,
+      "instructions": "You will hear a discussion. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p5-s1",
+          "audio": {
+            "context": "A manager, Diane, meets with two employees, Raj and Erin.",
+            "lines": [
+              { "speaker": "diane", "text": "Okay, let's get started. As you know, the company turns twenty in June, and head office has given our branch four thousand dollars for an event. I'd like us to agree on a plan today. Raj, you had an idea?" },
+              { "speaker": "raj", "text": "Yeah. I think we should do a dinner cruise on the harbour. There are forty of us, and I got a quote: about ninety dollars a person, including food. It's something people would actually remember." },
+              { "speaker": "erin", "text": "It does sound fun, but forty times ninety is thirty-six hundred. That leaves almost nothing for anything else. And a lot of people on the warehouse team have kids. An evening event means paying for a babysitter." },
+              { "speaker": "raj", "text": "Fair point. We could make it a Friday afternoon instead?" },
+              { "speaker": "erin", "text": "The cruise company only does afternoon trips on weekends. I checked last year. What I'd suggest is a picnic in Riverside Park during work hours, with families invited. A catered barbecue would be about fifteen hundred, and we could rent some games for the kids." },
+              { "speaker": "diane", "text": "I like that it includes families. But June weather is unpredictable. What happens if it rains?" },
+              { "speaker": "erin", "text": "The park has a covered pavilion. It costs two hundred dollars to reserve, and it holds up to a hundred people." },
+              { "speaker": "raj", "text": "Okay, I'll admit that makes more sense for everyone. But could we use some of the leftover money for something more lasting? Like a slideshow of photos from the last twenty years, or a small gift for people who've been here more than ten years?" },
+              { "speaker": "diane", "text": "I love that. There are eight people with over ten years here. Raj, could you look into gift ideas, maybe around fifty dollars each? Erin, please book the pavilion this week, before someone else takes it. And I'll ask head office whether we can hold the picnic on a Friday instead of a Thursday." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q25",
+              "stem": "What is the purpose of the meeting?",
+              "options": [
+                "To decide how to spend money on an anniversary event.",
+                "To plan a move to a new branch.",
+                "To discuss budget cuts.",
+                "To welcome new employees."
+              ],
+              "answer": 0,
+              "explanation": "Head office gave $4,000 for the company's 20th anniversary, and Diane wants to “agree on a plan today.”"
+            },
+            {
+              "id": "l1-q26",
+              "stem": "What does Raj like about the dinner cruise?",
+              "options": [
+                "It is cheap.",
+                "People would remember it.",
+                "It is good for children.",
+                "It is close to the office."
+              ],
+              "answer": 1,
+              "explanation": "“It's something people would actually remember.” Erin points out that it's expensive and hard for parents."
+            },
+            {
+              "id": "l1-q27",
+              "stem": "What is Erin's first concern about the cruise?",
+              "options": [
+                "Some people get seasick.",
+                "The food would not be good.",
+                "It is too far from the office.",
+                "It would use up most of the budget."
+              ],
+              "answer": 3,
+              "explanation": "Forty people at $90 is $3,600 of the $4,000, which “leaves almost nothing for anything else.” Babysitting costs are her second point."
+            },
+            {
+              "id": "l1-q28",
+              "stem": "Why can't the cruise be moved to a Friday afternoon?",
+              "options": [
+                "The boat is already booked.",
+                "Staff must work on Friday afternoons.",
+                "Afternoon trips only run on weekends.",
+                "Afternoon trips cost more."
+              ],
+              "answer": 2,
+              "explanation": "Erin checked last year: “The cruise company only does afternoon trips on weekends.”"
+            },
+            {
+              "id": "l1-q29",
+              "stem": "What worries Diane about the picnic?",
+              "options": ["The cost.", "The weather.", "The distance.", "Inviting families."],
+              "answer": 1,
+              "explanation": "“June weather is unpredictable. What happens if it rains?” She likes that families are included."
+            },
+            {
+              "id": "l1-q30",
+              "stem": "How does Erin answer Diane's concern?",
+              "options": [
+                "She mentions a covered area they can reserve.",
+                "She suggests moving the date to July.",
+                "She says it rarely rains in June.",
+                "She proposes holding the event indoors at the office."
+              ],
+              "answer": 0,
+              "explanation": "The park has “a covered pavilion” for $200 that holds up to 100 people — enough for the 40 staff and their families."
+            },
+            {
+              "id": "l1-q31",
+              "stem": "What does Raj suggest doing with the leftover money?",
+              "options": [
+                "Giving everyone a cash bonus.",
+                "Hiring a professional photographer.",
+                "Planning a second event in winter.",
+                "Celebrating the company's history and long-serving staff."
+              ],
+              "answer": 3,
+              "explanation": "He suggests “a slideshow of photos from the last twenty years, or a small gift for people who've been here more than ten years.”"
+            },
+            {
+              "id": "l1-q32",
+              "stem": "What will Diane do after the meeting?",
+              "options": [
+                "Book the pavilion.",
+                "Choose the gifts.",
+                "Ask head office about changing the day.",
+                "Hire a caterer."
+              ],
+              "answer": 2,
+              "explanation": "Diane says she'll ask head office about a Friday instead of a Thursday. Erin books the pavilion and Raj looks into gifts."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p6",
+      "title": "Part 6: Listening for Viewpoints",
+      "minutes": 7,
+      "instructions": "You will hear a report on an issue. Then answer the questions.",
+      "sections": [
+        {
+          "id": "p6-s1",
+          "audio": {
+            "context": "A radio report on housing.",
+            "lines": [
+              { "speaker": "host", "text": "Good evening. Tonight we're looking at a question many cities are now facing: should homeowners be allowed to build small rental homes in their backyards? These garden suites are tiny houses, usually under eighty square metres, built behind an existing home." },
+              { "speaker": "host", "text": "Supporters say they're one of the fastest ways to add housing without changing the look of a neighbourhood. Unlike apartment towers, they don't require new roads or sewers, because they connect to services that are already there. Real estate economist Laura Chen points out that in cities that allow them, they've also helped families in another way. Many aren't rented to strangers at all, but to aging parents or adult children who can't afford their own place." },
+              { "speaker": "host", "text": "Opponents say they aren't against housing, but they worry about the details. Neighbourhood associations have raised concerns about parking, noise and privacy, especially on narrow lots, where a two-storey garden suite might look straight into a neighbour's yard. Others point out that building one costs between two and three hundred thousand dollars. That means only wealthier homeowners can afford to add one, and the rents end up being far from affordable." },
+              { "speaker": "host", "text": "Some cities have tried a middle path. In Riverton, garden suites are allowed only on larger lots, they must be one storey, and the owner must live on the property. City staff say this has kept complaints low. But housing advocates argue the rules are so strict that fewer than a hundred have been built in five years. Hardly enough to make a difference." },
+              { "speaker": "host", "text": "So where does this leave us? Most experts agree that garden suites alone won't solve the housing shortage. The real question is whether the rules can be designed so that they add enough homes to matter, without turning neighbours against them." }
+            ]
+          },
+          "questions": [
+            {
+              "id": "l1-q33",
+              "stem": "What is the main topic of the report?",
+              "options": [
+                "Whether small rental homes should be allowed in backyards.",
+                "Rising rents in apartment towers.",
+                "How cities pay for new roads and sewers.",
+                "The cost of renovating older homes."
+              ],
+              "answer": 0,
+              "explanation": "The opening question: “should homeowners be allowed to build small rental homes in their backyards?” The rest weighs both sides."
+            },
+            {
+              "id": "l1-q34",
+              "stem": "According to supporters, why are garden suites easy to add?",
+              "options": [
+                "They are cheap to build.",
+                "Cities pay for most of the work.",
+                "They use services that already exist.",
+                "They don't need permits."
+              ],
+              "answer": 2,
+              "explanation": "They “don't require new roads or sewers, because they connect to services that are already there.” Cost is raised by opponents as a problem."
+            },
+            {
+              "id": "l1-q35",
+              "stem": "What does Laura Chen say about who lives in garden suites?",
+              "options": [
+                "Mostly students.",
+                "Often relatives of the homeowner.",
+                "Mostly tourists on short stays.",
+                "Usually wealthy renters."
+              ],
+              "answer": 1,
+              "explanation": "Many are rented “to aging parents or adult children who can't afford their own place” rather than to strangers."
+            },
+            {
+              "id": "l1-q36",
+              "stem": "What concern is raised about building costs?",
+              "options": [
+                "Cities will raise property taxes.",
+                "Builders are hard to find.",
+                "Banks won't lend money for them.",
+                "High costs mean the rents stay high."
+              ],
+              "answer": 3,
+              "explanation": "At $200,000–$300,000 each, only wealthier owners can build them, “and the rents end up being far from affordable.”"
+            },
+            {
+              "id": "l1-q37",
+              "stem": "What is the criticism of Riverton's approach?",
+              "options": [
+                "It has led to many complaints.",
+                "Very few suites have been built.",
+                "Owners don't have to live on the property.",
+                "It allows two-storey suites."
+              ],
+              "answer": 1,
+              "explanation": "Advocates say the rules are so strict that fewer than a hundred were built in five years. Complaints stayed low, and Riverton requires owners on site and one storey."
+            },
+            {
+              "id": "l1-q38",
+              "stem": "What conclusion does the speaker reach?",
+              "options": [
+                "Garden suites should be banned.",
+                "Garden suites will solve the housing shortage.",
+                "Success depends on how the rules are designed.",
+                "Neighbours should decide case by case."
+              ],
+              "answer": 2,
+              "explanation": "Experts agree suites alone won't solve the shortage; “the real question is whether the rules can be designed” to add enough homes without angering neighbours."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

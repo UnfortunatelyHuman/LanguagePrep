@@ -1,7 +1,7 @@
-import type { ClientReadingSet, ClientSection } from "@/lib/reading/types";
+import type { ClientTestSet, ClientSection } from "@/lib/practice/types";
 
 /** Question id → its 1-based number across the whole set, in exam order. */
-export function questionNumbers(set: ClientReadingSet): Record<string, number> {
+export function questionNumbers(set: ClientTestSet): Record<string, number> {
   const numbers: Record<string, number> = {};
   let n = 0;
   for (const part of set.parts) {

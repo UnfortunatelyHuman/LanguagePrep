@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import { ReadingRunner } from "@/components/reading/ReadingRunner";
+import { TestRunner } from "@/components/practice/TestRunner";
 import { isTrack } from "@/lib/exams";
-import { findReadingSet, readingSets, toClientSet } from "@/lib/reading/content";
+import { findTestSet, testSets, toClientSet } from "@/lib/practice/content";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -12,7 +12,7 @@ export function generateStaticParams({
 }: {
   params: Awaited<LayoutProps<"/[lang]">["params"]>;
 }) {
-  return isTrack(lang) ? readingSets(lang).map((set) => ({ setId: set.id })) : [];
+  return isTrack(lang) ? testSets(lang, "reading").map((set) => ({ setId: set.id })) : [];
 }
 
 export default async function ReadingTest({
@@ -20,8 +20,8 @@ export default async function ReadingTest({
 }: PageProps<"/[lang]/reading/[setId]">) {
   const { lang, setId } = await params;
   if (!isTrack(lang)) notFound();
-  const set = findReadingSet(lang, setId);
+  const set = findTestSet(lang, "reading", setId);
   if (!set) notFound();
 
-  return <ReadingRunner set={toClientSet(set)} track={lang} />;
+  return <TestRunner set={toClientSet(set)} track={lang} />;
 }

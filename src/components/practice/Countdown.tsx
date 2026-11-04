@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useEffectEvent, useState } from "react";
-import { formatClock } from "@/lib/reading/numbering";
+import { formatClock } from "@/lib/practice/numbering";
 
 /**
  * Time left until `endsAt`. Calls `onExpire` once when it reaches zero.
