@@ -32,3 +32,17 @@ export async function recentAttempts(track: Track, take = 8): Promise<Attempt[]>
     take,
   });
 }
+
+/** Recent attempts at one skill, newest first. */
+export async function skillAttempts(
+  track: Track,
+  skill: SkillId,
+  take = 10,
+): Promise<Attempt[]> {
+  await io();
+  return prisma.attempt.findMany({
+    where: { exam: examKey(track), skill },
+    orderBy: { createdAt: "desc" },
+    take,
+  });
+}

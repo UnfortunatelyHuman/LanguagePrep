@@ -1,0 +1,533 @@
+{
+  "id": "celpip-reading-2",
+  "exam": "celpip",
+  "title": "CELPIP Reading — Practice Set 2",
+  "summary": "Buying a used car, coworking memberships, a four-day work week and the tipping debate.",
+  "parts": [
+    {
+      "id": "p1",
+      "title": "Part 1: Reading Correspondence",
+      "minutes": 11,
+      "instructions": "Read a message and answer questions about it, then complete the reply.",
+      "sections": [
+        {
+          "id": "p1-message",
+          "instructions": "Read the following message. Choose the best option to complete each statement.",
+          "passage": {
+            "label": "Email",
+            "meta": [
+              { "label": "From", "value": "Grace Liu" },
+              { "label": "To", "value": "Kevin Liu" },
+              { "label": "Subject", "value": "About the car" }
+            ],
+            "paragraphs": [
+              "Hi Kevin,",
+              "Thanks for sending the photos of the hatchback you found online. I know you're excited, but before you hand over any money, I want to share what happened when I bought my first car, because I made almost every mistake possible.",
+              "The seller seemed very friendly and kept telling me that two other people were coming to see the car that evening. I panicked and paid the full asking price on the spot. I found out later that this is a common pressure tactic. If someone is rushing you, that's a reason to slow down, not speed up.",
+              "The bigger mistake was skipping the inspection. A mechanic would have charged me about $150 to look it over. Instead, three weeks after I bought it, the transmission started slipping, and the repair cost me $2,300 — almost half of what I paid for the car. Most honest sellers won't object if you ask to take the car to a garage. If they refuse, walk away.",
+              "You should also ask for the Used Vehicle Information Package. In Ontario, the seller has to give it to you, and it shows whether there's still money owing on the car. If there is, the lender could take the car back even after you've paid for it.",
+              "Finally, don't forget insurance. At nineteen, you're going to pay a lot more than you expect, and the price changes a lot depending on the model. Call a couple of insurance companies with the car's details before you commit. My friend's son had to sell a sporty little coupe a month after buying it because he couldn't afford the insurance.",
+              "I don't want to discourage you — having your own car will make your new job so much easier. If you like, I can come with you to see it on Saturday. I'm not a mechanic, but I'm good at asking awkward questions.",
+              "Grace"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s2-q1",
+              "stem": "Grace is writing to Kevin in order to",
+              "options": [
+                "congratulate him on his new job.",
+                "persuade him not to buy a car.",
+                "help him avoid problems when buying a used car.",
+                "describe a car she bought recently."
+              ],
+              "answer": 2,
+              "explanation": "She shares her own mistakes so he won't repeat them. She says plainly “I don't want to discourage you,” so B is wrong, and her car story was her first car, not a recent purchase."
+            },
+            {
+              "id": "s2-q2",
+              "stem": "Grace paid for her first car quickly because",
+              "options": [
+                "she got a discount for paying cash.",
+                "the seller made her believe other buyers were coming.",
+                "a mechanic told her it was in good condition.",
+                "she needed it for work the next day."
+              ],
+              "answer": 1,
+              "explanation": "The seller kept saying “two other people were coming to see the car that evening,” and she panicked. She paid the full price, so there was no discount, and she skipped the mechanic."
+            },
+            {
+              "id": "s2-q3",
+              "stem": "What does Grace say about the inspection she skipped?",
+              "options": [
+                "It would have cost far less than the repair she later needed.",
+                "It costs more than most buyers expect.",
+                "Sellers usually arrange it themselves.",
+                "It is required by law in Ontario."
+              ],
+              "answer": 0,
+              "explanation": "The inspection would have been about $150; the transmission repair was $2,300. What Ontario law requires is the information package, not an inspection."
+            },
+            {
+              "id": "s2-q4",
+              "stem": "According to Grace, if a seller refuses an inspection, Kevin should",
+              "options": [
+                "offer to pay for it himself.",
+                "ask for a lower price instead.",
+                "not go ahead with the purchase.",
+                "ask for the information package instead."
+              ],
+              "answer": 2,
+              "explanation": "She writes “If they refuse, walk away” — that is, don't buy the car. The other options would still mean buying it."
+            },
+            {
+              "id": "s2-q5",
+              "stem": "The information package is important because it",
+              "options": [
+                "shows whether the car has been in an accident.",
+                "shows what the car cost when it was new.",
+                "lists insurance prices for the model.",
+                "reveals whether a loan on the car is still unpaid."
+              ],
+              "answer": 3,
+              "explanation": "It “shows whether there's still money owing on the car,” and an unpaid lender could take the car back. The email doesn't say it covers accidents, the original price or insurance."
+            },
+            {
+              "id": "s2-q6",
+              "stem": "Grace mentions her friend's son to show that",
+              "options": [
+                "sporty cars break down more often.",
+                "insurance costs should be checked before buying.",
+                "young drivers should not own cars.",
+                "used cars are easy to resell."
+              ],
+              "answer": 1,
+              "explanation": "He had to sell the coupe because “he couldn't afford the insurance.” It supports her advice to call insurers before committing. Nothing suggests the car broke down."
+            }
+          ]
+        },
+        {
+          "id": "p1-reply",
+          "instructions": "Here is Kevin's reply. Complete it by choosing the best option for each blank.",
+          "passage": {
+            "label": "Reply",
+            "meta": [
+              { "label": "From", "value": "Kevin Liu" },
+              { "label": "To", "value": "Grace Liu" },
+              { "label": "Subject", "value": "RE: About the car" }
+            ],
+            "paragraphs": [
+              "Hi Grace,",
+              "Thanks for the long email — I had no idea about half of those things. To be honest, I was planning to [[s2-q7]], so you probably saved me from a big mistake.",
+              "I messaged the seller last night and asked if I could take the car to a garage before buying it. He said that was fine, which [[s2-q8]].",
+              "I also asked about the information package. He said he'd bring it on Saturday, so I'll check [[s2-q9]] before we talk about the price.",
+              "I called two insurance companies this morning. The quotes were higher than I hoped but still within my budget, mainly because [[s2-q10]].",
+              "I'd love for you to come on Saturday. [[s2-q11]] — I'm sure I'll forget half my questions as soon as I see the car!",
+              "Kevin"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s2-q7",
+              "options": [
+                "pay whatever he asked as long as the car looked good",
+                "wait until next year to buy a car",
+                "ask Dad to inspect the car",
+                "buy a sporty coupe instead"
+              ],
+              "answer": 0,
+              "explanation": "“So you probably saved me from a big mistake” — the blank must be the mistake Grace warned about: paying the asking price without checking the car."
+            },
+            {
+              "id": "s2-q8",
+              "options": [
+                "made me worry about him",
+                "surprised me, since it isn't allowed",
+                "seems like a good sign",
+                "means I don't need the package"
+              ],
+              "answer": 2,
+              "explanation": "Grace said honest sellers won't object to an inspection. The seller agreed, so that is a good sign. He still asks about the package in the next paragraph, so D is wrong."
+            },
+            {
+              "id": "s2-q9",
+              "options": [
+                "what colour it was originally",
+                "whether anyone still owes money on it",
+                "how much it cost when it was new",
+                "the seller's driving record"
+              ],
+              "answer": 1,
+              "explanation": "Grace explained that the package shows whether there's money owing on the car, so that is what Kevin will check."
+            },
+            {
+              "id": "s2-q10",
+              "options": [
+                "I'm only nineteen",
+                "the seller offered to pay part of it",
+                "I've had my licence for ten years",
+                "the hatchback isn't considered a sports car"
+              ],
+              "answer": 3,
+              "explanation": "Grace said the price depends on the model, and the expensive example was a sporty coupe. Being nineteen makes insurance more expensive, not more affordable, and a nineteen-year-old can't have driven for ten years."
+            },
+            {
+              "id": "s2-q11",
+              "options": [
+                "Please bring your mechanic's tools",
+                "It would really help to have you ask the awkward questions",
+                "Don't tell the seller you're coming",
+                "I've already paid a deposit"
+              ],
+              "answer": 1,
+              "explanation": "Grace said she's good at asking awkward questions, and Kevin worries he'll forget his. Grace said she's not a mechanic, so A doesn't fit."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Part 2: Reading to Apply a Diagram",
+      "minutes": 9,
+      "instructions": "Read the diagram and the email. Complete the email, then answer the questions.",
+      "sections": [
+        {
+          "id": "p2-diagram",
+          "instructions": "Use the diagram to complete the email by choosing the best option for each blank. Then answer the questions below.",
+          "passage": {
+            "label": "Diagram and email",
+            "diagram": {
+              "caption": "Harbourview Coworking — Membership Plans",
+              "columns": ["Plan", "Monthly price", "Access", "Desk", "Meeting room", "Extras"],
+              "rows": [
+                ["Day Pass Bundle", "$90 for 8 days", "Mon–Fri, 8 a.m.–6 p.m.", "Any open desk", "Not included", "Coffee and tea"],
+                ["Flex", "$185", "24/7", "Any open desk", "2 hours per month", "Coffee and tea; mail handling"],
+                ["Dedicated Desk", "$310", "24/7", "Your own desk with locking drawer", "5 hours per month", "Coffee and tea; mail handling; 1 guest pass per month"],
+                ["Private Office (2 people)", "$720", "24/7", "Lockable private room", "10 hours per month", "All Dedicated Desk extras; phone booth priority"]
+              ],
+              "notes": [
+                "Prices before tax.",
+                "Sign a 6-month contract and save 15% on Flex, Dedicated Desk and Private Office.",
+                "Extra meeting room time: $20 per hour. Parking: $60 per month (limited spaces)."
+              ]
+            },
+            "meta": [
+              { "label": "From", "value": "Omar" },
+              { "label": "To", "value": "Bea" },
+              { "label": "Subject", "value": "Harbourview plans" }
+            ],
+            "paragraphs": [
+              "Hi Bea,",
+              "I took a look at Harbourview's plans like you asked. Since you said you'd only come in two days a week during office hours, the [[s2-q12]] would be the cheapest option for you. It only covers weekdays, but that shouldn't matter since you never work weekends.",
+              "The one problem is that it doesn't include [[s2-q13]], and you mentioned meeting clients there about twice a month. You'd pay [[s2-q14]] for every hour, so it adds up if your meetings run long.",
+              "If you want to leave your monitor and files there, you'd need [[s2-q15]]. That's more than three times the price of the bundle, though.",
+              "Personally, I'd go with Flex. It's $185 and [[s2-q16]], which should cover your client meetings.",
+              "Let me know what you decide. I'm happy to come along for a tour.",
+              "Omar"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s2-q12",
+              "options": ["Day Pass Bundle", "Flex plan", "Dedicated Desk", "Private Office"],
+              "answer": 0,
+              "explanation": "Two days a week is about eight days a month, which matches the $90 bundle — the cheapest plan. It is also the only plan limited to weekdays, as Omar says."
+            },
+            {
+              "id": "s2-q13",
+              "options": ["coffee and tea", "an open desk", "any meeting room time", "a parking space"],
+              "answer": 2,
+              "explanation": "The next clause is about meeting clients, and the bundle's Meeting room column says “Not included.” Coffee and a desk are included; parking matters for no plan here."
+            },
+            {
+              "id": "s2-q14",
+              "options": ["$15", "$20", "$60", "$90"],
+              "answer": 1,
+              "explanation": "The notes say extra meeting room time is $20 per hour. $60 is parking and $90 is the bundle."
+            },
+            {
+              "id": "s2-q15",
+              "options": ["the Flex plan", "a parking space", "a guest pass", "the Dedicated Desk plan"],
+              "answer": 3,
+              "explanation": "Leaving things means having your own desk with a locking drawer, which is the Dedicated Desk. $310 is more than three times $90. Flex only offers any open desk."
+            },
+            {
+              "id": "s2-q16",
+              "options": [
+                "gives you your own desk",
+                "includes a parking space",
+                "comes with two hours of meeting room time a month",
+                "is only available on weekdays"
+              ],
+              "answer": 2,
+              "explanation": "Flex includes 2 meeting room hours per month, and Bea meets clients about twice a month — so it “should cover your client meetings.” Flex is 24/7 and has no own desk."
+            },
+            {
+              "id": "s2-q17",
+              "stem": "If Bea signs a six-month contract for Flex, what will she pay each month before tax?",
+              "options": ["$140.00", "$157.25", "$170.00", "$185.00"],
+              "answer": 1,
+              "explanation": "A 6-month contract saves 15% on Flex: 15% of $185 is $27.75, and $185 − $27.75 = $157.25."
+            },
+            {
+              "id": "s2-q18",
+              "stem": "What is the cheapest plan that includes a monthly guest pass?",
+              "options": ["Day Pass Bundle", "Flex", "Dedicated Desk", "Private Office"],
+              "answer": 2,
+              "explanation": "The guest pass first appears in Dedicated Desk ($310). Private Office includes it too, but costs $720."
+            },
+            {
+              "id": "s2-q19",
+              "stem": "What does Omar offer to do?",
+              "options": [
+                "Visit Harbourview with Bea.",
+                "Share a private office with her.",
+                "Pay for her first month.",
+                "Book a meeting room for her."
+              ],
+              "answer": 0,
+              "explanation": "He ends with “I'm happy to come along for a tour” — he offers to go there with her."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Part 3: Reading for Information",
+      "minutes": 10,
+      "instructions": "Read the passage. Decide which paragraph contains the information in each statement.",
+      "sections": [
+        {
+          "id": "p3-passage",
+          "instructions": "For each statement, choose the paragraph (A, B, C or D) that contains the information. If it is in none of them, choose E.",
+          "passage": {
+            "label": "Article",
+            "heading": "Four Days a Week: What a Regional Trial Found",
+            "lettered": true,
+            "paragraphs": [
+              "Forty-one employers across the region volunteered for a six-month trial of a four-day work week. Employees kept their full salaries but worked about 32 hours instead of 40. The trial was organized by a non-profit research group, which surveyed staff before, during and after the six months. By the end, thirty-six of the employers had decided to keep the shorter week, and only two went back fully to the old schedule.",
+              "The most dramatic changes were in employee well-being. Staff reported sleeping better, and the share who described themselves as “burned out” fell from 46 percent to 29 percent. Sick days dropped by roughly a quarter. Managers said they had expected people to use the extra day for second jobs, but the surveys showed that most spent it on household tasks, exercise and time with family.",
+              "Productivity was harder to measure, since the companies ranged from software firms to a bakery. Most kept output at the same level by cutting what one manager called “meeting bloat”: regular meetings were shortened to fifteen minutes, and some companies introduced two-hour blocks each morning when no one could be interrupted. Customer-facing businesses had a tougher time. A dental clinic, for example, had to stagger staff days off so it could stay open five days a week.",
+              "Critics warn against reading too much into the results. The companies chose to take part, so their leaders were probably already enthusiastic about the idea. The trial also took place during a period of low unemployment, when employers were especially eager to keep their staff. Economists point out that a longer study with randomly selected companies would be needed to know whether the benefits last."
+            ]
+          },
+          "options": ["A", "B", "C", "D", "E — Not given in any of the paragraphs"],
+          "questions": [
+            {
+              "id": "s2-q20",
+              "stem": "Workers did not lose any pay during the trial.",
+              "answer": 0,
+              "explanation": "Paragraph A: “Employees kept their full salaries.”"
+            },
+            {
+              "id": "s2-q21",
+              "stem": "One business arranged staff schedules so it would not have to close on certain days.",
+              "answer": 2,
+              "explanation": "Paragraph C: the dental clinic staggered days off “so it could stay open five days a week.”"
+            },
+            {
+              "id": "s2-q22",
+              "stem": "Employees took less time off because of illness.",
+              "answer": 1,
+              "explanation": "Paragraph B: “Sick days dropped by roughly a quarter.”"
+            },
+            {
+              "id": "s2-q23",
+              "stem": "The employers in the trial may not be typical of businesses in general.",
+              "answer": 3,
+              "explanation": "Paragraph D: the companies chose to take part, so their leaders were probably already enthusiastic — they weren't randomly selected."
+            },
+            {
+              "id": "s2-q24",
+              "stem": "The trial was funded by the provincial government.",
+              "answer": 4,
+              "explanation": "Paragraph A says a non-profit research group organized the trial, but no paragraph says who paid for it or mentions the government."
+            },
+            {
+              "id": "s2-q25",
+              "stem": "Most of the organizations kept the new schedule after the trial ended.",
+              "answer": 0,
+              "explanation": "Paragraph A: thirty-six of the forty-one employers decided to keep the shorter week."
+            },
+            {
+              "id": "s2-q26",
+              "stem": "Some companies set aside quiet periods for focused work.",
+              "answer": 2,
+              "explanation": "Paragraph C: some companies introduced two-hour morning blocks “when no one could be interrupted.”"
+            },
+            {
+              "id": "s2-q27",
+              "stem": "Workers used their free time differently than managers had predicted.",
+              "answer": 1,
+              "explanation": "Paragraph B: managers expected second jobs, but most people spent the day on household tasks, exercise and family."
+            },
+            {
+              "id": "s2-q28",
+              "stem": "Software employees reported the largest drop in stress.",
+              "answer": 4,
+              "explanation": "Paragraph C mentions software firms, and B gives burnout figures for all staff, but no paragraph compares stress by industry."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Part 4: Reading for Viewpoints",
+      "minutes": 13,
+      "instructions": "Read the article and answer the questions, then complete a reader's comment about it.",
+      "sections": [
+        {
+          "id": "p4-article",
+          "instructions": "Read the article. Choose the best answer to each question.",
+          "passage": {
+            "label": "Article",
+            "heading": "The Tip Debate: Who Should Pay Servers?",
+            "paragraphs": [
+              "When Lucia Moreno opened her restaurant, Olivo, in downtown Kelburn three years ago, she did something her friends in the industry called foolish: she banned tipping. Instead, she raised menu prices by about 18 percent and paid every employee, from dishwashers to servers, at least $24 an hour. “Tipping creates a strange situation where a customer's mood decides whether my staff can pay their rent,” she says. “I wanted their income to be stable.”",
+              "The change was not an easy sell. In the first six months, several online reviews complained that the restaurant was “overpriced,” even though the final bill was about the same as elsewhere once a tip was added. Two of her best servers left for restaurants where they could earn more on busy weekend nights. “The top servers often do better with tips,” she admits. “The people who gain the most from a no-tipping model are the kitchen staff, who usually don't share in tips at all.”",
+              "Economist Peter Vasquez, who studies the restaurant industry, says Moreno's experience is typical. “Restaurants that drop tipping usually get the most resistance from customers, not staff,” he explains. “Diners like feeling that they control the reward for good service, even though research shows tip amounts have very little to do with how good the service was. They depend much more on the size of the bill, the weather, and whether the server is friendly in a surface-level way.”",
+              "Still, Vasquez doubts that tipping will disappear on its own. “A single restaurant that raises its prices looks expensive next to its competitors. For the system to change, you'd probably need a whole city — or a law — to move at once.”",
+              "Moreno, for her part, has no plans to go back. Staff turnover in her kitchen has dropped sharply, and she says the team works together better now that everyone is paid on the same basis. “Some customers still don't get it,” she says. “But the ones who do tend to come back.”"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s2-q29",
+              "stem": "Why did Moreno stop accepting tips?",
+              "options": [
+                "To attract more customers on weekends.",
+                "To give her employees a more predictable income.",
+                "To lower the prices on her menu.",
+                "Because a new law required it."
+              ],
+              "answer": 1,
+              "explanation": "“I wanted their income to be stable” — she didn't want customers' moods to decide whether staff could pay rent. She raised prices rather than lowering them, and no law was involved."
+            },
+            {
+              "id": "s2-q30",
+              "stem": "What problem did Olivo face after the change?",
+              "options": [
+                "Some customers thought the restaurant cost too much.",
+                "The kitchen staff demanded higher wages.",
+                "Total bills became much higher than elsewhere.",
+                "Servers refused to work weekends."
+              ],
+              "answer": 0,
+              "explanation": "Online reviews called it “overpriced,” even though the final bill was about the same once tips were counted — which rules out C."
+            },
+            {
+              "id": "s2-q31",
+              "stem": "According to Moreno, who benefits most from a no-tipping model?",
+              "options": [
+                "The most skilled servers.",
+                "Servers who work on weekends.",
+                "Restaurant managers.",
+                "Kitchen workers."
+              ],
+              "answer": 3,
+              "explanation": "She says the people who gain most “are the kitchen staff, who usually don't share in tips.” Top servers often do better with tips, which is why two of them left."
+            },
+            {
+              "id": "s2-q32",
+              "stem": "Vasquez says the amount customers tip mainly depends on",
+              "options": [
+                "the quality of the service.",
+                "how long the customer stays.",
+                "things that have little to do with how good the service was.",
+                "how the restaurant's prices compare with competitors'."
+              ],
+              "answer": 2,
+              "explanation": "Research shows tips “have very little to do with how good the service was” and depend on the bill size, the weather and surface-level friendliness."
+            },
+            {
+              "id": "s2-q33",
+              "stem": "What does Vasquez think would be needed for tipping to end?",
+              "options": [
+                "Many restaurants, or a law, changing at the same time.",
+                "Better training for servers.",
+                "Regular surveys of customers.",
+                "Lower menu prices across the industry."
+              ],
+              "answer": 0,
+              "explanation": "“You'd probably need a whole city — or a law — to move at once,” because one restaurant alone looks expensive next to its competitors."
+            }
+          ]
+        },
+        {
+          "id": "p4-comment",
+          "instructions": "Here is a reader's response to the article. Complete it by choosing the best option for each blank.",
+          "passage": {
+            "label": "Reader comment",
+            "paragraphs": [
+              "As someone who waited tables for five years, I found this article fascinating. I can understand why Ms. Moreno's best servers left. On a good Saturday night, [[s2-q34]], and a fixed wage would have felt like a pay cut.",
+              "But I also remember the bad nights. Once, a table of eight [[s2-q35]], even though we'd done nothing wrong — the kitchen was just slow. That kind of thing makes it hard to plan a budget.",
+              "What surprised me most was Mr. Vasquez's point that [[s2-q36]]. Looking back, my biggest tips usually came from large groups celebrating something, not from customers I'd served especially well.",
+              "I agree with him that one restaurant can't fix this alone. Customers compare menu prices, and [[s2-q37]].",
+              "Still, I'd happily pay a bit more at a place like Olivo if [[s2-q38]]."
+            ]
+          },
+          "questions": [
+            {
+              "id": "s2-q34",
+              "options": [
+                "the restaurant was often empty",
+                "I could make more in tips than in two regular shifts",
+                "the kitchen staff shared all my tips",
+                "I preferred to stay home"
+              ],
+              "answer": 1,
+              "explanation": "The writer explains why top servers left: on busy nights, tips paid so well that a fixed wage would feel like a pay cut."
+            },
+            {
+              "id": "s2-q35",
+              "options": [
+                "left a huge tip",
+                "asked to speak to the chef",
+                "left almost nothing",
+                "came back the next night"
+              ],
+              "answer": 2,
+              "explanation": "This is a “bad night” that makes it hard to budget, and the staff had “done nothing wrong.” Only a very small tip fits."
+            },
+            {
+              "id": "s2-q36",
+              "options": [
+                "tips are only loosely linked to how good the service is",
+                "kitchen staff earn more than servers",
+                "customers prefer restaurants without tipping",
+                "tips have been rising for years"
+              ],
+              "answer": 0,
+              "explanation": "The next sentence — big tips from celebrating groups, not from well-served customers — illustrates Vasquez's claim that tip amounts have little to do with service quality."
+            },
+            {
+              "id": "s2-q37",
+              "options": [
+                "most people never look at the prices",
+                "prices are the same everywhere",
+                "tips are already included in most bills",
+                "a no-tipping place looks more expensive at first glance"
+              ],
+              "answer": 3,
+              "explanation": "This repeats Vasquez: a single restaurant that raises prices “looks expensive next to its competitors,” so one restaurant can't change the system alone."
+            },
+            {
+              "id": "s2-q38",
+              "options": [
+                "the portions were bigger",
+                "I knew the extra money was shared fairly with the whole staff",
+                "the servers were paid less",
+                "I could still choose how much to tip"
+              ],
+              "answer": 1,
+              "explanation": "Olivo's model is higher prices so every employee earns a stable wage. A former server would pay more for that fairness. Being able to tip would contradict the model."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

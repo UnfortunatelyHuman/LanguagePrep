@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import type { Skill } from "@/lib/exams";
 
@@ -8,9 +9,12 @@ import type { Skill } from "@/lib/exams";
 export function SkillCard({
   skill,
   status,
+  href,
 }: {
   skill: Skill;
   status: ReactNode;
+  /** Practice page for this skill, once it exists. */
+  href?: string;
 }) {
   return (
     <article className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 sm:p-5">
@@ -33,7 +37,14 @@ export function SkillCard({
         <p className="text-xs text-muted">{skill.targetNote}</p>
       ) : null}
 
-      <div className="mt-auto border-t border-border pt-3">{status}</div>
+      <div className="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3">
+        {status}
+        {href ? (
+          <Link href={href} className="text-sm font-medium text-accent">
+            Practise →
+          </Link>
+        ) : null}
+      </div>
     </article>
   );
 }

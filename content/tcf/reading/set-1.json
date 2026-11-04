@@ -1,0 +1,949 @@
+{
+  "id": "tcf-reading-1",
+  "exam": "tcf",
+  "title": "TCF Canada — Compréhension écrite, série 1",
+  "summary": "39 documents, from shop signs and text messages (A1) to opinion essays (C2).",
+  "parts": [
+    {
+      "id": "ce",
+      "title": "Compréhension écrite",
+      "minutes": 60,
+      "instructions": "Lisez chaque document, puis choisissez la bonne réponse. Les questions sont de plus en plus difficiles.",
+      "sections": [
+        {
+          "id": "d01",
+          "passage": {
+            "label": "Affiche",
+            "paragraphs": [
+              "Boulangerie Martin",
+              "Ouvert du mardi au dimanche, de 7 h à 19 h. Fermé le lundi."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q01",
+              "level": "A1",
+              "stem": "Quel jour la boulangerie est-elle fermée ?",
+              "options": ["Le dimanche", "Le lundi", "Le mardi", "Le samedi"],
+              "answer": 1,
+              "explanation": "“Fermé le lundi” = closed on Monday. It is open Tuesday (mardi) to Sunday (dimanche), which includes Saturday."
+            }
+          ]
+        },
+        {
+          "id": "d02",
+          "passage": {
+            "label": "SMS",
+            "paragraphs": [
+              "Salut Léa ! Je suis en retard, le bus ne passe pas. J'arrive au café dans 20 minutes. Commande un thé pour moi, s'il te plaît. Marc"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q02",
+              "level": "A1",
+              "stem": "Que demande Marc à Léa ?",
+              "options": [
+                "De prendre le bus",
+                "D'attendre deux heures",
+                "De commander une boisson pour lui",
+                "De venir chez lui"
+              ],
+              "answer": 2,
+              "explanation": "“Commande un thé pour moi” = order a tea for me. A tea is a drink (une boisson). He is the one taking the bus, and he'll arrive in 20 minutes, not two hours."
+            }
+          ]
+        },
+        {
+          "id": "d03",
+          "passage": {
+            "label": "Petite annonce",
+            "paragraphs": [
+              "Appartement à louer : 2 chambres, cuisine équipée, près du métro. 1 200 $ par mois. Animaux interdits. Appelez Mme Roy au 514-555-0182."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q03",
+              "level": "A1",
+              "stem": "Qu'est-ce qui n'est pas permis dans cet appartement ?",
+              "options": ["Les chiens et les chats", "Les enfants", "La cuisine", "Le métro"],
+              "answer": 0,
+              "explanation": "“Animaux interdits” = animals not allowed, so no dogs or cats. Children aren't mentioned, and the kitchen and metro are features of the flat."
+            }
+          ]
+        },
+        {
+          "id": "d04",
+          "passage": {
+            "label": "Affiche",
+            "paragraphs": [
+              "Cours de natation pour adultes",
+              "Le jeudi soir, à 19 h. Apportez votre maillot et une serviette. Prix : 10 $ la séance."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q04",
+              "level": "A1",
+              "stem": "Que faut-il apporter au cours ?",
+              "options": ["100 $", "Un livre", "Des chaussures de sport", "Un maillot de bain"],
+              "answer": 3,
+              "explanation": "“Apportez votre maillot et une serviette” = bring your swimsuit and a towel. The price is 10 $, not 100 $."
+            }
+          ]
+        },
+        {
+          "id": "d05",
+          "passage": {
+            "label": "Courriel",
+            "paragraphs": [
+              "Bonjour Madame Tremblay,",
+              "Mon fils Hugo est malade depuis hier soir. Il a de la fièvre et il ne pourra pas venir à l'école aujourd'hui ni demain. Pouvez-vous me dire quels devoirs il doit faire ?",
+              "Merci, Sophie Gagnon"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q05",
+              "level": "A2",
+              "stem": "Pourquoi Sophie écrit-elle à Madame Tremblay ?",
+              "options": [
+                "Pour inscrire son fils à l'école",
+                "Pour prévenir que son fils sera absent",
+                "Pour prendre rendez-vous chez le médecin",
+                "Pour se plaindre des devoirs"
+              ],
+              "answer": 1,
+              "explanation": "Hugo is sick and “ne pourra pas venir à l'école” (won't be able to come to school). She asks which homework he should do — that is a request, not a complaint."
+            }
+          ]
+        },
+        {
+          "id": "d06",
+          "passage": {
+            "label": "Avis",
+            "paragraphs": [
+              "Travaux dans l'immeuble",
+              "Du 3 au 7 mars, l'ascenseur ne fonctionnera pas. Les résidents sont priés d'utiliser l'escalier B. Nous nous excusons pour ce dérangement.",
+              "— La gestion"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q06",
+              "level": "A2",
+              "stem": "Que doivent faire les résidents pendant les travaux ?",
+              "options": [
+                "Quitter l'immeuble",
+                "Appeler la gestion",
+                "Prendre l'escalier",
+                "Utiliser l'ascenseur B"
+              ],
+              "answer": 2,
+              "explanation": "“Les résidents sont priés d'utiliser l'escalier B” = residents are asked to use staircase B. “B” refers to the stairs, not a second elevator."
+            }
+          ]
+        },
+        {
+          "id": "d07",
+          "passage": {
+            "label": "Menu",
+            "paragraphs": [
+              "Restaurant Chez Nadia — Menu du midi (11 h 30 à 14 h)",
+              "Soupe du jour + plat + café : 16 $. Dessert : 4 $ de plus. Option végétarienne disponible."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q07",
+              "level": "A2",
+              "stem": "Combien coûte le menu du midi avec un dessert ?",
+              "options": ["4 $", "16 $", "18 $", "20 $"],
+              "answer": 3,
+              "explanation": "The menu is 16 $, and dessert is “4 $ de plus” (4 $ more): 16 + 4 = 20 $."
+            }
+          ]
+        },
+        {
+          "id": "d08",
+          "passage": {
+            "label": "Règlement",
+            "paragraphs": [
+              "Bibliothèque municipale",
+              "Vous pouvez emprunter jusqu'à 10 documents pour 3 semaines. Les DVD doivent être rendus après 7 jours. Le prêt est gratuit pour les résidents de la ville."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q08",
+              "level": "A2",
+              "stem": "Combien de temps peut-on garder un DVD ?",
+              "options": ["Une semaine", "Trois semaines", "Dix jours", "Un mois"],
+              "answer": 0,
+              "explanation": "“Les DVD doivent être rendus après 7 jours” — DVDs must be returned after 7 days, i.e. one week. Three weeks is for other items; 10 is the number of items."
+            }
+          ]
+        },
+        {
+          "id": "d09",
+          "passage": {
+            "label": "Carte postale",
+            "paragraphs": [
+              "Chers tous,",
+              "Nous sommes à Québec depuis trois jours. Il fait froid mais très beau. Hier, nous avons visité le Vieux-Québec à pied et ce soir nous allons voir un spectacle. Nous rentrons dimanche.",
+              "Bisous, Amélie et Karim"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q09",
+              "level": "A2",
+              "stem": "Qu'ont fait Amélie et Karim hier ?",
+              "options": [
+                "Ils sont allés voir un spectacle.",
+                "Ils ont visité la ville en marchant.",
+                "Ils sont rentrés à la maison.",
+                "Ils ont fait du ski."
+              ],
+              "answer": 1,
+              "explanation": "“Hier, nous avons visité le Vieux-Québec à pied” — à pied means on foot. The show is tonight (ce soir), and they go home on Sunday."
+            }
+          ]
+        },
+        {
+          "id": "d10",
+          "passage": {
+            "label": "Offre d'emploi",
+            "paragraphs": [
+              "Le supermarché Bonprix recherche un caissier ou une caissière à temps partiel (20 h par semaine), les soirs et les fins de semaine. Expérience non nécessaire : formation offerte. Envoyez votre CV à emplois@bonprix.ca."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q10",
+              "level": "A2",
+              "stem": "Selon l'annonce, quelle affirmation est vraie ?",
+              "options": [
+                "Il faut avoir déjà travaillé comme caissier.",
+                "Le poste est à temps plein.",
+                "L'entreprise forme les nouveaux employés.",
+                "Il faut travailler le matin."
+              ],
+              "answer": 2,
+              "explanation": "“Formation offerte” = training provided. Experience is “non nécessaire,” it's part-time (temps partiel), and the hours are evenings and weekends."
+            }
+          ]
+        },
+        {
+          "id": "d11",
+          "passage": {
+            "label": "Courriel",
+            "meta": [{ "label": "Objet", "value": "Changement de date" }],
+            "paragraphs": [
+              "Bonjour à tous,",
+              "En raison de la tempête de neige prévue jeudi, la réunion de parents est reportée au mardi suivant, à la même heure. Les enseignants seront disponibles dès 18 h 30. Si cette nouvelle date ne vous convient pas, vous pouvez demander un rendez-vous téléphonique au secrétariat.",
+              "— Direction de l'école Saint-Laurent"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q11",
+              "level": "B1",
+              "stem": "Pourquoi la réunion a-t-elle changé de date ?",
+              "options": [
+                "Les enseignants sont malades.",
+                "Une tempête est annoncée.",
+                "Le secrétariat est fermé.",
+                "Trop peu de parents sont inscrits."
+              ],
+              "answer": 1,
+              "explanation": "“En raison de la tempête de neige prévue jeudi” — because of the snowstorm forecast for Thursday. “En raison de” introduces the cause; “reportée” means postponed."
+            }
+          ]
+        },
+        {
+          "id": "d12",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Depuis septembre, la ville de Val-des-Pins prête gratuitement des vélos électriques à ses habitants pour une durée de deux semaines. L'objectif : permettre aux gens d'essayer ce moyen de transport avant d'en acheter un. Plus de 300 personnes se sont déjà inscrites, et la liste d'attente s'allonge."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q12",
+              "level": "B1",
+              "stem": "Quel est le but de ce programme ?",
+              "options": [
+                "Remplacer les autobus de la ville",
+                "Vendre des vélos d'occasion",
+                "Faire baisser le prix des vélos électriques",
+                "Faire essayer le vélo électrique avant un achat"
+              ],
+              "answer": 3,
+              "explanation": "“L'objectif : permettre aux gens d'essayer ce moyen de transport avant d'en acheter un” — to let people try it before buying one. The bikes are lent (prêtés) free, not sold."
+            }
+          ]
+        },
+        {
+          "id": "d13",
+          "passage": {
+            "label": "Avis aux clients",
+            "paragraphs": [
+              "À la suite d'une mise à jour de notre système, les paiements en ligne seront impossibles dimanche entre 2 h et 6 h du matin. Les paiements par téléphone et en succursale ne sont pas touchés. Merci de votre compréhension.",
+              "— Banque Horizon"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q13",
+              "level": "B1",
+              "stem": "Que se passera-t-il dimanche matin ?",
+              "options": [
+                "On ne pourra pas payer sur Internet pendant quelques heures.",
+                "Les succursales seront fermées.",
+                "Le service téléphonique sera interrompu.",
+                "Les clients recevront un nouveau mot de passe."
+              ],
+              "answer": 0,
+              "explanation": "“Les paiements en ligne seront impossibles … entre 2 h et 6 h” — online payments won't work for four hours. Phone and branch payments “ne sont pas touchés” (are not affected)."
+            }
+          ]
+        },
+        {
+          "id": "d14",
+          "passage": {
+            "label": "Témoignage",
+            "paragraphs": [
+              "Quand je suis arrivée à Montréal, je pensais que mon français suffirait pour trouver du travail. Mais au téléphone, je ne comprenais rien aux expressions québécoises ! J'ai donc rejoint un groupe de conversation à la bibliothèque. Après six mois, j'avais plus confiance en moi, et j'ai obtenu un poste dans un centre d'appels.",
+              "— Fatou, 34 ans"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q14",
+              "level": "B1",
+              "stem": "Qu'est-ce qui a aidé Fatou à progresser ?",
+              "options": [
+                "Un cours à l'université",
+                "Son emploi dans un centre d'appels",
+                "Des échanges réguliers avec d'autres personnes",
+                "Des émissions de télévision"
+              ],
+              "answer": 2,
+              "explanation": "She joined “un groupe de conversation” at the library, and after six months she felt more confident. The call-centre job came after, as a result."
+            }
+          ]
+        },
+        {
+          "id": "d15",
+          "passage": {
+            "label": "Consignes",
+            "paragraphs": [
+              "Collecte des déchets",
+              "Les bacs doivent être placés en bordure de rue au plus tard à 7 h le jour de la collecte, et rentrés avant 21 h. Les sacs déposés à côté des bacs ne seront pas ramassés. Les objets encombrants (meubles, électroménagers) sont collectés une fois par mois, sur rendez-vous."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q15",
+              "level": "B1",
+              "stem": "Comment faut-il se débarrasser d'un vieux réfrigérateur ?",
+              "options": [
+                "Le placer à côté du bac",
+                "Le sortir avant 7 h",
+                "Prendre rendez-vous pour la collecte mensuelle",
+                "Le mettre dans un sac"
+              ],
+              "answer": 2,
+              "explanation": "A fridge is an “électroménager,” one of the “objets encombrants” (bulky items) collected “une fois par mois, sur rendez-vous” — monthly, by appointment."
+            }
+          ]
+        },
+        {
+          "id": "d16",
+          "passage": {
+            "label": "Critique de film",
+            "paragraphs": [
+              "Le nouveau film de Claire Dubois, Les Saisons lentes, est magnifique à regarder : chaque image ressemble à un tableau. Malheureusement, l'histoire avance si lentement que plusieurs spectateurs autour de moi se sont endormis avant la fin. À voir pour les amateurs de belles images, mais pas pour ceux qui cherchent de l'action."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q16",
+              "level": "B1",
+              "stem": "Quelle est l'opinion de l'auteur sur le film ?",
+              "options": [
+                "Il est beau mais ennuyeux.",
+                "Il est rapide et passionnant.",
+                "L'histoire est meilleure que les images.",
+                "Il est parfait pour toute la famille."
+              ],
+              "answer": 0,
+              "explanation": "The images are “magnifique,” but “malheureusement” the story is so slow that people fell asleep — beautiful but boring (ennuyeux)."
+            }
+          ]
+        },
+        {
+          "id": "d17",
+          "passage": {
+            "label": "Courriel professionnel",
+            "paragraphs": [
+              "Bonjour Julien,",
+              "J'ai bien reçu votre rapport, merci. Avant de l'envoyer au client, pourriez-vous vérifier les chiffres du tableau 3 ? Ils ne correspondent pas à ceux de la présentation de lundi. Pas d'urgence : le client ne l'attend que la semaine prochaine.",
+              "Bonne journée, Isabelle"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q17",
+              "level": "B1",
+              "stem": "Que demande Isabelle à Julien ?",
+              "options": [
+                "D'envoyer le rapport au client aujourd'hui",
+                "De préparer une présentation pour lundi",
+                "De rencontrer le client la semaine prochaine",
+                "De contrôler certaines données"
+              ],
+              "answer": 3,
+              "explanation": "“Pourriez-vous vérifier les chiffres du tableau 3 ?” — check the figures in table 3. “Pas d'urgence” rules out sending it today, and Monday's presentation already happened."
+            }
+          ]
+        },
+        {
+          "id": "d18",
+          "passage": {
+            "label": "Le saviez-vous ?",
+            "paragraphs": [
+              "Le sirop d'érable est produit au printemps, quand les nuits sont encore froides et les journées plus douces. Cette alternance fait circuler la sève dans l'arbre. Il faut environ 40 litres de sève pour obtenir un seul litre de sirop."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q18",
+              "level": "B1",
+              "stem": "Pourquoi la sève circule-t-elle au printemps ?",
+              "options": [
+                "À cause de la différence de température entre le jour et la nuit",
+                "Parce qu'il pleut beaucoup",
+                "Parce que les arbres sont jeunes",
+                "À cause de la neige qui fond"
+              ],
+              "answer": 0,
+              "explanation": "Cold nights and milder days: “cette alternance fait circuler la sève” — this alternation makes the sap flow. Rain and melting snow are not mentioned."
+            }
+          ]
+        },
+        {
+          "id": "d19",
+          "passage": {
+            "label": "Offre",
+            "paragraphs": [
+              "Abonnement Famille — Musée des sciences",
+              "Pour 120 $ par an, deux adultes et jusqu'à quatre enfants de moins de 18 ans profitent d'un accès illimité aux expositions permanentes. Les expositions temporaires sont offertes à moitié prix. L'abonnement est remboursé en totalité s'il est annulé dans les 30 jours suivant l'achat."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q19",
+              "level": "B1",
+              "stem": "Quel avantage l'abonnement offre-t-il pour les expositions temporaires ?",
+              "options": [
+                "Elles sont gratuites.",
+                "Elles coûtent 50 % moins cher.",
+                "Elles sont réservées aux enfants.",
+                "Elles sont remboursées après 30 jours."
+              ],
+              "answer": 1,
+              "explanation": "“À moitié prix” = half price, i.e. 50 % off. Unlimited free access is for the permanent exhibitions; the 30-day refund concerns the membership itself."
+            }
+          ]
+        },
+        {
+          "id": "d20",
+          "passage": {
+            "label": "Article",
+            "heading": "Télétravail : le retour au bureau divise",
+            "paragraphs": [
+              "Plusieurs grandes entreprises demandent désormais à leurs employés de revenir au bureau au moins trois jours par semaine. Les directions invoquent la collaboration et la culture d'entreprise. Pourtant, selon un sondage récent, près de la moitié des salariés concernés affirment qu'ils chercheraient un autre emploi si on leur imposait un retour à temps plein. Pour beaucoup, le temps gagné sur les trajets est devenu un avantage non négociable."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q20",
+              "level": "B2",
+              "stem": "Selon le sondage, que feraient de nombreux employés si le retour à temps plein devenait obligatoire ?",
+              "options": [
+                "Ils l'accepteraient sans difficulté.",
+                "Ils envisageraient de changer d'employeur.",
+                "Ils demanderaient une augmentation.",
+                "Ils déménageraient près du bureau."
+              ],
+              "answer": 1,
+              "explanation": "“Ils chercheraient un autre emploi” — they would look for another job. The conditional (chercheraient) expresses what they would consider doing."
+            }
+          ]
+        },
+        {
+          "id": "d21",
+          "passage": {
+            "label": "Courrier des lecteurs",
+            "paragraphs": [
+              "Je lis souvent que les jeunes ne s'intéressent plus à la politique. C'est faux. Ils ne votent peut-être pas autant que leurs grands-parents, mais ils signent des pétitions, manifestent pour le climat et s'engagent dans des associations de quartier. Plutôt que de leur reprocher leur indifférence, les partis devraient se demander pourquoi ils ne parviennent pas à les convaincre.",
+              "— Martine L., Gatineau"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q21",
+              "level": "B2",
+              "stem": "Quelle est la position de l'auteure ?",
+              "options": [
+                "Les jeunes sont indifférents à la politique.",
+                "Les jeunes devraient voter autant que leurs grands-parents.",
+                "Les jeunes s'engagent autrement, et les partis devraient se remettre en question.",
+                "Les pétitions sont plus utiles que le vote."
+              ],
+              "answer": 2,
+              "explanation": "She calls the idea of indifference “faux” and lists other forms of engagement, then says parties should ask themselves why they fail to convince young people. She never ranks petitions above voting."
+            }
+          ]
+        },
+        {
+          "id": "d22",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Le gouvernement a annoncé une hausse de 15 % du financement des services de garde. Cette mesure vise à créer 8 000 nouvelles places d'ici deux ans. Les associations de parents saluent l'annonce, mais rappellent que le principal obstacle reste la pénurie d'éducatrices : sans meilleurs salaires, préviennent-elles, de nombreuses places resteront vides faute de personnel."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q22",
+              "level": "B2",
+              "stem": "Quelle réserve les associations de parents expriment-elles ?",
+              "options": [
+                "Le financement ne suffit pas à construire des locaux.",
+                "Les parents ne veulent pas de nouvelles places.",
+                "Le délai de deux ans est trop court.",
+                "Il manque de personnel qualifié pour faire fonctionner les nouvelles places."
+              ],
+              "answer": 3,
+              "explanation": "“La pénurie d'éducatrices” = shortage of childcare workers; places will stay empty “faute de personnel” (for lack of staff). They welcome (saluent) the funding, so B is wrong."
+            }
+          ]
+        },
+        {
+          "id": "d23",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Depuis l'introduction de la consigne sur les bouteilles de verre, le taux de récupération dans la province est passé de 45 % à 80 %. Les commerçants, qui craignaient de devoir gérer des montagnes de bouteilles, constatent que les machines de retour automatisées ont limité le travail supplémentaire. Certains y voient même un avantage : les clients qui rapportent leurs bouteilles en profitent souvent pour faire des achats."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q23",
+              "level": "B2",
+              "stem": "Comment certains commerçants perçoivent-ils finalement la consigne ?",
+              "options": [
+                "Comme une occasion d'attirer des clients dans leur magasin",
+                "Comme une charge de travail excessive",
+                "Comme une mesure inutile",
+                "Comme une source de conflits avec les clients"
+              ],
+              "answer": 0,
+              "explanation": "“Certains y voient même un avantage” — customers returning bottles often shop while there. Their fear of extra work was not borne out thanks to the machines, so B is wrong."
+            }
+          ]
+        },
+        {
+          "id": "d24",
+          "passage": {
+            "label": "Extrait de règlement",
+            "paragraphs": [
+              "Article 12 — Tout locataire souhaitant sous-louer son logement doit en informer le propriétaire par écrit au moins 15 jours à l'avance. Le propriétaire ne peut refuser la sous-location que pour un motif sérieux, qu'il doit communiquer par écrit dans ce même délai. À défaut de réponse, la sous-location est réputée acceptée."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q24",
+              "level": "B2",
+              "stem": "Que se passe-t-il si le propriétaire ne répond pas dans les 15 jours ?",
+              "options": [
+                "La demande est automatiquement refusée.",
+                "Le locataire doit envoyer une nouvelle demande.",
+                "Le locataire peut sous-louer son logement.",
+                "Le propriétaire doit payer une amende."
+              ],
+              "answer": 2,
+              "explanation": "“À défaut de réponse, la sous-location est réputée acceptée” — without a reply, the sublet is deemed accepted. “Réputé” is legal language for “considered.”"
+            }
+          ]
+        },
+        {
+          "id": "d25",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les applications de méditation connaissent un succès spectaculaire. Mais une étude menée auprès de 2 000 utilisateurs nuance leur efficacité : si la majorité déclare se sentir plus calme après une séance, seuls 15 % continuent à les utiliser régulièrement au-delà de trois mois. Pour les chercheurs, le problème n'est pas l'outil lui-même, mais la difficulté de transformer une bonne intention en habitude durable."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q25",
+              "level": "B2",
+              "stem": "Selon les chercheurs, quelle est la principale limite de ces applications ?",
+              "options": [
+                "Elles n'ont aucun effet calmant.",
+                "Elles coûtent trop cher.",
+                "Elles sont trop compliquées à utiliser.",
+                "Les utilisateurs ont du mal à les utiliser sur la durée."
+              ],
+              "answer": 3,
+              "explanation": "Only 15 % keep using them beyond three months; the problem is turning an intention into a lasting habit (“habitude durable”). Most users do feel calmer, so A is false."
+            }
+          ]
+        },
+        {
+          "id": "d26",
+          "passage": {
+            "label": "Communiqué",
+            "paragraphs": [
+              "La société Transports Lévesque informe sa clientèle que, à compter du 1er avril, les billets achetés en ligne ne seront plus remboursables, mais pourront être échangés sans frais jusqu'à 24 heures avant le départ. Les billets achetés au guichet restent soumis aux conditions actuelles."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q26",
+              "level": "B2",
+              "stem": "Quel changement concerne les billets achetés en ligne ?",
+              "options": [
+                "Ils coûteront plus cher.",
+                "On ne pourra plus se les faire rembourser, mais on pourra les échanger.",
+                "Il faudra les imprimer au guichet.",
+                "Ils seront remboursés jusqu'à 24 heures avant le départ."
+              ],
+              "answer": 1,
+              "explanation": "“Ne seront plus remboursables, mais pourront être échangés sans frais” — no refunds, but free exchanges. The 24-hour limit applies to exchanges, not refunds (trap in D)."
+            }
+          ]
+        },
+        {
+          "id": "d27",
+          "passage": {
+            "label": "Chronique",
+            "paragraphs": [
+              "On présente souvent la marche comme l'exercice du pauvre, celui qu'on pratique faute de mieux. C'est une erreur. Des études récentes montrent que trente minutes de marche rapide par jour réduisent sensiblement les risques de maladies cardiovasculaires, et ce, sans le coût d'un abonnement ni le risque de blessure associé à la course. Le véritable défi n'est pas physique, mais d'organisation : trouver la demi-heure."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q27",
+              "level": "B2",
+              "stem": "Selon le chroniqueur, qu'est-ce qui rend la marche difficile à pratiquer ?",
+              "options": [
+                "Le manque de temps dans la journée",
+                "Le risque de blessure",
+                "Le prix de l'équipement",
+                "Le manque de résultats"
+              ],
+              "answer": 0,
+              "explanation": "“Le véritable défi … d'organisation : trouver la demi-heure” — the challenge is finding the time. He says walking has no subscription cost or injury risk and does produce results."
+            }
+          ]
+        },
+        {
+          "id": "d28",
+          "passage": {
+            "label": "Offre d'emploi",
+            "paragraphs": [
+              "Coordonnateur ou coordonnatrice de projets communautaires",
+              "Vous serez responsable de planifier des activités pour les nouveaux arrivants, de recruter des bénévoles et de rédiger des demandes de subvention. Bilinguisme français-anglais exigé ; la connaissance d'une troisième langue est un atout. Le poste comporte des déplacements occasionnels en région."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q28",
+              "level": "B2",
+              "stem": "Quelle compétence est obligatoire pour ce poste ?",
+              "options": [
+                "Parler une troisième langue",
+                "Maîtriser le français et l'anglais",
+                "Posséder une voiture",
+                "Avoir déjà obtenu une subvention"
+              ],
+              "answer": 1,
+              "explanation": "“Exigé” = required: French–English bilingualism. A third language is only “un atout” (an asset). A car and past grant success are never stated as requirements."
+            }
+          ]
+        },
+        {
+          "id": "d29",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les librairies indépendantes résistent mieux qu'on ne le prévoyait face au commerce en ligne. Leur secret ? Le conseil personnalisé et l'organisation d'événements : lectures, rencontres d'auteurs, clubs de lecture. « Les gens ne viennent pas seulement acheter un livre, ils viennent chercher une recommandation et un lieu de rencontre », explique la propriétaire d'une librairie de Trois-Rivières."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q29",
+              "level": "B2",
+              "stem": "Selon le texte, pourquoi les librairies indépendantes résistent-elles ?",
+              "options": [
+                "Leurs prix sont plus bas qu'en ligne.",
+                "Elles vendent aussi sur Internet.",
+                "Elles offrent des conseils et un lieu de vie sociale.",
+                "Elles reçoivent l'aide de l'État."
+              ],
+              "answer": 2,
+              "explanation": "“Le conseil personnalisé et l'organisation d'événements” — personal advice and events; people come for “une recommandation et un lieu de rencontre.” Prices and subsidies are not mentioned."
+            }
+          ]
+        },
+        {
+          "id": "d30",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Depuis quelques années, les villes multiplient les « rues partagées », où piétons, cyclistes et voitures cohabitent sans trottoirs ni feux de circulation. L'idée peut sembler paradoxale : supprimer la signalisation pour améliorer la sécurité. Elle repose pourtant sur un constat bien documenté : lorsque les règles sont floues, les conducteurs ralentissent et redoublent d'attention. Les détracteurs font toutefois valoir que ce modèle pénalise les personnes malvoyantes, pour qui les repères physiques — bordures, passages piétons — sont indispensables."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q30",
+              "level": "C1",
+              "stem": "Sur quel principe repose le concept des rues partagées ?",
+              "options": [
+                "L'incertitude pousse les automobilistes à être plus prudents.",
+                "Les piétons doivent avoir la priorité absolue.",
+                "Les feux de circulation causent la majorité des accidents.",
+                "Les voitures doivent être interdites en ville."
+              ],
+              "answer": 0,
+              "explanation": "“Lorsque les règles sont floues, les conducteurs ralentissent et redoublent d'attention” — when rules are unclear, drivers slow down and pay more attention. Cars still share the street, so D is wrong."
+            }
+          ]
+        },
+        {
+          "id": "d31",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Il est de bon ton aujourd'hui de déplorer la « fin de la lecture ». Les chiffres, pourtant, invitent à la prudence. Si le temps consacré aux romans a effectivement reculé, jamais on n'a autant lu : messages, articles, fils d'actualité. Ce qui change, c'est moins la quantité que la nature de l'attention — une lecture fragmentée, interrompue, qui se prête mal aux textes longs et exigeants. Le véritable enjeu n'est donc pas de faire lire davantage, mais de préserver la capacité à lire longtemps."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q31",
+              "level": "C1",
+              "stem": "Quelle thèse l'auteur défend-il ?",
+              "options": [
+                "On lit beaucoup moins qu'autrefois.",
+                "Les romans ont disparu de nos habitudes.",
+                "La lecture change de nature, et c'est la concentration prolongée qui est menacée.",
+                "Les messages et les articles ne comptent pas comme de la lecture."
+              ],
+              "answer": 2,
+              "explanation": "“Jamais on n'a autant lu” rejects A; the change is “moins la quantité que la nature de l'attention,” and the real issue is preserving “la capacité à lire longtemps.” Novel reading has declined, not disappeared."
+            }
+          ]
+        },
+        {
+          "id": "d32",
+          "passage": {
+            "label": "Rapport annuel (extrait)",
+            "paragraphs": [
+              "Si la fréquentation de nos refuges a progressé de 12 % cette année, cette hausse ne saurait être interprétée comme un succès. Elle traduit avant tout l'aggravation de la crise du logement, qui pousse vers nos services des personnes qui, il y a encore cinq ans, n'y auraient jamais eu recours : travailleurs à temps plein, familles avec enfants, retraités. Nos capacités d'accueil, elles, n'ont pas augmenté."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q32",
+              "level": "C1",
+              "stem": "Comment l'organisme interprète-t-il la hausse de la fréquentation ?",
+              "options": [
+                "Comme la preuve que ses services sont mieux connus",
+                "Comme le signe d'une dégradation de la situation du logement",
+                "Comme le résultat d'une augmentation de ses capacités",
+                "Comme un phénomène limité aux personnes sans emploi"
+              ],
+              "answer": 1,
+              "explanation": "“Ne saurait être interprétée comme un succès” (cannot be seen as a success); it “traduit l'aggravation de la crise du logement.” Capacity did not increase, and full-time workers are among the new users."
+            }
+          ]
+        },
+        {
+          "id": "d33",
+          "passage": {
+            "label": "Tribune",
+            "paragraphs": [
+              "Le recours croissant à l'intelligence artificielle dans le recrutement suscite des inquiétudes légitimes. Les algorithmes, entraînés sur des données passées, risquent de reproduire les biais des recruteurs d'hier — en écartant, par exemple, les candidatures dont le parcours s'éloigne de la norme. Il serait cependant naïf d'idéaliser le recrutement humain : la littérature scientifique regorge d'exemples de discriminations fondées sur le nom ou l'adresse des candidats. La question n'est donc pas de choisir entre l'humain et la machine, mais de soumettre l'un comme l'autre à des contrôles rigoureux."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q33",
+              "level": "C1",
+              "stem": "Quelle est la conclusion de l'auteur ?",
+              "options": [
+                "L'IA devrait être interdite dans le recrutement.",
+                "Le recrutement humain est plus équitable que l'IA.",
+                "Les algorithmes sont plus objectifs que les humains.",
+                "Les deux méthodes comportent des biais et doivent être contrôlées."
+              ],
+              "answer": 3,
+              "explanation": "The author criticizes both: algorithms reproduce past bias, and it would be “naïf d'idéaliser le recrutement humain.” Conclusion: submit “l'un comme l'autre” (both) to rigorous checks."
+            }
+          ]
+        },
+        {
+          "id": "d34",
+          "passage": {
+            "label": "Éditorial",
+            "paragraphs": [
+              "À l'heure où l'on vante sans réserve les vertus de la mobilité professionnelle, il convient de rappeler ce qu'elle coûte. Changer d'emploi tous les deux ans permet sans doute d'accroître son salaire plus vite ; mais cela prive aussi de l'expertise approfondie qui ne s'acquiert qu'avec le temps, et des réseaux de confiance qui se tissent lentement au sein d'une organisation. La loyauté, longtemps raillée comme une naïveté, pourrait bien redevenir un atout."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q34",
+              "level": "C1",
+              "stem": "Quel est le ton de ce texte à l'égard de la mobilité professionnelle ?",
+              "options": [
+                "Enthousiaste",
+                "Nuancé, voire critique",
+                "Indifférent",
+                "Moqueur envers ceux qui restent fidèles à leur employeur"
+              ],
+              "answer": 1,
+              "explanation": "The author concedes a benefit (“sans doute” faster pay rises) but stresses the costs and defends loyalty. It is loyalty that others have mocked (raillée), not the author."
+            }
+          ]
+        },
+        {
+          "id": "d35",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Le conseil municipal a adopté hier, à une courte majorité, un règlement interdisant l'installation de nouveaux foyers au bois dans les résidences. Les partisans de la mesure invoquent la qualité de l'air, les poêles à bois étant responsables, l'hiver, de près de la moitié des particules fines mesurées en ville. Les opposants, eux, dénoncent une décision prise sans consultation et rappellent qu'en cas de panne d'électricité prolongée, le chauffage au bois demeure, pour certains ménages ruraux, la seule solution de repli. Le règlement ne s'applique pas aux appareils déjà installés."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q35",
+              "level": "C1",
+              "stem": "Laquelle de ces affirmations est conforme au texte ?",
+              "options": [
+                "Les foyers existants devront être retirés.",
+                "Le règlement a été adopté à l'unanimité.",
+                "Les opposants soulignent l'utilité du bois en cas d'urgence.",
+                "Les poêles à bois produisent la majorité des particules fines toute l'année."
+              ],
+              "answer": 2,
+              "explanation": "Opponents say wood heating is “la seule solution de repli” (the only fallback) during long power cuts. Existing stoves are exempt, it passed “à une courte majorité,” and the particle figure is “près de la moitié” in winter only."
+            }
+          ]
+        },
+        {
+          "id": "d36",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "On aurait tort de voir dans la vogue actuelle du « minimalisme » un simple rejet de la société de consommation. À bien des égards, elle en constitue le prolongement : on y achète moins, certes, mais plus cher, et l'on exhibe son dépouillement avec le même soin que d'autres affichaient naguère leur abondance. Le renoncement devient lui-même un signe de distinction — accessible, de surcroît, à ceux-là seuls qui disposent des moyens de choisir."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q36",
+              "level": "C2",
+              "stem": "Que suggère l'auteur à propos du minimalisme ?",
+              "options": [
+                "Il reproduit, sous une autre forme, une logique de distinction sociale.",
+                "Il représente une véritable rupture avec la consommation.",
+                "Il est surtout pratiqué par les personnes à faible revenu.",
+                "Il contribue à réduire les inégalités."
+              ],
+              "answer": 0,
+              "explanation": "Minimalism is “le prolongement” (continuation) of consumer society: renunciation becomes “un signe de distinction,” available only to those who can afford to choose. That rules out B, C and D."
+            }
+          ]
+        },
+        {
+          "id": "d37",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Il n'est pas certain que la multiplication des consultations publiques ait rendu nos démocraties plus participatives. Faute de moyens et d'un réel pouvoir de décision, nombre d'entre elles se réduisent à un exercice de légitimation : on consulte une fois les grandes orientations arrêtées, et l'on s'étonne ensuite de la faible mobilisation des citoyens. Ce n'est pas l'apathie qui décourage la participation, c'est le soupçon, souvent fondé, que les jeux sont faits."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q37",
+              "level": "C2",
+              "stem": "Selon l'auteur, pourquoi les citoyens participent-ils peu aux consultations ?",
+              "options": [
+                "Ils se désintéressent naturellement de la vie publique.",
+                "Ils pensent, souvent à juste titre, que les décisions sont déjà prises.",
+                "Les consultations sont trop nombreuses.",
+                "Ils manquent d'information sur les sujets abordés."
+              ],
+              "answer": 1,
+              "explanation": "“Ce n'est pas l'apathie … c'est le soupçon, souvent fondé, que les jeux sont faits” — “les jeux sont faits” means the outcome is already decided; “souvent fondé” = often justified. The text explicitly rejects apathy (A)."
+            }
+          ]
+        },
+        {
+          "id": "d38",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "La traduction littéraire est souvent présentée comme un art de la fidélité. Encore faut-il s'entendre sur l'objet de cette fidélité. Rester collé à la lettre du texte, c'est parfois trahir son rythme, son humour, ses sous-entendus ; à l'inverse, privilégier l'effet produit sur le lecteur autorise des libertés qui confinent à la réécriture. Le bon traducteur n'est pas celui qui tranche une fois pour toutes ce dilemme, mais celui qui le renégocie à chaque phrase."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q38",
+              "level": "C2",
+              "stem": "Quelle idée l'auteur exprime-t-il ?",
+              "options": [
+                "Une bonne traduction suit le texte original mot à mot.",
+                "Le traducteur doit avant tout réécrire le texte à sa manière.",
+                "La fidélité en traduction est impossible et inutile.",
+                "Le traducteur doit sans cesse arbitrer entre exactitude littérale et effet produit."
+              ],
+              "answer": 3,
+              "explanation": "Both extremes have a cost (literalness betrays rhythm and humour; freedom borders on rewriting). The good translator “le renégocie à chaque phrase” — re-decides the balance sentence by sentence."
+            }
+          ]
+        },
+        {
+          "id": "d39",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Qu'une langue emprunte des mots à une autre n'a, en soi, rien d'alarmant : c'est même le signe d'une langue vivante. Le français a puisé sans complexe dans l'italien, l'arabe ou l'anglais au fil des siècles. Ce qui devrait davantage inquiéter les défenseurs du français, ce n'est pas l'emprunt lexical, mais le recul de la langue dans les domaines où se fabrique le savoir — la recherche scientifique, l'enseignement supérieur, le monde des affaires. Une langue qu'on ne parle plus que dans l'intimité finit par ne plus pouvoir tout dire."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t1-q39",
+              "level": "C2",
+              "stem": "Selon l'auteur, quel est le véritable danger pour le français ?",
+              "options": [
+                "L'emprunt de mots anglais dans la vie quotidienne",
+                "L'influence historique de l'italien et de l'arabe",
+                "Son recul dans les domaines où se produisent les connaissances",
+                "Le manque de mots nouveaux"
+              ],
+              "answer": 2,
+              "explanation": "Borrowing is “rien d'alarmant”; the real worry is “le recul de la langue dans les domaines où se fabrique le savoir” — research, higher education, business. A and B describe borrowing, which the author defends."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

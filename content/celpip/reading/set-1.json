@@ -1,0 +1,540 @@
+{
+  "id": "celpip-reading-1",
+  "exam": "celpip",
+  "title": "CELPIP Reading — Practice Set 1",
+  "summary": "A community garden, summer day camps, urban beekeeping and fare-free transit.",
+  "parts": [
+    {
+      "id": "p1",
+      "title": "Part 1: Reading Correspondence",
+      "minutes": 11,
+      "instructions": "Read a message and answer questions about it, then complete the reply.",
+      "sections": [
+        {
+          "id": "p1-message",
+          "instructions": "Read the following message. Choose the best option to complete each statement.",
+          "passage": {
+            "label": "Email",
+            "meta": [
+              { "label": "From", "value": "Marisol Vega" },
+              { "label": "To", "value": "Daniel Okafor" },
+              { "label": "Subject", "value": "Community garden plot" }
+            ],
+            "paragraphs": [
+              "Hi Daniel,",
+              "I hope you and the kids have settled in. It was lovely to finally meet you at the building barbecue last weekend. You mentioned that you were thinking about getting a plot at the Elmwood Community Garden, so I wanted to pass along a few things I've learned in my four years there.",
+              "First, the waiting list moves faster than people expect. The coordinator told everyone it could take a year, but I got my plot after just three months, because a lot of people sign up and then never respond when their name comes up. So make sure you check your email regularly once you've applied — you only get five days to confirm.",
+              "The yearly fee is $45, but don't let that put you off. It covers water, the shared tools in the shed, and a load of compost every spring. Honestly, I spend more than that on coffee in a month. What does cost money is fencing. The rabbits are terrible on the east side, so if you're offered a plot there, budget an extra $60 or so for chicken wire.",
+              "There's also a work-party rule: each member has to put in six volunteer hours per season, doing things like weeding the paths or helping at the fall harvest sale. I actually enjoy it — it's how I've met most of my friends in the neighbourhood.",
+              "One more thing. I'm going to be away for most of July visiting my sister in Halifax, and I need someone to water my tomatoes. If you get a plot before then, maybe we could help each other out? I'd be happy to return the favour any time.",
+              "Let me know if you have any questions. I'm usually at the garden on Saturday mornings.",
+              "Marisol"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s1-q1",
+              "stem": "Marisol is writing mainly to",
+              "options": [
+                "welcome Daniel to the building.",
+                "share advice about joining the community garden.",
+                "ask Daniel to join a volunteer work party.",
+                "invite Daniel to a barbecue."
+              ],
+              "answer": 1,
+              "explanation": "After a short greeting she says she wants to “pass along a few things I've learned” about the garden, and the rest of the email is that advice. The welcome and the barbecue are only the opening, and the work party is one detail among several."
+            },
+            {
+              "id": "s1-q2",
+              "stem": "According to Marisol, the coordinator's estimate of the wait was",
+              "options": [
+                "accurate for most new members.",
+                "shorter than the real wait.",
+                "longer than the wait she actually had.",
+                "based on how many people confirm."
+              ],
+              "answer": 2,
+              "explanation": "The coordinator said it “could take a year,” but Marisol got her plot “after just three months.” So the estimate was longer than her real wait, not shorter or accurate."
+            },
+            {
+              "id": "s1-q3",
+              "stem": "An applicant can lose their chance at a plot if they",
+              "options": [
+                "do not reply within five days when their name comes up.",
+                "apply more than once.",
+                "miss the spring compost delivery.",
+                "do not pay the fee in advance."
+              ],
+              "answer": 0,
+              "explanation": "She warns Daniel to check his email because “you only get five days to confirm.” The list moves fast precisely because people who don't respond are skipped. Nothing is said about duplicate applications or paying in advance."
+            },
+            {
+              "id": "s1-q4",
+              "stem": "Marisol compares the yearly fee to what she spends on coffee to show that",
+              "options": [
+                "she drinks too much coffee.",
+                "the fee is reasonable for what it includes.",
+                "the fee has gone up recently.",
+                "gardening saves her money on food."
+              ],
+              "answer": 1,
+              "explanation": "She says “don't let that put you off,” lists what the $45 covers (water, tools, compost), and adds that she spends more on coffee in a month. The comparison makes the point that the fee is small and good value."
+            },
+            {
+              "id": "s1-q5",
+              "stem": "A member with a plot on the east side should expect to",
+              "options": [
+                "pay a higher yearly fee.",
+                "get less water than other members.",
+                "buy extra material to keep animals out.",
+                "wait longer for a plot."
+              ],
+              "answer": 2,
+              "explanation": "“The rabbits are terrible on the east side,” so she suggests budgeting about $60 for chicken wire. The fee is the same for everyone, and water and waiting time are not linked to the east side."
+            },
+            {
+              "id": "s1-q6",
+              "stem": "What does Marisol suggest about July?",
+              "options": [
+                "She will help Daniel apply for a plot.",
+                "Daniel could come with her to Halifax.",
+                "The garden closes for most of the month.",
+                "She and Daniel could take turns caring for each other's plants."
+              ],
+              "answer": 3,
+              "explanation": "She needs someone to water her tomatoes while she is away and asks “maybe we could help each other out?”, adding she'd “return the favour any time.” That is an offer to swap plant care, not a trip together or a closure."
+            }
+          ]
+        },
+        {
+          "id": "p1-reply",
+          "instructions": "Here is Daniel's reply. Complete it by choosing the best option for each blank.",
+          "passage": {
+            "label": "Reply",
+            "meta": [
+              { "label": "From", "value": "Daniel Okafor" },
+              { "label": "To", "value": "Marisol Vega" },
+              { "label": "Subject", "value": "RE: Community garden plot" }
+            ],
+            "paragraphs": [
+              "Hi Marisol,",
+              "Thanks so much for your email — it was exactly what I needed. I sent in my application on Monday, and I've already [[s1-q7]] so I don't miss the confirmation message.",
+              "The fee sounds very fair. I was more worried about the volunteer hours, to be honest, because I work some weekends. But if the jobs are things like [[s1-q8]], I'm sure I can fit them in, and it sounds like a good way to get to know people.",
+              "Thanks for the warning about the rabbits. If I end up on the [[s1-q9]], I'll pick up some chicken wire before I plant anything.",
+              "As for July, I'd be glad to help. I'll be in town all summer, so [[s1-q10]]. In return, maybe you could give me some tips on growing tomatoes, since I've never managed to keep them alive!",
+              "I'll try to drop by the garden [[s1-q11]] so you can show me around.",
+              "Daniel"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s1-q7",
+              "options": [
+                "paid the yearly fee",
+                "set up an alert for emails from the garden",
+                "called the coordinator to complain",
+                "bought my own set of tools"
+              ],
+              "answer": 1,
+              "explanation": "The blank must explain how he will avoid missing the confirmation message, which Marisol said must be answered within five days. An email alert does that. The fee isn't due yet, and tools are shared in the shed."
+            },
+            {
+              "id": "s1-q8",
+              "options": [
+                "weeding paths or helping at the harvest sale",
+                "building fences for other members",
+                "delivering compost every spring",
+                "managing the waiting list"
+              ],
+              "answer": 0,
+              "explanation": "Marisol described the volunteer jobs as “weeding the paths or helping at the fall harvest sale.” Daniel is repeating her examples. The other tasks were never mentioned as volunteer work."
+            },
+            {
+              "id": "s1-q9",
+              "options": [
+                "waiting list for another year",
+                "committee that runs the harvest sale",
+                "side of the garden near the shed",
+                "east side of the garden"
+              ],
+              "answer": 3,
+              "explanation": "He mentions chicken wire right after thanking her for the rabbit warning. Marisol said the rabbits are bad on the east side, so that is where he'd need the wire."
+            },
+            {
+              "id": "s1-q10",
+              "options": [
+                "I can't promise anything yet",
+                "watering your tomatoes won't be a problem",
+                "you should ask the coordinator instead",
+                "I'll be visiting Halifax as well"
+              ],
+              "answer": 1,
+              "explanation": "“I'd be glad to help” and “I'll be in town all summer” lead to agreeing to water her tomatoes. The other options contradict being glad to help or being in town."
+            },
+            {
+              "id": "s1-q11",
+              "options": [
+                "on a Saturday morning",
+                "on a weekday evening",
+                "during the harvest sale",
+                "after you get back in August"
+              ],
+              "answer": 0,
+              "explanation": "He wants her to show him around, so he must come when she is there. Marisol said she is “usually at the garden on Saturday mornings.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p2",
+      "title": "Part 2: Reading to Apply a Diagram",
+      "minutes": 9,
+      "instructions": "Read the diagram and the email. Complete the email, then answer the questions.",
+      "sections": [
+        {
+          "id": "p2-diagram",
+          "instructions": "Use the diagram to complete the email by choosing the best option for each blank. Then answer the questions below.",
+          "passage": {
+            "label": "Diagram and email",
+            "diagram": {
+              "caption": "Riverside Recreation Centre — Summer Day Camps (ages 6–12)",
+              "columns": ["Camp", "Ages", "Dates", "Daily hours", "Cost per week", "Notes"],
+              "rows": [
+                ["Splash & Swim", "6–9", "July 2 – Aug 23", "9:00 – 3:00", "$210", "Swimming lessons included; bring a swimsuit daily"],
+                ["Junior Chefs", "8–12", "July 8 – Aug 9", "9:30 – 2:30", "$265", "Nut-free kitchen; all ingredients supplied"],
+                ["Robotics Lab", "10–12", "July 15 – Aug 23", "9:00 – 4:00", "$295", "Laptops provided; maximum 12 campers"],
+                ["Outdoor Explorers", "6–12", "July 2 – Aug 30", "8:30 – 4:30", "$240", "Off-site hikes on Thursdays; extended care until 6:00 for $35 per child per week"]
+              ],
+              "notes": [
+                "10% off the camp fee for a second child registered in the same week (does not apply to extended care).",
+                "Registration closes 10 days before each camp week."
+              ]
+            },
+            "meta": [
+              { "label": "From", "value": "Lena" },
+              { "label": "To", "value": "Tom" },
+              { "label": "Subject", "value": "Summer camps for the kids" }
+            ],
+            "paragraphs": [
+              "Hi Tom,",
+              "I've been looking at the summer camp list from the rec centre. Since we both work until five, we need something that covers the whole day, so I think [[s1-q12]] is our best option. Maya would love the hikes, and Leo can join too, since it takes kids from [[s1-q13]].",
+              "With the sibling discount, the second child's week would cost [[s1-q14]] instead of the full price. The extended care is extra, but we'd need it [[s1-q15]].",
+              "I know Leo has been begging to do Robotics Lab, but he's only eight, so [[s1-q16]]. Maybe in a couple of years.",
+              "Can you check your work calendar? Registration closes ten days before each week, so we should sign up soon.",
+              "Lena"
+            ]
+          },
+          "questions": [
+            {
+              "id": "s1-q12",
+              "options": ["Splash & Swim", "Junior Chefs", "Robotics Lab", "Outdoor Explorers"],
+              "answer": 3,
+              "explanation": "They need full-day coverage and Maya “would love the hikes.” Only Outdoor Explorers has hikes, and it has the longest hours (8:30–4:30) plus extended care until 6:00."
+            },
+            {
+              "id": "s1-q13",
+              "options": ["six to nine", "six to twelve", "eight to twelve", "ten to twelve"],
+              "answer": 1,
+              "explanation": "The Ages column for Outdoor Explorers says 6–12. The other ranges belong to the other camps."
+            },
+            {
+              "id": "s1-q14",
+              "options": ["$216", "$210", "$240", "$264"],
+              "answer": 0,
+              "explanation": "Outdoor Explorers costs $240 a week. A 10% discount is $24, so the second child pays $240 − $24 = $216. $210 is the Splash & Swim price."
+            },
+            {
+              "id": "s1-q15",
+              "options": [
+                "only on Thursdays",
+                "on rainy days",
+                "because we can't get there by 4:30",
+                "for Maya but not for Leo"
+              ],
+              "answer": 2,
+              "explanation": "The camp ends at 4:30 and both parents work until five, so they can't pick the children up in time without extended care, which runs until 6:00."
+            },
+            {
+              "id": "s1-q16",
+              "options": [
+                "the laptops wouldn't be safe with him",
+                "he'll have to wait until he's ten",
+                "it's already full",
+                "it would cost us less"
+              ],
+              "answer": 1,
+              "explanation": "Robotics Lab is for ages 10–12. At eight, Leo is too young, so he must wait until he is ten (“Maybe in a couple of years”). The diagram says nothing about it being full."
+            },
+            {
+              "id": "s1-q17",
+              "stem": "Why would Junior Chefs not suit Lena's family?",
+              "options": [
+                "It finishes at 2:30, long before the parents finish work.",
+                "Its kitchen is not nut-free.",
+                "It only accepts children aged ten and up.",
+                "Parents must supply the ingredients."
+              ],
+              "answer": 0,
+              "explanation": "Junior Chefs runs 9:30–2:30, and Lena says they need full-day coverage because they work until five. It is nut-free, takes ages 8–12, and supplies ingredients, so the other options are false."
+            },
+            {
+              "id": "s1-q18",
+              "stem": "How much would one week of Outdoor Explorers cost for both children, including extended care for both?",
+              "options": ["$480", "$491", "$526", "$550"],
+              "answer": 2,
+              "explanation": "Camp: $240 + $216 (second child, 10% off) = $456. Extended care is $35 per child and isn't discounted: $70. Total $456 + $70 = $526."
+            },
+            {
+              "id": "s1-q19",
+              "stem": "What does Lena ask Tom to do?",
+              "options": [
+                "Register the children today.",
+                "Ask Leo which camp he prefers.",
+                "Call the rec centre about the discount.",
+                "Check his schedule at work."
+              ],
+              "answer": 3,
+              "explanation": "She writes “Can you check your work calendar?” She mentions signing up soon, but she doesn't ask him to register today."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p3",
+      "title": "Part 3: Reading for Information",
+      "minutes": 10,
+      "instructions": "Read the passage. Decide which paragraph contains the information in each statement.",
+      "sections": [
+        {
+          "id": "p3-passage",
+          "instructions": "For each statement, choose the paragraph (A, B, C or D) that contains the information. If it is in none of them, choose E.",
+          "passage": {
+            "label": "Article",
+            "heading": "The Buzz Above the City",
+            "lettered": true,
+            "paragraphs": [
+              "When the city of Halton Ridge first allowed residents to keep honeybees in 2015, only eleven households applied for permits. Today there are more than four hundred registered hives within city limits, most of them on rooftops and in backyards. Officials say the original bylaw was written cautiously because neighbours were worried about stings, but complaints have stayed surprisingly rare: the city received only six last year, and none involved a serious injury.",
+              "Supporters argue that urban hives help gardens and parks by pollinating fruit trees and flowers. Researchers at the local college, however, have raised a less obvious concern. Honeybees compete with the region's two hundred or so species of wild bees for the same flowers, and in neighbourhoods where hives are densely packed, wild bee numbers appear to drop. The researchers do not recommend banning hives, but they suggest the city limit how many can be kept on a single block.",
+              "Beginners are often surprised by how much the hobby costs. A basic hive with protective clothing and tools runs to about $600, and many new beekeepers lose their first colony over the winter. The Halton Ridge Beekeepers' Association runs a mentorship program that pairs newcomers with experienced members for their first season. According to the association, beginners who complete the program are twice as likely to have a colony survive its first winter.",
+              "Honey from city hives has also found a market. Several farmers' markets now sell “neighbourhood honey,” labelled with the postal code where it was produced, and buyers say the flavour changes noticeably from one area to another, depending on which trees and flowers grow nearby. Some restaurants have even placed hives on their own roofs and use the honey in desserts and salad dressings."
+            ]
+          },
+          "options": ["A", "B", "C", "D", "E — Not given in any of the paragraphs"],
+          "questions": [
+            {
+              "id": "s1-q20",
+              "stem": "Few people were interested in beekeeping when it first became legal.",
+              "answer": 0,
+              "explanation": "Paragraph A: in 2015, when the city first allowed it, “only eleven households applied for permits.”"
+            },
+            {
+              "id": "s1-q21",
+              "stem": "City bees may reduce the number of other kinds of bees.",
+              "answer": 1,
+              "explanation": "Paragraph B: honeybees compete with wild bees, and where hives are dense, “wild bee numbers appear to drop.”"
+            },
+            {
+              "id": "s1-q22",
+              "stem": "Guidance from an experienced keeper improves a beginner's results.",
+              "answer": 2,
+              "explanation": "Paragraph C: beginners in the mentorship program are “twice as likely to have a colony survive its first winter.”"
+            },
+            {
+              "id": "s1-q23",
+              "stem": "The taste of honey depends on where it is produced.",
+              "answer": 3,
+              "explanation": "Paragraph D: the flavour “changes noticeably from one area to another, depending on which trees and flowers grow nearby.”"
+            },
+            {
+              "id": "s1-q24",
+              "stem": "The city charges a yearly fee for a beekeeping permit.",
+              "answer": 4,
+              "explanation": "Paragraph A mentions permits, but no paragraph says anything about a fee for them. The $600 in C is the cost of equipment, not a permit."
+            },
+            {
+              "id": "s1-q25",
+              "stem": "Experts have proposed a rule on how many hives can be kept in one area.",
+              "answer": 1,
+              "explanation": "Paragraph B: the researchers “suggest the city limit how many can be kept on a single block.”"
+            },
+            {
+              "id": "s1-q26",
+              "stem": "Problems with neighbours have been less common than expected.",
+              "answer": 0,
+              "explanation": "Paragraph A: the bylaw was cautious because of worries about stings, but complaints “have stayed surprisingly rare.”"
+            },
+            {
+              "id": "s1-q27",
+              "stem": "Some businesses keep bees to supply their own kitchens.",
+              "answer": 3,
+              "explanation": "Paragraph D: some restaurants have hives on their roofs and use the honey in desserts and dressings."
+            },
+            {
+              "id": "s1-q28",
+              "stem": "New colonies are at risk during the cold months.",
+              "answer": 2,
+              "explanation": "Paragraph C: “many new beekeepers lose their first colony over the winter.”"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p4",
+      "title": "Part 4: Reading for Viewpoints",
+      "minutes": 13,
+      "instructions": "Read the article and answer the questions, then complete a reader's comment about it.",
+      "sections": [
+        {
+          "id": "p4-article",
+          "instructions": "Read the article. Choose the best answer to each question.",
+          "passage": {
+            "label": "Article",
+            "heading": "Fare-Free Transit: A Ticket to Nowhere?",
+            "paragraphs": [
+              "Last month, the city council of Marlow Bay voted to study whether its buses should become free to ride. The idea is not new. Several mid-sized cities in Europe and North America have removed fares in the past decade, and supporters point to impressive results. In one French city, ridership rose by more than 60 percent within two years, and downtown businesses reported more foot traffic.",
+              "Councillor Amira Haddad, who proposed the study, argues that fares are a tax on the people who can least afford them. “A monthly pass costs $98 here,” she said at the meeting. “For a family living on minimum wage, that can be the difference between getting to a job interview and staying home.” She also notes that collecting fares is expensive in itself: the city spends about $3 million a year on fare machines, card systems and enforcement staff.",
+              "Not everyone is convinced. Transit planner Gregory Lin, who has worked for three transit agencies, says the ridership figures can be misleading. “When you look closely, many of the new riders were people who used to walk or cycle, not drive,” he said. “If the goal is to reduce traffic and emissions, free fares aren't the most effective tool. Frequent, reliable service is.” Lin points out that fares currently cover about a third of Marlow Bay's operating budget, and that money would have to come from property taxes instead.",
+              "Lin's alternative is targeted discounts: free or reduced fares for low-income residents, seniors and students, combined with more buses on the busiest routes. Haddad's supporters reply that discount programs come with paperwork that discourages exactly the people they are meant to help. Many eligible residents never apply, they say, because the process is confusing or asks for documents they don't have.",
+              "The study is expected to take eight months. In the meantime, the council has agreed to run a free-fare trial on two routes this summer — a compromise that both sides have cautiously welcomed."
+            ]
+          },
+          "questions": [
+            {
+              "id": "s1-q29",
+              "stem": "What is Councillor Haddad's main objection to fares?",
+              "options": [
+                "They hurt low-income residents the most.",
+                "They are higher than in other cities.",
+                "They keep tourists away.",
+                "They make buses slower."
+              ],
+              "answer": 0,
+              "explanation": "She calls fares “a tax on the people who can least afford them” and gives the example of a minimum-wage family. She never compares prices with other cities or mentions tourists or speed."
+            },
+            {
+              "id": "s1-q30",
+              "stem": "According to Haddad, removing fares would also",
+              "options": [
+                "bring more shoppers downtown.",
+                "save money that is now spent on collecting them.",
+                "lower property taxes.",
+                "create jobs in fare enforcement."
+              ],
+              "answer": 1,
+              "explanation": "She says collecting fares is expensive — about $3 million a year on machines, card systems and enforcement. The extra downtown foot traffic is a result from a French city reported by supporters, not Haddad's argument, and it is Lin who raises property taxes, as a cost."
+            },
+            {
+              "id": "s1-q31",
+              "stem": "Gregory Lin says the higher ridership in other cities",
+              "options": [
+                "came mostly from people who had stopped driving.",
+                "did not last more than two years.",
+                "came largely from people who used to walk or cycle.",
+                "was caused by more frequent service."
+              ],
+              "answer": 2,
+              "explanation": "Lin: “many of the new riders were people who used to walk or cycle, not drive.” That is why he calls the figures misleading. Option A says the opposite."
+            },
+            {
+              "id": "s1-q32",
+              "stem": "What criticism is made of Lin's proposal?",
+              "options": [
+                "It would cost more than free fares.",
+                "It leaves out seniors and students.",
+                "It would cut service on busy routes.",
+                "People who qualify often don't apply because the process is hard."
+              ],
+              "answer": 3,
+              "explanation": "Haddad's supporters say discount programs come with paperwork, so many eligible residents never apply. Lin's plan explicitly includes seniors and students and adds buses on busy routes."
+            },
+            {
+              "id": "s1-q33",
+              "stem": "What has the council decided to do while the study takes place?",
+              "options": [
+                "Lower the price of a monthly pass.",
+                "Make a few routes free for a limited time.",
+                "Add buses on the busiest routes.",
+                "Start a discount program for students."
+              ],
+              "answer": 1,
+              "explanation": "The last paragraph: a free-fare trial “on two routes this summer.” Adding buses and student discounts are Lin's suggestions, not council decisions."
+            }
+          ]
+        },
+        {
+          "id": "p4-comment",
+          "instructions": "Here is a reader's response to the article. Complete it by choosing the best option for each blank.",
+          "passage": {
+            "label": "Reader comment",
+            "paragraphs": [
+              "I've ridden the number 14 bus to work for six years, and I have mixed feelings about this. Councillor Haddad is right that $98 a month is a lot. When I was a student, [[s1-q34]]. On the other hand, Mr. Lin makes a fair point. The real problem with our system isn't the price; it's that [[s1-q35]]. If the buses came every ten minutes instead of every thirty, I think far more drivers would switch.",
+              "I'm also not sure the city can afford it. If a third of the budget disappears, [[s1-q36]]. I'd rather pay a fare than see my property taxes jump.",
+              "That said, Lin's discount idea isn't perfect either. My neighbour qualified for a low-income pass last year but [[s1-q37]].",
+              "So I'm glad the council is [[s1-q38]] before making a final decision. Let's see what the numbers actually show."
+            ]
+          },
+          "questions": [
+            {
+              "id": "s1-q34",
+              "options": [
+                "I usually drove to campus",
+                "the bus was free for everyone",
+                "I often walked an hour to save the fare",
+                "I never took the bus at all"
+              ],
+              "answer": 2,
+              "explanation": "The sentence supports Haddad's point that $98 is a lot. Walking an hour to avoid paying shows the fare was a real burden. The other options don't show the price mattering."
+            },
+            {
+              "id": "s1-q35",
+              "options": [
+                "the buses don't come often enough",
+                "the drivers are unfriendly",
+                "the fare machines often break",
+                "there are too many riders"
+              ],
+              "answer": 0,
+              "explanation": "The next sentence — buses every ten minutes instead of every thirty — shows the problem is frequency. This matches Lin's view that “frequent, reliable service” matters more than price."
+            },
+            {
+              "id": "s1-q36",
+              "options": [
+                "fares will go up",
+                "someone will have to make up the difference",
+                "buses will run more often",
+                "the council will cancel the study"
+              ],
+              "answer": 1,
+              "explanation": "Fares cover a third of the budget, so removing them leaves a gap that must be paid for elsewhere; the next sentence names property taxes. “Fares will go up” makes no sense if fares are removed."
+            },
+            {
+              "id": "s1-q37",
+              "options": [
+                "used it every day",
+                "moved to another city",
+                "decided she preferred to drive",
+                "gave up when asked for documents she didn't have"
+              ],
+              "answer": 3,
+              "explanation": "The writer is giving an example of why the discount idea “isn't perfect.” This repeats the article's criticism that eligible people don't apply because the process asks for documents they lack."
+            },
+            {
+              "id": "s1-q38",
+              "options": [
+                "testing the idea on a couple of routes",
+                "cancelling the study",
+                "raising fares this summer",
+                "hiring more enforcement staff"
+              ],
+              "answer": 0,
+              "explanation": "“Before making a final decision” and “see what the numbers show” point to the summer trial on two routes described at the end of the article."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
