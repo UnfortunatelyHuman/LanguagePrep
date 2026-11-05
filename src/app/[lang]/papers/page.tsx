@@ -27,7 +27,7 @@ export default async function PapersPage({ params }: PageProps<"/[lang]/papers">
   return (
     <div className="flex flex-col gap-8">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · My papers</p>
+        <p className="text-xs font-medium text-muted">{exam} · My papers</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">Add your own papers</h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
           Type in reading or listening questions from a prep book, a class or your own notes. They run in the same

@@ -19,13 +19,13 @@ export function TrackSwitch({ current }: { current: Track }) {
             href={`/${track}`}
             aria-current={isCurrent ? "page" : undefined}
             data-track={track}
-            className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+            className={`rounded-full px-3 py-1 text-sm font-semibold transition-colors ${
               isCurrent
-                ? "bg-accent text-white"
+                ? "bg-accent text-accent-ink"
                 : "text-muted hover:text-foreground"
             }`}
           >
-            <span className="font-mono">{EXAM_TRACKS[track].shortLabel}</span>
+            <span>{EXAM_TRACKS[track].shortLabel}</span>
             <span className="sr-only"> — {EXAM_TRACKS[track].exam}</span>
           </Link>
         );

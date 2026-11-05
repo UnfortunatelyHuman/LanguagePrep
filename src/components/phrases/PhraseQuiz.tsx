@@ -103,7 +103,7 @@ export function PhraseQuiz({
       </div>
 
       <div>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           {card.saved ? "Say it better" : "Which phrase fits?"}
         </p>
         <p lang={card.saved ? lang : undefined} className="mt-1 text-base">

@@ -33,5 +33,12 @@ tick items as they land and note anything half-done under "In flight".
 - [x] Manual browser test as a user (headless Chrome via puppeteer; speaking with stubbed mic/recognition)
 - [x] Code review (3 agents: AI/writing/generate, speaking, progress/plan/mock/phrases) and fixes
 
+## Phase 8: UX and new tools
+- [x] App shell: grouped nav with More menu, phone tab bar (hidden in test runners), light/dark/system theme, bundled Atkinson Hyperlegible fonts
+- [x] Dashboard: today's next step, CLB/NCLC ladders, ready-to-book verdict, streak + heatmap (`lib/today-plan.ts`, `lib/activity.ts`)
+- [x] Mistakes notebook with retries (`MistakeReview` model, migration `20261105220000_mistake_review`)
+- [x] CRS language-points calculator (`lib/crs.ts`, tables from canada.ca, checked 2026-11-05)
+- [x] TCF accent bar in the writing editor; app icon + web manifest; `npm run phone`
+
 ## In flight
 - All phases and quality gates done. Remaining ideas are listed in the final summary, not required.

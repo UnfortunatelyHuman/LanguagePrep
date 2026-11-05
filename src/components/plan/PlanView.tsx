@@ -1,11 +1,9 @@
 import Link from "next/link";
 import { PlanSettingsForm } from "@/components/plan/PlanSettingsForm";
 import type { Track } from "@/lib/exams";
-import { testSets, totalMinutes } from "@/lib/practice/content";
-import { progressSummary } from "@/lib/progress";
-import { buildStudyPlan, type PlanBlock } from "@/lib/study-plan";
-import { latestMock, studySettings } from "@/lib/study-settings";
-import { timeZoneNames, wallClock } from "@/lib/time-zone";
+import type { PlanBlock } from "@/lib/study-plan";
+import { timeZoneNames } from "@/lib/time-zone";
+import { todayPlan } from "@/lib/today-plan";
 
 const ICONS: Record<PlanBlock["skill"], string> = {
   listening: "🎧",
@@ -34,42 +32,15 @@ const utcIso = (d: Date) => d.toISOString().slice(0, 10);
 
 /** Today's plan, the countdown, and the settings that drive them. */
 export async function PlanView({ track }: { track: Track }) {
-  const [summary, settings, lastMock] = await Promise.all([
-    progressSummary(track),
-    studySettings(track),
-    latestMock(track),
-  ]);
-  // Read after the database calls, so it's request time, not build time. Every
-  // date the plan compares is shifted to the learner's zone, so "today" and
-  // "3 days ago" follow their calendar rather than the server's.
+  const { plan, settings, today } = await todayPlan(track);
   const zone = settings.timeZone;
-  const today = wallClock(new Date(), zone);
-  const skills = summary.skills.map((s) =>
-    s.latest ? { ...s, latest: { ...s.latest, date: wallClock(s.latest.date, zone) } } : s,
-  );
-
-  const sets = Object.fromEntries(
-    (["listening", "reading"] as const).map((skill) => [
-      skill,
-      testSets(track, skill).map((s) => ({ id: s.id, minutes: totalMinutes(s) })),
-    ]),
-  );
-  const plan = buildStudyPlan({
-    track,
-    skills,
-    target: summary.target,
-    settings,
-    today,
-    sets,
-    lastMock: lastMock && { ...lastMock, startedAt: wallClock(lastMock.startedAt, zone) },
-  });
   const total = plan.blocks.reduce((n, b) => n + b.minutes, 0);
 
   return (
     <div className="flex flex-col gap-6">
       <div className="grid gap-4 sm:grid-cols-[auto_1fr]">
         <div className="rounded-xl border border-border bg-surface p-5 text-center sm:min-w-44">
-          <p className="text-xs font-medium uppercase tracking-wider text-muted">Exam in</p>
+          <p className="text-xs font-medium text-muted">Exam in</p>
           <p className="mt-1 text-4xl font-semibold tracking-tight text-accent">
             {plan.daysLeft === null ? "—" : plan.daysLeft}
           </p>

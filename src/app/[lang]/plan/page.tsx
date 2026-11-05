@@ -14,7 +14,7 @@ export default async function PlanPage({ params }: PageProps<"/[lang]/plan">) {
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · Study plan</p>
+        <p className="text-xs font-medium text-muted">{exam} · Study plan</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">Today&apos;s study plan</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted">
           Your goal: {goal}. The plan puts your weakest and least recently practised skills first, and

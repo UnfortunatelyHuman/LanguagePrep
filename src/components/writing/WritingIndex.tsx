@@ -45,7 +45,7 @@ export function WritingIndex({ track }: { track: Track }) {
   return (
     <div className="flex flex-col gap-8">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           {exam} · {info.name}
         </p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">Writing practice</h1>

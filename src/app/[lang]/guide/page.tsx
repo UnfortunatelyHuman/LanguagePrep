@@ -17,7 +17,7 @@ function SkillGuide({ track, skill }: { track: Track; skill: GuideSkill }) {
 
       <div className="overflow-x-auto">
         <table className="w-full min-w-[32rem] text-left text-sm">
-          <thead className="text-xs uppercase tracking-wider text-muted">
+          <thead className="text-xs text-muted">
             <tr className="border-b border-border">
               <th className="py-2 pr-3 font-medium">Part</th>
               <th className="py-2 pr-3 font-medium">Size</th>
@@ -70,7 +70,7 @@ export default async function GuidePage({ params }: PageProps<"/[lang]/guide">) 
   return (
     <div className="flex flex-col gap-8">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{examFull} · Exam guide</p>
+        <p className="text-xs font-medium text-muted">{examFull} · Exam guide</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">How the {examFull} works</h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
           The structure, timing and scoring of each part, what the questions test, and how to approach them. The
@@ -82,7 +82,7 @@ export default async function GuidePage({ params }: PageProps<"/[lang]/guide">) 
       <dl className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {guide.facts.map((fact) => (
           <div key={fact.label} className="rounded-xl border border-border bg-surface p-4">
-            <dt className="text-xs font-medium uppercase tracking-wider text-muted">{fact.label}</dt>
+            <dt className="text-xs font-medium text-muted">{fact.label}</dt>
             <dd className="mt-1 text-sm leading-relaxed">{fact.value}</dd>
           </div>
         ))}
@@ -110,7 +110,7 @@ export default async function GuidePage({ params }: PageProps<"/[lang]/guide">) 
         <h2 className="text-xl font-semibold tracking-tight">{guide.levels.title}</h2>
         <div className="overflow-x-auto">
           <table className="w-full min-w-[28rem] text-left text-sm">
-            <thead className="text-xs uppercase tracking-wider text-muted">
+            <thead className="text-xs text-muted">
               <tr className="border-b border-border">
                 {guide.levels.columns.map((c) => (
                   <th key={c} className="py-2 pr-3 font-medium">

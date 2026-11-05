@@ -37,7 +37,7 @@ export function PracticeIndex({ track, skill }: { track: Track; skill: PracticeS
   return (
     <div className="flex flex-col gap-8">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           {exam} · {info.name}
         </p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">{TITLES[skill]}</h1>

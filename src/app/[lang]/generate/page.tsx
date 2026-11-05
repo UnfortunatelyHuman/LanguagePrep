@@ -16,7 +16,7 @@ export default async function GeneratePage({ params }: PageProps<"/[lang]/genera
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · New AI sets</p>
+        <p className="text-xs font-medium text-muted">{exam} · New AI sets</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">Fresh practice sets</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted">
           Ran out of prompts? The AI writes a new, original set in the real exam format (timings and word

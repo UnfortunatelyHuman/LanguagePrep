@@ -28,7 +28,7 @@ export function LevelCard({
 }) {
   return (
     <section className="rounded-xl border border-border bg-surface p-5 sm:p-6">
-      <p className="text-xs font-medium uppercase tracking-wider text-muted">Estimated level</p>
+      <p className="text-xs font-medium text-muted">Estimated level</p>
       <div className="mt-2 flex flex-wrap items-baseline gap-x-4 gap-y-2">
         <p className="text-4xl font-semibold tracking-tight text-accent">{result.level}</p>
         <span

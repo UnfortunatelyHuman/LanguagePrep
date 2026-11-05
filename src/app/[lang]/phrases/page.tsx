@@ -44,7 +44,7 @@ export default async function PhrasesPage({ params }: PageProps<"/[lang]/phrases
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · Phrase bank</p>
+        <p className="text-xs font-medium text-muted">{exam} · Phrase bank</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">
           {lang === "fr" ? "French connectors and phrases" : "CELPIP phrase bank"}
         </h1>

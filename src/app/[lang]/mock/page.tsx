@@ -16,7 +16,7 @@ export default async function MockPage({ params }: PageProps<"/[lang]/mock">) {
     <div className="flex flex-col gap-8">
       <section className="flex flex-col gap-3">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · Mock exam</p>
+          <p className="text-xs font-medium text-muted">{exam} · Mock exam</p>
           <h1 className="mt-2 text-2xl font-semibold tracking-tight">Full mock exam</h1>
         </div>
         <p className="max-w-2xl text-sm leading-relaxed text-muted">

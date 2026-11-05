@@ -20,6 +20,36 @@ timing, scoring and strategies, and every reading/listening paper has an **answe
 Built-in papers: CELPIP 2 reading + 2 listening; TCF Canada 3 reading + 3 listening
 (39 questions each, A1 → C2).
 
+## Features at a glance
+
+- **Dashboard**: today's next step from the study plan, a CLB/NCLC ladder for each skill against
+  your target, a "ready to book?" verdict (every skill at target over its last 3 attempts), and a
+  practice streak with a 16-week activity heatmap.
+- **Mistakes notebook** (`/en/review`, `/fr/review`): every reading/listening question you got
+  wrong, most-missed first, with its passage or replayable clip. Retry 10 at a time; a mistake
+  moves to *Learned* after two right retries in a row, or when you get it right in a later test.
+- **CRS points** (`/en/crs`): the language-related Express Entry points for your practice levels
+  or targets (first and second language, French bonus, education/foreign-experience
+  transferability), plus which skill's next level is worth the most points. Tables from
+  canada.ca's CRS criteria, checked 5 Nov 2026. Re-check them if IRCC changes the system.
+- **French accent bar** in TCF writing, like the one on the real computer-based test.
+- **Light / dark / system theme** (header button), and a bottom tab bar on phones. The tab bar
+  hides during a test so a stray tap can't lose your answers.
+- Exam guide, phrase bank, study plan, mock exams, AI-generated sets and your own papers, as before.
+
+## Using it on your phone
+
+On the same Wi-Fi as your Mac:
+
+```bash
+npm run phone        # builds, then serves on your network
+```
+
+Then open `http://<your-Mac's-IP>:3000` on the phone (find the IP in System Settings → Wi-Fi →
+Details). Use Safari's Share → **Add to Home Screen** to open it like an app. Set `APP_PASSWORD`
+in `.env.local` first if you're on a shared network. Reading, listening and writing work fully.
+Browsers only allow the microphone on `https` or `localhost`, so practise **speaking** on the Mac.
+
 ## Adding your own papers
 
 Open **My papers** in the app. You can either:
@@ -69,7 +99,7 @@ same with every provider; recordings are only kept for playback.
 ```bash
 npm install          # also runs `prisma generate`
 cp .env.example .env # DATABASE_URL for the local SQLite file
-npm run db:migrate   # create prisma/dev.db
+npm run db:migrate   # create prisma/dev.db (run again after pulling new migrations)
 npm run dev
 ```
 
@@ -81,8 +111,11 @@ speaking transcription.
 ## Layout
 
 ```
-src/app/[lang]/     dashboard per track ("en" | "fr")
-src/components/     header, track switch, skill cards
+src/app/[lang]/     pages per track ("en" | "fr")
+src/components/     header, nav, dashboard, practice runners, review, CRS
+src/fonts/          bundled Atkinson Hyperlegible fonts (SIL OFL), so builds work offline
+src/lib/crs.ts      CRS language-points tables and maths (pure)
+src/lib/review.ts   mistakes notebook queries
 src/lib/exams.ts    exam formats and targets — the single source of truth
 src/lib/attempts.ts attempt queries
 src/lib/prisma.ts   Prisma client (better-sqlite3 adapter)
@@ -94,6 +127,7 @@ prisma/schema.prisma
 | Command | What it does |
 |---|---|
 | `npm run dev` | dev server |
+| `npm run phone` | production build served on your Wi-Fi network, for your phone |
 | `npm run build` | production build (also typechecks) |
 | `npm run lint` | ESLint |
 | `npm run db:migrate` | create and apply a migration |

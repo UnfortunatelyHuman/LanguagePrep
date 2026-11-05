@@ -86,7 +86,7 @@ function Results({ track, mock }: { track: Track; mock: MockView }) {
   const { scale } = getTrack(track);
   return (
     <section className="rounded-xl border border-border bg-surface p-5 sm:p-6">
-      <p className="text-xs font-medium uppercase tracking-wider text-muted">Mock exam result</p>
+      <p className="text-xs font-medium text-muted">Mock exam result</p>
       <ul className="mt-3 grid gap-3 sm:grid-cols-2">
         {skills.map((s) => (
           <li key={s.skill} className="rounded-lg bg-surface-subtle p-3">

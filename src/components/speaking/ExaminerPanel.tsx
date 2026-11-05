@@ -159,7 +159,7 @@ export function ExaminerPanel({
 
   return (
     <div className="flex flex-col gap-2 rounded-lg border border-border bg-surface-subtle p-3">
-      <p className="text-xs font-medium uppercase tracking-wider text-muted">AI examiner</p>
+      <p className="text-xs font-medium text-muted">AI examiner</p>
       {dialogue.length ? (
         <ol lang="fr" className="flex max-h-56 flex-col gap-1.5 overflow-y-auto" aria-live="polite">
           {dialogue.map((t, i) => (

@@ -74,7 +74,7 @@ export async function ProgressView({ track }: { track: Track }) {
     <div className="flex flex-col gap-6">
       {focus && focusSkill ? (
         <section className="rounded-xl border border-warn/40 bg-warn/10 p-4 sm:p-5">
-          <p className="text-xs font-medium uppercase tracking-wider text-warn">Focus next</p>
+          <p className="text-xs font-medium text-warn">Focus next</p>
           <p className="mt-1 text-lg font-semibold">{focusSkill.name}</p>
           <p className="mt-1 text-sm">{focus.reason}</p>
           <Link href={`/${track}/${focus.skill}`} className="mt-2 inline-block text-sm font-medium text-accent">

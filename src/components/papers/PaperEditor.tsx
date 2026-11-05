@@ -375,7 +375,7 @@ export function PaperEditor({ track, initial, setId }: { track: Track; initial: 
         </div>
       ) : null}
 
-      <div className="sticky bottom-0 -mx-4 flex flex-wrap items-center gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-xl sm:border">
+      <div className="sticky bottom-[calc(4.25rem+env(safe-area-inset-bottom))] -mx-4 sm:bottom-0 flex flex-wrap items-center gap-3 border-t border-border bg-background/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-xl sm:border">
         <button
           type="button"
           onClick={save}

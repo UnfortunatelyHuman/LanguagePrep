@@ -159,7 +159,7 @@ export function AnswerKey({ set, track }: { set: TestSet; track: string }) {
   return (
     <div className="flex flex-col gap-6">
       <section className="flex flex-col gap-3">
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">Answer key · study mode</p>
+        <p className="text-xs font-medium text-muted">Answer key · study mode</p>
         <h1 className="text-2xl font-semibold tracking-tight">{set.title}</h1>
         <p className="max-w-2xl text-sm text-muted">
           Every question with the correct answer and why. Untimed and not saved

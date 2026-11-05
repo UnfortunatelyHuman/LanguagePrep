@@ -27,7 +27,7 @@ async function Editor({ track, setId }: { track: Track; setId: Promise<string> }
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           <Link href={`/${track}/papers`} className="hover:text-foreground">
             My papers
           </Link>

@@ -32,7 +32,7 @@ export function WritingPrompt({ task }: { task: WritingTask }) {
         <div className="flex flex-col gap-2">
           {task.documents.map((d) => (
             <figure key={d.title} className="rounded-lg border border-border bg-surface-subtle px-3 py-2">
-              <figcaption className="text-xs font-semibold uppercase tracking-wider text-muted">
+              <figcaption className="text-xs font-semibold text-muted">
                 {d.title}
               </figcaption>
               <p className="mt-1">{d.text}</p>

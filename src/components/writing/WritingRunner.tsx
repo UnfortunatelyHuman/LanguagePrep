@@ -60,7 +60,7 @@ function Intro({ set, onStart }: { set: WritingSet; onStart: () => void }) {
   return (
     <section className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5 sm:p-6">
       <div>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           {tcf ? "TCF Canada · Expression écrite" : "CELPIP · Writing"}
         </p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">{set.title}</h1>

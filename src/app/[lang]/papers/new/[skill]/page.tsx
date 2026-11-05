@@ -20,7 +20,7 @@ export default async function NewPaperPage({ params }: PageProps<"/[lang]/papers
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           <Link href={`/${lang}/papers`} className="hover:text-foreground">
             {exam} · My papers
           </Link>

@@ -18,7 +18,7 @@ export function PassageView({
   return (
     <article className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-4 sm:p-5">
       {passage.label ? (
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+        <p className="text-xs font-medium text-muted">
           {passage.label}
         </p>
       ) : null}

@@ -14,7 +14,7 @@ export default async function ProgressPage({ params }: PageProps<"/[lang]/progre
   return (
     <div className="flex flex-col gap-6">
       <section>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">{exam} · Progress</p>
+        <p className="text-xs font-medium text-muted">{exam} · Progress</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight">Your progress</h1>
         <p className="mt-2 max-w-2xl text-sm text-muted">
           Goal: {goal}. Each skill is judged on its own, so the weakest one decides your result. Levels are

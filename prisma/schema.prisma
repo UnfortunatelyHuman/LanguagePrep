@@ -138,3 +138,20 @@ model SavedPhrase {
   @@unique([exam, phrase])
   @@index([exam, createdAt])
 }
+
+/// Retry state for one reading/listening question the learner got wrong.
+/// A mistake counts as learned after two correct retries in a row.
+model MistakeReview {
+  id         String   @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam       String
+  /// Practice set the question belongs to (Attempt.task).
+  setId      String
+  questionId String
+  /// Correct retries in a row; a wrong retry resets it to 0.
+  streak     Int      @default(0)
+  retries    Int      @default(0)
+  updatedAt  DateTime @updatedAt
+
+  @@unique([exam, setId, questionId])
+}
