@@ -27,10 +27,11 @@ const STATUS: Record<AiErrorKind, number> = {
 };
 
 /**
- * Why trying another model might help: the model is overloaded right now, or
- * it is retired / unknown. Set by adapters; read by the fallback loop.
+ * Why trying another model might help: the model is overloaded right now,
+ * didn't answer in time, or is retired / unknown. Set by adapters; read by the
+ * fallback loop.
  */
-export type ModelProblem = "overloaded" | "unavailable";
+export type ModelProblem = "overloaded" | "timeout" | "unavailable";
 
 export class AiError extends Error {
   readonly kind: AiErrorKind;

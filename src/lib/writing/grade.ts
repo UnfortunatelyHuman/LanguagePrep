@@ -1,50 +1,31 @@
 import "server-only";
 import { z } from "zod";
 import { generateJSON } from "@/lib/ai";
-import { DIMENSIONS, SCORE_RANGE } from "./rubric";
+import {
+  dimensionsSchema,
+  fixesSchema,
+  perTaskSchema,
+  strengthsSchema,
+  summarySchema,
+} from "@/lib/rubric/schema";
+import { DIMENSIONS } from "./rubric";
 import { countWords } from "./words";
 import type { TaskTexts, WritingSet, WritingTask } from "./types";
 
-/** Shape the model must return. Comments come before scores so it reasons first. */
+/** Shape the model must return. */
 function feedbackSchema(set: WritingSet) {
-  const range = SCORE_RANGE[set.exam];
-  const taskIds = set.tasks.map((t) => t.id) as [string, ...string[]];
-  const dimension = z.object({
-    comment: z.string().min(1).describe("Specific justification, citing the text"),
-    score: z.number().int().min(range.min).max(range.max),
-  });
-
   return z.object({
-    tasks: z
-      .array(
-        z.object({
-          taskId: z.enum(taskIds),
-          comment: z.string().min(1).describe("2–4 sentences on this task"),
-          corrected: z.string().describe("Full corrected text; empty if the task was left blank"),
-        }),
-      )
-      .length(taskIds.length)
-      .refine((tasks) => new Set(tasks.map((t) => t.taskId)).size === taskIds.length, {
-        message: "Each task must appear exactly once",
-      }),
-    dimensions: z.object(
-      Object.fromEntries(DIMENSIONS[set.exam].map((d) => [d.id, dimension])),
+    tasks: perTaskSchema(
+      set.tasks.map((t) => t.id),
+      {
+        comment: z.string().min(1).describe("2–4 sentences on this task"),
+        corrected: z.string().describe("Full corrected text; empty if the task was left blank"),
+      },
     ),
-    strengths: z.array(z.string().min(1)).min(1).max(4),
-    fixes: z
-      .array(
-        z.object({
-          title: z.string().min(1),
-          explanation: z.string().min(1),
-          before: z.string().describe("Exact phrase quoted from the candidate's text"),
-          after: z.string().describe("The improved phrase"),
-        }),
-      )
-      .length(3),
-    summary: z
-      .string()
-      .min(1)
-      .describe("Two sentences: overall verdict and the single biggest lever. Don't state a level number; the app computes it."),
+    dimensions: dimensionsSchema(set.exam, DIMENSIONS[set.exam]),
+    strengths: strengthsSchema,
+    fixes: fixesSchema,
+    summary: summarySchema,
   });
 }
 

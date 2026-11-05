@@ -51,3 +51,6 @@ next-env.d.ts
 
 # skills vendored for editors this project does not use
 /.windsurf
+
+# speaking recordings (personal audio)
+/data/

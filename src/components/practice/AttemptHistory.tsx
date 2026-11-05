@@ -3,6 +3,7 @@ import { skillAttempts } from "@/lib/attempts";
 import type { SkillId, Track } from "@/lib/exams";
 import { formatClock } from "@/lib/practice/numbering";
 import { isPracticeSkill, testSets } from "@/lib/practice/content";
+import { speakingSets } from "@/lib/speaking/content";
 import { writingSets } from "@/lib/writing/content";
 
 /** Set id → title for the skill, so history rows read as names, not ids. */
@@ -11,7 +12,7 @@ function setTitles(track: Track, skill: SkillId): Map<string, string> {
     ? testSets(track, skill)
     : skill === "writing"
       ? writingSets(track)
-      : [];
+      : speakingSets(track);
   return new Map(sets.map((s) => [s.id, s.title]));
 }
 
@@ -28,8 +29,8 @@ export async function AttemptHistory({ track, skill }: { track: Track; skill: Sk
   }
 
   const titles = setTitles(track, skill);
-  // Writing feedback is worth rereading, so those rows open the saved review.
-  const reviewable = skill === "writing";
+  // AI feedback is worth rereading, so writing and speaking rows open the saved review.
+  const reviewable = skill === "writing" || skill === "speaking";
 
   return (
     <ul className="flex flex-col divide-y divide-border rounded-xl border border-border bg-surface text-sm">

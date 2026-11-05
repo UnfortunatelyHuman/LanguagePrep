@@ -1,0 +1,112 @@
+{
+  "categories": [
+    {
+      "id": "email-openings",
+      "title": "Email openings",
+      "description": "Greetings and first lines that set the right tone for the reader.",
+      "phrases": [
+        { "phrase": "Dear Ms. / Mr. [Last name],", "meaning": "Standard greeting for a formal email when you know the person's name.", "example": "Dear Ms. Okafor, I am writing about the renovation work in unit 504.", "register": "formal" },
+        { "phrase": "To whom it may concern,", "meaning": "Formal greeting when you don't know who will read the email; use sparingly.", "example": "To whom it may concern, I would like to report a billing error on my account.", "register": "formal" },
+        { "phrase": "I hope this email finds you well.", "meaning": "Polite warm-up line before getting to the point, for semi-formal emails.", "example": "I hope this email finds you well. I wanted to follow up on our conversation last week.", "register": "neutral" },
+        { "phrase": "Hi [first name], it's been ages!", "meaning": "Friendly opening for a friend you haven't contacted in a while.", "example": "Hi Daniel, it's been ages! I was so happy to hear about your new job.", "register": "informal" },
+        { "phrase": "Thank you for your quick reply.", "meaning": "Opening line when answering someone who has already written to you.", "example": "Thank you for your quick reply. I have a few more questions about the course.", "register": "neutral" },
+        { "phrase": "My name is … and I am a resident of …", "meaning": "Introduces yourself when the reader doesn't know you.", "example": "My name is Arjun Mehta, and I am a resident of unit 404 in your building.", "register": "formal" },
+        { "phrase": "I hope you and your family are doing well.", "meaning": "Warm opening for a neighbour, friend or colleague you know personally.", "example": "Hi Priya, I hope you and your family are doing well after the storm.", "register": "informal" },
+        { "phrase": "I am contacting you on behalf of …", "meaning": "Shows you are writing for someone else or for a group.", "example": "I am contacting you on behalf of the parents' committee at Maple Elementary.", "register": "formal" }
+      ]
+    },
+    {
+      "id": "stating-purpose",
+      "title": "Stating the purpose",
+      "description": "Say clearly, in the first paragraph, why you are writing.",
+      "phrases": [
+        { "phrase": "I am writing to …", "meaning": "The clearest way to state the purpose of a formal email.", "example": "I am writing to request a refund for the cancelled course.", "register": "formal" },
+        { "phrase": "I am writing with regard to …", "meaning": "Formal way to name the topic of your email.", "example": "I am writing with regard to the order I placed on March 3.", "register": "formal" },
+        { "phrase": "The reason I'm writing is that …", "meaning": "Slightly less formal way to introduce your purpose.", "example": "The reason I'm writing is that my delivery arrived damaged.", "register": "neutral" },
+        { "phrase": "I wanted to let you know that …", "meaning": "Introduces news or information in a friendly way.", "example": "I wanted to let you know that I'll be in town next month.", "register": "informal" },
+        { "phrase": "I would like to bring to your attention …", "meaning": "Politely raises a problem with someone responsible.", "example": "I would like to bring to your attention a safety issue in the parking garage.", "register": "formal" },
+        { "phrase": "I'm just writing to say thanks for …", "meaning": "Casual opening for a thank-you email.", "example": "I'm just writing to say thanks for looking after our house during the storm.", "register": "informal" },
+        { "phrase": "Following our phone conversation on …,", "meaning": "Connects the email to an earlier conversation.", "example": "Following our phone conversation on Tuesday, I am sending the documents you requested.", "register": "formal" },
+        { "phrase": "I am reaching out to ask whether …", "meaning": "Introduces a question or a request politely.", "example": "I am reaching out to ask whether the program will be offered again this fall.", "register": "neutral" }
+      ]
+    },
+    {
+      "id": "complaining-politely",
+      "title": "Complaining politely",
+      "description": "Describe a problem firmly but courteously, and explain its impact.",
+      "phrases": [
+        { "phrase": "I was disappointed to find that …", "meaning": "Expresses dissatisfaction without sounding aggressive.", "example": "I was disappointed to find that the table had a deep crack in it.", "register": "formal" },
+        { "phrase": "Unfortunately, …", "meaning": "Softens the start of a sentence that reports a problem.", "example": "Unfortunately, the work often starts before 7 a.m., even on weekends.", "register": "neutral" },
+        { "phrase": "This has caused me considerable inconvenience.", "meaning": "States the impact of the problem formally.", "example": "This has caused me considerable inconvenience, as I had to take a day off work.", "register": "formal" },
+        { "phrase": "To make matters worse, …", "meaning": "Adds a second, more serious part of the problem.", "example": "To make matters worse, nobody from the centre has contacted me since.", "register": "neutral" },
+        { "phrase": "I'm sure you will agree that this is not acceptable.", "meaning": "Firmly invites the reader to see your side.", "example": "I'm sure you will agree that a week-long delay without notice is not acceptable.", "register": "formal" },
+        { "phrase": "It has been going on for …", "meaning": "Shows how long a problem has lasted.", "example": "It has been going on for three weeks, and it is affecting my sleep.", "register": "neutral" },
+        { "phrase": "As a long-standing customer, …", "meaning": "Reminds the company of your loyalty to strengthen a complaint.", "example": "As a long-standing customer, I expected a much better level of service.", "register": "formal" },
+        { "phrase": "I would appreciate it if this could be resolved by …", "meaning": "Sets a polite deadline for a solution.", "example": "I would appreciate it if this could be resolved by the end of the month.", "register": "formal" }
+      ]
+    },
+    {
+      "id": "requests-suggestions",
+      "title": "Making requests and suggestions",
+      "description": "Ask for action and propose solutions in a constructive way.",
+      "phrases": [
+        { "phrase": "Would it be possible to …?", "meaning": "Polite, indirect way to ask for something.", "example": "Would it be possible to schedule the noisy work after 9 a.m.?", "register": "formal" },
+        { "phrase": "I would be grateful if you could …", "meaning": "Very polite formal request.", "example": "I would be grateful if you could send a replacement chair as soon as possible.", "register": "formal" },
+        { "phrase": "One solution might be to …", "meaning": "Introduces a suggestion without sounding demanding.", "example": "One solution might be to post the work schedule in the lobby.", "register": "neutral" },
+        { "phrase": "Could you possibly …?", "meaning": "Softened request for a favour.", "example": "Could you possibly water my plants while I'm away?", "register": "neutral" },
+        { "phrase": "Why don't you …?", "meaning": "Friendly suggestion to someone you know well.", "example": "Why don't you look at apartments near the subway line?", "register": "informal" },
+        { "phrase": "It might be a good idea to …", "meaning": "Gentle advice or suggestion.", "example": "It might be a good idea to visit the neighbourhood on a weekday evening.", "register": "neutral" },
+        { "phrase": "I would suggest that …", "meaning": "Formal suggestion; often followed by a base-form verb.", "example": "I would suggest that the contractor clean the hallway at the end of each day.", "register": "formal" },
+        { "phrase": "If you don't mind, I'd like to …", "meaning": "Asks permission politely before proposing something.", "example": "If you don't mind, I'd like to take you out for dinner next weekend.", "register": "informal" },
+        { "phrase": "Please let me know whether …", "meaning": "Asks for a decision or confirmation.", "example": "Please let me know whether you can approve my leave by Friday.", "register": "neutral" }
+      ]
+    },
+    {
+      "id": "closing-email",
+      "title": "Closing an email",
+      "description": "End with a clear next step and a sign-off that matches the opening.",
+      "phrases": [
+        { "phrase": "I look forward to hearing from you.", "meaning": "Standard formal closing line that invites a reply.", "example": "I look forward to hearing from you at your earliest convenience.", "register": "formal" },
+        { "phrase": "Thank you for your time and attention.", "meaning": "Formal thanks before signing off.", "example": "Thank you for your time and attention to this matter.", "register": "formal" },
+        { "phrase": "Please do not hesitate to contact me if …", "meaning": "Offers further information.", "example": "Please do not hesitate to contact me if you need any further details.", "register": "formal" },
+        { "phrase": "Sincerely, / Best regards,", "meaning": "Sign-offs for formal and semi-formal emails.", "example": "Best regards, Arjun Mehta", "register": "formal" },
+        { "phrase": "Can't wait to see you!", "meaning": "Enthusiastic closing for a friend.", "example": "Let me know your flight details. Can't wait to see you!", "register": "informal" },
+        { "phrase": "Thanks again for everything.", "meaning": "Warm closing for a thank-you email.", "example": "Thanks again for everything you did for us last weekend.", "register": "informal" },
+        { "phrase": "Take care, / Cheers,", "meaning": "Friendly sign-offs for people you know well.", "example": "Take care, and say hi to your family for me.", "register": "informal" },
+        { "phrase": "I trust this matter will be resolved promptly.", "meaning": "Firm, formal closing for a complaint.", "example": "I trust this matter will be resolved promptly, and I thank you in advance.", "register": "formal" }
+      ]
+    },
+    {
+      "id": "opinion-reasons",
+      "title": "Opinions, reasons and concessions",
+      "description": "For survey responses and opinion tasks: state a position, support it, and acknowledge the other side.",
+      "phrases": [
+        { "phrase": "In my view, … is the better option because …", "meaning": "Clearly states your choice and links it to a reason.", "example": "In my view, Option B is the better option because it helps more residents.", "register": "neutral" },
+        { "phrase": "The main reason I prefer … is that …", "meaning": "Introduces your strongest argument.", "example": "The main reason I prefer the hybrid week is that it saves commuting time.", "register": "neutral" },
+        { "phrase": "Another advantage is that …", "meaning": "Adds a second supporting point.", "example": "Another advantage is that the library would serve people of all ages.", "register": "neutral" },
+        { "phrase": "Admittedly, …; however, …", "meaning": "Concedes a point to the other side, then returns to your argument.", "example": "Admittedly, a sports complex is popular; however, it would benefit fewer people.", "register": "formal" },
+        { "phrase": "While some people argue that …, I believe …", "meaning": "Contrasts an opposing view with your own.", "example": "While some people argue that phones distract students, I believe they can be useful tools.", "register": "neutral" },
+        { "phrase": "For example, …", "meaning": "Introduces a concrete example to support a point.", "example": "For example, my neighbour's children study at the library every evening.", "register": "neutral" },
+        { "phrase": "As a result, …", "meaning": "Shows a consequence.", "example": "As a result, more people would take the bus instead of driving.", "register": "neutral" },
+        { "phrase": "Overall, I am convinced that …", "meaning": "Sums up your position at the end.", "example": "Overall, I am convinced that free transit would benefit the whole city.", "register": "formal" },
+        { "phrase": "It's true that …, but …", "meaning": "Less formal concession.", "example": "It's true that the garden would cost money, but it would bring neighbours together.", "register": "informal" }
+      ]
+    },
+    {
+      "id": "speaking-transitions",
+      "title": "Speaking: fillers and transitions",
+      "description": "Natural ways to buy time, organize your answer and move between ideas when speaking.",
+      "phrases": [
+        { "phrase": "That's a good question. Let me think…", "meaning": "Buys a second or two naturally instead of a silent pause.", "example": "That's a good question. Let me think… I'd say the most important thing is to make a budget.", "register": "neutral" },
+        { "phrase": "First of all, … / On top of that, …", "meaning": "Signposts the order of your ideas.", "example": "First of all, you should track your spending. On top of that, try cooking at home more.", "register": "neutral" },
+        { "phrase": "In the picture, I can see …", "meaning": "Opens a scene description.", "example": "In the picture, I can see a busy skating rink in a park.", "register": "neutral" },
+        { "phrase": "In the background / in the foreground / on the left, …", "meaning": "Locates details in a picture for a listener who can't see it.", "example": "In the background, there are some snow-covered pine trees.", "register": "neutral" },
+        { "phrase": "It looks like … is about to …", "meaning": "Makes a prediction based on the picture.", "example": "It looks like the little girl is about to fall.", "register": "neutral" },
+        { "phrase": "I'm pretty sure that … / Chances are that …", "meaning": "Expresses a likely prediction with confidence.", "example": "Chances are that the man will have to pay an extra baggage fee.", "register": "informal" },
+        { "phrase": "What I mean is …", "meaning": "Rephrases or clarifies an idea after a slip.", "example": "What I mean is that you should save a little every month, even if it's only fifty dollars.", "register": "neutral" },
+        { "phrase": "Think about it this way: …", "meaning": "Persuades by reframing the situation for the listener.", "example": "Think about it this way: the SUV costs more now, but it's much safer in winter.", "register": "informal" },
+        { "phrase": "So, to sum up, …", "meaning": "Signals that you are wrapping up before time runs out.", "example": "So, to sum up, I think talking to Kevin directly is the best choice.", "register": "neutral" }
+      ]
+    }
+  ]
+}

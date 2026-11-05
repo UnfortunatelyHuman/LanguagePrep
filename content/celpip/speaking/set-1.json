@@ -1,0 +1,170 @@
+{
+  "id": "celpip-speaking-1",
+  "exam": "celpip",
+  "title": "Speaking Test 1",
+  "summary": "Budgeting advice, a memorable celebration, a community skating rink, choosing a used car, a noisy roommate, remote learning, and a strange gadget.",
+  "tasks": [
+    {
+      "id": "task-1",
+      "kind": "celpip-advice",
+      "label": "Task 1: Giving Advice",
+      "prepSeconds": 30,
+      "speakSeconds": 90,
+      "prompt": "Your cousin has just started his first full-time job and is finding it hard to save money. By the end of each month, his bank account is almost empty. Give him some advice about how to manage his money better.",
+      "points": [
+        "How he could keep track of his spending",
+        "Ways to cut everyday costs",
+        "How to start saving a little each month"
+      ]
+    },
+    {
+      "id": "task-2",
+      "kind": "celpip-experience",
+      "label": "Task 2: Talking about a Personal Experience",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "Talk about a celebration or special event that you remember well. It could be a wedding, a birthday, a holiday or any other occasion.",
+      "points": [
+        "What the occasion was and who was there",
+        "What happened during the event",
+        "Why you still remember it"
+      ]
+    },
+    {
+      "id": "task-3",
+      "kind": "celpip-scene",
+      "label": "Task 3: Describing a Scene",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "Describe some things that are happening in the picture as well as you can. The person you are speaking to cannot see the picture.",
+      "scene": {
+        "caption": "An outdoor community skating rink in a city park on a sunny winter afternoon",
+        "items": [
+          { "emoji": "⛸️", "label": "A father teaching his young daughter to skate, holding both her hands" },
+          { "emoji": "🏒", "label": "Two teenagers passing a puck at the far end of the rink" },
+          { "emoji": "☕", "label": "A small wooden stand selling hot chocolate, with a line of four people" },
+          { "emoji": "🧑‍🦽", "label": "An older woman in a wheelchair watching from the side, wrapped in a blanket" },
+          { "emoji": "🐕", "label": "A dog in a red coat tied to a bench near the rink" },
+          { "emoji": "🧹", "label": "A park worker clearing snow off the ice with a wide shovel" },
+          { "emoji": "🎶", "label": "A speaker on a pole playing music" },
+          { "emoji": "🌲", "label": "Snow-covered pine trees around the rink" },
+          { "emoji": "🧤", "label": "A pair of lost mittens lying on the bench" }
+        ]
+      }
+    },
+    {
+      "id": "task-4",
+      "kind": "celpip-predictions",
+      "label": "Task 4: Making Predictions",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "In this picture, what do you think will most probably happen next? Describe what you think will happen to the people and things you see.",
+      "scene": {
+        "caption": "An outdoor community skating rink in a city park on a sunny winter afternoon",
+        "items": [
+          { "emoji": "⛸️", "label": "A father teaching his young daughter to skate, holding both her hands" },
+          { "emoji": "🏒", "label": "Two teenagers passing a puck at the far end of the rink" },
+          { "emoji": "☕", "label": "A small wooden stand selling hot chocolate, with a line of four people" },
+          { "emoji": "🧑‍🦽", "label": "An older woman in a wheelchair watching from the side, wrapped in a blanket" },
+          { "emoji": "🐕", "label": "A dog in a red coat tied to a bench near the rink" },
+          { "emoji": "🧹", "label": "A park worker clearing snow off the ice with a wide shovel" },
+          { "emoji": "🎶", "label": "A speaker on a pole playing music" },
+          { "emoji": "🌲", "label": "Snow-covered pine trees around the rink" },
+          { "emoji": "🧤", "label": "A pair of lost mittens lying on the bench" }
+        ]
+      }
+    },
+    {
+      "id": "task-5",
+      "kind": "celpip-compare",
+      "label": "Task 5: Comparing and Persuading",
+      "chooseSeconds": 60,
+      "prepSeconds": 60,
+      "speakSeconds": 60,
+      "prompt": "Your family needs a second car, and you have found two used cars for sale. Choose the one you prefer. Then persuade your spouse, who prefers the other car, that your choice is better.",
+      "options": [
+        {
+          "id": "A",
+          "title": "Compact hatchback",
+          "details": [
+            "Price: $14,500",
+            "6 years old, 95,000 km",
+            "Very good fuel economy",
+            "Small trunk; seats four adults comfortably"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Mid-size SUV",
+          "details": [
+            "Price: $19,900",
+            "8 years old, 140,000 km",
+            "All-wheel drive for winter roads",
+            "Large cargo space; seats five"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task-6",
+      "kind": "celpip-difficult",
+      "label": "Task 6: Dealing with a Difficult Situation",
+      "prepSeconds": 60,
+      "speakSeconds": 60,
+      "prompt": "You share an apartment with a roommate, Kevin, who has started playing video games with friends online late at night. He talks loudly until 2 a.m., and you have to wake up at 6 a.m. for work. You have to choose one option. Explain your choice and say what you will tell the person.",
+      "options": [
+        {
+          "id": "A",
+          "title": "Talk to Kevin directly",
+          "details": [
+            "Explain how the noise affects your sleep and work",
+            "Suggest he use a headset or stop by midnight",
+            "Risk: he may feel criticized and the friendship could become tense"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Ask the landlord to speak to Kevin",
+          "details": [
+            "The landlord can remind him of the building's quiet hours",
+            "You avoid an uncomfortable conversation",
+            "Risk: Kevin may be upset that you went over his head"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task-7",
+      "kind": "celpip-opinion",
+      "label": "Task 7: Expressing Opinions",
+      "prepSeconds": 30,
+      "speakSeconds": 90,
+      "prompt": "Some people believe that high-school students learn just as well in online classes as they do in a classroom. Do you agree or disagree? Explain your reasons.",
+      "points": [
+        "Students' concentration and motivation",
+        "Contact with teachers and classmates",
+        "Practical issues such as internet access and flexibility"
+      ]
+    },
+    {
+      "id": "task-8",
+      "kind": "celpip-unusual",
+      "label": "Task 8: Describing an Unusual Situation",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "You are at a garage sale and see an unusual kitchen gadget that your friend, who loves cooking, might want. Call your friend and describe the object in detail so that they can decide whether you should buy it.",
+      "scene": {
+        "caption": "A strange kitchen gadget on a garage-sale table",
+        "items": [
+          { "emoji": "🥚", "label": "Shaped like a large egg, about the size of a football" },
+          { "emoji": "🟢", "label": "Made of shiny green plastic with a metal base" },
+          { "emoji": "🔘", "label": "Three round buttons on the front: red, yellow and blue" },
+          { "emoji": "🥄", "label": "A long spoon-like arm that folds out of the top" },
+          { "emoji": "🔌", "label": "A short power cord with an old-style plug" },
+          { "emoji": "🪟", "label": "A small round window on one side, like on a washing machine" },
+          { "emoji": "🏷️", "label": "A handwritten price tag: $8" }
+        ]
+      }
+    }
+  ]
+}

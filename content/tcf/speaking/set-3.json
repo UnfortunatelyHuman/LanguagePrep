@@ -1,0 +1,51 @@
+{
+  "id": "tcf-orale-3",
+  "exam": "tcf",
+  "title": "Série 3 : Travail, cours de langue, voitures en ville",
+  "summary": "Discuss your work and hobbies, ask about an evening language course, and give your view on cars in city centres.",
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-interview",
+      "label": "Tâche 1 : Entretien dirigé",
+      "prepSeconds": 0,
+      "speakSeconds": 120,
+      "prompt": "Présentez-vous. L'examinateur vous pose des questions sur votre travail et vos loisirs.",
+      "points": [
+        "Pouvez-vous vous présenter en quelques mots ?",
+        "Parlez-moi de votre travail : qu'est-ce qui vous plaît le plus ?",
+        "Avec qui vivez-vous ?",
+        "Pratiquez-vous un sport ou une activité artistique ?",
+        "Quel pays ou quelle ville aimeriez-vous visiter, et pourquoi ?"
+      ]
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-roleplay",
+      "label": "Tâche 2 : Exercice en interaction",
+      "prepSeconds": 120,
+      "speakSeconds": 210,
+      "prompt": "Vous souhaitez suivre un cours du soir pour améliorer votre français. Vous téléphonez à l'école de langues de votre quartier. Posez des questions pour choisir le cours qui vous convient.",
+      "points": [
+        "Les niveaux proposés et le test de classement",
+        "Le nombre d'élèves par groupe et le profil des professeurs",
+        "Les jours, les horaires et la durée de la session",
+        "Le prix, les moyens de paiement et les aides possibles",
+        "La possibilité d'assister à un cours d'essai"
+      ]
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-opinion",
+      "label": "Tâche 3 : Expression d'un point de vue",
+      "prepSeconds": 0,
+      "speakSeconds": 270,
+      "prompt": "« Il faudrait interdire les voitures dans le centre des grandes villes. » Qu'en pensez-vous ?",
+      "points": [
+        "La pollution, le bruit et la qualité de vie",
+        "Les commerçants et les habitants qui vivent loin du centre",
+        "Les solutions de rechange : transports en commun, vélo, covoiturage"
+      ]
+    }
+  ]
+}

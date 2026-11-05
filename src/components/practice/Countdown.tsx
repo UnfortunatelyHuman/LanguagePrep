@@ -10,9 +10,12 @@ import { formatClock } from "@/lib/practice/numbering";
 export function Countdown({
   endsAt,
   onExpire,
+  label = "Time left in this part",
 }: {
   endsAt: number;
   onExpire: () => void;
+  /** Accessible name, e.g. "Preparation time left". */
+  label?: string;
 }) {
   const [now, setNow] = useState(() => Date.now());
   const expire = useEffectEvent(onExpire);
@@ -35,7 +38,7 @@ export function Countdown({
   return (
     <span
       role="timer"
-      aria-label="Time left in this part"
+      aria-label={label}
       className={`rounded-md px-2 py-1 font-mono text-sm font-semibold tabular-nums ${
         urgent ? "bg-warn/15 text-warn" : "bg-surface-subtle"
       }`}

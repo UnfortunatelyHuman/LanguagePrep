@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Countdown } from "@/components/practice/Countdown";
-import { FeedbackErrorPanel } from "@/components/writing/FeedbackErrorPanel";
+import { FeedbackErrorPanel } from "@/components/feedback/FeedbackErrorPanel";
 import { WritingEditor } from "@/components/writing/WritingEditor";
 import { WritingFeedback } from "@/components/writing/WritingFeedback";
 import { WritingPrompt } from "@/components/writing/WritingPrompt";
 import type { Track } from "@/lib/exams";
-import type { FeedbackError, TaskTexts, WritingResult, WritingSet } from "@/lib/writing/types";
+import type { FeedbackError } from "@/lib/feedback/types";
+import type { TaskTexts, WritingResult, WritingSet } from "@/lib/writing/types";
 import { countWords, wordStatus } from "@/lib/writing/words";
 
 type Phase = "intro" | "writing" | "grading" | "error" | "results";

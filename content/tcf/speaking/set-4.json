@@ -1,0 +1,51 @@
+{
+  "id": "tcf-orale-4",
+  "exam": "tcf",
+  "title": "Série 4 : Projets, bénévolat, tourisme de masse",
+  "summary": "Talk about your plans in Canada, ask an association about volunteering, and discuss limiting tourist numbers.",
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-interview",
+      "label": "Tâche 1 : Entretien dirigé",
+      "prepSeconds": 0,
+      "speakSeconds": 120,
+      "prompt": "Présentez-vous. L'examinateur vous pose des questions sur vous et vos projets au Canada.",
+      "points": [
+        "Comment vous appelez-vous et quel âge avez-vous ?",
+        "Que faisiez-vous avant de penser à immigrer ?",
+        "Quelle région du Canada vous attire, et pourquoi ?",
+        "Qu'est-ce qui vous inquiète le plus dans ce projet ?",
+        "Comment occupez-vous vos week-ends ?"
+      ]
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-roleplay",
+      "label": "Tâche 2 : Exercice en interaction",
+      "prepSeconds": 120,
+      "speakSeconds": 210,
+      "prompt": "Vous aimeriez faire du bénévolat dans une banque alimentaire de votre ville. Vous rencontrez la responsable des bénévoles. Posez-lui des questions pour savoir comment participer.",
+      "points": [
+        "Les tâches confiées aux bénévoles",
+        "Le nombre d'heures demandé et la flexibilité des horaires",
+        "La formation ou les conditions requises (âge, vérification des antécédents)",
+        "L'accès au lieu et le stationnement",
+        "Ce que le bénévolat peut apporter (attestation, références)"
+      ]
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-opinion",
+      "label": "Tâche 3 : Expression d'un point de vue",
+      "prepSeconds": 0,
+      "speakSeconds": 270,
+      "prompt": "« Les villes très touristiques devraient limiter le nombre de visiteurs. » Qu'en pensez-vous ?",
+      "points": [
+        "La vie quotidienne des habitants et le prix des logements",
+        "Les emplois et l'économie locale",
+        "Les autres solutions : taxes, réservations, étalement des saisons"
+      ]
+    }
+  ]
+}

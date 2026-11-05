@@ -1,0 +1,51 @@
+{
+  "id": "tcf-orale-1",
+  "exam": "tcf",
+  "title": "Série 1 : Présentation, location d'appartement, télétravail",
+  "summary": "Introduce yourself, ask a landlord about an apartment, and give your view on working from home.",
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-interview",
+      "label": "Tâche 1 : Entretien dirigé",
+      "prepSeconds": 0,
+      "speakSeconds": 120,
+      "prompt": "Présentez-vous. L'examinateur vous pose des questions sur vous, votre vie et vos projets.",
+      "points": [
+        "Pouvez-vous vous présenter ?",
+        "Parlez-moi de votre famille.",
+        "Que faites-vous dans la vie ?",
+        "Qu'aimez-vous faire pendant votre temps libre ?",
+        "Pourquoi souhaitez-vous vous installer au Canada ?"
+      ]
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-roleplay",
+      "label": "Tâche 2 : Exercice en interaction",
+      "prepSeconds": 120,
+      "speakSeconds": 210,
+      "prompt": "Vous cherchez un appartement à louer à Montréal. Vous appelez le propriétaire d'un deux-pièces que vous avez vu sur un site d'annonces. Posez-lui des questions pour obtenir toutes les informations utiles avant de le visiter.",
+      "points": [
+        "Le loyer et ce qu'il comprend (chauffage, électricité, Internet)",
+        "La date de disponibilité et la durée du bail",
+        "Le quartier, les transports et les commerces à proximité",
+        "Les animaux de compagnie et le stationnement",
+        "Le moment possible pour une visite"
+      ]
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-opinion",
+      "label": "Tâche 3 : Expression d'un point de vue",
+      "prepSeconds": 0,
+      "speakSeconds": 270,
+      "prompt": "« Le télétravail devrait devenir la norme pour tous les emplois qui le permettent. » Qu'en pensez-vous ?",
+      "points": [
+        "La qualité de vie et le temps de transport",
+        "La productivité et l'esprit d'équipe",
+        "La frontière entre vie professionnelle et vie privée"
+      ]
+    }
+  ]
+}

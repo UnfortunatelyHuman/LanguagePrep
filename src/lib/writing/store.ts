@@ -7,7 +7,9 @@ import { prisma } from "@/lib/prisma";
 import { findWritingSet } from "./content";
 import { keepParagraphs } from "./diff";
 import type { GradedWriting } from "./grade";
-import { DIMENSIONS, SCORE_RANGE, WRITING_TARGET, writingLevel } from "./rubric";
+import { RUBRIC_TARGET, SCORE_RANGE, rubricLevel } from "@/lib/rubric/levels";
+import { dimensionRows } from "@/lib/rubric/schema";
+import { DIMENSIONS } from "./rubric";
 import { countWords } from "./words";
 import type { TaskTexts, WritingResult, WritingSet } from "./types";
 
@@ -46,14 +48,8 @@ export async function saveWritingAttempt(input: {
   const { track, set, texts, graded, durationSeconds } = input;
   const max = SCORE_RANGE[set.exam].max;
 
-  const dimensions = DIMENSIONS[set.exam].map((d) => ({
-    id: d.id,
-    label: d.label,
-    score: graded.dimensions[d.id].score,
-    max,
-    comment: graded.dimensions[d.id].comment,
-  }));
-  const { score, level, meetsTarget } = writingLevel(
+  const dimensions = dimensionRows(set.exam, DIMENSIONS[set.exam], graded.dimensions);
+  const { score, level, meetsTarget } = rubricLevel(
     set.exam,
     dimensions.map((d) => d.score),
   );
@@ -106,7 +102,7 @@ export async function saveWritingAttempt(input: {
     score,
     maxScore: max,
     level,
-    target: WRITING_TARGET[set.exam].label,
+    target: RUBRIC_TARGET[set.exam].label,
     meetsTarget,
     ...summary,
     tasks,
@@ -146,7 +142,7 @@ export async function loadWritingAttempt(
     };
   });
 
-  const { level, meetsTarget } = writingLevel(
+  const { level, meetsTarget } = rubricLevel(
     set.exam,
     summary.data.dimensions.map((d) => d.score),
   );
@@ -158,7 +154,7 @@ export async function loadWritingAttempt(
       score: attempt.score ?? 0,
       maxScore: attempt.maxScore ?? SCORE_RANGE[set.exam].max,
       level: attempt.estimatedLevel ?? level,
-      target: WRITING_TARGET[set.exam].label,
+      target: RUBRIC_TARGET[set.exam].label,
       meetsTarget,
       ...summary.data,
       tasks,

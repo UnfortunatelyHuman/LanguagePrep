@@ -1,0 +1,52 @@
+{
+  "id": "tcf-orale-2",
+  "exam": "tcf",
+  "title": "Série 2 : Parcours, salle de sport, réseaux sociaux",
+  "summary": "Talk about your background, ask about a gym membership, and discuss social media and young people.",
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-interview",
+      "label": "Tâche 1 : Entretien dirigé",
+      "prepSeconds": 0,
+      "speakSeconds": 120,
+      "prompt": "Présentez-vous. L'examinateur vous pose des questions sur votre parcours et vos habitudes.",
+      "points": [
+        "D'où venez-vous et où habitez-vous actuellement ?",
+        "Quelles études avez-vous faites ?",
+        "Décrivez une journée typique pour vous.",
+        "Quel est votre plat préféré, et savez-vous le cuisiner ?",
+        "Depuis combien de temps apprenez-vous le français, et pourquoi ?",
+        "Où vous voyez-vous dans cinq ans ?"
+      ]
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-roleplay",
+      "label": "Tâche 2 : Exercice en interaction",
+      "prepSeconds": 120,
+      "speakSeconds": 210,
+      "prompt": "Vous voulez vous inscrire dans une salle de sport près de chez vous. Vous parlez avec l'employé à l'accueil. Posez-lui des questions pour savoir si cette salle vous convient.",
+      "points": [
+        "Les tarifs et les différents types d'abonnement",
+        "Les horaires d'ouverture, en semaine et le week-end",
+        "Les cours collectifs proposés et la réservation",
+        "Les équipements (piscine, vestiaires, casiers)",
+        "Les conditions pour résilier l'abonnement"
+      ]
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-opinion",
+      "label": "Tâche 3 : Expression d'un point de vue",
+      "prepSeconds": 0,
+      "speakSeconds": 270,
+      "prompt": "« Les réseaux sociaux devraient être interdits aux moins de 16 ans. » Qu'en pensez-vous ?",
+      "points": [
+        "La santé mentale et le sommeil des adolescents",
+        "La liberté, la créativité et l'accès à l'information",
+        "Le rôle des parents, de l'école et de l'État"
+      ]
+    }
+  ]
+}

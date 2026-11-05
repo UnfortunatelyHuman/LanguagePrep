@@ -42,11 +42,7 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
             <SkillCard
               key={skill.id}
               skill={skill}
-              href={
-                skill.id !== "speaking"
-                  ? `/${lang}/${skill.id}`
-                  : undefined
-              }
+              href={`/${lang}/${skill.id}`}
               status={
                 <Suspense fallback={<SkillStatusPending />}>
                   <SkillStatus track={lang} skill={skill.id} />

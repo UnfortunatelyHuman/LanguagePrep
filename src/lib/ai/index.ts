@@ -23,6 +23,11 @@ const ADAPTERS: Record<AiProviderName, ProviderAdapter> = {
 
 /** Pause before retrying the last model when every model is overloaded. */
 const OVERLOAD_PAUSE_MS = 3000;
+/**
+ * A model with fallbacks behind it gets less time: an overloaded model can
+ * hang for minutes, and the next one usually answers in well under a minute.
+ */
+const FALLBACK_TIMEOUT_MS = 60_000;
 
 /** Provider in use and the models to try, in order. */
 export function activeModels(): { provider: AiProviderName; models: string[] } {
@@ -38,8 +43,8 @@ export function activeModels(): { provider: AiProviderName; models: string[] } {
 }
 
 /**
- * Call the adapter with each model in turn. A model that is overloaded or
- * retired hands over to the next one; if the last one is overloaded, wait a
+ * Call the adapter with each model in turn. A model that is overloaded, slow
+ * or retired hands over to the next one; if the last one is overloaded, wait a
  * moment and give it one more try. Any other error stops immediately.
  */
 async function callWithFallback(
@@ -52,8 +57,11 @@ async function callWithFallback(
     const model = models[i];
     const isLast = i === models.length - 1;
     const started = Date.now();
+    const timeoutMs = isLast
+      ? request.timeoutMs
+      : Math.min(request.timeoutMs ?? FALLBACK_TIMEOUT_MS, FALLBACK_TIMEOUT_MS);
     try {
-      return { text: await adapter.generateJSON({ ...request, model }), model };
+      return { text: await adapter.generateJSON({ ...request, model, timeoutMs }), model };
     } catch (error) {
       if (!(error instanceof AiError) || !error.modelProblem) throw error;
       problems.push(`${model} (${error.modelProblem})`);
@@ -61,7 +69,7 @@ async function callWithFallback(
       if (!isLast) {
         const seconds = ((Date.now() - started) / 1000).toFixed(1);
         console.warn(
-          `[ai] ${model} is ${error.modelProblem} (after ${seconds} s); falling back to ${models[i + 1]}`,
+          `[ai] ${model}: ${error.modelProblem} after ${seconds} s; falling back to ${models[i + 1]}`,
         );
         continue;
       }
@@ -75,11 +83,11 @@ async function callWithFallback(
       }
       if (models.length === 1) throw error;
       throw new AiError(
-        error.modelProblem === "overloaded" ? "provider" : "config",
+        error.modelProblem === "unavailable" ? "config" : "provider",
         `None of the models in AI_MODEL could answer: ${problems.join(", ")}. ` +
-          (error.modelProblem === "overloaded"
-            ? "Try again in a moment."
-            : "Check AI_MODEL in .env.local and restart the dev server."),
+          (error.modelProblem === "unavailable"
+            ? "Check AI_MODEL in .env.local and restart the dev server."
+            : "Try again in a moment."),
         { cause: error },
       );
     }

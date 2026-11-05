@@ -82,7 +82,10 @@ function toAiError(error: unknown, model: string): AiError {
     );
   }
   if (error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError")) {
-    return new AiError("provider", "Gemini took too long to answer. Try again.", { cause: error });
+    return new AiError("provider", `Gemini's "${model}" model took too long to answer. Try again.`, {
+      cause: error,
+      modelProblem: "timeout",
+    });
   }
   return new AiError(
     "provider",

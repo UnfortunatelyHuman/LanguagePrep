@@ -4,9 +4,8 @@ import type { Exam } from "@/lib/practice/types";
  * Rubric dimensions and score-to-level mapping. Safe for client and server.
  *
  * CELPIP Writing is rated on four performance-standard dimensions, each on the
- * CELPIP 1–12 scale (CELPIP level = CLB level).
- * TCF Expression écrite is reported on 0–20; we rate four criteria on 0–20 and
- * average them, then map with IRCC's TCF Canada writing table.
+ * CELPIP 1–12 scale. TCF Expression écrite is reported on 0–20; we rate four
+ * criteria on 0–20 and average them. Scales and level mapping: lib/rubric/levels.
  */
 export type Dimension = {
   id: string;
@@ -69,53 +68,3 @@ export const DIMENSIONS: Record<Exam, Dimension[]> = {
     },
   ],
 };
-
-export const SCORE_RANGE: Record<Exam, { min: number; max: number }> = {
-  celpip: { min: 1, max: 12 },
-  tcf: { min: 0, max: 20 },
-};
-
-export const WRITING_TARGET: Record<Exam, { label: string; level: number }> = {
-  celpip: { label: "CLB 10", level: 10 },
-  tcf: { label: "NCLC 7", level: 7 },
-};
-
-/** IRCC TCF Canada writing table: lowest /20 score for each NCLC level. */
-const TCF_NCLC: [min: number, nclc: number][] = [
-  [16, 10],
-  [14, 9],
-  [12, 8],
-  [10, 7],
-  [7, 6],
-  [6, 5],
-  [4, 4],
-];
-
-export function tcfWritingNclc(score: number): number | null {
-  const whole = Math.floor(score);
-  return TCF_NCLC.find(([min]) => whole >= min)?.[1] ?? null;
-}
-
-/**
- * Mean of the dimension scores and the level it maps to. The level rounds
- * down: a 9.5 average is a 9 with strengths, not a 10.
- */
-export function writingLevel(
-  exam: Exam,
-  scores: number[],
-): { score: number; level: string; meetsTarget: boolean } {
-  const mean = scores.reduce((a, b) => a + b, 0) / scores.length;
-  const score = Math.round(mean * 10) / 10;
-  const target = WRITING_TARGET[exam].level;
-
-  if (exam === "celpip") {
-    const clb = Math.floor(mean);
-    return { score, level: `CLB ${clb}`, meetsTarget: clb >= target };
-  }
-  const nclc = tcfWritingNclc(mean);
-  return {
-    score,
-    level: nclc === null ? "Below NCLC 4" : `NCLC ${nclc}`,
-    meetsTarget: nclc !== null && nclc >= target,
-  };
-}

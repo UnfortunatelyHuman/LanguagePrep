@@ -1,4 +1,4 @@
-import type { FeedbackError, FeedbackErrorKind } from "@/lib/writing/types";
+import type { FeedbackError, FeedbackErrorKind } from "@/lib/feedback/types";
 
 const TITLES: Record<FeedbackErrorKind, string> = {
   missing_key: "No AI key configured",
@@ -14,10 +14,10 @@ const TITLES: Record<FeedbackErrorKind, string> = {
 
 /** What the user can do about each kind, beyond the server's message. */
 const HINTS: Partial<Record<FeedbackErrorKind, string>> = {
-  missing_key: "Your writing is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
-  auth: "Your writing is still here. After fixing the key and restarting `npm run dev`, press Try again.",
-  config: "Your writing is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
-  rate_limit: "Free tiers allow only a few requests per minute. Your writing is still here.",
+  missing_key: "Your work is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
+  auth: "Your work is still here. After fixing the key and restarting `npm run dev`, press Try again.",
+  config: "Your work is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
+  rate_limit: "Free tiers allow only a few requests per minute. Your work is still here.",
 };
 
 /** Explains a failed grading request and offers the next step. Nothing is lost. */
@@ -26,11 +26,13 @@ export function FeedbackErrorPanel({
   canEdit,
   onRetry,
   onEdit,
+  editLabel = "Keep writing",
 }: {
   error: FeedbackError;
   canEdit: boolean;
   onRetry: () => void;
   onEdit: () => void;
+  editLabel?: string;
 }) {
   const retryable = error.kind !== "too_short" && error.kind !== "bad_request";
   return (
@@ -40,7 +42,7 @@ export function FeedbackErrorPanel({
         <p className="mt-1 leading-relaxed">{error.message}</p>
         {HINTS[error.kind] ? <p className="mt-1 leading-relaxed text-muted">{HINTS[error.kind]}</p> : null}
         {!HINTS[error.kind] && retryable ? (
-          <p className="mt-1 text-muted">Your writing is still here and nothing was saved yet.</p>
+          <p className="mt-1 text-muted">Your work is still here and nothing was saved yet.</p>
         ) : null}
       </div>
       <div className="flex flex-wrap gap-2">
@@ -51,7 +53,7 @@ export function FeedbackErrorPanel({
         ) : null}
         {canEdit ? (
           <button type="button" onClick={onEdit} className="rounded-lg border border-border bg-surface px-3 py-1.5 font-medium">
-            Keep writing
+            {editLabel}
           </button>
         ) : null}
       </div>

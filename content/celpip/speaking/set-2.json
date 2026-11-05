@@ -1,0 +1,168 @@
+{
+  "id": "celpip-speaking-2",
+  "exam": "celpip",
+  "title": "Speaking Test 2",
+  "summary": "Settling into a new neighbourhood, learning a new skill, a busy airport check-in, choosing a weekend getaway, a colleague's mistake, a four-day school week, and an odd piece of furniture.",
+  "tasks": [
+    {
+      "id": "task-1",
+      "kind": "celpip-advice",
+      "label": "Task 1: Giving Advice",
+      "prepSeconds": 30,
+      "speakSeconds": 90,
+      "prompt": "A friend of yours has just moved to a new city with her husband and two children. She says she feels lonely and doesn't know anyone yet. Give her some advice about how to meet people and feel at home.",
+      "points": [
+        "Places or activities where she could meet people",
+        "How her children could help the family make connections",
+        "How to stay positive while she settles in"
+      ]
+    },
+    {
+      "id": "task-2",
+      "kind": "celpip-experience",
+      "label": "Task 2: Talking about a Personal Experience",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "Talk about a time when you learned a new skill, such as driving, cooking, swimming or using a new piece of software.",
+      "points": [
+        "What the skill was and why you wanted to learn it",
+        "What was difficult about learning it",
+        "How the skill has helped you since"
+      ]
+    },
+    {
+      "id": "task-3",
+      "kind": "celpip-scene",
+      "label": "Task 3: Describing a Scene",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "Describe some things that are happening in the picture as well as you can. The person you are speaking to cannot see the picture.",
+      "scene": {
+        "caption": "A crowded airport check-in area early on a holiday morning",
+        "items": [
+          { "emoji": "🧳", "label": "A family of four with a cart piled high with suitcases" },
+          { "emoji": "⚖️", "label": "A man at the counter whose suitcase is on the scale, looking worried" },
+          { "emoji": "🧑‍✈️", "label": "An airline agent pointing at a sign that says \"Max 23 kg\"" },
+          { "emoji": "👶", "label": "A toddler sitting on a suitcase, crying" },
+          { "emoji": "📱", "label": "A young woman checking a boarding pass on her phone" },
+          { "emoji": "🖥️", "label": "A departures screen showing one flight as \"DELAYED\"" },
+          { "emoji": "🧹", "label": "A cleaner mopping the floor near a \"Wet floor\" sign" },
+          { "emoji": "☕", "label": "A man running with a coffee cup in his hand" }
+        ]
+      }
+    },
+    {
+      "id": "task-4",
+      "kind": "celpip-predictions",
+      "label": "Task 4: Making Predictions",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "In this picture, what do you think will most probably happen next? Describe what you think will happen to the people and things you see.",
+      "scene": {
+        "caption": "A crowded airport check-in area early on a holiday morning",
+        "items": [
+          { "emoji": "🧳", "label": "A family of four with a cart piled high with suitcases" },
+          { "emoji": "⚖️", "label": "A man at the counter whose suitcase is on the scale, looking worried" },
+          { "emoji": "🧑‍✈️", "label": "An airline agent pointing at a sign that says \"Max 23 kg\"" },
+          { "emoji": "👶", "label": "A toddler sitting on a suitcase, crying" },
+          { "emoji": "📱", "label": "A young woman checking a boarding pass on her phone" },
+          { "emoji": "🖥️", "label": "A departures screen showing one flight as \"DELAYED\"" },
+          { "emoji": "🧹", "label": "A cleaner mopping the floor near a \"Wet floor\" sign" },
+          { "emoji": "☕", "label": "A man running with a coffee cup in his hand" }
+        ]
+      }
+    },
+    {
+      "id": "task-5",
+      "kind": "celpip-compare",
+      "label": "Task 5: Comparing and Persuading",
+      "chooseSeconds": 60,
+      "prepSeconds": 60,
+      "speakSeconds": 60,
+      "prompt": "You and a close friend are planning a weekend away together. Choose the trip you prefer. Then persuade your friend, who prefers the other trip, that your choice is better.",
+      "options": [
+        {
+          "id": "A",
+          "title": "Lakeside cabin",
+          "details": [
+            "$320 for two nights, shared",
+            "2-hour drive from the city",
+            "Canoe and hiking trails included",
+            "No Wi-Fi; nearest store 20 minutes away"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Downtown hotel in another city",
+          "details": [
+            "$480 for two nights, shared",
+            "1-hour flight or 5-hour train",
+            "Close to museums, restaurants and shopping",
+            "Rooftop pool and free breakfast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task-6",
+      "kind": "celpip-difficult",
+      "label": "Task 6: Dealing with a Difficult Situation",
+      "prepSeconds": 60,
+      "speakSeconds": 60,
+      "prompt": "Your colleague and friend, Maria, sent an important report to a client with several wrong figures. Your manager has not noticed yet, but the client will review the report on Monday. You have to choose one option. Explain your choice and say what you will tell the person.",
+      "options": [
+        {
+          "id": "A",
+          "title": "Talk to Maria",
+          "details": [
+            "Tell her about the errors so she can correct them herself",
+            "Offer to help her send a corrected version before Monday",
+            "Risk: she may feel embarrassed or defensive"
+          ]
+        },
+        {
+          "id": "B",
+          "title": "Talk to your manager",
+          "details": [
+            "Make sure the problem is handled properly before the client sees it",
+            "Protect the company's reputation",
+            "Risk: Maria may feel you betrayed her trust"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "task-7",
+      "kind": "celpip-opinion",
+      "label": "Task 7: Expressing Opinions",
+      "prepSeconds": 30,
+      "speakSeconds": 90,
+      "prompt": "Some school boards are considering a four-day school week, with longer school days, to save money. Do you think this is a good idea? Explain your reasons.",
+      "points": [
+        "Effects on students' learning and energy",
+        "Effects on working parents and childcare",
+        "Whether the savings are worth it"
+      ]
+    },
+    {
+      "id": "task-8",
+      "kind": "celpip-unusual",
+      "label": "Task 8: Describing an Unusual Situation",
+      "prepSeconds": 30,
+      "speakSeconds": 60,
+      "prompt": "You are in a second-hand furniture store and see an unusual chair. Your sister is looking for furniture for her new apartment. Call her and describe the chair in detail so that she can decide whether she wants it.",
+      "scene": {
+        "caption": "An unusual chair in a second-hand furniture store",
+        "items": [
+          { "emoji": "🪑", "label": "A chair shaped like a giant open hand, with the fingers as the backrest" },
+          { "emoji": "🟡", "label": "Covered in bright yellow velvet" },
+          { "emoji": "🛞", "label": "Four small wheels instead of legs" },
+          { "emoji": "📚", "label": "A hidden drawer under the seat, big enough for books" },
+          { "emoji": "💡", "label": "A tiny reading lamp attached to the thumb" },
+          { "emoji": "📏", "label": "About as wide as a small sofa" },
+          { "emoji": "🏷️", "label": "A price tag: $95, \"slightly worn\"" }
+        ]
+      }
+    }
+  ]
+}
