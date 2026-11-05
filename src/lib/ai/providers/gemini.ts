@@ -63,7 +63,14 @@ function toAiError(error: unknown, model: string): AiError {
       return new AiError(
         "config",
         `Gemini can't use the model "${model}"${replacement ? `; Google suggests "${replacement}"` : ""}. Update AI_MODEL in .env.local and restart the dev server.`,
-        { cause: error },
+        { cause: error, modelProblem: "unavailable" },
+      );
+    }
+    if (status === 503 || /UNAVAILABLE|high demand|overloaded/i.test(message)) {
+      return new AiError(
+        "provider",
+        `Gemini's "${model}" model is overloaded right now. Try again in a moment.`,
+        { cause: error, modelProblem: "overloaded" },
       );
     }
     return new AiError(
@@ -84,23 +91,12 @@ function toAiError(error: unknown, model: string): AiError {
   );
 }
 
-/** Gemini often answers 503 "high demand" for a few seconds; wait and try once more. */
-async function withOverloadRetry<T>(call: () => Promise<T>): Promise<T> {
-  try {
-    return await call();
-  } catch (error) {
-    if (!(error instanceof ApiError) || error.status < 500) throw error;
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-    return call();
-  }
-}
-
 async function generateJSON(request: JsonRequest): Promise<string> {
   const apiKey = requireEnv("GEMINI_API_KEY", "gemini");
   const ai = new GoogleGenAI({ apiKey });
 
   try {
-    const response = await withOverloadRetry(() => ai.models.generateContent({
+    const response = await ai.models.generateContent({
       model: request.model,
       contents: request.prompt,
       config: {
@@ -112,7 +108,7 @@ async function generateJSON(request: JsonRequest): Promise<string> {
         maxOutputTokens: 16384,
         abortSignal: AbortSignal.timeout(request.timeoutMs ?? 90_000),
       },
-    }));
+    });
 
     const blocked = response.promptFeedback?.blockReason;
     if (blocked) {

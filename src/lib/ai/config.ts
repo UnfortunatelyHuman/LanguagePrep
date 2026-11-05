@@ -12,8 +12,17 @@ export function aiProvider(): AiProviderName {
   );
 }
 
-export function aiModel(fallback: string): string {
-  return process.env.AI_MODEL?.trim() || fallback;
+/**
+ * Models to try, in order. AI_MODEL may be one name or a comma-separated
+ * list ("gemini-3.8-flash,gemini-3.5-flash"); later ones are fallbacks.
+ */
+export function aiModels(fallback: string): string[] {
+  const list = (process.env.AI_MODEL ?? "")
+    .split(",")
+    .map((m) => m.trim())
+    .filter(Boolean);
+  const models = list.length ? list : [fallback].filter(Boolean);
+  return [...new Set(models)];
 }
 
 /** Read a required secret, or explain exactly which variable to set. */

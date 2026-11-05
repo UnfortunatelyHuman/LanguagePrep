@@ -1,11 +1,11 @@
 import "server-only";
 import { z } from "zod";
-import { aiModel, aiProvider } from "./config";
+import { aiModels, aiProvider } from "./config";
 import { AiError } from "./errors";
 import { anthropic } from "./providers/anthropic";
 import { gemini } from "./providers/gemini";
 import { openaiCompatible } from "./providers/openai-compatible";
-import type { AiProviderName, GenerateOptions, ProviderAdapter } from "./types";
+import type { AiProviderName, GenerateOptions, JsonRequest, ProviderAdapter } from "./types";
 
 /**
  * The only entry point app code uses for AI. Provider SDKs are imported by the
@@ -21,17 +21,70 @@ const ADAPTERS: Record<AiProviderName, ProviderAdapter> = {
   "openai-compatible": openaiCompatible,
 };
 
-/** Provider and model in use, e.g. for showing "graded by gemini-2.5-flash". */
-export function activeModel(): { provider: AiProviderName; model: string } {
+/** Pause before retrying the last model when every model is overloaded. */
+const OVERLOAD_PAUSE_MS = 3000;
+
+/** Provider in use and the models to try, in order. */
+export function activeModels(): { provider: AiProviderName; models: string[] } {
   const adapter = ADAPTERS[aiProvider()];
-  const model = aiModel(adapter.defaultModel);
-  if (!model) {
+  const models = aiModels(adapter.defaultModel);
+  if (!models.length) {
     throw new AiError(
       "config",
       `AI_MODEL isn't set. The ${adapter.name} provider needs a model name in .env.local.`,
     );
   }
-  return { provider: adapter.name, model };
+  return { provider: adapter.name, models };
+}
+
+/**
+ * Call the adapter with each model in turn. A model that is overloaded or
+ * retired hands over to the next one; if the last one is overloaded, wait a
+ * moment and give it one more try. Any other error stops immediately.
+ */
+async function callWithFallback(
+  adapter: ProviderAdapter,
+  models: string[],
+  request: Omit<JsonRequest, "model">,
+): Promise<{ text: string; model: string }> {
+  const problems: string[] = [];
+  for (let i = 0; i < models.length; i++) {
+    const model = models[i];
+    const isLast = i === models.length - 1;
+    const started = Date.now();
+    try {
+      return { text: await adapter.generateJSON({ ...request, model }), model };
+    } catch (error) {
+      if (!(error instanceof AiError) || !error.modelProblem) throw error;
+      problems.push(`${model} (${error.modelProblem})`);
+
+      if (!isLast) {
+        const seconds = ((Date.now() - started) / 1000).toFixed(1);
+        console.warn(
+          `[ai] ${model} is ${error.modelProblem} (after ${seconds} s); falling back to ${models[i + 1]}`,
+        );
+        continue;
+      }
+      if (error.modelProblem === "overloaded") {
+        await new Promise((resolve) => setTimeout(resolve, OVERLOAD_PAUSE_MS));
+        try {
+          return { text: await adapter.generateJSON({ ...request, model }), model };
+        } catch (retryError) {
+          if (!(retryError instanceof AiError) || !retryError.modelProblem) throw retryError;
+        }
+      }
+      if (models.length === 1) throw error;
+      throw new AiError(
+        error.modelProblem === "overloaded" ? "provider" : "config",
+        `None of the models in AI_MODEL could answer: ${problems.join(", ")}. ` +
+          (error.modelProblem === "overloaded"
+            ? "Try again in a moment."
+            : "Check AI_MODEL in .env.local and restart the dev server."),
+        { cause: error },
+      );
+    }
+  }
+  throw new AiError("config", "AI_MODEL lists no models.");
 }
 
 /** Models occasionally wrap JSON in a ```json fence despite JSON mode. */
@@ -40,29 +93,41 @@ function parseJson(text: string): unknown {
   return JSON.parse(trimmed);
 }
 
+export type JsonOptions = GenerateOptions & {
+  /** Told which model actually answered (after any fallback). */
+  onModel?: (model: string) => void;
+};
+
 /**
- * Ask the configured model for JSON matching `schema`, and return it parsed and
- * validated. If the reply doesn't parse or validate, ask once more, telling the
- * model what was wrong. Throws AiError for every failure.
+ * Ask the configured model(s) for JSON matching `schema`, and return it parsed
+ * and validated. If the reply doesn't parse or validate, ask once more, telling
+ * the model what was wrong. Throws AiError for every failure.
  */
 export async function generateJSON<T extends z.ZodType>(
   prompt: string,
   schema: T,
-  options: GenerateOptions = {},
+  { onModel, ...options }: JsonOptions = {},
 ): Promise<z.output<T>> {
-  const { provider, model } = activeModel();
+  const { provider, models } = activeModels();
   const adapter = ADAPTERS[provider];
   const jsonSchema = z.toJSONSchema(schema, { io: "output", unrepresentable: "any" }) as Record<
     string,
     unknown
   >;
 
+  let candidates = models;
   let lastProblem = "";
   for (let attempt = 0; attempt < 2; attempt++) {
     const fullPrompt = lastProblem
       ? `${prompt}\n\nYour previous answer was rejected: ${lastProblem}\nReply again with JSON that matches the schema exactly.`
       : prompt;
-    const text = await adapter.generateJSON({ ...options, model, prompt: fullPrompt, jsonSchema });
+    const { text, model } = await callWithFallback(adapter, candidates, {
+      ...options,
+      prompt: fullPrompt,
+      jsonSchema,
+    });
+    // A corrective retry starts from the model that just answered.
+    candidates = models.slice(models.indexOf(model));
 
     let data: unknown;
     try {
@@ -72,7 +137,10 @@ export async function generateJSON<T extends z.ZodType>(
       continue;
     }
     const result = schema.safeParse(data);
-    if (result.success) return result.data;
+    if (result.success) {
+      onModel?.(model);
+      return result.data;
+    }
     lastProblem = z.prettifyError(result.error).slice(0, 1500);
   }
 

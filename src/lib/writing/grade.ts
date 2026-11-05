@@ -1,6 +1,6 @@
 import "server-only";
 import { z } from "zod";
-import { activeModel, generateJSON } from "@/lib/ai";
+import { generateJSON } from "@/lib/ai";
 import { DIMENSIONS, SCORE_RANGE } from "./rubric";
 import { countWords } from "./words";
 import type { TaskTexts, WritingSet, WritingTask } from "./types";
@@ -142,11 +142,12 @@ Return:
 
 /** Ask the configured AI model to grade a writing set. Throws AiError on failure. */
 export async function gradeWriting(set: WritingSet, texts: TaskTexts): Promise<GradedWriting> {
-  const { model } = activeModel();
+  let model = "";
   const graded = await generateJSON(buildPrompt(set, texts), feedbackSchema(set), {
     system: set.exam === "celpip" ? CELPIP_SYSTEM : TCF_SYSTEM,
     temperature: 0.2,
     timeoutMs: 120_000,
+    onModel: (m) => (model = m),
   });
   return { ...graded, model };
 }

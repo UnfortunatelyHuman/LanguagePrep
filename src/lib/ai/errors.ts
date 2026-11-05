@@ -26,20 +26,28 @@ const STATUS: Record<AiErrorKind, number> = {
   provider: 502,
 };
 
+/**
+ * Why trying another model might help: the model is overloaded right now, or
+ * it is retired / unknown. Set by adapters; read by the fallback loop.
+ */
+export type ModelProblem = "overloaded" | "unavailable";
+
 export class AiError extends Error {
   readonly kind: AiErrorKind;
+  readonly modelProblem?: ModelProblem;
   /** Seconds the provider asked us to wait, when it said (rate limits). */
   readonly retryAfterSeconds?: number;
 
   constructor(
     kind: AiErrorKind,
     message: string,
-    options?: { cause?: unknown; retryAfterSeconds?: number },
+    options?: { cause?: unknown; retryAfterSeconds?: number; modelProblem?: ModelProblem },
   ) {
     super(message, { cause: options?.cause });
     this.name = "AiError";
     this.kind = kind;
     this.retryAfterSeconds = options?.retryAfterSeconds;
+    this.modelProblem = options?.modelProblem;
   }
 
   get status(): number {
