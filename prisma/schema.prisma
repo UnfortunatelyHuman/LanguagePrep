@@ -99,19 +99,22 @@ model MockExam {
   @@index([exam, startedAt])
 }
 
-/// A practice set written by the AI (writing or speaking prompts).
+/// A practice set stored in the database: written by the AI, or added by the learner.
 model GeneratedSet {
   id        String   @id @default(cuid())
+  /// "ai" (generated) | "user" (a paper the learner added: reading or listening)
+  source    String   @default("ai")
   /// "celpip" | "tcf"
   exam      String
-  /// "writing" | "speaking"
+  /// "writing" | "speaking" | "reading" | "listening"
   skill     String
   title     String
-  /// The full WritingSet / SpeakingSet JSON, validated before saving.
+  /// The full WritingSet / SpeakingSet / TestSet JSON, validated before saving.
   data      Json
   createdAt DateTime @default(now())
 
   @@index([exam, skill, createdAt])
+  @@index([exam, source, createdAt])
 }
 
 /// A phrase the learner saved from AI feedback, practised with the phrase bank's self-test.

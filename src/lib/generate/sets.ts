@@ -12,7 +12,7 @@ import type { SpeakingSet } from "@/lib/speaking/types";
 import { findWritingSet, validateWritingSet } from "@/lib/writing/content";
 import type { WritingSet } from "@/lib/writing/types";
 import { BUILDERS } from "./builders";
-import { AI_SET_PREFIX, isGeneratedSetId, type GenerateOption } from "./kinds";
+import { AI_SET_PREFIX, USER_SET_PREFIX, isGeneratedSetId, isUserSetId, type GenerateOption } from "./kinds";
 
 /** The AI's set broke the exam format (as opposed to a provider or database failure). */
 export class SetFormatError extends Error {
@@ -83,11 +83,17 @@ export async function generateSet(
   return { id: setId, skill: option.skill };
 }
 
+/** A stored set: "ai-…" ids are generated sets, "my-…" ids are papers the learner added. */
 async function loadGenerated(track: Track, skill: SkillId, setId: string) {
-  if (!isGeneratedSetId(setId)) return null;
+  const [prefix, source] = isGeneratedSetId(setId)
+    ? [AI_SET_PREFIX, "ai"]
+    : isUserSetId(setId)
+      ? [USER_SET_PREFIX, "user"]
+      : [null, null];
+  if (!prefix) return null;
   await io();
   const row = await prisma.generatedSet.findFirst({
-    where: { id: setId.slice(AI_SET_PREFIX.length), exam: examKey(track), skill },
+    where: { id: setId.slice(prefix.length), exam: examKey(track), skill, source },
     select: { data: true },
   });
   return row?.data ?? null;
@@ -119,7 +125,7 @@ export async function resolveSpeakingSet(track: Track, setId: string): Promise<S
   }
 }
 
-/** A listening or reading set from the content files or, for "ai-…" ids, from the database. */
+/** A listening or reading set from the content files or, for "ai-…" and "my-…" ids, from the database. */
 export async function resolveTestSet(track: Track, skill: PracticeSkill, setId: string): Promise<TestSet | undefined> {
   const fromFile = findTestSet(track, skill, setId);
   if (fromFile) return fromFile;
@@ -144,7 +150,7 @@ export type GeneratedSummary = {
 export async function listGeneratedSets(track: Track, skill?: SkillId): Promise<GeneratedSummary[]> {
   await io();
   const rows = await prisma.generatedSet.findMany({
-    where: { exam: examKey(track), ...(skill ? { skill } : {}), NOT: { title: "pending" } },
+    where: { exam: examKey(track), source: "ai", ...(skill ? { skill } : {}), NOT: { title: "pending" } },
     orderBy: { createdAt: "desc" },
     take: 50,
   });

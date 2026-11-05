@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { GeneratedList } from "@/components/generate/GeneratedList";
+import { UserPaperList } from "@/components/papers/UserPaperList";
 import { AttemptHistory } from "@/components/practice/AttemptHistory";
 import { getTrack, type Track } from "@/lib/exams";
 import { questionCount, testSets, totalMinutes } from "@/lib/practice/content";
@@ -43,7 +44,10 @@ export function PracticeIndex({ track, skill }: { track: Track; skill: PracticeS
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted">
           {info.structure}. Target:{" "}
           <span className="font-medium text-foreground">{info.target}</span>
-          {info.targetNote ? ` (${info.targetNote})` : ""}. {FORMAT_NOTES[track][skill]}
+          {info.targetNote ? ` (${info.targetNote})` : ""}. {FORMAT_NOTES[track][skill]}{" "}
+          <Link href={`/${track}/guide#${skill}`} className="text-accent">
+            How this part works →
+          </Link>
         </p>
         {skill === "listening" ? (
           <p className="mt-2 max-w-2xl text-xs text-muted">
@@ -55,20 +59,39 @@ export function PracticeIndex({ track, skill }: { track: Track; skill: PracticeS
 
       <section className="grid gap-4 sm:grid-cols-2">
         {sets.map((set) => (
-          <Link
-            key={set.id}
-            href={`/${track}/${skill}/${set.id}`}
-            className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-5 transition-colors hover:border-accent"
-          >
+          <div key={set.id} className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-5">
             <h2 className="font-semibold tracking-tight">{set.title}</h2>
             <p className="text-sm text-muted">{set.summary}</p>
             <p className="mt-auto pt-2 text-xs text-muted">
               {questionCount(set)} questions · {totalMinutes(set)} min
               {set.parts.length > 1 ? ` · ${set.parts.length} parts` : ""}
             </p>
-            <span className="text-sm font-medium text-accent">Start →</span>
-          </Link>
+            <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm font-medium">
+              <Link href={`/${track}/${skill}/${set.id}`} className="text-accent">
+                Timed test →
+              </Link>
+              <Link href={`/${track}/${skill}/${set.id}/answers`} className="text-accent">
+                Study with answers
+              </Link>
+            </div>
+          </div>
         ))}
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-lg font-semibold tracking-tight">Your own papers</h2>
+          <Link href={`/${track}/papers/new/${skill}`} className="text-sm font-medium text-accent">
+            Add a {skill} paper →
+          </Link>
+        </div>
+        <Suspense fallback={<p className="text-sm text-muted">Loading…</p>}>
+          <UserPaperList
+            track={track}
+            skill={skill}
+            empty="None yet. Type in questions from a book or class and they'll run here like any other paper."
+          />
+        </Suspense>
       </section>
 
       <section className="flex flex-col gap-3">

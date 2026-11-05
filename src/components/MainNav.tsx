@@ -7,10 +7,12 @@ import type { Track } from "@/lib/exams";
 /** Main sections, relative to the track root. */
 const NAV = [
   { href: "", label: "Dashboard" },
+  { href: "/guide", label: "Exam guide" },
   { href: "/progress", label: "Progress" },
   { href: "/plan", label: "Study plan" },
   { href: "/mock", label: "Mock exam" },
   { href: "/phrases", label: "Phrases" },
+  { href: "/papers", label: "My papers" },
   { href: "/generate", label: "New AI sets" },
 ];
 

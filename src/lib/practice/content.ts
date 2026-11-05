@@ -3,7 +3,11 @@ import celpipReading2 from "../../../content/celpip/reading/set-2.json";
 import celpipListening1 from "../../../content/celpip/listening/set-1.json";
 import celpipListening2 from "../../../content/celpip/listening/set-2.json";
 import tcfReading1 from "../../../content/tcf/reading/set-1.json";
+import tcfReading2 from "../../../content/tcf/reading/set-2.json";
+import tcfReading3 from "../../../content/tcf/reading/set-3.json";
 import tcfListening1 from "../../../content/tcf/listening/set-1.json";
+import tcfListening2 from "../../../content/tcf/listening/set-2.json";
+import tcfListening3 from "../../../content/tcf/listening/set-3.json";
 import type { Track } from "@/lib/exams";
 import type { ClientTestSet, PracticeSkill, TestSet } from "@/lib/practice/types";
 
@@ -70,8 +74,8 @@ const SETS: Record<Track, Record<PracticeSkill, TestSet[]>> = {
     listening: load("listening", [celpipListening1, celpipListening2]),
   },
   fr: {
-    reading: load("reading", [tcfReading1]),
-    listening: load("listening", [tcfListening1]),
+    reading: load("reading", [tcfReading1, tcfReading2, tcfReading3]),
+    listening: load("listening", [tcfListening1, tcfListening2, tcfListening3]),
   },
 };
 

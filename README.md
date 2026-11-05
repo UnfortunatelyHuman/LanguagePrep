@@ -11,12 +11,29 @@ IRCC scores each of the four skills separately, so every skill needs to clear th
 
 ## Status
 
-**Phase 1 (scaffold) is done:** Next.js App Router app, an EN/FR track switch, a home
-dashboard showing the exam format and target for each skill, and a SQLite database
-with the `Attempt` / `Response` models behind it.
+All seven build phases in `CLAUDE.md` are done: reading, listening, writing and speaking
+practice, progress charts, a study plan, mock exams, a phrase bank and AI-generated sets.
+There is also an **Exam guide** (`/en/guide`, `/fr/guide`) covering each test's structure,
+timing, scoring and strategies, and every reading/listening paper has an **answer key**
+(`…/answers`) for untimed study.
 
-Phases 2–7 — reading, listening, writing, speaking, progress charts and extras —
-are still to come. See `CLAUDE.md` for the full plan.
+Built-in papers: CELPIP 2 reading + 2 listening; TCF Canada 3 reading + 3 listening
+(39 questions each, A1 → C2).
+
+## Adding your own papers
+
+Open **My papers** in the app. You can either:
+
+- **Use the form**: paste each text (reading) or type each script as `Speaker: line`
+  (listening), add the questions and mark the correct option; or
+- **Import JSON** in the same format as the files in `content/{celpip,tcf}/{reading,listening}/`
+  (the My papers page has a template to download).
+
+Papers you add are stored in the SQLite database (the `GeneratedSet` table, `source = "user"`).
+They're timed, scored, tracked in your progress and get an answer key, like the built-in ones.
+To add a paper to the app's own content instead, put a JSON file in `content/` and import it
+in `src/lib/practice/content.ts`. Full-length papers must have exactly 38 (CELPIP) or
+39 (TCF) questions, and the build checks this.
 
 ## Running it
 

@@ -1,0 +1,1010 @@
+{
+  "id": "tcf-reading-3",
+  "exam": "tcf",
+  "skill": "reading",
+  "title": "TCF Canada — Compréhension écrite, série 3",
+  "summary": "39 documents, from street signs and invitations (A1) to essays on memory, cities and authenticity (C2).",
+  "parts": [
+    {
+      "id": "ce",
+      "title": "Compréhension écrite",
+      "minutes": 60,
+      "instructions": "Lisez chaque document, puis choisissez la bonne réponse. Les questions sont de plus en plus difficiles.",
+      "sections": [
+        {
+          "id": "d01",
+          "passage": {
+            "label": "Panneau",
+            "paragraphs": [
+              "Stationnement interdit le mardi, de 8 h à 10 h.",
+              "Nettoyage de la rue."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q01",
+              "level": "A1",
+              "stem": "Pourquoi ne peut-on pas se garer le mardi matin ?",
+              "options": [
+                "La rue est nettoyée",
+                "Il y a un marché",
+                "C'est un jour férié",
+                "La rue est fermée aux voitures"
+              ],
+              "answer": 0,
+              "explanation": "“Nettoyage de la rue” = street cleaning, Tuesday 8–10 a.m."
+            }
+          ]
+        },
+        {
+          "id": "d02",
+          "passage": {
+            "label": "SMS",
+            "paragraphs": [
+              "Salut Tom ! Le match de soccer est annulé à cause de la pluie. On joue samedi prochain, à la même heure. À+ Karim"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q02",
+              "level": "A1",
+              "stem": "Pourquoi le match est-il annulé ?",
+              "options": [
+                "Karim est malade",
+                "Il pleut",
+                "Le terrain est fermé",
+                "Il n'y a pas assez de joueurs"
+              ],
+              "answer": 1,
+              "explanation": "“À cause de la pluie” = because of the rain."
+            }
+          ]
+        },
+        {
+          "id": "d03",
+          "passage": {
+            "label": "Affiche",
+            "heading": "Musée des sciences",
+            "paragraphs": [
+              "Adultes : 15 $",
+              "Enfants (moins de 12 ans) : 8 $",
+              "Moins de 3 ans : gratuit"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q03",
+              "level": "A1",
+              "stem": "Combien paie un enfant de 10 ans ?",
+              "options": [
+                "15 $",
+                "3 $",
+                "8 $",
+                "Rien"
+              ],
+              "answer": 2,
+              "explanation": "A 10-year-old is under 12 (“moins de 12 ans”), so 8 $. Free entry is only for children under 3."
+            }
+          ]
+        },
+        {
+          "id": "d04",
+          "passage": {
+            "label": "Invitation",
+            "paragraphs": [
+              "Venez fêter les 40 ans de Sylvie !",
+              "Samedi 12 octobre, à 19 h, au 8, rue Champlain.",
+              "Apportez un plat à partager. Répondez avant le 5 octobre."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q04",
+              "level": "A1",
+              "stem": "Que doivent apporter les invités ?",
+              "options": [
+                "Un cadeau",
+                "Des fleurs",
+                "Une boisson",
+                "Quelque chose à manger"
+              ],
+              "answer": 3,
+              "explanation": "“Apportez un plat à partager” = bring a dish to share, i.e. food."
+            }
+          ]
+        },
+        {
+          "id": "d05",
+          "passage": {
+            "label": "Courriel",
+            "paragraphs": [
+              "Bonjour chers parents,",
+              "La sortie au zoo de la classe de 3e année aura lieu le mercredi 22 mai. Ce jour-là, les élèves doivent arriver à l'école à 8 h, et non à 8 h 30 comme d'habitude. Prévoyez un lunch froid et une bouteille d'eau. Retour prévu vers 15 h.",
+              "Mme Lavallée"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q05",
+              "level": "A2",
+              "stem": "Qu'est-ce qui change ce jour-là ?",
+              "options": [
+                "L'heure d'arrivée à l'école",
+                "L'heure de la fin des cours",
+                "L'adresse de l'école",
+                "Le prix du dîner"
+              ],
+              "answer": 0,
+              "explanation": "Students arrive at 8 h “et non à 8 h 30 comme d'habitude” — earlier than usual."
+            }
+          ]
+        },
+        {
+          "id": "d06",
+          "passage": {
+            "label": "Avis",
+            "paragraphs": [
+              "Avis aux usagers : en raison d'un bris mécanique, la piscine est fermée jusqu'à nouvel ordre. Les cours de natation sont reportés.",
+              "Les abonnés seront remboursés pour les jours de fermeture. Consultez notre site pour connaître la date de réouverture."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q06",
+              "level": "A2",
+              "stem": "Que recevront les abonnés ?",
+              "options": [
+                "Des cours gratuits",
+                "Un remboursement",
+                "Un nouvel abonnement",
+                "Une invitation"
+              ],
+              "answer": 1,
+              "explanation": "“Les abonnés seront remboursés pour les jours de fermeture” — members get money back for the closed days."
+            }
+          ]
+        },
+        {
+          "id": "d07",
+          "passage": {
+            "label": "Petite annonce",
+            "paragraphs": [
+              "Étudiante en éducation, 22 ans, offre ses services de gardienne les soirs de semaine et le samedi. Expérience avec les bébés. Cours de premiers soins à jour. 15 $ de l'heure. Quartier Limoilou seulement."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q07",
+              "level": "A2",
+              "stem": "Qu'est-ce qui est vrai ?",
+              "options": [
+                "Elle travaille le dimanche",
+                "Elle n'a jamais gardé de bébés",
+                "Elle a suivi une formation en premiers soins",
+                "Elle se déplace dans toute la ville"
+              ],
+              "answer": 2,
+              "explanation": "“Cours de premiers soins à jour” = up-to-date first-aid course. She works weekday evenings and Saturdays, only in Limoilou."
+            }
+          ]
+        },
+        {
+          "id": "d08",
+          "passage": {
+            "label": "Horaire",
+            "heading": "Train Montréal → Québec",
+            "paragraphs": [
+              "Départ 7 h 15 — arrivée 10 h 30",
+              "Départ 13 h 00 — arrivée 16 h 20",
+              "Départ 18 h 45 — arrivée 22 h 05 (sauf le samedi)"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q08",
+              "level": "A2",
+              "stem": "Quel train ne circule pas le samedi ?",
+              "options": [
+                "Celui de 7 h 15",
+                "Celui de 13 h",
+                "Celui qui arrive à 10 h 30",
+                "Celui de 18 h 45"
+              ],
+              "answer": 3,
+              "explanation": "“Sauf le samedi” (except Saturday) is written next to the 18 h 45 departure."
+            }
+          ]
+        },
+        {
+          "id": "d09",
+          "passage": {
+            "label": "Carte postale",
+            "paragraphs": [
+              "Chère Marie,",
+              "Nous sommes à Tadoussac depuis lundi. Hier, nous avons fait une croisière et nous avons vu des baleines ! Il fait frais, mais très beau. Demain, nous partons pour le Saguenay.",
+              "Je t'embrasse, Lucie"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q09",
+              "level": "A2",
+              "stem": "Qu'a fait Lucie hier ?",
+              "options": [
+                "Elle est partie pour le Saguenay",
+                "Elle a fait une sortie en bateau",
+                "Elle est arrivée à Tadoussac",
+                "Elle s'est baignée"
+              ],
+              "answer": 1,
+              "explanation": "“Hier, nous avons fait une croisière” — a cruise is a boat trip. Saguenay is tomorrow; they arrived on Monday."
+            }
+          ]
+        },
+        {
+          "id": "d10",
+          "passage": {
+            "label": "Mode d'emploi",
+            "heading": "Buanderie de l'immeuble",
+            "paragraphs": [
+              "1. Achetez une carte à la réception.",
+              "2. Choisissez une machine libre.",
+              "3. Insérez la carte, puis choisissez la température.",
+              "Merci de retirer votre linge dès la fin du cycle."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q10",
+              "level": "A2",
+              "stem": "Que faut-il faire à la fin du lavage ?",
+              "options": [
+                "Rendre la carte",
+                "Nettoyer la machine",
+                "Sortir rapidement ses vêtements",
+                "Payer à la réception"
+              ],
+              "answer": 2,
+              "explanation": "“Retirer votre linge dès la fin du cycle” = take your laundry out as soon as the cycle ends."
+            }
+          ]
+        },
+        {
+          "id": "d11",
+          "passage": {
+            "label": "Courriel",
+            "paragraphs": [
+              "Salut Amélie,",
+              "Je serai en congé à partir de demain jusqu'au 14. Pendant mon absence, c'est Bruno qui s'occupera du dossier Martel. Je lui ai tout expliqué, mais pourrais-tu lui envoyer le contrat signé dès que tu le reçois ?",
+              "Merci et à bientôt ! Simon"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q11",
+              "level": "B1",
+              "stem": "Que demande Simon à Amélie ?",
+              "options": [
+                "De le remplacer pendant ses vacances",
+                "De transmettre un document à Bruno",
+                "D'appeler M. Martel",
+                "De signer le contrat"
+              ],
+              "answer": 1,
+              "explanation": "“Pourrais-tu lui envoyer le contrat signé” — send Bruno the signed contract once she receives it. Bruno, not Amélie, replaces Simon."
+            }
+          ]
+        },
+        {
+          "id": "d12",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Depuis septembre, une école secondaire de Rimouski a remplacé les devoirs du soir par des périodes d'étude en classe, à la fin de la journée. Les enseignants restent disponibles pour répondre aux questions.",
+              "Selon la directrice, ce sont les élèves en difficulté qui en profitent le plus, car beaucoup d'entre eux n'avaient personne pour les aider à la maison."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q12",
+              "level": "B1",
+              "stem": "Selon la directrice, qui profite le plus de ce changement ?",
+              "options": [
+                "Les enseignants",
+                "Les parents",
+                "Les élèves qui ont des difficultés",
+                "Les meilleurs élèves"
+              ],
+              "answer": 2,
+              "explanation": "“Ce sont les élèves en difficulté qui en profitent le plus” — many had no one to help them at home."
+            }
+          ]
+        },
+        {
+          "id": "d13",
+          "passage": {
+            "label": "Avis",
+            "heading": "Collecte des feuilles mortes",
+            "paragraphs": [
+              "À partir du 15 octobre, les feuilles mortes seront ramassées chaque lundi, jusqu'au 30 novembre.",
+              "Utilisez uniquement des sacs en papier : les sacs en plastique ne seront pas ramassés."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q13",
+              "level": "B1",
+              "stem": "Que se passera-t-il si on utilise des sacs en plastique ?",
+              "options": [
+                "Ils ne seront pas collectés",
+                "On recevra une amende",
+                "Ils seront ramassés le mardi",
+                "Ils seront vidés dans la rue"
+              ],
+              "answer": 0,
+              "explanation": "“Les sacs en plastique ne seront pas ramassés” = will not be picked up. No fine is mentioned."
+            }
+          ]
+        },
+        {
+          "id": "d14",
+          "passage": {
+            "label": "Témoignage",
+            "paragraphs": [
+              "J'ai longtemps pensé que je n'avais pas le temps de faire du sport. Puis j'ai commencé à aller au travail à vélo, trois fois par semaine. Ça me prend dix minutes de plus qu'en voiture, mais j'économise l'essence et le stationnement, et j'arrive au bureau de bien meilleure humeur.",
+              "— Mélanie"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q14",
+              "level": "B1",
+              "stem": "Quel inconvénient Mélanie mentionne-t-elle ?",
+              "options": [
+                "Le prix du vélo",
+                "La fatigue",
+                "Le coût du stationnement",
+                "Un trajet un peu plus long"
+              ],
+              "answer": 3,
+              "explanation": "“Ça me prend dix minutes de plus qu'en voiture” — the trip takes ten minutes longer. Parking is something she saves on."
+            }
+          ]
+        },
+        {
+          "id": "d15",
+          "passage": {
+            "label": "Règlement",
+            "heading": "Prêt de livres numériques",
+            "paragraphs": [
+              "Vous pouvez emprunter jusqu'à 5 livres à la fois pour 21 jours. À la fin de la période, le livre disparaît automatiquement de votre appareil : aucun retard n'est possible.",
+              "Si un titre est déjà emprunté, vous pouvez le réserver."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q15",
+              "level": "B1",
+              "stem": "Que se passe-t-il à la fin des 21 jours ?",
+              "options": [
+                "On reçoit une amende",
+                "Le livre n'est plus accessible",
+                "Le prêt est prolongé automatiquement",
+                "Il faut rapporter l'appareil"
+              ],
+              "answer": 1,
+              "explanation": "“Le livre disparaît automatiquement de votre appareil” — so it can't be late and there is no fine."
+            }
+          ]
+        },
+        {
+          "id": "d16",
+          "passage": {
+            "label": "Critique",
+            "paragraphs": [
+              "Le premier roman de Léa Dumont raconte l'histoire d'une famille de pêcheurs gaspésiens sur trois générations. Les personnages sont attachants et les descriptions de la mer, superbes.",
+              "On regrette cependant une fin trop rapide, qui laisse plusieurs questions sans réponse. Un livre prometteur, malgré ce défaut."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q16",
+              "level": "B1",
+              "stem": "Que reproche le critique au roman ?",
+              "options": [
+                "Ses personnages",
+                "Ses descriptions",
+                "Sa fin précipitée",
+                "Son sujet"
+              ],
+              "answer": 2,
+              "explanation": "“Une fin trop rapide” = an ending that is too rushed. The characters and descriptions are praised."
+            }
+          ]
+        },
+        {
+          "id": "d17",
+          "passage": {
+            "label": "Courriel professionnel",
+            "paragraphs": [
+              "Objet : Demandes de vacances",
+              "Bonjour à tous,",
+              "Pour planifier l'été, merci de remplir le formulaire de demande de vacances avant le 31 mars. Les demandes seront acceptées selon l'ancienneté. Les personnes qui ne rempliront pas le formulaire à temps choisiront leurs dates après les autres.",
+              "Les Ressources humaines"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q17",
+              "level": "B1",
+              "stem": "Comment les demandes seront-elles acceptées ?",
+              "options": [
+                "Selon l'ordre d'arrivée",
+                "Au hasard",
+                "Selon le poste occupé",
+                "Selon le nombre d'années dans l'entreprise"
+              ],
+              "answer": 3,
+              "explanation": "“Selon l'ancienneté” = by seniority, i.e. years with the company. Late forms go last, but the order among on-time forms is seniority."
+            }
+          ]
+        },
+        {
+          "id": "d18",
+          "passage": {
+            "label": "Le saviez-vous ?",
+            "paragraphs": [
+              "Le Canada possède le plus long littoral du monde : plus de 240 000 kilomètres de côtes, bordées par trois océans, l'Atlantique, le Pacifique et l'Arctique.",
+              "Pourtant, la plupart des Canadiens vivent à moins de 200 kilomètres de la frontière avec les États-Unis, loin des côtes du Nord."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q18",
+              "level": "B1",
+              "stem": "Où vit la majorité des Canadiens ?",
+              "options": [
+                "Près des côtes de l'Arctique",
+                "Au bord du Pacifique",
+                "Au centre du pays, loin des villes",
+                "À proximité de la frontière américaine"
+              ],
+              "answer": 3,
+              "explanation": "“À moins de 200 kilomètres de la frontière avec les États-Unis” — near the US border."
+            }
+          ]
+        },
+        {
+          "id": "d19",
+          "passage": {
+            "label": "Offre",
+            "heading": "Carte Mobilité Étudiant",
+            "paragraphs": [
+              "55 $ par mois au lieu de 97 $. Valide dans tous les autobus et le métro.",
+              "Pour l'obtenir, présentez une preuve d'inscription à temps plein dans un établissement d'enseignement et une pièce d'identité avec photo. La carte doit être renouvelée chaque année, en septembre."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q19",
+              "level": "B1",
+              "stem": "Que faut-il présenter pour obtenir la carte ?",
+              "options": [
+                "Une preuve d'études à temps plein et une pièce d'identité",
+                "Un relevé bancaire",
+                "Une ancienne carte de transport",
+                "Une lettre de l'employeur"
+              ],
+              "answer": 0,
+              "explanation": "Proof of full-time enrolment (“preuve d'inscription à temps plein”) and photo ID."
+            }
+          ]
+        },
+        {
+          "id": "d20",
+          "passage": {
+            "label": "Article",
+            "heading": "Des potagers sur les toits",
+            "paragraphs": [
+              "À Montréal, de plus en plus d'entreprises aménagent des potagers sur leurs toits. Au-delà de l'image écologique, les avantages sont concrets : la végétation rafraîchit le bâtiment l'été et retient l'eau de pluie, ce qui soulage les égouts lors des orages. Les légumes récoltés sont souvent donnés à des banques alimentaires.",
+              "Le principal frein reste le coût initial : il faut souvent renforcer la structure du toit, ce qui peut représenter des dizaines de milliers de dollars."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q20",
+              "level": "B2",
+              "stem": "Quel est le principal obstacle à ces projets ?",
+              "options": [
+                "Le manque de bénévoles",
+                "La réglementation municipale",
+                "L'investissement de départ",
+                "Le faible rendement des récoltes"
+              ],
+              "answer": 2,
+              "explanation": "“Le principal frein reste le coût initial” — reinforcing the roof can cost tens of thousands of dollars."
+            }
+          ]
+        },
+        {
+          "id": "d21",
+          "passage": {
+            "label": "Courrier des lecteurs",
+            "paragraphs": [
+              "Votre article sur les voitures électriques présente leur achat comme un geste écologique évident. Je suis plus sceptique. Remplacer une voiture qui fonctionne bien par une neuve, même électrique, a un coût environnemental important, ne serait-ce que pour fabriquer la batterie.",
+              "Pour moi, le geste le plus écologique reste de garder sa voiture le plus longtemps possible et de s'en servir moins. — Robert T., Lévis"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q21",
+              "level": "B2",
+              "stem": "Que pense l'auteur ?",
+              "options": [
+                "Prolonger la vie de sa voiture et moins rouler est plus écologique",
+                "Il faut acheter une voiture électrique dès maintenant",
+                "Les batteries sont faciles à recycler",
+                "Les voitures électriques sont trop chères"
+              ],
+              "answer": 0,
+              "explanation": "His conclusion: “le geste le plus écologique reste de garder sa voiture le plus longtemps possible et de s'en servir moins.” He doubts that replacing a working car is green."
+            }
+          ]
+        },
+        {
+          "id": "d22",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Une enquête menée auprès de 2 000 travailleurs révèle que près d'un sur deux consulte ses courriels professionnels pendant ses vacances. La plupart affirment le faire volontairement, pour « éviter les mauvaises surprises au retour ». Les psychologues mettent pourtant en garde : ce réflexe empêche une véritable récupération.",
+              "Certaines entreprises ont choisi de bloquer l'accès à la messagerie pendant les congés ; d'autres préfèrent désigner un collègue chargé de répondre aux urgences."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q22",
+              "level": "B2",
+              "stem": "Pourquoi certains employés consultent-ils leurs courriels en vacances ?",
+              "options": [
+                "Leur patron l'exige",
+                "Pour éviter les mauvaises surprises au retour",
+                "Pour mieux se reposer",
+                "Parce que leur collègue est absent"
+              ],
+              "answer": 1,
+              "explanation": "They say they do it voluntarily “pour éviter les mauvaises surprises au retour”. Psychologists say it actually prevents rest."
+            }
+          ]
+        },
+        {
+          "id": "d23",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Le droit à la réparation gagne du terrain. Depuis l'an dernier, la loi oblige les fabricants d'électroménagers à rendre les pièces de rechange disponibles pendant au moins dix ans et à fournir les manuels de réparation.",
+              "Les associations de consommateurs saluent la mesure, mais rappellent qu'elle restera sans effet si le prix des pièces demeure si élevé qu'il vaut mieux racheter un appareil neuf."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q23",
+              "level": "B2",
+              "stem": "Quelle réserve les associations de consommateurs expriment-elles ?",
+              "options": [
+                "La loi ne concerne pas les électroménagers",
+                "Les manuels sont incompréhensibles",
+                "Il manque de réparateurs",
+                "Le prix des pièces pourrait décourager la réparation"
+              ],
+              "answer": 3,
+              "explanation": "The law may have no effect “si le prix des pièces demeure si élevé qu'il vaut mieux racheter un appareil neuf”."
+            }
+          ]
+        },
+        {
+          "id": "d24",
+          "passage": {
+            "label": "Conditions de location",
+            "paragraphs": [
+              "Le véhicule doit être rendu avec le réservoir plein. À défaut, l'essence manquante sera facturée au double du prix à la pompe.",
+              "Tout retard de plus d'une heure entraîne la facturation d'une journée supplémentaire.",
+              "Seul le conducteur inscrit au contrat peut conduire le véhicule ; un conducteur additionnel peut être ajouté moyennant 10 $ par jour."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q24",
+              "level": "B2",
+              "stem": "Que se passe-t-il si le client rend la voiture avec deux heures de retard ?",
+              "options": [
+                "Il paie une journée de plus",
+                "Il paie 10 $",
+                "Il paie l'essence au double du prix",
+                "Rien, si le réservoir est plein"
+              ],
+              "answer": 0,
+              "explanation": "Two hours is more than one hour late, so “la facturation d'une journée supplémentaire” applies. 10 $ is for an extra driver."
+            }
+          ]
+        },
+        {
+          "id": "d25",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les chauves-souris du Québec sont en déclin rapide. En cause : une maladie causée par un champignon, qui les réveille pendant leur hibernation et les fait mourir d'épuisement.",
+              "Leur disparition n'est pas qu'une perte pour la biodiversité : une seule chauve-souris peut manger des milliers d'insectes par nuit, dont plusieurs nuisent aux cultures. Les agriculteurs pourraient donc devoir utiliser davantage de pesticides."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q25",
+              "level": "B2",
+              "stem": "Selon l'article, quelle pourrait être une conséquence du déclin des chauves-souris ?",
+              "options": [
+                "Une hausse des maladies humaines",
+                "Un usage accru de pesticides",
+                "La disparition du champignon",
+                "Une baisse du nombre d'insectes"
+              ],
+              "answer": 1,
+              "explanation": "Fewer bats means more crop pests, so farmers “pourraient devoir utiliser davantage de pesticides”. Insects would increase, not decrease."
+            }
+          ]
+        },
+        {
+          "id": "d26",
+          "passage": {
+            "label": "Communiqué",
+            "heading": "Avis d'ébullition préventif",
+            "paragraphs": [
+              "À la suite d'un bris d'aqueduc, les résidents des rues Dupuis et Gingras doivent faire bouillir l'eau du robinet pendant au moins une minute avant de la boire ou de l'utiliser pour se brosser les dents.",
+              "L'eau peut être utilisée sans précaution pour la douche et la lessive. L'avis restera en vigueur jusqu'à ce que deux analyses consécutives confirment la qualité de l'eau."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q26",
+              "level": "B2",
+              "stem": "Pour quel usage n'est-il PAS nécessaire de faire bouillir l'eau ?",
+              "options": [
+                "Pour la boire",
+                "Pour se brosser les dents",
+                "Pour préparer un jus",
+                "Pour se laver"
+              ],
+              "answer": 3,
+              "explanation": "“Sans précaution pour la douche et la lessive” — showering (se laver) is fine. Anything you drink, including juice, needs boiled water."
+            }
+          ]
+        },
+        {
+          "id": "d27",
+          "passage": {
+            "label": "Chronique",
+            "paragraphs": [
+              "On entend souvent que les anglicismes menacent le français. Je propose de nuancer. Une langue vivante emprunte : le français a pris à l'italien, à l'arabe, à l'anglais depuis des siècles.",
+              "Ce qui devrait nous préoccuper, ce n'est pas qu'on dise « fin de semaine » ou « week-end », c'est qu'on ne sache plus nommer les choses dans sa langue quand on en a besoin, au travail ou en science."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q27",
+              "level": "B2",
+              "stem": "Qu'est-ce qui inquiète le chroniqueur ?",
+              "options": [
+                "L'incapacité à s'exprimer en français dans certains domaines",
+                "L'emprunt de mots étrangers",
+                "L'influence de l'italien",
+                "Les différences entre le français d'ici et celui de France"
+              ],
+              "answer": 0,
+              "explanation": "Borrowing is normal for a living language; the worry is “qu'on ne sache plus nommer les choses dans sa langue… au travail ou en science”."
+            }
+          ]
+        },
+        {
+          "id": "d28",
+          "passage": {
+            "label": "Offre d'emploi",
+            "heading": "Préposé(e) aux bénéficiaires — résidence pour aînés",
+            "paragraphs": [
+              "Horaire de nuit (23 h à 7 h), 4 nuits par semaine. Prime de nuit de 2 $ l'heure.",
+              "Diplôme d'études professionnelles (DEP) en assistance aux personnes exigé, ou inscription en cours au programme. Nous remboursons les frais de formation après un an de service."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q28",
+              "level": "B2",
+              "stem": "Qui peut postuler sans avoir le diplôme ?",
+              "options": [
+                "Les personnes qui ont de l'expérience",
+                "Les personnes disponibles le jour",
+                "Les personnes déjà inscrites à la formation",
+                "Personne"
+              ],
+              "answer": 2,
+              "explanation": "The diploma is required “ou inscription en cours au programme” — or current enrolment in the program. Experience is not mentioned."
+            }
+          ]
+        },
+        {
+          "id": "d29",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Le pickleball, un mélange de tennis, de badminton et de ping-pong, est devenu en quelques années le sport préféré des plus de 55 ans. Facile à apprendre et peu exigeant pour les articulations, il attire aussi de plus en plus de jeunes.",
+              "Son succès crée pourtant des tensions : dans plusieurs villes, les voisins des terrains se plaignent du bruit sec et répétitif des balles."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q29",
+              "level": "B2",
+              "stem": "Quel problème le succès du pickleball provoque-t-il ?",
+              "options": [
+                "Des blessures fréquentes",
+                "Le manque de terrains de tennis",
+                "Des plaintes à cause du bruit",
+                "Une hausse des prix"
+              ],
+              "answer": 2,
+              "explanation": "Neighbours complain about “le bruit sec et répétitif des balles”. It is described as easy on the joints."
+            }
+          ]
+        },
+        {
+          "id": "d30",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "L'ennui a mauvaise réputation. Nous le fuyons à coups d'écrans, de balados et de notifications, comme s'il s'agissait d'une maladie.",
+              "Or plusieurs chercheurs y voient une condition de la créativité : c'est dans ces moments creux que l'esprit vagabonde, associe des idées éloignées et forme des projets. En supprimant l'ennui de nos vies, nous ne gagnons peut-être pas du temps ; nous perdons un espace."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q30",
+              "level": "C1",
+              "stem": "Quelle thèse l'auteur défend-il ?",
+              "options": [
+                "L'ennui est dangereux pour la santé",
+                "Les écrans stimulent la créativité",
+                "L'ennui peut favoriser la créativité",
+                "Il faut occuper chaque moment libre"
+              ],
+              "answer": 2,
+              "explanation": "Boredom is “une condition de la créativité”: idle moments let the mind wander and connect ideas."
+            }
+          ]
+        },
+        {
+          "id": "d31",
+          "passage": {
+            "label": "Tribune",
+            "paragraphs": [
+              "Les municipalités multiplient les consultations en ligne : quelques clics suffisent pour donner son avis sur un parc ou une piste cyclable. On pourrait s'en réjouir.",
+              "Mais ces outils donnent surtout la parole à ceux qui l'ont déjà : les citoyens instruits, à l'aise avec le numérique, disponibles. Les locataires à faible revenu, les aînés isolés ou les nouveaux arrivants restent largement absents. Une consultation qui n'entend qu'une partie de la population n'est pas plus démocratique ; elle est seulement plus rapide."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q31",
+              "level": "C1",
+              "stem": "Que reproche l'auteur aux consultations en ligne ?",
+              "options": [
+                "Elles sont trop lentes",
+                "Elles excluent de fait certaines catégories de citoyens",
+                "Elles coûtent trop cher",
+                "Elles portent sur des sujets sans importance"
+              ],
+              "answer": 1,
+              "explanation": "They mostly hear people who already have a voice, while low-income tenants, isolated seniors and newcomers “restent largement absents”. They are faster, not slower."
+            }
+          ]
+        },
+        {
+          "id": "d32",
+          "passage": {
+            "label": "Rapport (extrait)",
+            "paragraphs": [
+              "L'enquête révèle que 68 % des nouveaux arrivants occupent un emploi en deçà de leurs qualifications cinq ans après leur arrivée. Ce chiffre, souvent attribué à la langue, s'explique aussi, selon nos données, par la non-reconnaissance des diplômes étrangers et par l'absence de réseau professionnel.",
+              "Les mesures limitées à la francisation, si utiles soient-elles, ne sauraient donc à elles seules corriger la situation."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q32",
+              "level": "C1",
+              "stem": "Quelle conclusion le rapport tire-t-il ?",
+              "options": [
+                "La francisation est utile, mais insuffisante",
+                "La langue est la seule cause du problème",
+                "Il faut supprimer la francisation",
+                "Les nouveaux arrivants refusent les emplois qualifiés"
+              ],
+              "answer": 0,
+              "explanation": "“Si utiles soient-elles, [elles] ne sauraient… à elles seules corriger la situation” — useful but not enough, because credential recognition and networks also matter."
+            }
+          ]
+        },
+        {
+          "id": "d33",
+          "passage": {
+            "label": "Éditorial",
+            "paragraphs": [
+              "L'été dernier, certains villages de la Gaspésie ont accueilli dix fois leur population. Les commerçants se frottent les mains ; les habitants, beaucoup moins. Routes congestionnées, plages saturées, logements transformés en locations touristiques : le tourisme qui devait faire vivre la région finit par la rendre invivable pour ceux qui y demeurent toute l'année.",
+              "Il ne s'agit pas de fermer la porte aux visiteurs, mais de cesser de mesurer le succès au seul nombre d'entrées."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q33",
+              "level": "C1",
+              "stem": "Quelle est la position de l'éditorialiste ?",
+              "options": [
+                "Il faut interdire le tourisme en Gaspésie",
+                "Les commerçants ont tort de se réjouir",
+                "Le tourisme ne rapporte rien à la région",
+                "Il faut juger le tourisme autrement que par le nombre de visiteurs"
+              ],
+              "answer": 3,
+              "explanation": "“Il ne s'agit pas de fermer la porte… mais de cesser de mesurer le succès au seul nombre d'entrées.” He explicitly rejects banning tourism."
+            }
+          ]
+        },
+        {
+          "id": "d34",
+          "passage": {
+            "label": "Chronique économique",
+            "paragraphs": [
+              "La hausse des taux d'intérêt devait freiner la flambée de l'immobilier. Elle a en partie atteint son objectif : les ventes ont reculé de 20 %. Mais les prix, eux, n'ont que légèrement baissé.",
+              "Les économistes l'expliquent par la rareté de l'offre : faute de constructions suffisantes, les vendeurs ne sont pas pressés de baisser leurs prix, et les acheteurs attendent. Le marché se trouve ainsi figé plutôt que corrigé."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q34",
+              "level": "C1",
+              "stem": "Comment les économistes décrivent-ils le marché ?",
+              "options": [
+                "En chute libre",
+                "Bloqué, sans véritable baisse des prix",
+                "En pleine croissance",
+                "Revenu à la normale"
+              ],
+              "answer": 1,
+              "explanation": "“Figé plutôt que corrigé” — frozen rather than corrected: sales fell, prices barely moved."
+            }
+          ]
+        },
+        {
+          "id": "d35",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "On a longtemps vu la sieste comme un signe de paresse. Les études récentes la réhabilitent : une courte sieste de 10 à 20 minutes améliore la vigilance et la mémoire. Au-delà de 30 minutes, cependant, on risque d'entrer en sommeil profond et de se réveiller plus fatigué qu'avant.",
+              "Quant aux personnes souffrant d'insomnie, on leur conseille plutôt d'éviter la sieste, qui peut retarder l'endormissement le soir."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q35",
+              "level": "C1",
+              "stem": "Laquelle de ces affirmations est conforme au texte ?",
+              "options": [
+                "Plus la sieste est longue, plus elle est efficace",
+                "La sieste est recommandée aux insomniaques",
+                "La sieste est un signe de paresse",
+                "Une sieste brève améliore l'attention"
+              ],
+              "answer": 3,
+              "explanation": "10–20 minutes “améliore la vigilance”. Long naps can leave you more tired, and insomniacs should avoid naps."
+            }
+          ]
+        },
+        {
+          "id": "d36",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "On oppose volontiers la mémoire et l'oubli comme le bien et le mal. C'est méconnaître la fonction de l'oubli.",
+              "Une mémoire qui retiendrait tout serait incapable de penser, car penser, c'est d'abord trier, généraliser, laisser tomber le détail. L'oubli n'est pas le contraire de la mémoire : il en est la condition."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q36",
+              "level": "C2",
+              "stem": "Que soutient l'auteur ?",
+              "options": [
+                "L'oubli est un défaut de la mémoire",
+                "L'oubli est nécessaire au fonctionnement de la pensée",
+                "Il faut tout retenir pour bien penser",
+                "La mémoire et l'oubli n'ont aucun lien"
+              ],
+              "answer": 1,
+              "explanation": "Thinking requires sorting and dropping details, so forgetting is “la condition” of memory, not its opposite."
+            }
+          ]
+        },
+        {
+          "id": "d37",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "La ville moderne est conçue pour circuler, non pour séjourner. Places traversées en diagonale, bancs anti-repos, centres commerciaux où l'on ne s'assoit qu'en consommant : tout invite à passer.",
+              "Or une ville où l'on ne peut s'arrêter sans payer est une ville qui trie ses habitants. Rendre à l'espace public sa fonction de halte gratuite, c'est moins une question d'urbanisme que de justice."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q37",
+              "level": "C2",
+              "stem": "Quelle idée l'auteur exprime-t-il ?",
+              "options": [
+                "Il faut construire plus de centres commerciaux",
+                "La circulation automobile doit être réduite",
+                "L'absence de lieux de pause gratuits crée une inégalité entre les citadins",
+                "Les bancs publics sont inutiles"
+              ],
+              "answer": 2,
+              "explanation": "“Une ville où l'on ne peut s'arrêter sans payer est une ville qui trie ses habitants” — free resting places are a matter of justice."
+            }
+          ]
+        },
+        {
+          "id": "d38",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Rien n'est plus suspect que l'éloge unanime de « l'authenticité ». Les marques la vendent, les politiciens la revendiquent, les réseaux sociaux la mettent en scène.",
+              "Mais une authenticité qui se montre, qui se travaille, qui se calcule, a déjà cessé d'être ce qu'elle prétend. Peut-être n'est-on jamais aussi authentique que lorsqu'on ne songe pas à l'être."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q38",
+              "level": "C2",
+              "stem": "Selon l'auteur, quel paradoxe touche l'authenticité ?",
+              "options": [
+                "Elle est devenue trop rare pour être vendue",
+                "Elle n'intéresse plus personne",
+                "Elle n'existe que sur les réseaux sociaux",
+                "Elle disparaît dès qu'on la recherche ou qu'on l'exhibe"
+              ],
+              "answer": 3,
+              "explanation": "Authenticity that is shown and calculated “a déjà cessé d'être ce qu'elle prétend”; you are most authentic when not trying to be."
+            }
+          ]
+        },
+        {
+          "id": "d39",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "On reproche aux jeunes générations de lire moins. Les statistiques semblent donner raison aux pessimistes, si l'on compte les livres. Elles leur donnent tort si l'on compte les mots : jamais on n'a autant lu — et écrit — qu'à l'ère des messageries.",
+              "La vraie question n'est donc pas « lit-on encore ? », mais « que devient une lecture fragmentée, rapide, incessante, quand elle remplace celle qui exigeait la durée ? »"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t3-q39",
+              "level": "C2",
+              "stem": "Quelle est, selon l'auteur, la vraie question ?",
+              "options": [
+                "Les effets d'une lecture morcelée qui remplace la lecture longue",
+                "Si les jeunes lisent encore des livres",
+                "Si les statistiques sont fiables",
+                "Pourquoi on écrit moins qu'avant"
+              ],
+              "answer": 0,
+              "explanation": "He sets aside “lit-on encore ?” and asks what happens when fast, fragmented reading replaces sustained reading. People write more, not less."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

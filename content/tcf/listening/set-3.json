@@ -1,0 +1,1189 @@
+{
+  "id": "tcf-listening-3",
+  "exam": "tcf",
+  "skill": "listening",
+  "title": "TCF Canada — Compréhension orale, série 3",
+  "summary": "39 enregistrements, des achats et messages simples (A1) aux essais sur l'histoire et la ville intelligente (C2).",
+  "questionsAfterAudio": false,
+  "speakers": {
+    "annonce": {
+      "name": "Annonce",
+      "gender": "female"
+    },
+    "radio": {
+      "name": "Journaliste",
+      "gender": "male"
+    },
+    "femme": {
+      "name": "Femme",
+      "gender": "female"
+    },
+    "homme": {
+      "name": "Homme",
+      "gender": "male"
+    },
+    "femme2": {
+      "name": "Femme",
+      "gender": "female"
+    },
+    "homme2": {
+      "name": "Homme",
+      "gender": "male"
+    }
+  },
+  "parts": [
+    {
+      "id": "co",
+      "title": "Compréhension orale",
+      "minutes": 35,
+      "instructions": "Lisez la question, écoutez l'enregistrement (une seule écoute), puis choisissez la bonne réponse. Les questions sont de plus en plus difficiles.",
+      "sections": [
+        {
+          "id": "a01",
+          "audio": {
+            "context": "Dans un magasin.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Excusez-moi, combien coûte ce pantalon ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "Trente-cinq dollars, madame."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q01",
+              "level": "A1",
+              "stem": "Combien coûte le pantalon ?",
+              "options": [
+                "25 $",
+                "45 $",
+                "35 $",
+                "30 $"
+              ],
+              "answer": 2,
+              "explanation": "“Trente-cinq” = 35."
+            }
+          ]
+        },
+        {
+          "id": "a02",
+          "audio": {
+            "context": "Une annonce à l'école.",
+            "lines": [
+              {
+                "speaker": "annonce",
+                "text": "Les parents sont invités à la réunion de la rentrée, jeudi à dix-huit heures, dans le gymnase."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q02",
+              "level": "A1",
+              "stem": "Où se passe la réunion ?",
+              "options": [
+                "Dans le gymnase",
+                "À la bibliothèque",
+                "Dans la classe",
+                "Dans le bureau du directeur"
+              ],
+              "answer": 0,
+              "explanation": "“Dans le gymnase.”"
+            }
+          ]
+        },
+        {
+          "id": "a03",
+          "audio": {
+            "context": "Un message au téléphone.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Salut Ahmed, c'est Claire. J'ai oublié mes clés chez toi hier soir. Je passe les chercher ce midi, d'accord ?"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q03",
+              "level": "A1",
+              "stem": "Qu'est-ce que Claire a oublié ?",
+              "options": [
+                "Son téléphone",
+                "Son sac",
+                "Son manteau",
+                "Ses clés"
+              ],
+              "answer": 3,
+              "explanation": "“J'ai oublié mes clés chez toi.”"
+            }
+          ]
+        },
+        {
+          "id": "a04",
+          "audio": {
+            "context": "Une femme parle de ses loisirs.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "La fin de semaine, j'aime faire du vélo avec mes enfants. Et le soir, je lis un peu avant de dormir."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q04",
+              "level": "A1",
+              "stem": "Que fait la femme la fin de semaine ?",
+              "options": [
+                "De la lecture",
+                "Du vélo",
+                "De la cuisine",
+                "Du travail"
+              ],
+              "answer": 1,
+              "explanation": "“La fin de semaine, j'aime faire du vélo.” Reading is in the evening."
+            }
+          ]
+        },
+        {
+          "id": "a05",
+          "audio": {
+            "context": "Un message sur un répondeur.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Bonjour, ici le bureau de la dentiste, la docteure Nguyen. Nous vous rappelons votre rendez-vous de mardi à quatorze heures trente. Si vous ne pouvez pas venir, merci de nous appeler au moins vingt-quatre heures à l'avance."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q05",
+              "level": "A2",
+              "stem": "Pourquoi le bureau appelle-t-il ?",
+              "options": [
+                "Pour annuler le rendez-vous",
+                "Pour rappeler un rendez-vous",
+                "Pour changer l'heure",
+                "Pour demander un paiement"
+              ],
+              "answer": 1,
+              "explanation": "“Nous vous rappelons votre rendez-vous” — a reminder. Nothing changes."
+            }
+          ]
+        },
+        {
+          "id": "a06",
+          "audio": {
+            "context": "Deux collègues parlent.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Tu manges où ce midi ?"
+              },
+              {
+                "speaker": "femme",
+                "text": "J'ai apporté mon lunch. Il fait beau, je vais le manger au parc."
+              },
+              {
+                "speaker": "homme",
+                "text": "Bonne idée, je viens avec toi !"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q06",
+              "level": "A2",
+              "stem": "Où vont-ils manger ?",
+              "options": [
+                "Au restaurant",
+                "Au bureau",
+                "À la cafétéria",
+                "Au parc"
+              ],
+              "answer": 3,
+              "explanation": "“Je vais le manger au parc” and he joins her."
+            }
+          ]
+        },
+        {
+          "id": "a07",
+          "audio": {
+            "context": "Une annonce dans un supermarché.",
+            "lines": [
+              {
+                "speaker": "annonce",
+                "text": "Profitez de notre promotion de la semaine : les pommes du Québec sont à moitié prix jusqu'à dimanche. Et ne manquez pas notre dégustation de fromages, samedi après-midi."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q07",
+              "level": "A2",
+              "stem": "Qu'est-ce qui est en promotion ?",
+              "options": [
+                "Les pommes",
+                "Les fromages",
+                "Le pain",
+                "Les oranges"
+              ],
+              "answer": 0,
+              "explanation": "“Les pommes… à moitié prix” (half price). The cheeses are only for tasting."
+            }
+          ]
+        },
+        {
+          "id": "a08",
+          "audio": {
+            "context": "Dans la rue.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Pardon, madame, pour aller à l'hôpital, s'il vous plaît ?"
+              },
+              {
+                "speaker": "femme",
+                "text": "C'est un peu loin à pied. Prenez l'autobus 24, juste là, en face de la banque. Descendez au troisième arrêt."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q08",
+              "level": "A2",
+              "stem": "Que doit faire l'homme ?",
+              "options": [
+                "Marcher jusqu'à la banque",
+                "Prendre un taxi",
+                "Prendre l'autobus en face de la banque",
+                "Descendre au quatrième arrêt"
+              ],
+              "answer": 2,
+              "explanation": "Bus 24 “en face de la banque”, get off at the third stop."
+            }
+          ]
+        },
+        {
+          "id": "a09",
+          "audio": {
+            "context": "Au téléphone.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Bonjour, je voudrais m'inscrire au cours de natation pour adultes."
+              },
+              {
+                "speaker": "homme",
+                "text": "Désolé, le cours du lundi est complet. Il reste des places le mercredi soir."
+              },
+              {
+                "speaker": "femme",
+                "text": "Parfait, je prends le mercredi."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q09",
+              "level": "A2",
+              "stem": "Quel jour la femme suivra-t-elle le cours ?",
+              "options": [
+                "Le lundi",
+                "Le mardi",
+                "Le mercredi",
+                "Le jeudi"
+              ],
+              "answer": 2,
+              "explanation": "Monday is full (“complet”), so she takes Wednesday."
+            }
+          ]
+        },
+        {
+          "id": "a10",
+          "audio": {
+            "context": "La météo à la radio.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Avertissement de neige pour la région de Québec : on attend de vingt à trente centimètres à partir de ce soir. Les déplacements seront difficiles demain matin. Prudence sur les routes !"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q10",
+              "level": "A2",
+              "stem": "Quand la neige commencera-t-elle ?",
+              "options": [
+                "Ce soir",
+                "Demain matin",
+                "Demain soir",
+                "Cet après-midi"
+              ],
+              "answer": 0,
+              "explanation": "“À partir de ce soir.” Tomorrow morning is when travel will be difficult."
+            }
+          ]
+        },
+        {
+          "id": "a11",
+          "audio": {
+            "context": "Deux amis parlent.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Tu as trouvé un appartement ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "Oui, enfin ! Il est un peu plus cher que l'ancien, mais il est à cinq minutes de mon travail. Je n'aurai plus besoin de la voiture."
+              },
+              {
+                "speaker": "femme",
+                "text": "Tu vas la vendre ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "Oui, ça va compenser le loyer."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q11",
+              "level": "B1",
+              "stem": "Pourquoi l'homme a-t-il choisi cet appartement ?",
+              "options": [
+                "Il est moins cher",
+                "Il est plus grand",
+                "Il a un stationnement",
+                "Il est près de son travail"
+              ],
+              "answer": 3,
+              "explanation": "“À cinq minutes de mon travail.” It is actually more expensive than the old one."
+            }
+          ]
+        },
+        {
+          "id": "a12",
+          "audio": {
+            "context": "Un message vocal.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Bonjour Monsieur Tremblay, c'est Julie Roy, de l'agence de placement. L'entreprise a beaucoup aimé votre entrevue et voudrait vous rencontrer une deuxième fois, avec le directeur cette fois. Pourriez-vous me rappeler pour fixer une date ?"
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q12",
+              "level": "B1",
+              "stem": "Que doit faire M. Tremblay ?",
+              "options": [
+                "Envoyer son CV",
+                "Rappeler pour organiser une deuxième entrevue",
+                "Commencer à travailler lundi",
+                "Appeler le directeur"
+              ],
+              "answer": 1,
+              "explanation": "She asks him to call her back “pour fixer une date” for a second interview."
+            }
+          ]
+        },
+        {
+          "id": "a13",
+          "audio": {
+            "context": "Une annonce à la radio.",
+            "lines": [
+              {
+                "speaker": "annonce",
+                "text": "En raison de travaux, le pont Champlain sera fermé en direction de Montréal cette fin de semaine, de vendredi vingt-deux heures à lundi cinq heures. Les automobilistes sont invités à emprunter le pont Jacques-Cartier ou à utiliser le transport en commun."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q13",
+              "level": "B1",
+              "stem": "Que conseille-t-on aux automobilistes ?",
+              "options": [
+                "Prendre un autre pont ou le transport en commun",
+                "Rester à la maison",
+                "Partir avant vendredi",
+                "Rouler lentement sur le pont"
+              ],
+              "answer": 0,
+              "explanation": "“Emprunter le pont Jacques-Cartier ou utiliser le transport en commun.”"
+            }
+          ]
+        },
+        {
+          "id": "a14",
+          "audio": {
+            "context": "Au bureau.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Sophie, tu peux me rendre un service ? Je dois partir plus tôt, mon fils est malade. Est-ce que tu pourrais présenter le rapport à la réunion de quinze heures à ma place ?"
+              },
+              {
+                "speaker": "femme",
+                "text": "Pas de problème. Envoie-moi tes notes."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q14",
+              "level": "B1",
+              "stem": "Que demande l'homme ?",
+              "options": [
+                "De garder son fils",
+                "D'écrire le rapport",
+                "De le remplacer à une réunion",
+                "D'annuler la réunion"
+              ],
+              "answer": 2,
+              "explanation": "“Présenter le rapport… à ma place” — present instead of him. The report already exists; she only needs his notes."
+            }
+          ]
+        },
+        {
+          "id": "a15",
+          "audio": {
+            "context": "Un homme parle de son alimentation.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Depuis l'an dernier, je cuisine le dimanche pour toute la semaine. Au début, c'était pour économiser, parce que j'achetais mon dîner tous les jours. Mais finalement, ce qui me plaît surtout, c'est que je mange beaucoup mieux."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q15",
+              "level": "B1",
+              "stem": "Qu'est-ce qui plaît surtout à l'homme maintenant ?",
+              "options": [
+                "Il économise de l'argent",
+                "Il gagne du temps",
+                "Il cuisine en famille",
+                "Il mange plus sainement"
+              ],
+              "answer": 3,
+              "explanation": "Saving money was the initial reason (“au début”); now “ce qui me plaît surtout, c'est que je mange beaucoup mieux”."
+            }
+          ]
+        },
+        {
+          "id": "a16",
+          "audio": {
+            "context": "Une annonce culturelle.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Le Festival des films du monde présente cette année plus de cent films de quarante pays. Les projections du matin sont à cinq dollars pour les étudiants et les aînés. Les billets sont en vente en ligne et sur place, une heure avant chaque séance."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q16",
+              "level": "B1",
+              "stem": "Qui paie cinq dollars le matin ?",
+              "options": [
+                "Tout le monde",
+                "Les étudiants et les aînés",
+                "Les enfants",
+                "Les membres du festival"
+              ],
+              "answer": 1,
+              "explanation": "Morning screenings are 5 $ “pour les étudiants et les aînés”."
+            }
+          ]
+        },
+        {
+          "id": "a17",
+          "audio": {
+            "context": "Dans une banque.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Bonjour, je viens d'arriver au Canada et je voudrais ouvrir un compte."
+              },
+              {
+                "speaker": "homme",
+                "text": "Bienvenue ! Il me faut deux pièces d'identité, par exemple votre passeport et votre carte de résident permanent. Pour les nouveaux arrivants, il n'y a pas de frais mensuels la première année."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q17",
+              "level": "B1",
+              "stem": "Quel avantage est offert aux nouveaux arrivants ?",
+              "options": [
+                "Une carte de crédit gratuite",
+                "Un prêt sans intérêt",
+                "Aucuns frais mensuels pendant un an",
+                "Un cadeau de bienvenue"
+              ],
+              "answer": 2,
+              "explanation": "“Pas de frais mensuels la première année.”"
+            }
+          ]
+        },
+        {
+          "id": "a18",
+          "audio": {
+            "context": "Une information à la radio.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Les inscriptions aux camps de jour de la ville commencent lundi à neuf heures, en ligne seulement. L'an dernier, la plupart des camps étaient complets en moins d'une heure. Les parents sont donc invités à créer leur compte à l'avance."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q18",
+              "level": "B1",
+              "stem": "Que recommande-t-on aux parents ?",
+              "options": [
+                "Créer leur compte en ligne avant lundi",
+                "Se présenter à l'hôtel de ville",
+                "Téléphoner lundi matin",
+                "Attendre la fin de la semaine"
+              ],
+              "answer": 0,
+              "explanation": "“Créer leur compte à l'avance”, because camps filled up in under an hour last year. Registration is online only."
+            }
+          ]
+        },
+        {
+          "id": "a19",
+          "audio": {
+            "context": "Deux amis parlent.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Tu viens courir avec moi demain matin ?"
+              },
+              {
+                "speaker": "femme",
+                "text": "Demain, il doit pleuvoir toute la journée. On pourrait plutôt aller nager à la piscine ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "Bonne idée. On se retrouve là-bas à dix heures."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q19",
+              "level": "B1",
+              "stem": "Que vont-ils faire demain ?",
+              "options": [
+                "Courir",
+                "Marcher sous la pluie",
+                "Rester à la maison",
+                "Nager"
+              ],
+              "answer": 3,
+              "explanation": "Because of the rain, they switch from running to swimming (“aller nager à la piscine”)."
+            }
+          ]
+        },
+        {
+          "id": "a20",
+          "audio": {
+            "context": "Un reportage.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Pour faire face à la pénurie de main-d'œuvre, plusieurs restaurants installent des bornes de commande électroniques. Les propriétaires affirment que les employés peuvent ainsi se concentrer sur la cuisine et le service. Mais certains clients âgés se disent désemparés devant ces écrans et regrettent le contact humain."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q20",
+              "level": "B2",
+              "stem": "Quelle critique formulent certains clients ?",
+              "options": [
+                "Les bornes sont trop lentes",
+                "Ils ont du mal avec les écrans et regrettent le contact humain",
+                "Les prix ont augmenté",
+                "La nourriture est moins bonne"
+              ],
+              "answer": 1,
+              "explanation": "“Désemparés devant ces écrans” (lost in front of the screens) and they miss human contact."
+            }
+          ]
+        },
+        {
+          "id": "a21",
+          "audio": {
+            "context": "Une entrevue à la radio.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Madame Bélanger, vous êtes conseillère en orientation. Quelle erreur voyez-vous le plus souvent chez les nouveaux arrivants qui cherchent un emploi ?"
+              },
+              {
+                "speaker": "femme2",
+                "text": "Ils envoient des dizaines de CV identiques. Or ici, les employeurs veulent sentir qu'on s'intéresse à leur entreprise. Mieux vaut cinq candidatures bien adaptées que cinquante envoyées à l'aveugle."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q21",
+              "level": "B2",
+              "stem": "Que conseille Mme Bélanger ?",
+              "options": [
+                "Adapter chaque candidature à l'entreprise",
+                "Envoyer le plus de CV possible",
+                "Utiliser un modèle de CV canadien",
+                "Passer par une agence"
+              ],
+              "answer": 0,
+              "explanation": "“Mieux vaut cinq candidatures bien adaptées que cinquante envoyées à l'aveugle.”"
+            }
+          ]
+        },
+        {
+          "id": "a22",
+          "audio": {
+            "context": "Un reportage local.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "La municipalité veut transformer l'ancienne église du quartier en centre communautaire. Le projet comprendrait une salle de spectacle, une garderie et une bibliothèque. Les résidents sont plutôt favorables, mais une partie d'entre eux s'oppose à la démolition du clocher, qu'ils considèrent comme un symbole du quartier."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q22",
+              "level": "B2",
+              "stem": "Qu'est-ce qui divise les résidents ?",
+              "options": [
+                "La création d'une garderie",
+                "Le coût du projet",
+                "La démolition du clocher",
+                "La fermeture de la bibliothèque"
+              ],
+              "answer": 2,
+              "explanation": "Residents generally support the project, but some oppose “la démolition du clocher” (the bell tower)."
+            }
+          ]
+        },
+        {
+          "id": "a23",
+          "audio": {
+            "context": "Deux collègues parlent.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Tu as postulé pour le poste de gestionnaire ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "J'hésite. Le salaire est meilleur, c'est sûr. Mais je devrais superviser douze personnes et je ne ferais presque plus de programmation, alors que c'est ce que j'aime. Je pense que je vais rester où je suis, du moins pour l'instant."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q23",
+              "level": "B2",
+              "stem": "Pourquoi l'homme hésite-t-il ?",
+              "options": [
+                "Le salaire n'est pas assez élevé",
+                "Il ne s'entend pas avec l'équipe",
+                "Il va changer d'entreprise",
+                "Il ne veut pas abandonner le travail technique qu'il aime"
+              ],
+              "answer": 3,
+              "explanation": "He would hardly program any more, “alors que c'est ce que j'aime”. The salary is better."
+            }
+          ]
+        },
+        {
+          "id": "a24",
+          "audio": {
+            "context": "Une chronique consommation.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Attention aux abonnements avec essai gratuit. Beaucoup d'entreprises demandent votre numéro de carte de crédit dès l'inscription. Si vous oubliez d'annuler avant la fin de l'essai, l'abonnement se renouvelle automatiquement, souvent au plein tarif. Mon conseil : notez la date d'échéance dans votre agenda dès que vous vous inscrivez."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q24",
+              "level": "B2",
+              "stem": "Que conseille le chroniqueur ?",
+              "options": [
+                "Ne jamais s'abonner",
+                "Noter la date de fin de l'essai",
+                "Payer en argent comptant",
+                "Utiliser une autre carte de crédit"
+              ],
+              "answer": 1,
+              "explanation": "“Notez la date d'échéance dans votre agenda dès que vous vous inscrivez.”"
+            }
+          ]
+        },
+        {
+          "id": "a25",
+          "audio": {
+            "context": "Une annonce du gouvernement.",
+            "lines": [
+              {
+                "speaker": "annonce",
+                "text": "Vous venez d'obtenir la résidence permanente ? Vous pouvez demander votre carte d'assurance maladie dès votre arrivée. Attention : un délai de carence peut s'appliquer. Pendant cette période, vos soins ne seront pas couverts ; il est donc fortement recommandé de souscrire une assurance privée temporaire."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q25",
+              "level": "B2",
+              "stem": "Que recommande-t-on pendant le délai de carence ?",
+              "options": [
+                "Prendre une assurance privée",
+                "Éviter d'aller chez le médecin",
+                "Retourner dans son pays",
+                "Payer une amende"
+              ],
+              "answer": 0,
+              "explanation": "Care isn't covered during the waiting period, so “souscrire une assurance privée temporaire” is strongly recommended."
+            }
+          ]
+        },
+        {
+          "id": "a26",
+          "audio": {
+            "context": "Deux amis parlent d'un restaurant.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "Alors, ce nouveau restaurant libanais ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "La nourriture, délicieuse. Le service, très gentil. Mais on a attendu quarante-cinq minutes avant d'avoir une table, même avec une réservation. Je veux bien y retourner, mais un soir de semaine."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q26",
+              "level": "B2",
+              "stem": "Que reproche l'homme au restaurant ?",
+              "options": [
+                "La qualité des plats",
+                "L'attitude du personnel",
+                "Les prix",
+                "L'attente pour avoir une table"
+              ],
+              "answer": 3,
+              "explanation": "They waited 45 minutes for a table despite a reservation. Food and service are praised."
+            }
+          ]
+        },
+        {
+          "id": "a27",
+          "audio": {
+            "context": "Une entrevue avec un agriculteur.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Monsieur Paquette, vous avez converti votre ferme laitière en ferme biologique. Pourquoi ?"
+              },
+              {
+                "speaker": "homme2",
+                "text": "Au départ, pour des raisons économiques : le lait biologique se vend plus cher. Mais j'ai découvert autre chose. Mes sols sont en meilleure santé, j'utilise moins de produits chimiques et, franchement, je suis plus fier de mon travail."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q27",
+              "level": "B2",
+              "stem": "Quelle était la première raison du changement ?",
+              "options": [
+                "La santé des sols",
+                "La fierté",
+                "Des raisons financières",
+                "Une demande de ses clients"
+              ],
+              "answer": 2,
+              "explanation": "“Au départ, pour des raisons économiques.” Healthier soil and pride came later."
+            }
+          ]
+        },
+        {
+          "id": "a28",
+          "audio": {
+            "context": "Une annonce à l'université.",
+            "lines": [
+              {
+                "speaker": "annonce",
+                "text": "La bibliothèque centrale sera exceptionnellement ouverte vingt-quatre heures sur vingt-quatre pendant la période des examens, du dix au vingt-deux décembre. Une carte étudiante valide sera exigée à l'entrée après vingt-deux heures."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q28",
+              "level": "B2",
+              "stem": "Que faut-il pour entrer dans la bibliothèque la nuit ?",
+              "options": [
+                "Une réservation",
+                "Une carte étudiante valide",
+                "Un permis spécial",
+                "Être accompagné d'un professeur"
+              ],
+              "answer": 1,
+              "explanation": "“Une carte étudiante valide sera exigée à l'entrée après vingt-deux heures.”"
+            }
+          ]
+        },
+        {
+          "id": "a29",
+          "audio": {
+            "context": "Deux personnes parlent d'un voyage.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Tu as aimé le train jusqu'à Vancouver ?"
+              },
+              {
+                "speaker": "femme",
+                "text": "C'était long : quatre jours ! Mais je ne regrette pas. En avion, on ne voit rien. Là, j'ai vu les Prairies, les Rocheuses… Et j'ai rencontré des gens formidables dans la voiture panoramique."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q29",
+              "level": "B2",
+              "stem": "Qu'en pense la femme ?",
+              "options": [
+                "Malgré la durée, le voyage en valait la peine",
+                "Elle aurait dû prendre l'avion",
+                "Le voyage était trop cher",
+                "Elle n'a rencontré personne"
+              ],
+              "answer": 0,
+              "explanation": "“C'était long… Mais je ne regrette pas” — the scenery and people made it worthwhile."
+            }
+          ]
+        },
+        {
+          "id": "a30",
+          "audio": {
+            "context": "Un reportage sur la santé.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Le gouvernement envisage de permettre aux pharmaciens de prescrire davantage de médicaments. Les associations de patients applaudissent : cela réduirait l'attente. Les médecins, eux, sont partagés. Si la plupart reconnaissent que la mesure peut désengorger le système, plusieurs insistent pour que le pharmacien ait accès au dossier médical complet du patient, faute de quoi des erreurs seraient à craindre."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q30",
+              "level": "C1",
+              "stem": "Quelle condition réclament plusieurs médecins ?",
+              "options": [
+                "Que la mesure soit abandonnée",
+                "Que les patients paient la consultation",
+                "Que les pharmaciens aient accès au dossier médical complet",
+                "Que les pharmaciens suivent une formation de médecin"
+              ],
+              "answer": 2,
+              "explanation": "Several doctors insist the pharmacist “ait accès au dossier médical complet”, otherwise errors are to be feared. Most accept the measure."
+            }
+          ]
+        },
+        {
+          "id": "a31",
+          "audio": {
+            "context": "Une entrevue avec une chercheuse.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Professeure Tremblay, le bilinguisme protège-t-il contre le vieillissement du cerveau ?"
+              },
+              {
+                "speaker": "femme2",
+                "text": "Plusieurs études le suggèrent, mais il faut être prudent. Les personnes bilingues ont souvent d'autres caractéristiques, comme un niveau d'éducation plus élevé ou une vie sociale plus riche, qui peuvent aussi jouer. Ce qu'on peut affirmer, c'est que parler deux langues ne nuit pas, contrairement à ce qu'on a longtemps cru."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q31",
+              "level": "C1",
+              "stem": "Selon la chercheuse, que peut-on affirmer avec certitude ?",
+              "options": [
+                "Le bilinguisme empêche le vieillissement du cerveau",
+                "Les bilingues sont plus intelligents",
+                "L'éducation ne joue aucun rôle",
+                "Le bilinguisme n'est pas nuisible"
+              ],
+              "answer": 3,
+              "explanation": "“Ce qu'on peut affirmer, c'est que parler deux langues ne nuit pas.” The protective effect is only suggested, and education may play a role."
+            }
+          ]
+        },
+        {
+          "id": "a32",
+          "audio": {
+            "context": "Un reportage économique.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Les centres-villes se vident depuis que le télétravail s'est généralisé. Les commerces qui vivaient de la clientèle des bureaux ferment les uns après les autres. Certaines villes misent désormais sur la conversion d'immeubles de bureaux en logements. Une solution séduisante, mais coûteuse : il faut souvent refaire toute la plomberie et ajouter des fenêtres."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q32",
+              "level": "C1",
+              "stem": "Quelle difficulté pose la conversion des bureaux en logements ?",
+              "options": [
+                "Personne ne veut habiter au centre-ville",
+                "Les travaux nécessaires coûtent cher",
+                "Les villes l'interdisent",
+                "Les commerces s'y opposent"
+              ],
+              "answer": 1,
+              "explanation": "“Séduisante, mais coûteuse” — plumbing must be redone and windows added."
+            }
+          ]
+        },
+        {
+          "id": "a33",
+          "audio": {
+            "context": "Deux personnes discutent d'une décision.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Le conseil a enfin voté pour le nouveau parc. Tu dois être contente !"
+              },
+              {
+                "speaker": "femme",
+                "text": "Contente… Oui et non. On a obtenu le parc, mais on a sacrifié la piste cyclable qui devait le relier au centre. Bref, un parc magnifique où il faudra venir en voiture. Avouons que c'est un peu ironique."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q33",
+              "level": "C1",
+              "stem": "Quelle est l'attitude de la femme ?",
+              "options": [
+                "Mitigée et ironique",
+                "Enthousiaste",
+                "Indifférente",
+                "Furieuse"
+              ],
+              "answer": 0,
+              "explanation": "“Oui et non” (mixed feelings), and she points out the irony of a park you must drive to."
+            }
+          ]
+        },
+        {
+          "id": "a34",
+          "audio": {
+            "context": "Une chronique sur la langue.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "On accuse souvent les jeunes de mal écrire. Pourtant, ils n'ont jamais autant écrit : messages, publications, commentaires. Le problème n'est pas la quantité, mais le passage d'un registre à l'autre. Savoir écrire, c'est aussi savoir qu'on n'écrit pas une lettre de motivation comme un texto."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q34",
+              "level": "C1",
+              "stem": "Selon le chroniqueur, quel est le vrai problème ?",
+              "options": [
+                "Les jeunes écrivent trop peu",
+                "Les textos devraient être interdits",
+                "Les jeunes ont du mal à adapter leur écriture à la situation",
+                "Les lettres de motivation sont dépassées"
+              ],
+              "answer": 2,
+              "explanation": "“Le passage d'un registre à l'autre” — switching register (a cover letter vs a text message). They write a lot."
+            }
+          ]
+        },
+        {
+          "id": "a35",
+          "audio": {
+            "context": "Une entrevue avec une architecte.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Vous avez conçu une école sans couloirs. Pourquoi ?"
+              },
+              {
+                "speaker": "femme2",
+                "text": "Parce que les couloirs sont des espaces morts : on ne fait qu'y passer. Nous avons plutôt créé de grands espaces communs, ouverts, où les élèves peuvent travailler en groupe et où les enseignants se croisent. L'architecture n'est jamais neutre : elle encourage certains comportements et en décourage d'autres."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q35",
+              "level": "C1",
+              "stem": "Quelle idée l'architecte défend-elle ?",
+              "options": [
+                "Les couloirs sont nécessaires à la sécurité",
+                "Les écoles doivent être plus petites",
+                "Les enseignants préfèrent les classes fermées",
+                "L'organisation de l'espace influence les comportements"
+              ],
+              "answer": 3,
+              "explanation": "“L'architecture n'est jamais neutre : elle encourage certains comportements et en décourage d'autres.”"
+            }
+          ]
+        },
+        {
+          "id": "a36",
+          "audio": {
+            "context": "Un essai radiophonique.",
+            "lines": [
+              {
+                "speaker": "homme",
+                "text": "Nous vivons entourés d'objets conçus pour ne pas durer, et nous nous étonnons de leur fragilité. Mais l'obsolescence n'est pas seulement inscrite dans les objets ; elle l'est aussi dans nos désirs. Le téléphone que nous remplaçons fonctionne souvent encore. C'est notre regard sur lui qui a vieilli."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q36",
+              "level": "C2",
+              "stem": "Quelle idée l'auteur exprime-t-il ?",
+              "options": [
+                "Les objets sont de plus en plus solides",
+                "Notre goût de la nouveauté nous fait remplacer des objets qui fonctionnent",
+                "Les fabricants sont les seuls responsables",
+                "Les téléphones durent trop longtemps"
+              ],
+              "answer": 1,
+              "explanation": "Obsolescence is “dans nos désirs” too: the phone still works, “c'est notre regard sur lui qui a vieilli”."
+            }
+          ]
+        },
+        {
+          "id": "a37",
+          "audio": {
+            "context": "Une entrevue avec un historien.",
+            "lines": [
+              {
+                "speaker": "radio",
+                "text": "Pourquoi dites-vous que l'histoire n'est jamais terminée ?"
+              },
+              {
+                "speaker": "homme2",
+                "text": "Parce que chaque génération l'interroge avec ses propres questions. Les archives ne changent pas, mais ce qu'on y cherche, oui. On a longtemps écrit l'histoire des rois ; on écrit aujourd'hui celle des femmes, des ouvriers, des peuples autochtones. Ce n'est pas que le passé ait changé : c'est que nous avons appris à voir ce qui y était déjà."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q37",
+              "level": "C2",
+              "stem": "Selon l'historien, pourquoi l'histoire se renouvelle-t-elle ?",
+              "options": [
+                "Chaque époque pose de nouvelles questions au passé",
+                "On découvre sans cesse de nouvelles archives",
+                "Les faits du passé changent",
+                "Les historiens se trompent souvent"
+              ],
+              "answer": 0,
+              "explanation": "“Chaque génération l'interroge avec ses propres questions.” He says the archives don't change and the past hasn't changed."
+            }
+          ]
+        },
+        {
+          "id": "a38",
+          "audio": {
+            "context": "Un éditorial à la radio.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "On nous vante la ville « intelligente », truffée de capteurs, qui optimise la circulation et l'éclairage. Fort bien. Mais une ville ne devient pas intelligente parce qu'elle collecte des données ; elle le devient quand ses habitants peuvent comprendre et discuter les décisions qu'on prend en leur nom. Sinon, c'est la ville qui est intelligente, et le citoyen qui est géré."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q38",
+              "level": "C2",
+              "stem": "Que signifie la dernière phrase ?",
+              "options": [
+                "Les citoyens sont plus intelligents que la ville",
+                "Les capteurs sont inutiles",
+                "La ville doit embaucher plus de gestionnaires",
+                "Sans débat démocratique, la technologie réduit le citoyen à un objet de gestion"
+              ],
+              "answer": 3,
+              "explanation": "If citizens can't understand and debate decisions, they are merely “géré” (managed) rather than participants."
+            }
+          ]
+        },
+        {
+          "id": "a39",
+          "audio": {
+            "context": "Deux critiques parlent d'un roman.",
+            "lines": [
+              {
+                "speaker": "femme",
+                "text": "C'est le roman le plus original de l'année, non ?"
+              },
+              {
+                "speaker": "homme",
+                "text": "Original, je n'en suis pas sûr. Ce qui est original, c'est l'emballage : la structure éclatée, les chapitres d'une ligne. Mais dessous, on retrouve une histoire d'amour des plus convenues. La forme ne fait que maquiller un fond très sage."
+              }
+            ]
+          },
+          "questions": [
+            {
+              "id": "c3-q39",
+              "level": "C2",
+              "stem": "Que pense l'homme du roman ?",
+              "options": [
+                "Son histoire est très audacieuse",
+                "Sa structure est trop classique",
+                "Son originalité formelle cache une histoire banale",
+                "C'est le meilleur roman de l'année"
+              ],
+              "answer": 2,
+              "explanation": "Only the packaging (“l'emballage”) is original; underneath is “une histoire d'amour des plus convenues” — a very conventional story."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

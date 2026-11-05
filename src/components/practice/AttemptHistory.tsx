@@ -5,20 +5,25 @@ import type { SkillId, Track } from "@/lib/exams";
 import { formatClock } from "@/lib/practice/numbering";
 import { isPracticeSkill, testSets } from "@/lib/practice/content";
 import { listGeneratedSets } from "@/lib/generate/sets";
+import { listUserPapers } from "@/lib/papers/store";
 import { speakingSets } from "@/lib/speaking/content";
 import { writingSets } from "@/lib/writing/content";
 
-/** Set id → title for the skill (file sets and AI-generated ones), so rows read as names. */
+/** Set id → title for the skill (file sets, AI-generated ones and your own), so rows read as names. */
 async function setTitles(track: Track, skill: SkillId): Promise<Map<string, string>> {
   const files = isPracticeSkill(skill)
     ? testSets(track, skill)
     : skill === "writing"
       ? writingSets(track)
       : speakingSets(track);
-  const generated = await listGeneratedSets(track, skill);
+  const [generated, own] = await Promise.all([
+    listGeneratedSets(track, skill),
+    isPracticeSkill(skill) ? listUserPapers(track, skill) : [],
+  ]);
   return new Map([
     ...files.map((s) => [s.id, s.title] as const),
     ...generated.map((g) => [g.setId, `${g.title} (AI)`] as const),
+    ...own.map((p) => [p.setId, `${p.title} (yours)`] as const),
   ]);
 }
 

@@ -1,0 +1,1010 @@
+{
+  "id": "tcf-reading-2",
+  "exam": "tcf",
+  "skill": "reading",
+  "title": "TCF Canada — Compréhension écrite, série 2",
+  "summary": "39 documents, from opening hours and text messages (A1) to essays on translation and transparency (C2).",
+  "parts": [
+    {
+      "id": "ce",
+      "title": "Compréhension écrite",
+      "minutes": 60,
+      "instructions": "Lisez chaque document, puis choisissez la bonne réponse. Les questions sont de plus en plus difficiles.",
+      "sections": [
+        {
+          "id": "d01",
+          "passage": {
+            "label": "Affiche",
+            "heading": "Pharmacie du Parc",
+            "paragraphs": [
+              "Lundi au vendredi : 9 h – 21 h",
+              "Samedi : 10 h – 18 h",
+              "Dimanche : fermé"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q01",
+              "level": "A1",
+              "stem": "À quelle heure la pharmacie ferme-t-elle le samedi ?",
+              "options": [
+                "À 21 h",
+                "À 18 h",
+                "À 10 h",
+                "À 9 h"
+              ],
+              "answer": 1,
+              "explanation": "Saturday (samedi) is 10 h – 18 h, so it closes at 18 h (6 p.m.). 21 h is the weekday closing time."
+            }
+          ]
+        },
+        {
+          "id": "d02",
+          "passage": {
+            "label": "SMS",
+            "paragraphs": [
+              "Coucou maman ! Ce soir, je dors chez Inès. On révise pour l'examen de maths. Je rentre demain après l'école. Bisous, Chloé"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q02",
+              "level": "A1",
+              "stem": "Où Chloé va-t-elle dormir ce soir ?",
+              "options": [
+                "À la maison",
+                "À l'école",
+                "Chez son amie",
+                "Chez sa grand-mère"
+              ],
+              "answer": 2,
+              "explanation": "“Je dors chez Inès” = I'm sleeping at Inès's place. Inès is a friend she studies with; she comes home tomorrow after school."
+            }
+          ]
+        },
+        {
+          "id": "d03",
+          "passage": {
+            "label": "Petite annonce",
+            "paragraphs": [
+              "À vendre : vélo pour enfant (6 à 8 ans), rouge, très bon état. 40 $. Appelez Daniel après 18 h au 418-555-0147."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q03",
+              "level": "A1",
+              "stem": "Quand peut-on appeler Daniel ?",
+              "options": [
+                "Le soir",
+                "Le matin",
+                "À midi",
+                "Seulement le dimanche"
+              ],
+              "answer": 0,
+              "explanation": "“Après 18 h” = after 6 p.m., i.e. in the evening (le soir). No day is specified."
+            }
+          ]
+        },
+        {
+          "id": "d04",
+          "passage": {
+            "label": "Affiche",
+            "heading": "Bibliothèque municipale",
+            "paragraphs": [
+              "L'heure du conte pour les 3 à 6 ans",
+              "Tous les samedis à 10 h 30. Gratuit. Salle Jeunesse, 2e étage."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q04",
+              "level": "A1",
+              "stem": "Pour qui est cette activité ?",
+              "options": [
+                "Pour les adultes",
+                "Pour les adolescents",
+                "Pour les personnes âgées",
+                "Pour les jeunes enfants"
+              ],
+              "answer": 3,
+              "explanation": "Story time is “pour les 3 à 6 ans” — children aged 3 to 6."
+            }
+          ]
+        },
+        {
+          "id": "d05",
+          "passage": {
+            "label": "Courriel",
+            "paragraphs": [
+              "Bonjour Monsieur Bouchard,",
+              "Je vous écris pour annuler mon rendez-vous de jeudi à 14 h. Je dois partir en voyage pour mon travail. Est-ce que je peux venir la semaine prochaine, lundi ou mardi matin ?",
+              "Merci, Nadia Benali"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q05",
+              "level": "A2",
+              "stem": "Que veut Nadia ?",
+              "options": [
+                "Confirmer son rendez-vous de jeudi",
+                "Changer la date de son rendez-vous",
+                "Partir en voyage avec M. Bouchard",
+                "Trouver un nouveau travail"
+              ],
+              "answer": 1,
+              "explanation": "She cancels Thursday (“annuler mon rendez-vous de jeudi”) and asks for Monday or Tuesday next week — she wants a new date. The trip is for her own job."
+            }
+          ]
+        },
+        {
+          "id": "d06",
+          "passage": {
+            "label": "Avis",
+            "paragraphs": [
+              "Chers parents,",
+              "La garderie sera fermée le vendredi 15 novembre pour une journée de formation du personnel. Les enfants pourront revenir le lundi 18 novembre à l'heure habituelle.",
+              "Merci de votre compréhension. La direction"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q06",
+              "level": "A2",
+              "stem": "Pourquoi la garderie sera-t-elle fermée ?",
+              "options": [
+                "Il y a des travaux",
+                "C'est un jour férié",
+                "Les employés suivent une formation",
+                "Les enfants partent en sortie"
+              ],
+              "answer": 2,
+              "explanation": "“Journée de formation du personnel” = a staff training day."
+            }
+          ]
+        },
+        {
+          "id": "d07",
+          "passage": {
+            "label": "Programme",
+            "heading": "Centre communautaire Rosemont — activités d'automne",
+            "paragraphs": [
+              "Yoga : lundi, 18 h — 8 $",
+              "Cuisine du monde : mercredi, 19 h — 15 $ (ingrédients inclus)",
+              "Club de lecture : jeudi, 14 h — gratuit",
+              "Inscription obligatoire à l'accueil."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q07",
+              "level": "A2",
+              "stem": "Quelle activité est gratuite ?",
+              "options": [
+                "Le yoga",
+                "La cuisine du monde",
+                "Toutes les activités",
+                "Le club de lecture"
+              ],
+              "answer": 3,
+              "explanation": "Only the book club (club de lecture) is marked “gratuit”. Note that registration is required for every activity."
+            }
+          ]
+        },
+        {
+          "id": "d08",
+          "passage": {
+            "label": "Message dans l'immeuble",
+            "paragraphs": [
+              "Bonjour à tous,",
+              "Hier soir, j'ai trouvé un chat gris avec un collier bleu devant le 25, rue des Érables. Il est très gentil mais il semble perdu. Pour le moment, il est chez moi. Si c'est le vôtre, sonnez à l'appartement 3.",
+              "Julien"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q08",
+              "level": "A2",
+              "stem": "Qu'a fait Julien ?",
+              "options": [
+                "Il a recueilli un chat perdu",
+                "Il a perdu son chat",
+                "Il a acheté un chat",
+                "Il cherche quelqu'un pour garder son chat"
+              ],
+              "answer": 0,
+              "explanation": "He found (“j'ai trouvé”) a lost cat and is keeping it at his place (“il est chez moi”) until the owner comes."
+            }
+          ]
+        },
+        {
+          "id": "d09",
+          "passage": {
+            "label": "Recette",
+            "heading": "Crêpes faciles (4 personnes)",
+            "paragraphs": [
+              "250 g de farine, 4 œufs, un demi-litre de lait, une pincée de sel.",
+              "Mélangez la farine et les œufs, puis ajoutez le lait petit à petit. Laissez reposer la pâte une heure avant la cuisson."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q09",
+              "level": "A2",
+              "stem": "Que faut-il faire avant de cuire les crêpes ?",
+              "options": [
+                "Ajouter du sucre",
+                "Attendre une heure",
+                "Mettre la pâte au four",
+                "Ajouter deux œufs"
+              ],
+              "answer": 1,
+              "explanation": "“Laissez reposer la pâte une heure avant la cuisson” = let the batter rest for an hour before cooking. There is no sugar in the list."
+            }
+          ]
+        },
+        {
+          "id": "d10",
+          "passage": {
+            "label": "Offre d'emploi",
+            "paragraphs": [
+              "Le supermarché Bonprix cherche des caissiers et des caissières à temps partiel.",
+              "Horaire : soirs et fins de semaine. Aucune expérience nécessaire : nous offrons la formation. Envoyez votre CV à emplois@bonprix.ca."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q10",
+              "level": "A2",
+              "stem": "Selon l'annonce, quelle affirmation est vraie ?",
+              "options": [
+                "Il faut avoir déjà travaillé comme caissier",
+                "Le poste est à temps plein",
+                "Il faut se présenter en personne",
+                "Le supermarché forme les nouveaux employés"
+              ],
+              "answer": 3,
+              "explanation": "“Aucune expérience nécessaire : nous offrons la formation” = no experience needed, training provided. The job is part-time (temps partiel) and you apply by email."
+            }
+          ]
+        },
+        {
+          "id": "d11",
+          "passage": {
+            "label": "Courriel",
+            "paragraphs": [
+              "Objet : Visites de l'appartement",
+              "Bonjour Madame Côté,",
+              "Comme vous quittez votre logement le 30 juin, je dois le faire visiter à de futurs locataires. Seriez-vous disponible samedi entre 10 h et midi ? Si ce moment ne vous convient pas, proposez-moi une autre plage horaire. Je vous rappelle que je dois vous prévenir au moins 24 heures à l'avance.",
+              "Cordialement, Pierre Lemieux, propriétaire"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q11",
+              "level": "B1",
+              "stem": "Pourquoi M. Lemieux écrit-il à Mme Côté ?",
+              "options": [
+                "Pour augmenter le loyer",
+                "Pour organiser des visites du logement",
+                "Pour annoncer des réparations",
+                "Pour lui demander de partir plus tôt"
+              ],
+              "answer": 1,
+              "explanation": "He needs to show the flat (“le faire visiter”) to future tenants and asks when she is available. She is already leaving on 30 June — he doesn't ask her to leave earlier."
+            }
+          ]
+        },
+        {
+          "id": "d12",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Depuis le printemps, la Ville de Sherbrooke prête gratuitement des outils aux citoyens. Perceuses, scies, échelles : plus de 200 objets peuvent être empruntés pour une semaine avec une simple carte de bibliothèque.",
+              "Selon la responsable du projet, l'objectif est double : faire économiser les familles et réduire le nombre d'objets achetés pour ne servir que quelques fois."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q12",
+              "level": "B1",
+              "stem": "Quel est un des objectifs de ce service ?",
+              "options": [
+                "Vendre des outils à bas prix",
+                "Former des ouvriers",
+                "Augmenter le nombre de cartes de bibliothèque",
+                "Éviter l'achat d'objets rarement utilisés"
+              ],
+              "answer": 3,
+              "explanation": "The second goal is “réduire le nombre d'objets achetés pour ne servir que quelques fois” — fewer purchases of things used only a few times. The tools are lent, not sold."
+            }
+          ]
+        },
+        {
+          "id": "d13",
+          "passage": {
+            "label": "Avis aux usagers",
+            "paragraphs": [
+              "À partir du 2 septembre, la ligne d'autobus 45 ne passera plus par la rue Principale en raison de travaux. Les arrêts seront déplacés sur le boulevard Laurier, à deux rues de là.",
+              "Les horaires restent les mêmes. Les travaux devraient durer jusqu'à la fin de novembre."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q13",
+              "level": "B1",
+              "stem": "Qu'est-ce qui change pour les usagers ?",
+              "options": [
+                "L'emplacement des arrêts",
+                "Les heures de passage",
+                "Le prix du billet",
+                "Le numéro de la ligne"
+              ],
+              "answer": 0,
+              "explanation": "The stops move to boulevard Laurier (“les arrêts seront déplacés”). “Les horaires restent les mêmes” — the times don't change."
+            }
+          ]
+        },
+        {
+          "id": "d14",
+          "passage": {
+            "label": "Témoignage",
+            "paragraphs": [
+              "Quand je suis arrivé au Canada, je ne connaissais personne. Une collègue m'a conseillé de faire du bénévolat dans une banque alimentaire. Au début, j'y allais surtout pour me sentir utile. Mais j'y ai trouvé bien plus : des amis, des conseils pour chercher du travail et l'occasion de pratiquer mon français tous les samedis.",
+              "— Rafael, 34 ans"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q14",
+              "level": "B1",
+              "stem": "Pourquoi Rafael a-t-il commencé à faire du bénévolat ?",
+              "options": [
+                "Pour trouver un emploi",
+                "Pour pratiquer son français",
+                "Pour se sentir utile",
+                "Pour voir sa collègue"
+              ],
+              "answer": 2,
+              "explanation": "“Au début, j'y allais surtout pour me sentir utile.” Job advice and French practice were extra benefits he found later (“j'y ai trouvé bien plus”)."
+            }
+          ]
+        },
+        {
+          "id": "d15",
+          "passage": {
+            "label": "Consignes",
+            "heading": "En cas d'alarme incendie",
+            "paragraphs": [
+              "Quittez immédiatement le bâtiment par l'escalier le plus proche. N'utilisez jamais l'ascenseur. Ne retournez pas chercher vos effets personnels.",
+              "Rendez-vous au point de rassemblement, dans le stationnement devant l'immeuble, et attendez les instructions des pompiers."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q15",
+              "level": "B1",
+              "stem": "Que faut-il faire une fois sorti du bâtiment ?",
+              "options": [
+                "Retourner chercher ses affaires",
+                "Rentrer chez soi",
+                "Prendre l'ascenseur pour vérifier les étages",
+                "Attendre au point de rassemblement"
+              ],
+              "answer": 3,
+              "explanation": "Go to the assembly point (“point de rassemblement”) and wait for the firefighters' instructions. The other options are explicitly forbidden."
+            }
+          ]
+        },
+        {
+          "id": "d16",
+          "passage": {
+            "label": "Critique",
+            "paragraphs": [
+              "Le nouveau restaurant du Vieux-Port a tout pour plaire : une terrasse magnifique, un service souriant et des prix raisonnables. Malheureusement, la cuisine ne suit pas : mon poisson était trop cuit et les légumes manquaient de saveur.",
+              "Je ne déconseille pas l'endroit pour prendre un verre au soleil, mais pour bien manger, il faudra attendre que le chef trouve ses marques."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q16",
+              "level": "B1",
+              "stem": "Quelle est l'opinion du critique ?",
+              "options": [
+                "Le cadre est agréable, mais les plats sont décevants",
+                "Tout est excellent",
+                "Les prix sont trop élevés",
+                "Le service est désagréable"
+              ],
+              "answer": 0,
+              "explanation": "The terrace, service and prices are praised, but “la cuisine ne suit pas” — the food doesn't live up to it."
+            }
+          ]
+        },
+        {
+          "id": "d17",
+          "passage": {
+            "label": "Courriel professionnel",
+            "paragraphs": [
+              "Bonjour à toutes et à tous,",
+              "Le système informatique sera mis à jour ce vendredi à partir de 16 h. Pendant l'opération, vous n'aurez pas accès à votre messagerie. Avant de partir jeudi soir, enregistrez vos documents sur le serveur commun et non sur votre ordinateur, sinon ils pourraient être perdus.",
+              "Merci, le Service informatique"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q17",
+              "level": "B1",
+              "stem": "Que doivent faire les employés avant la mise à jour ?",
+              "options": [
+                "Éteindre leur ordinateur vendredi matin",
+                "Enregistrer leurs fichiers sur le serveur commun",
+                "Envoyer leurs courriels avant 16 h",
+                "Contacter le service informatique"
+              ],
+              "answer": 1,
+              "explanation": "“Enregistrez vos documents sur le serveur commun” — save documents on the shared server, otherwise they could be lost."
+            }
+          ]
+        },
+        {
+          "id": "d18",
+          "passage": {
+            "label": "Encadré scientifique",
+            "heading": "Pourquoi les feuilles changent-elles de couleur ?",
+            "paragraphs": [
+              "En été, les feuilles contiennent beaucoup de chlorophylle, un pigment vert qui permet à l'arbre de fabriquer sa nourriture grâce au soleil. Quand les jours raccourcissent, l'arbre cesse d'en produire.",
+              "Le vert disparaît alors et laisse apparaître les pigments jaunes et orangés qui étaient déjà présents, cachés sous la chlorophylle."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q18",
+              "level": "B1",
+              "stem": "D'où viennent les couleurs jaunes et orangées ?",
+              "options": [
+                "Du froid qui abîme les feuilles",
+                "De la pluie d'automne",
+                "De pigments déjà présents dans la feuille",
+                "D'une nourriture fabriquée en automne"
+              ],
+              "answer": 2,
+              "explanation": "The yellow and orange pigments “étaient déjà présents, cachés sous la chlorophylle” — they were there all along, hidden by the green."
+            }
+          ]
+        },
+        {
+          "id": "d19",
+          "passage": {
+            "label": "Offre",
+            "heading": "Forfait Famille — Piscine municipale",
+            "paragraphs": [
+              "1 adulte + jusqu'à 3 enfants : 180 $ par année. Accès illimité aux bains libres. Rabais de 20 % sur les cours de natation des enfants inscrits.",
+              "Le forfait n'est pas remboursable. Il peut toutefois être suspendu jusqu'à 3 mois en cas de maladie (certificat médical exigé)."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q19",
+              "level": "B1",
+              "stem": "Que peut-on faire si on tombe malade ?",
+              "options": [
+                "Suspendre son forfait pendant quelque temps",
+                "Se faire rembourser",
+                "Donner son forfait à un ami",
+                "Obtenir un rabais de 20 %"
+              ],
+              "answer": 0,
+              "explanation": "“Il peut être suspendu jusqu'à 3 mois en cas de maladie.” It is explicitly not refundable (“pas remboursable”); the 20 % is for children's lessons."
+            }
+          ]
+        },
+        {
+          "id": "d20",
+          "passage": {
+            "label": "Article",
+            "heading": "Semaine de quatre jours : le bilan d'une PME",
+            "paragraphs": [
+              "Depuis un an, une entreprise de logiciels de Québec a adopté la semaine de quatre jours, sans baisse de salaire. Ses 40 employés travaillent 32 heures au lieu de 37,5. Selon la direction, la productivité n'a pas diminué : les réunions ont été raccourcies et les tâches mieux planifiées. Le taux d'absentéisme a même chuté de moitié.",
+              "Le président reconnaît toutefois que le modèle n'est pas transposable partout : « Dans un commerce ou une usine, où la présence est indispensable, il faudrait embaucher davantage, ce qui coûterait cher. »"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q20",
+              "level": "B2",
+              "stem": "Selon le président, quelle est la limite de ce modèle ?",
+              "options": [
+                "Il fait baisser la productivité",
+                "Il ne convient pas aux secteurs où la présence est indispensable",
+                "Les employés le refusent",
+                "Il augmente l'absentéisme"
+              ],
+              "answer": 1,
+              "explanation": "“Pas transposable partout” — in shops or factories where staff must be present, it would require more hiring. Productivity held and absenteeism fell, so A and D contradict the text."
+            }
+          ]
+        },
+        {
+          "id": "d21",
+          "passage": {
+            "label": "Courrier des lecteurs",
+            "paragraphs": [
+              "Je lis souvent que les jeunes ne s'intéressent plus à la politique. C'est faux. Mes enfants et leurs amis signent des pétitions, s'engagent pour le climat et débattent sans cesse en ligne. Ce qu'ils boudent, ce sont les partis et les bureaux de vote, qu'ils jugent déconnectés de leurs préoccupations.",
+              "Plutôt que de leur faire la morale, les élus devraient se demander pourquoi ils n'arrivent plus à les convaincre. — Hélène M., Gatineau"
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q21",
+              "level": "B2",
+              "stem": "Quelle est l'opinion de l'auteure ?",
+              "options": [
+                "Les jeunes ne s'intéressent pas à la politique",
+                "Les réseaux sociaux nuisent au débat",
+                "Les jeunes s'engagent autrement, et c'est aux élus de s'adapter",
+                "Il faudrait rendre le vote obligatoire"
+              ],
+              "answer": 2,
+              "explanation": "She rejects the cliché (“C'est faux”): young people are engaged, just not through parties and elections, and politicians should ask why they no longer convince them."
+            }
+          ]
+        },
+        {
+          "id": "d22",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les urgences de plusieurs hôpitaux de la région débordent cet hiver. Pour désengorger le système, le ministère rappelle que de nombreux problèmes mineurs — rhume, petite blessure, renouvellement d'ordonnance — peuvent être traités par un pharmacien ou en appelant le 811, la ligne Info-Santé, où une infirmière évalue les symptômes et oriente le patient.",
+              "Les autorités insistent cependant : en cas de douleur à la poitrine ou de difficulté à respirer, il faut se rendre aux urgences sans attendre."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q22",
+              "level": "B2",
+              "stem": "Que recommande le ministère pour un problème de santé mineur ?",
+              "options": [
+                "Aller directement aux urgences",
+                "Attendre la fin de l'hiver",
+                "Prendre rendez-vous avec un spécialiste",
+                "Consulter un pharmacien ou appeler Info-Santé"
+              ],
+              "answer": 3,
+              "explanation": "Minor problems “peuvent être traités par un pharmacien ou en appelant le 811”. The emergency room is only for serious symptoms such as chest pain."
+            }
+          ]
+        },
+        {
+          "id": "d23",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "La colocation n'est plus réservée aux étudiants. Selon une étude récente, le nombre de colocataires de plus de 40 ans a presque doublé en dix ans dans les grandes villes canadiennes. La hausse des loyers explique en grande partie cette tendance, mais pas seulement : plusieurs personnes interrogées disent aussi rechercher de la compagnie après une séparation ou le départ des enfants.",
+              "Les chercheurs notent toutefois que les propriétaires hésitent encore à louer à des groupes d'adultes, car ils craignent les conflits et les départs imprévus."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q23",
+              "level": "B2",
+              "stem": "Pourquoi certains propriétaires hésitent-ils à louer à des colocataires adultes ?",
+              "options": [
+                "Ils craignent des disputes et des départs inattendus",
+                "Ils préfèrent louer à des étudiants",
+                "Les loyers sont trop bas",
+                "La loi l'interdit"
+              ],
+              "answer": 0,
+              "explanation": "“Ils craignent les conflits et les départs imprévus” — conflicts (disputes) and unplanned departures."
+            }
+          ]
+        },
+        {
+          "id": "d24",
+          "passage": {
+            "label": "Extrait de règlement municipal",
+            "paragraphs": [
+              "Article 12 — Tout chien doit être enregistré auprès de la municipalité avant le 1er avril de chaque année. La licence, valide douze mois, doit être portée en permanence au collier de l'animal.",
+              "Article 13 — Dans les parcs, les chiens doivent être tenus en laisse, sauf dans les aires d'exercice clôturées prévues à cet effet.",
+              "Article 14 — Le gardien qui ne ramasse pas les excréments de son animal s'expose à une amende de 100 $ à 300 $."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q24",
+              "level": "B2",
+              "stem": "Où un chien peut-il être sans laisse ?",
+              "options": [
+                "Partout dans les parcs",
+                "Nulle part dans la ville",
+                "Dans les zones clôturées réservées aux chiens",
+                "Partout, s'il porte sa licence"
+              ],
+              "answer": 2,
+              "explanation": "Article 13: leash required in parks “sauf dans les aires d'exercice clôturées” — except in fenced dog areas."
+            }
+          ]
+        },
+        {
+          "id": "d25",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les assistants vocaux sont désormais présents dans un foyer sur trois. Pratiques pour régler une minuterie ou connaître la météo, ils soulèvent pourtant des questions. Des chercheurs ont montré que certains appareils s'activent par erreur plusieurs fois par jour et enregistrent alors des conversations privées.",
+              "Les fabricants assurent que ces enregistrements sont rares et protégés, mais les experts recommandent de vérifier régulièrement l'historique et de désactiver le micro lorsque l'appareil ne sert pas."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q25",
+              "level": "B2",
+              "stem": "Que conseillent les experts ?",
+              "options": [
+                "Ne pas acheter d'assistant vocal",
+                "Contrôler les enregistrements et couper le micro",
+                "Faire confiance aux fabricants",
+                "Utiliser l'appareil seulement pour la météo"
+              ],
+              "answer": 1,
+              "explanation": "Experts recommend checking the history (“vérifier l'historique”) and turning off the microphone when not in use. They don't say not to buy one."
+            }
+          ]
+        },
+        {
+          "id": "d26",
+          "passage": {
+            "label": "Communiqué",
+            "paragraphs": [
+              "Le Festival des lumières de Trois-Rivières annonce sa 12e édition, du 6 au 15 décembre. Nouveauté cette année : l'entrée sera gratuite pour tous, grâce à l'appui de commanditaires locaux.",
+              "Toutefois, pour éviter la foule excessive des dernières années, les visiteurs devront réserver une plage horaire en ligne. Les personnes sans accès à Internet pourront réserver par téléphone auprès du bureau touristique."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q26",
+              "level": "B2",
+              "stem": "Pourquoi faut-il réserver ?",
+              "options": [
+                "Parce que l'entrée est payante",
+                "Parce que le festival est plus court",
+                "Pour mieux répartir les visiteurs dans le temps",
+                "Pour obtenir une place assise"
+              ],
+              "answer": 2,
+              "explanation": "Booking a time slot is “pour éviter la foule excessive” — to spread visitors out. Entry is free this year."
+            }
+          ]
+        },
+        {
+          "id": "d27",
+          "passage": {
+            "label": "Chronique",
+            "paragraphs": [
+              "On nous répète de manger « local ». L'idée est séduisante : moins de transport, des producteurs soutenus, des fruits cueillis à maturité. Mais le raisonnement a ses limites. Une tomate cultivée en février dans une serre chauffée peut avoir une empreinte carbone plus élevée qu'une tomate importée du Mexique par camion.",
+              "Ce n'est donc pas seulement la distance qui compte, mais aussi la façon de produire et la saison. Manger local, oui — mais surtout manger de saison."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q27",
+              "level": "B2",
+              "stem": "Quelle est l'idée principale du chroniqueur ?",
+              "options": [
+                "Il faut éviter tous les produits importés",
+                "Les serres sont la meilleure solution",
+                "Le transport est la seule source de pollution alimentaire",
+                "Manger de saison compte autant, sinon plus, que manger local"
+              ],
+              "answer": 3,
+              "explanation": "The conclusion: distance isn't everything; production method and season matter too — “surtout manger de saison”."
+            }
+          ]
+        },
+        {
+          "id": "d28",
+          "passage": {
+            "label": "Offre d'emploi",
+            "heading": "Coordonnateur ou coordonnatrice de projets — organisme communautaire (Laval)",
+            "paragraphs": [
+              "Vous planifierez les activités d'aide aux nouveaux arrivants, gérerez une équipe de bénévoles et rédigerez les demandes de financement.",
+              "Exigences : diplôme universitaire en sciences sociales ou expérience équivalente ; excellente maîtrise du français écrit ; permis de conduire valide. La connaissance d'une troisième langue est un atout.",
+              "Contrat d'un an, possibilité de renouvellement."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q28",
+              "level": "B2",
+              "stem": "Quelle condition n'est PAS obligatoire ?",
+              "options": [
+                "Parler une troisième langue",
+                "Avoir un permis de conduire",
+                "Très bien écrire en français",
+                "Avoir un diplôme ou une expérience équivalente"
+              ],
+              "answer": 0,
+              "explanation": "“Un atout” = an asset, a plus — not a requirement. The other three are listed under “Exigences”."
+            }
+          ]
+        },
+        {
+          "id": "d29",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Les balados connaissent un succès inattendu. Alors que la radio traditionnelle peine à attirer les moins de 35 ans, ceux-ci écoutent en moyenne trois heures de balados par semaine. Les créateurs expliquent cette popularité par la liberté du format : pas de limite de durée, des sujets pointus et un ton plus personnel.",
+              "Reste un défi de taille : la rentabilité. La plupart des balados indépendants ne survivent pas plus de deux ans, faute de revenus publicitaires suffisants."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q29",
+              "level": "B2",
+              "stem": "Quel problème rencontrent les balados indépendants ?",
+              "options": [
+                "Ils n'attirent pas les jeunes",
+                "Leur durée est limitée",
+                "Ils ressemblent trop à la radio",
+                "Ils ont du mal à générer des revenus"
+              ],
+              "answer": 3,
+              "explanation": "“Faute de revenus publicitaires suffisants” — for lack of enough advertising income, most don't last two years. Young listeners love them, and there is no length limit."
+            }
+          ]
+        },
+        {
+          "id": "d30",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Nous vivons à l'ère de la notation permanente. Le chauffeur, le restaurant, le plombier, le médecin même : tout se mesure en étoiles. On y voit volontiers un progrès démocratique, puisque le client a enfin voix au chapitre.",
+              "Pourtant, ce système produit un curieux effet pervers : les notes s'accumulent autour de cinq étoiles, si bien qu'un quatre — jadis honorable — sonne aujourd'hui comme une condamnation. À force de tout noter, nous avons vidé la note de son sens, et transformé chaque prestataire en candidat anxieux, sommé de plaire plutôt que de bien faire."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q30",
+              "level": "C1",
+              "stem": "Quelle critique l'auteur adresse-t-il aux systèmes de notation ?",
+              "options": [
+                "Ils donnent trop de pouvoir aux professionnels",
+                "Leurs notes, toutes élevées, ont perdu leur sens et poussent à plaire plutôt qu'à bien faire",
+                "Ils sont réservés à quelques secteurs",
+                "Ils permettent enfin aux clients de s'exprimer"
+              ],
+              "answer": 1,
+              "explanation": "“Nous avons vidé la note de son sens” (ratings no longer mean anything, since all are near five stars) and providers must “plaire plutôt que de bien faire”. Option D is the view he reports, then challenges (“Pourtant”)."
+            }
+          ]
+        },
+        {
+          "id": "d31",
+          "passage": {
+            "label": "Tribune",
+            "paragraphs": [
+              "On présente souvent le télétravail comme une chance pour les régions : libérés du bureau, les citadins iraient s'installer à la campagne et y redonneraient vie. La réalité est plus nuancée.",
+              "Certes, plusieurs municipalités rurales ont vu leur population croître. Mais cette arrivée a fait grimper le prix des maisons, au point que des jeunes du coin ne peuvent plus se loger là où ils ont grandi. Le retour vers les régions, s'il n'est pas accompagné de politiques de logement, risque ainsi de reproduire à la campagne les déséquilibres qu'on voulait fuir en ville."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q31",
+              "level": "C1",
+              "stem": "Que craint l'auteur ?",
+              "options": [
+                "Que le télétravail disparaisse",
+                "Que les régions perdent des habitants",
+                "Que l'arrivée de citadins exclue les habitants locaux du marché du logement",
+                "Que les villes deviennent trop chères"
+              ],
+              "answer": 2,
+              "explanation": "Rising house prices mean local young people “ne peuvent plus se loger là où ils ont grandi”. The regions are gaining people, not losing them."
+            }
+          ]
+        },
+        {
+          "id": "d32",
+          "passage": {
+            "label": "Rapport annuel (extrait)",
+            "paragraphs": [
+              "Le taux de réussite au programme de francisation a progressé de 8 points en trois ans. Il serait toutefois imprudent d'y voir uniquement l'effet de notre nouvelle approche pédagogique.",
+              "Durant la même période, les critères d'admission ont été resserrés, ce qui a pu attirer des apprenants déjà plus avancés. Une évaluation indépendante, prévue l'an prochain, permettra de distinguer la part de chacun de ces facteurs."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q32",
+              "level": "C1",
+              "stem": "Comment le rapport interprète-t-il l'amélioration des résultats ?",
+              "options": [
+                "Comme la preuve que la nouvelle méthode fonctionne",
+                "Comme une erreur statistique",
+                "Comme la conséquence d'un manque de financement",
+                "Avec prudence, car une autre cause est possible"
+              ],
+              "answer": 3,
+              "explanation": "“Il serait imprudent d'y voir uniquement l'effet de notre nouvelle approche” — stricter admission criteria may also explain it, and an independent evaluation will tell."
+            }
+          ]
+        },
+        {
+          "id": "d33",
+          "passage": {
+            "label": "Tribune",
+            "paragraphs": [
+              "Faut-il interdire les téléphones cellulaires en classe ? La question semble tranchée : plusieurs provinces l'ont fait. Mais l'interdiction n'est qu'un pansement. Le téléphone ne crée pas l'inattention ; il l'offre sur un plateau.",
+              "Si l'école se contente de confisquer l'appareil sans apprendre aux élèves à gérer leur attention et à se servir des outils numériques avec discernement, elle les laissera démunis le jour où, adultes, plus personne ne confisquera rien."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q33",
+              "level": "C1",
+              "stem": "Quelle est la position de l'auteur ?",
+              "options": [
+                "L'interdiction ne suffit pas sans une éducation à l'usage du numérique",
+                "Il faut autoriser les téléphones en classe",
+                "Les provinces ont eu tort d'agir",
+                "Le téléphone est la cause de l'inattention"
+              ],
+              "answer": 0,
+              "explanation": "“Un pansement” = a band-aid: the ban treats the symptom. He wants schools to teach attention management and wise digital use. He explicitly says the phone doesn't create inattention."
+            }
+          ]
+        },
+        {
+          "id": "d34",
+          "passage": {
+            "label": "Éditorial",
+            "paragraphs": [
+              "Chaque automne, la même scène se répète : des étudiants étrangers dorment dans des auberges faute de logement, tandis que les établissements se félicitent de leurs inscriptions record.",
+              "Il serait commode d'accuser ces étudiants de la crise du logement. Ce serait aussi injuste. Ce sont les universités et les gouvernements qui ont choisi d'accroître leur nombre sans prévoir où ils vivraient. Les étudiants, eux, n'ont fait que répondre à une invitation."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q34",
+              "level": "C1",
+              "stem": "À qui l'éditorialiste attribue-t-il la responsabilité du problème ?",
+              "options": [
+                "Aux étudiants étrangers",
+                "Aux institutions qui ont recruté sans prévoir de logements",
+                "Aux propriétaires",
+                "Aux auberges de jeunesse"
+              ],
+              "answer": 1,
+              "explanation": "Blaming the students would be “commode… injuste”; universities and governments increased numbers “sans prévoir où ils vivraient”."
+            }
+          ]
+        },
+        {
+          "id": "d35",
+          "passage": {
+            "label": "Article",
+            "paragraphs": [
+              "Contrairement à une idée reçue, le cerveau adulte n'est pas figé. Des études d'imagerie montrent que l'apprentissage d'une langue seconde modifie la densité de certaines zones cérébrales, même après 60 ans.",
+              "Les chercheurs se gardent toutefois de promettre des miracles : si la plasticité persiste, la vitesse d'acquisition diminue avec l'âge, et la prononciation, en particulier, reste plus difficile à maîtriser pour les apprenants tardifs."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q35",
+              "level": "C1",
+              "stem": "Laquelle de ces affirmations est conforme au texte ?",
+              "options": [
+                "Après 60 ans, le cerveau ne change plus",
+                "Les adultes apprennent aussi vite que les enfants",
+                "Le cerveau reste modifiable, mais l'apprentissage ralentit avec l'âge",
+                "La prononciation s'apprend plus facilement avec l'âge"
+              ],
+              "answer": 2,
+              "explanation": "Plasticity persists (“la plasticité persiste”) but “la vitesse d'acquisition diminue avec l'âge”, and pronunciation is harder for late learners."
+            }
+          ]
+        },
+        {
+          "id": "d36",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Il y a dans la nostalgie une forme de paresse intellectuelle : elle nous épargne l'effort de comprendre le présent en le déclarant d'emblée inférieur au passé. Mais elle est aussi, paradoxalement, une force.",
+              "Car celui qui regrette sait au moins ce qu'il a aimé ; il possède une mesure, si imparfaite soit-elle, à laquelle confronter ce qui advient. Le danger n'est donc pas de regarder en arrière, mais d'y demeurer."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q36",
+              "level": "C2",
+              "stem": "Quelle est la position de l'auteur sur la nostalgie ?",
+              "options": [
+                "Elle est entièrement néfaste",
+                "Elle est ambivalente : utile comme repère, nuisible si l'on s'y enferme",
+                "Elle permet de mieux comprendre le présent que l'analyse",
+                "Il faut l'éviter à tout prix"
+              ],
+              "answer": 1,
+              "explanation": "Both sides: “paresse intellectuelle” but also “une force” (a yardstick). The final sentence locates the danger in staying in the past (“y demeurer”), not in looking back."
+            }
+          ]
+        },
+        {
+          "id": "d37",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "On célèbre volontiers la transparence comme une vertu cardinale des institutions. Il faudrait pourtant se demander ce qu'elle devient lorsque tout est publié : des milliers de pages de rapports, de données brutes et de procès-verbaux que personne n'a le temps de lire.",
+              "Une information noyée dans la masse n'est guère plus accessible qu'une information cachée ; elle a seulement l'avantage, pour ceux qui la produisent, de les dispenser de rendre des comptes."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q37",
+              "level": "C2",
+              "stem": "Que reproche l'auteur à une certaine forme de transparence ?",
+              "options": [
+                "Elle coûte trop cher",
+                "Elle publie des données fausses",
+                "Elle porte atteinte à la vie privée",
+                "Par excès d'information, elle peut servir à éviter d'avoir à se justifier"
+              ],
+              "answer": 3,
+              "explanation": "Information “noyée dans la masse” is as inaccessible as hidden information, and it lets institutions avoid accountability (“les dispenser de rendre des comptes”)."
+            }
+          ]
+        },
+        {
+          "id": "d38",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "La traduction est une infidélité nécessaire. Vouloir tout rendre — le sens, le rythme, les sonorités, les connotations — c'est se condamner à ne rien rendre du tout. Le traducteur choisit donc ce qu'il sacrifie, et ce choix est déjà une lecture.",
+              "C'est pourquoi deux traductions d'un même poème ne se contredisent pas tant qu'elles se répondent : chacune éclaire une face de l'original que l'autre a dû laisser dans l'ombre."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q38",
+              "level": "C2",
+              "stem": "Selon l'auteur, comment faut-il considérer deux traductions d'un même poème ?",
+              "options": [
+                "Comme des lectures complémentaires",
+                "Comme des erreurs à corriger",
+                "Comme des trahisons inutiles",
+                "Comme des copies identiques"
+              ],
+              "answer": 0,
+              "explanation": "“Elles se répondent : chacune éclaire une face de l'original que l'autre a dû laisser dans l'ombre” — they complement each other."
+            }
+          ]
+        },
+        {
+          "id": "d39",
+          "passage": {
+            "label": "Essai",
+            "paragraphs": [
+              "Nous confondons volontiers loisir et divertissement. Le divertissement, comme son étymologie l'indique, nous détourne : de nous-mêmes, de l'ennui, du temps qui passe. Le loisir, au contraire, au sens que lui donnaient les Anciens, était ce temps libéré où l'on pouvait enfin se consacrer à ce qui importe — penser, apprendre, converser.",
+              "Qu'une société consacre tant d'énergie à occuper nos heures libres devrait nous inquiéter davantage qu'elle ne nous réjouit."
+            ]
+          },
+          "questions": [
+            {
+              "id": "t2-q39",
+              "level": "C2",
+              "stem": "Que suggère l'auteur ?",
+              "options": [
+                "Que les sociétés modernes manquent de divertissements",
+                "Que les Anciens s'ennuyaient davantage",
+                "Qu'en remplissant notre temps libre de divertissements, on nous prive du véritable loisir",
+                "Que loisir et divertissement sont synonymes"
+              ],
+              "answer": 2,
+              "explanation": "He distinguishes diversion (which turns us away from ourselves) from true leisure (time for thinking and learning) and worries that society fills our free hours instead."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

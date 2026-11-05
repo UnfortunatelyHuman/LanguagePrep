@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { SkillCard } from "@/components/SkillCard";
@@ -53,21 +54,34 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      <section className="rounded-xl border border-dashed border-border p-5 text-sm text-muted sm:p-6">
-        <h2 className="text-sm font-semibold text-foreground">What is next</h2>
-        <p className="mt-2 leading-relaxed">
-          Reading, listening and writing practice are ready: timed {exam} sets
-          with an explanation for every question, AI-graded writing with a corrected
-          version, and an estimated level after each attempt. Speaking and progress
-          tracking are still being built.
-        </p>
-        {lang === "fr" ? (
-          <p className="mt-3 leading-relaxed">
-            The TCF band figures shown are approximate NCLC 7 minimums — confirm
-            the current thresholds on canada.ca before you book the test.
-          </p>
-        ) : null}
+      <section className="grid gap-4 sm:grid-cols-2">
+        <Link
+          href={`/${lang}/guide`}
+          className="flex flex-col gap-1 rounded-xl border border-dashed border-border p-5 text-sm transition-colors hover:border-accent sm:p-6"
+        >
+          <span className="font-semibold text-foreground">New to the {exam}? Start with the exam guide</span>
+          <span className="leading-relaxed text-muted">
+            Every part, its timing and scoring, what the questions test, strategies, and the score you need for{" "}
+            {scale} {lang === "en" ? "10" : "7"}.
+          </span>
+        </Link>
+        <Link
+          href={`/${lang}/papers`}
+          className="flex flex-col gap-1 rounded-xl border border-dashed border-border p-5 text-sm transition-colors hover:border-accent sm:p-6"
+        >
+          <span className="font-semibold text-foreground">Add your own papers</span>
+          <span className="leading-relaxed text-muted">
+            Type in reading or listening questions from a prep book or class. They&apos;re timed, scored and tracked
+            like the built-in papers, with an answer key to study from.
+          </span>
+        </Link>
       </section>
+      {lang === "fr" ? (
+        <p className="text-xs leading-relaxed text-muted">
+          The TCF band figures shown are approximate NCLC 7 minimums. Confirm the current thresholds on canada.ca
+          before you book the test.
+        </p>
+      ) : null}
     </div>
   );
 }

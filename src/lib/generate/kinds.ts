@@ -90,3 +90,10 @@ export const AI_SET_PREFIX = "ai-";
 export function isGeneratedSetId(id: string): boolean {
   return id.startsWith(AI_SET_PREFIX);
 }
+
+/** Papers the learner added are "my-" + the row id (same table, source "user"). */
+export const USER_SET_PREFIX = "my-";
+
+export function isUserSetId(id: string): boolean {
+  return id.startsWith(USER_SET_PREFIX);
+}
