@@ -1,19 +1,13 @@
 import "server-only";
 import { z } from "zod";
+import type { TestSet } from "@/lib/practice/types";
 import type { SpeakingSet } from "@/lib/speaking/types";
 import type { WritingSet } from "@/lib/writing/types";
 import type { GenerateKind } from "./kinds";
+import { PRACTICE_BUILDERS } from "./practice-builders";
+import { builder, summary, text, title, type Builder } from "./shared";
 
-/**
- * One builder per kind: the zod schema the model fills (only the creative
- * content), the instructions, and a function that wraps that content in a
- * complete set. Ids, labels, timings and word ranges come from here, never
- * from the model, so a generated set always matches the real exam format.
- */
-
-const text = (min = 1) => z.string().trim().min(min);
-const title = text().max(80).describe("Short set title, 3–7 words");
-const summary = text().max(220).describe("One English sentence describing the topics");
+// Writing and speaking builders; listening and reading ones are in practice-builders.ts.
 const sceneSchema = z.object({
   caption: text().describe("One sentence describing the whole picture"),
   items: z
@@ -23,15 +17,6 @@ const sceneSchema = z.object({
 });
 const optionSchema = z.object({ title: text(), details: z.array(text()).min(3).max(4) });
 
-type Builder<S extends z.ZodType, T> = {
-  schema: S;
-  instructions: string;
-  build: (id: string, data: z.output<S>) => T;
-};
-
-function builder<S extends z.ZodType, T>(b: Builder<S, T>) {
-  return b;
-}
 
 const celpipEmail = builder({
   schema: z.object({
@@ -169,9 +154,15 @@ const celpipSpeaking = builder({
     experience: z.object({ prompt: text(40), points: z.array(text()).length(3) }),
     scene: sceneSchema.describe("A busy, detailed everyday scene for tasks 3 and 4"),
     compare: z.object({
-      prompt: text(60).describe("Choose one option and persuade a family member or friend who prefers the other"),
+      prompt: text(60).describe("The situation, ending with: choose the option you prefer"),
       optionA: optionSchema,
       optionB: optionSchema,
+      rival: z.object({
+        who: text().max(40).describe('Who prefers a third option, e.g. "Your sister"'),
+        intro: text().describe('One sentence, e.g. "Your sister has found a third apartment and prefers it."'),
+        title: text(),
+        details: z.array(text()).min(3).max(4),
+      }).describe("A third, different option that a family member or friend prefers; the candidate argues against it"),
     }),
     difficult: z.object({
       prompt: text(80).describe("A dilemma; the speaker chooses one of two people/approaches to talk to"),
@@ -208,7 +199,7 @@ const celpipSpeaking = builder({
         },
         {
           id: "task-5", kind: "celpip-compare", label: "Task 5: Comparing and Persuading", chooseSeconds: 60, prepSeconds: 60, speakSeconds: 60,
-          prompt: d.compare.prompt, options: [option(d.compare.optionA, "A"), option(d.compare.optionB, "B")],
+          prompt: d.compare.prompt, options: [option(d.compare.optionA, "A"), option(d.compare.optionB, "B")], rival: d.compare.rival,
         },
         {
           id: "task-6", kind: "celpip-difficult", label: "Task 6: Dealing with a Difficult Situation", prepSeconds: 60, speakSeconds: 60,
@@ -268,4 +259,5 @@ export const BUILDERS = {
   "tcf-writing": tcfWriting,
   "celpip-speaking": celpipSpeaking,
   "tcf-speaking": tcfSpeaking,
-} satisfies Record<GenerateKind, Builder<z.ZodType, WritingSet | SpeakingSet>>;
+  ...PRACTICE_BUILDERS,
+} satisfies Record<GenerateKind, Builder<z.ZodType, WritingSet | SpeakingSet | TestSet>>;

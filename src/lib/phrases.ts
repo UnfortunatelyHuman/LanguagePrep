@@ -23,6 +23,8 @@ export type Phrase = {
   meaning: string;
   example: string;
   register: Register;
+  /** Saved by the learner from AI feedback; `example` is then an English note. */
+  saved?: boolean;
 };
 
 export type PhraseCategory = {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { DeleteAttemptButton } from "@/components/data/DeleteAttemptButton";
 import { SpeakingFeedback } from "@/components/speaking/SpeakingFeedback";
 import { isTrack, type Track } from "@/lib/exams";
 import { loadSpeakingAttempt } from "@/lib/speaking/store";
@@ -21,13 +22,19 @@ async function SavedFeedback({ track, attemptId }: { track: Track; attemptId: Pr
           <p className="text-xs text-muted">Saved attempt · {date}</p>
           <h1 className="text-2xl font-semibold tracking-tight">{set.title}</h1>
         </div>
-        <div className="flex gap-4 text-sm">
+        <div className="flex flex-wrap items-baseline gap-4 text-sm">
           <Link href={`/${track}/speaking/${set.id}`} className="font-medium text-accent">
             Practise this set again
           </Link>
           <Link href={`/${track}/speaking`} className="font-medium text-accent">
             All speaking sets
           </Link>
+          <DeleteAttemptButton
+            track={track}
+            attemptId={result.attemptId}
+            afterDelete={`/${track}/speaking`}
+            label="Delete attempt"
+          />
         </div>
       </div>
       <SpeakingFeedback set={set} result={result} />

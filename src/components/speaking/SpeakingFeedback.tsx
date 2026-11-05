@@ -1,4 +1,5 @@
 import { Fixes, LevelCard, Strengths } from "@/components/feedback/RubricSummary";
+import { Playback } from "@/components/speaking/Playback";
 import type { SpeakingResult, SpeakingSet, SpeakingTaskFeedback } from "@/lib/speaking/types";
 
 /** Typical conversational pace; below ~100 wpm usually sounds hesitant in an exam. */
@@ -34,16 +35,31 @@ function TaskAnswer({
       {option ? (
         <p className="text-sm text-muted">
           You chose option {option.id}: {option.title}
+          {info.rival ? `, against the third option: ${info.rival.title}` : ""}
         </p>
       ) : null}
 
       {task.audioId ? (
-        <audio controls preload="none" src={`/api/recordings/${task.audioId}`} className="w-full" />
+        <Playback src={`/api/recordings/${task.audioId}`} />
       ) : (
         <p className="text-xs text-muted">No recording was kept for this answer.</p>
       )}
 
       {task.comment ? <p className="text-sm leading-relaxed">{task.comment}</p> : null}
+
+      {task.dialogue?.length ? (
+        <details>
+          <summary className="cursor-pointer text-sm text-accent">The exchange with the AI examiner</summary>
+          <ol lang={lang} className="mt-2 flex flex-col gap-1.5 rounded-lg bg-surface-subtle p-3 text-sm">
+            {task.dialogue.map((t, i) => (
+              <li key={i} className={t.role === "examiner" ? "text-accent" : undefined}>
+                <span className="font-medium">{t.role === "examiner" ? "Examinateur : " : "Vous : "}</span>
+                {t.text}
+              </li>
+            ))}
+          </ol>
+        </details>
+      ) : null}
 
       <details open>
         <summary className="cursor-pointer text-sm text-accent">What you said (automatic transcript)</summary>
@@ -79,7 +95,12 @@ export function SpeakingFeedback({ set, result }: { set: SpeakingSet; result: Sp
       />
       <div className="grid gap-5 lg:grid-cols-2">
         <Strengths items={result.strengths} />
-        <Fixes fixes={result.fixes} lang={lang} beforeLabel="You said" />
+        <Fixes
+          fixes={result.fixes}
+          lang={lang}
+          beforeLabel="You said"
+          saveTo={{ track: set.exam === "tcf" ? "fr" : "en", source: "speaking" }}
+        />
       </div>
       {result.tasks.map((t) => (
         <TaskAnswer key={t.taskId} set={set} task={t} lang={lang} />

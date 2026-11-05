@@ -103,11 +103,17 @@ export function PhraseQuiz({
       </div>
 
       <div>
-        <p className="text-xs font-medium uppercase tracking-wider text-muted">Which phrase fits?</p>
-        <p className="mt-1 text-base">{card.meaning}</p>
-        <div className="mt-2">
-          <RegisterBadge register={card.register} />
-        </div>
+        <p className="text-xs font-medium uppercase tracking-wider text-muted">
+          {card.saved ? "Say it better" : "Which phrase fits?"}
+        </p>
+        <p lang={card.saved ? lang : undefined} className="mt-1 text-base">
+          {card.meaning}
+        </p>
+        {card.saved ? null : (
+          <div className="mt-2">
+            <RegisterBadge register={card.register} />
+          </div>
+        )}
       </div>
 
       {/* Announce only the revealed answer, not the whole card. */}
@@ -117,7 +123,7 @@ export function PhraseQuiz({
           <p lang={lang} className="font-semibold">
             {card.phrase}
           </p>
-          <p lang={lang} className="mt-1 text-sm italic">
+          <p lang={card.saved ? undefined : lang} className="mt-1 text-sm italic">
             {card.example}
           </p>
         </div>

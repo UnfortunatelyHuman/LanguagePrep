@@ -23,6 +23,7 @@ const TaskJson = z.object({
   seconds: z.number(),
   wordsPerMinute: z.number(),
   choice: z.enum(["A", "B"]).optional(),
+  dialogue: z.array(z.object({ role: z.enum(["candidate", "examiner"]), text: z.string() })).optional(),
   comment: z.string(),
   improved: z.string(),
 });
@@ -63,6 +64,7 @@ export async function saveSpeakingAttempt(input: {
       seconds: Math.round(a.seconds),
       wordsPerMinute: wordsPerMinute(countWords(a.transcript), a.seconds),
       choice: a.choice,
+      dialogue: a.dialogue,
       comment: byTask.get(a.taskId)?.comment ?? "",
       improved: byTask.get(a.taskId)?.improved ?? "",
     } satisfies z.infer<typeof TaskJson>,

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DeleteAttemptButton } from "@/components/data/DeleteAttemptButton";
 import { skillAttempts } from "@/lib/attempts";
 import type { SkillId, Track } from "@/lib/exams";
 import { formatClock } from "@/lib/practice/numbering";
@@ -9,8 +10,11 @@ import { writingSets } from "@/lib/writing/content";
 
 /** Set id → title for the skill (file sets and AI-generated ones), so rows read as names. */
 async function setTitles(track: Track, skill: SkillId): Promise<Map<string, string>> {
-  if (isPracticeSkill(skill)) return new Map(testSets(track, skill).map((s) => [s.id, s.title]));
-  const files = skill === "writing" ? writingSets(track) : speakingSets(track);
+  const files = isPracticeSkill(skill)
+    ? testSets(track, skill)
+    : skill === "writing"
+      ? writingSets(track)
+      : speakingSets(track);
   const generated = await listGeneratedSets(track, skill);
   return new Map([
     ...files.map((s) => [s.id, s.title] as const),
@@ -58,12 +62,15 @@ export async function AttemptHistory({ track, skill }: { track: Track; skill: Sk
                 {a.durationSeconds !== null ? ` · ${formatClock(a.durationSeconds)}` : ""}
               </p>
             </div>
-            <p className="shrink-0">
-              <span className="font-medium">{a.estimatedLevel ?? "Not scored"}</span>
-              {a.score !== null ? (
-                <span className="text-muted"> ({formatScore(a.score, a.maxScore)})</span>
-              ) : null}
-            </p>
+            <div className="flex shrink-0 items-baseline gap-3">
+              <p>
+                <span className="font-medium">{a.estimatedLevel ?? "Not scored"}</span>
+                {a.score !== null ? (
+                  <span className="text-muted"> ({formatScore(a.score, a.maxScore)})</span>
+                ) : null}
+              </p>
+              <DeleteAttemptButton track={track} attemptId={a.id} />
+            </div>
           </li>
         );
       })}

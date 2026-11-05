@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { DeleteAttemptButton } from "@/components/data/DeleteAttemptButton";
 import { WritingFeedback } from "@/components/writing/WritingFeedback";
 import { isTrack, type Track } from "@/lib/exams";
 import { loadWritingAttempt } from "@/lib/writing/store";
@@ -24,13 +25,19 @@ async function SavedFeedback({ track, attemptId }: { track: Track; attemptId: Pr
           <p className="text-xs text-muted">Saved attempt · {date}</p>
           <h1 className="text-2xl font-semibold tracking-tight">{set.title}</h1>
         </div>
-        <div className="flex gap-4 text-sm">
+        <div className="flex flex-wrap items-baseline gap-4 text-sm">
           <Link href={`/${track}/writing/${set.id}`} className="font-medium text-accent">
             Write this one again
           </Link>
           <Link href={`/${track}/writing`} className="font-medium text-accent">
             All writing prompts
           </Link>
+          <DeleteAttemptButton
+            track={track}
+            attemptId={result.attemptId}
+            afterDelete={`/${track}/writing`}
+            label="Delete attempt"
+          />
         </div>
       </div>
       <WritingFeedback set={set} result={result} />

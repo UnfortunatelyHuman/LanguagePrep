@@ -30,7 +30,7 @@ export async function generateSetAction(_prev: GenerateState, form: FormData): P
     created = await generateSet(track, option, topic);
   } catch (error) {
     if (isAiError(error)) {
-      console.error(`[generate] AI ${error.kind}: ${error.message}`);
+      console.error(`[generate] AI ${error.kind}: ${error.message}`, error.cause ?? "");
       return { error: error.message };
     }
     console.error("[generate] failed", error);

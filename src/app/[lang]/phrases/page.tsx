@@ -4,6 +4,7 @@ import { PhraseBank } from "@/components/phrases/PhraseBank";
 import { getTrack, isTrack, type Track } from "@/lib/exams";
 import { phraseReviewState } from "@/lib/phrase-reviews";
 import { phraseCategories } from "@/lib/phrases";
+import { savedPhraseCategory } from "@/lib/saved-phrases";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -15,9 +16,24 @@ const INTRO: Record<Track, string> = {
 
 /** Reads the self-test marks; the bank itself is static content. */
 async function BankWithReviews({ track }: { track: Track }) {
-  const reviews = await phraseReviewState(track);
-  const known = Object.fromEntries(Object.entries(reviews).map(([k, v]) => [k, v.known]));
-  return <PhraseBank track={track} categories={phraseCategories(track)} initialKnown={known} />;
+  const [reviews, saved] = await Promise.all([phraseReviewState(track), savedPhraseCategory(track)]);
+  const known = {
+    ...Object.fromEntries(Object.entries(reviews).map(([k, v]) => [k, v.known])),
+    ...saved?.known,
+  };
+  // The learner's own phrases come first: they target their actual mistakes.
+  const categories = saved ? [saved.category, ...phraseCategories(track)] : phraseCategories(track);
+  return (
+    <>
+      {saved ? null : (
+        <p className="rounded-xl border border-dashed border-border p-4 text-sm text-muted">
+          Tip: on writing and speaking feedback, use “Save to phrase bank” on a fix. Saved fixes appear here as
+          their own self-test deck.
+        </p>
+      )}
+      <PhraseBank track={track} categories={categories} initialKnown={known} />
+    </>
+  );
 }
 
 export default async function PhrasesPage({ params }: PageProps<"/[lang]/phrases">) {

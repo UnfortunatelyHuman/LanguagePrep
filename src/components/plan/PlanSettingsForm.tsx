@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useRef } from "react";
 import { saveStudySettings, type SettingsFormState } from "@/lib/plan-actions";
 import type { Track } from "@/lib/exams";
 
@@ -11,19 +11,31 @@ export function PlanSettingsForm({
   track,
   examDate,
   dailyMinutes,
+  timeZone,
+  timeZones,
   minDate,
 }: {
   track: Track;
   /** YYYY-MM-DD or "" */
   examDate: string;
   dailyMinutes: number;
+  /** Saved IANA zone, or "" for the server's. */
+  timeZone: string;
+  timeZones: string[];
   /** Today as YYYY-MM-DD, from the server, so the picker can't go back in time. */
   minDate: string;
 }) {
   const [state, action, pending] = useActionState(saveStudySettings, INITIAL);
   // React resets a form after its action; re-seed it with what was submitted
   // (the key remounts the inputs) so a validation error doesn't wipe the input.
-  const shown = state.values ?? { examDate, dailyMinutes: String(dailyMinutes) };
+  const shown = state.values ?? { examDate, dailyMinutes: String(dailyMinutes), timeZone };
+  const zoneSelect = useRef<HTMLSelectElement>(null);
+
+  /** Read in a click handler, so server and browser render the same markup. */
+  function fillBrowserZone() {
+    const zone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if (zoneSelect.current && timeZones.includes(zone)) zoneSelect.current.value = zone;
+  }
   const formKey = JSON.stringify(shown);
 
   return (
@@ -56,6 +68,31 @@ export function PlanSettingsForm({
             className="w-28 rounded-lg border border-border bg-surface px-3 py-1.5 outline-none focus:border-accent"
           />
         </label>
+        <div className="flex flex-col gap-1">
+          <label htmlFor={`tz-${track}`} className="text-muted">
+            Time zone (sets when &quot;today&quot; starts)
+          </label>
+          <div className="flex flex-wrap items-center gap-2">
+            <select
+              id={`tz-${track}`}
+              ref={zoneSelect}
+              name="timeZone"
+              key={`tz-${formKey}`}
+              defaultValue={shown.timeZone}
+              className="max-w-64 rounded-lg border border-border bg-surface px-3 py-1.5 outline-none focus:border-accent"
+            >
+              <option value="">This computer&apos;s clock (server)</option>
+              {timeZones.map((z) => (
+                <option key={z} value={z}>
+                  {z.replaceAll("_", " ")}
+                </option>
+              ))}
+            </select>
+            <button type="button" onClick={fillBrowserZone} className="text-accent">
+              Use my browser&apos;s
+            </button>
+          </div>
+        </div>
       </div>
       <div className="flex flex-wrap items-center gap-3">
         <button

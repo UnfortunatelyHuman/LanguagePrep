@@ -1,18 +1,20 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { isTrack } from "@/lib/exams";
-import { clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
+import { bodyTooLarge, clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
 import { resolveSpeakingSet } from "@/lib/generate/sets";
 import { speakingSeconds } from "@/lib/speaking/content";
 import { gradeSpeaking } from "@/lib/speaking/grade";
 import { isAcceptedRecording } from "@/lib/speaking/recordings";
 import { saveSpeakingAttempt } from "@/lib/speaking/store";
-import type { SpokenAnswer } from "@/lib/speaking/types";
+import { DIALOGUE_LIMITS, type SpokenAnswer } from "@/lib/speaking/types";
 import { countWords } from "@/lib/writing/words";
 
 /** Fewer words than this across all answers and there is nothing to grade. */
 const MIN_TOTAL_WORDS = 10;
 const MAX_TRANSCRIPT_CHARS = 8000;
+/** A full 8-task test is ~10 minutes of Opus, a few MB; 40 MB leaves plenty of room. */
+const MAX_BODY_BYTES = 40 * 1024 * 1024;
 
 const Meta = z.object({
   track: z.string(),
@@ -25,6 +27,9 @@ const Meta = z.object({
         transcript: z.string(),
         seconds: z.number().min(0),
         choice: z.enum(["A", "B"]).optional(),
+        dialogue: z
+          .array(z.object({ role: z.enum(["candidate", "examiner"]), text: z.string() }))
+          .optional(),
       }),
     )
     .min(1),
@@ -44,6 +49,8 @@ function parseJson(text: string): unknown {
  */
 export async function POST(request: Request) {
   try {
+    const tooLarge = bodyTooLarge(request, MAX_BODY_BYTES);
+    if (tooLarge) return tooLarge;
     const form = await request.formData().catch(() => null);
     const rawMeta = form?.get("meta");
     const parsed = typeof rawMeta === "string" ? Meta.safeParse(parseJson(rawMeta)) : null;
@@ -65,6 +72,12 @@ export async function POST(request: Request) {
           transcript: a.transcript.slice(0, MAX_TRANSCRIPT_CHARS),
           seconds: Math.min(a.seconds, task.speakSeconds + 5),
           choice: task.options ? a.choice : undefined,
+          dialogue:
+            task.kind === "tcf-roleplay" && a.dialogue?.length
+              ? a.dialogue
+                  .slice(0, DIALOGUE_LIMITS.turns)
+                  .map((t) => ({ role: t.role, text: t.text.slice(0, DIALOGUE_LIMITS.chars) }))
+              : undefined,
         },
       ];
     });

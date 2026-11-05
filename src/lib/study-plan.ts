@@ -11,6 +11,8 @@ export type PlanSettings = {
   /** Stored as UTC midnight of the chosen calendar day. */
   examDate: Date | null;
   dailyMinutes: number;
+  /** IANA zone whose calendar day is "today"; null means the server's zone. */
+  timeZone: string | null;
 };
 
 export type PlanBlock = {
@@ -234,8 +236,9 @@ export function buildStudyPlan(input: PlanInput): StudyPlan {
   }
 
   if (daysLeft !== null && daysLeft <= FINAL_WEEK) {
-    const windowStart = settings.examDate!.getTime() - FINAL_WEEK * DAY_MS;
-    const mock = input.lastMock && input.lastMock.startedAt.getTime() >= windowStart ? input.lastMock : null;
+    // Calendar days, like `today`: startedAt is wall-clock time in the learner's zone.
+    const mock =
+      input.lastMock && daysUntil(input.lastMock.startedAt, settings.examDate!) <= FINAL_WEEK ? input.lastMock : null;
     if (!mock) {
       return {
         daysLeft,

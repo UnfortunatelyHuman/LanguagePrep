@@ -30,6 +30,20 @@ export function feedbackErrorResponse(route: string, error: unknown): Response {
   );
 }
 
+/**
+ * Reject bodies whose declared size is over `maxBytes` before reading them.
+ * A missing Content-Length (some reverse proxies re-chunk bodies) is let
+ * through; the proxy's body buffer limit in next.config.ts still caps it.
+ */
+export function bodyTooLarge(request: Request, maxBytes: number): Response | null {
+  const header = request.headers.get("content-length");
+  if (header === null) return null;
+  const length = Number(header);
+  if (length === 0) return feedbackFailure(400, "bad_request", "The request was empty; please try again.");
+  if (!Number.isFinite(length) || length > maxBytes) return feedbackFailure(413, "bad_request", "The upload is too large.");
+  return null;
+}
+
 /** Clamp a client-reported duration to [0, max] seconds, or null if it isn't a number. */
 export function clampSeconds(value: unknown, max: number): number | null {
   return typeof value === "number" && Number.isFinite(value)

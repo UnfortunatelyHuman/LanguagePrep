@@ -114,7 +114,8 @@ export class Capture {
   constructor(
     private readonly stream: MediaStream,
     private readonly lang: string,
-    private readonly onTranscript: (text: string) => void,
+    /** `final` is settled text; `interim` may still be rewritten by the recognizer. */
+    private readonly onTranscript: (text: string, final: string, interim: string) => void,
   ) {}
 
   start(): void {
@@ -153,7 +154,7 @@ export class Capture {
         else interim += result[0].transcript;
       }
       this.interimText = interim;
-      this.onTranscript(this.text());
+      this.onTranscript(this.text(), this.finalText.trim(), this.interimText.trim());
     };
     rec.onerror = (e) => {
       // "no-speech" and "aborted" are routine; the restart in onend handles them.

@@ -13,9 +13,10 @@ const EXPECTED_QUESTIONS = { celpip: 38, tcf: 39 } as const;
 /**
  * Throw on authoring mistakes so a broken set fails the build instead of the
  * test: duplicate ids, out-of-range answers, blanks pointing nowhere, unknown
- * speakers, missing audio, wrong counts.
+ * speakers, missing audio, wrong counts. AI-generated mini sets pass
+ * `fullLength: false`, since they are deliberately shorter than the real paper.
  */
-function validate(set: TestSet, skill: PracticeSkill): TestSet {
+export function validateTestSet(set: TestSet, skill: PracticeSkill, fullLength = true): TestSet {
   const fail = (msg: string) => {
     throw new Error(`Practice set "${set.id}": ${msg}`);
   };
@@ -53,14 +54,15 @@ function validate(set: TestSet, skill: PracticeSkill): TestSet {
       }
     }
   }
-  if (count !== EXPECTED_QUESTIONS[set.exam]) {
+  if (!count) fail("has no questions");
+  if (fullLength && count !== EXPECTED_QUESTIONS[set.exam]) {
     fail(`has ${count} questions, expected ${EXPECTED_QUESTIONS[set.exam]}`);
   }
   return set;
 }
 
 const load = (skill: PracticeSkill, sets: unknown[]) =>
-  sets.map((s) => validate(s as TestSet, skill));
+  sets.map((s) => validateTestSet(s as TestSet, skill));
 
 const SETS: Record<Track, Record<PracticeSkill, TestSet[]>> = {
   en: {

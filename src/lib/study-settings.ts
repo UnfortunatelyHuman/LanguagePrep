@@ -15,6 +15,7 @@ export async function studySettings(track: Track): Promise<PlanSettings> {
   return {
     examDate: row?.examDate ?? null,
     dailyMinutes: row?.dailyMinutes ?? DEFAULT_DAILY_MINUTES,
+    timeZone: row?.timeZone ?? null,
   };
 }
 

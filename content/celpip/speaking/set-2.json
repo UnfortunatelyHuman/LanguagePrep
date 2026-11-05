@@ -79,7 +79,13 @@
       "chooseSeconds": 60,
       "prepSeconds": 60,
       "speakSeconds": 60,
-      "prompt": "You and a close friend are planning a weekend away together. Choose the trip you prefer. Then persuade your friend, who prefers the other trip, that your choice is better.",
+      "prompt": "You and a close friend are planning a weekend away together. Choose the trip you prefer.",
+      "rival": {
+        "who": "Your friend",
+        "intro": "Your friend has suggested a third trip and prefers it.",
+        "title": "Camping at a provincial park",
+        "details": ["$90 for two nights, shared", "3-hour drive from the city", "Beach, campfires and stargazing", "You must bring your own tent and food"]
+      },
       "options": [
         {
           "id": "A",

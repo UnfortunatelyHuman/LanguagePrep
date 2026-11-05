@@ -1,16 +1,20 @@
-import type { Track } from "@/lib/exams";
+import type { SkillId, Track } from "@/lib/exams";
 
 /** What the AI can write a fresh set for. Safe for client and server. */
 export type GenerateKind =
   | "celpip-email"
   | "celpip-survey"
   | "celpip-speaking"
+  | "celpip-reading"
+  | "celpip-listening"
   | "tcf-writing"
-  | "tcf-speaking";
+  | "tcf-speaking"
+  | "tcf-reading"
+  | "tcf-listening";
 
 export type GenerateOption = {
   kind: GenerateKind;
-  skill: "writing" | "speaking";
+  skill: SkillId;
   label: string;
   description: string;
 };
@@ -35,6 +39,18 @@ export const GENERATE_OPTIONS: Record<Track, GenerateOption[]> = {
       label: "Speaking: full 8-task test",
       description: "All eight tasks with fresh situations, scenes and options.",
     },
+    {
+      kind: "celpip-listening",
+      skill: "listening",
+      label: "Listening: mini test (2 parts)",
+      description: "A daily-life conversation and a three-person discussion; 13 questions, about 13 minutes.",
+    },
+    {
+      kind: "celpip-reading",
+      skill: "reading",
+      label: "Reading: mini test (2 parts)",
+      description: "An email with its reply, and a viewpoints article with a reader's comment; 21 questions, 24 minutes.",
+    },
   ],
   fr: [
     {
@@ -48,6 +64,18 @@ export const GENERATE_OPTIONS: Record<Track, GenerateOption[]> = {
       skill: "speaking",
       label: "Expression orale : 3 tâches",
       description: "A fresh interview, role-play situation and opinion statement.",
+    },
+    {
+      kind: "tcf-listening",
+      skill: "listening",
+      label: "Compréhension orale : mini test",
+      description: "13 recordings from A1 to C2, scored on the 100–699 scale; about 12 minutes.",
+    },
+    {
+      kind: "tcf-reading",
+      skill: "reading",
+      label: "Compréhension écrite : mini test",
+      description: "13 documents from A1 to C2, scored on the 100–699 scale; 20 minutes.",
     },
   ],
 };

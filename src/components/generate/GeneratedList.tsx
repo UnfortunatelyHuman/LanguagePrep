@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Track } from "@/lib/exams";
+import type { SkillId, Track } from "@/lib/exams";
 import { listGeneratedSets } from "@/lib/generate/sets";
 
 /** AI-generated sets for a track (optionally one skill), newest first. */
@@ -9,7 +9,7 @@ export async function GeneratedList({
   empty,
 }: {
   track: Track;
-  skill?: "writing" | "speaking";
+  skill?: SkillId;
   empty: string;
 }) {
   const sets = await listGeneratedSets(track, skill);

@@ -29,6 +29,16 @@ export type SpeakingOption = {
   details: string[];
 };
 
+/** CELPIP task 5: the third option someone else prefers, shown once the candidate has chosen. */
+export type SpeakingRival = {
+  /** "Your spouse", "Your friend": who the candidate must persuade. */
+  who: string;
+  /** One sentence introducing the third option. */
+  intro: string;
+  title: string;
+  details: string[];
+};
+
 export type SpeakingTask = {
   /** Unique within its set, e.g. "task-3" or "tache-2". */
   id: string;
@@ -47,6 +57,8 @@ export type SpeakingTask = {
   scene?: Scene;
   /** Choice tasks (CELPIP 5 and 6). */
   options?: SpeakingOption[];
+  /** CELPIP task 5 only: the third option to argue against. */
+  rival?: SpeakingRival;
 };
 
 export type SpeakingSet = {
@@ -57,6 +69,12 @@ export type SpeakingSet = {
   tasks: SpeakingTask[];
 };
 
+/** One turn of the TCF role-play with the AI examiner. */
+export type DialogueTurn = { role: "candidate" | "examiner"; text: string };
+
+/** Limits shared by the browser and the server for role-play dialogues. */
+export const DIALOGUE_LIMITS = { turns: 40, chars: 600 } as const;
+
 /** One recorded answer as the browser sends it. */
 export type SpokenAnswer = {
   taskId: string;
@@ -65,6 +83,8 @@ export type SpokenAnswer = {
   seconds: number;
   /** CELPIP 5/6: the option chosen. */
   choice?: "A" | "B";
+  /** TCF task 2: the exchange with the AI examiner, if it was used. */
+  dialogue?: DialogueTurn[];
 };
 
 export type SpeakingTaskFeedback = {
@@ -73,6 +93,7 @@ export type SpeakingTaskFeedback = {
   seconds: number;
   wordsPerMinute: number;
   choice?: "A" | "B";
+  dialogue?: DialogueTurn[];
   /** Response id whose audio can be fetched, if a recording was kept. */
   audioId: string | null;
   comment: string;

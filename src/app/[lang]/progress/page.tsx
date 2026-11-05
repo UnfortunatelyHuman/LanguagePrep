@@ -24,6 +24,17 @@ export default async function ProgressPage({ params }: PageProps<"/[lang]/progre
       <Suspense fallback={<p className="text-sm text-muted">Loading your progress…</p>}>
         <ProgressView track={lang} />
       </Suspense>
+      <section className="rounded-xl border border-border bg-surface p-4 text-sm">
+        <h2 className="font-semibold tracking-tight">Your data</h2>
+        <p className="mt-1 text-muted">
+          Everything is stored on this computer. Download a backup of all attempts, feedback, settings and saved
+          phrases (both exams), or delete single attempts from each skill&apos;s history.
+        </p>
+        {/* A plain link: the route answers with a file download. */}
+        <a href="/api/export" download className="mt-2 inline-block font-medium text-accent">
+          Download all my data (JSON)
+        </a>
+      </section>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { testSets, totalMinutes } from "@/lib/practice/content";
 import { progressSummary } from "@/lib/progress";
 import { buildStudyPlan, type PlanBlock } from "@/lib/study-plan";
 import { latestMock, studySettings } from "@/lib/study-settings";
+import { timeZoneNames, wallClock } from "@/lib/time-zone";
 
 const ICONS: Record<PlanBlock["skill"], string> = {
   listening: "🎧",
@@ -38,8 +39,14 @@ export async function PlanView({ track }: { track: Track }) {
     studySettings(track),
     latestMock(track),
   ]);
-  // Read after the database calls, so it's request time, not build time.
-  const today = new Date();
+  // Read after the database calls, so it's request time, not build time. Every
+  // date the plan compares is shifted to the learner's zone, so "today" and
+  // "3 days ago" follow their calendar rather than the server's.
+  const zone = settings.timeZone;
+  const today = wallClock(new Date(), zone);
+  const skills = summary.skills.map((s) =>
+    s.latest ? { ...s, latest: { ...s.latest, date: wallClock(s.latest.date, zone) } } : s,
+  );
 
   const sets = Object.fromEntries(
     (["listening", "reading"] as const).map((skill) => [
@@ -49,12 +56,12 @@ export async function PlanView({ track }: { track: Track }) {
   );
   const plan = buildStudyPlan({
     track,
-    skills: summary.skills,
+    skills,
     target: summary.target,
     settings,
     today,
     sets,
-    lastMock,
+    lastMock: lastMock && { ...lastMock, startedAt: wallClock(lastMock.startedAt, zone) },
   });
   const total = plan.blocks.reduce((n, b) => n + b.minutes, 0);
 
@@ -113,6 +120,8 @@ export async function PlanView({ track }: { track: Track }) {
         track={track}
         examDate={settings.examDate ? utcIso(settings.examDate) : ""}
         dailyMinutes={settings.dailyMinutes}
+        timeZone={zone ?? ""}
+        timeZones={timeZoneNames()}
         minDate={localIso(today)}
       />
     </div>

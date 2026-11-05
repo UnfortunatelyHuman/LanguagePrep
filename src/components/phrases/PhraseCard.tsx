@@ -19,11 +19,14 @@ export function PhraseCard({
   phrase,
   lang,
   known,
+  onRemove,
 }: {
   phrase: Phrase;
   lang: "en" | "fr";
   /** undefined = never self-tested. */
   known: boolean | undefined;
+  /** Saved phrases only: remove from the bank. */
+  onRemove?: () => void;
 }) {
   return (
     <li className="flex flex-col gap-1.5 rounded-xl border border-border bg-surface p-4">
@@ -37,13 +40,34 @@ export function PhraseCard({
               {known ? "✓ known" : "• learning"}
             </span>
           ) : null}
-          <RegisterBadge register={phrase.register} />
+          {phrase.saved ? (
+            <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs font-medium text-accent">saved</span>
+          ) : (
+            <RegisterBadge register={phrase.register} />
+          )}
         </div>
       </div>
-      <p className="text-sm text-muted">{phrase.meaning}</p>
-      <p lang={lang} className="text-sm italic">
-        {phrase.example}
-      </p>
+      {phrase.saved ? (
+        <>
+          {/* "Instead of …" quotes the learner's own words, in the exam language. */}
+          <p lang={lang} className="text-sm text-muted">
+            {phrase.meaning}
+          </p>
+          <p className="text-sm">{phrase.example}</p>
+          {onRemove ? (
+            <button type="button" onClick={onRemove} className="self-start text-xs text-muted hover:text-warn">
+              Remove
+            </button>
+          ) : null}
+        </>
+      ) : (
+        <>
+          <p className="text-sm text-muted">{phrase.meaning}</p>
+          <p lang={lang} className="text-sm italic">
+            {phrase.example}
+          </p>
+        </>
+      )}
     </li>
   );
 }

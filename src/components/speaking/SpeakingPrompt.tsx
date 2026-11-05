@@ -1,4 +1,4 @@
-import type { Scene, SpeakingTask } from "@/lib/speaking/types";
+import type { Scene, SpeakingRival, SpeakingTask } from "@/lib/speaking/types";
 
 /** Picture tasks: the scene drawn as labelled emoji, since we ship no photos. */
 export function SceneCard({ scene }: { scene: Scene }) {
@@ -19,18 +19,41 @@ export function SceneCard({ scene }: { scene: Scene }) {
   );
 }
 
+/** CELPIP task 5: the third option, revealed after the candidate has chosen. */
+export function RivalCard({ rival }: { rival: SpeakingRival }) {
+  return (
+    <div className="flex flex-col gap-2 rounded-lg border border-warn/40 bg-warn/5 p-3">
+      <p>{rival.intro}</p>
+      <div>
+        <p className="font-semibold">Third option: {rival.title}</p>
+        <ul className="mt-1 list-disc space-y-0.5 pl-5 text-muted">
+          {rival.details.map((d) => (
+            <li key={d}>{d}</li>
+          ))}
+        </ul>
+      </div>
+      <p className="font-medium">
+        Persuade {rival.who.toLowerCase()} that the option you chose is better than this one.
+      </p>
+    </div>
+  );
+}
+
 /**
  * The task as the candidate sees it. For choice tasks, pass `onChoose` to make
- * the options selectable; `choice` highlights the selected one.
+ * the options selectable; `choice` highlights the selected one. `showRival`
+ * reveals task 5's third option (after the choose stage, as in the real test).
  */
 export function SpeakingPrompt({
   task,
   choice,
   onChoose,
+  showRival = false,
 }: {
   task: SpeakingTask;
   choice?: "A" | "B";
   onChoose?: (choice: "A" | "B") => void;
+  showRival?: boolean;
 }) {
   const lang = task.kind.startsWith("tcf") ? "fr" : "en";
   return (
@@ -85,6 +108,8 @@ export function SpeakingPrompt({
           })}
         </div>
       ) : null}
+
+      {showRival && task.rival ? <RivalCard rival={task.rival} /> : null}
     </section>
   );
 }

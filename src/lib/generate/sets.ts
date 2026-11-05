@@ -3,6 +3,9 @@ import { io } from "next/cache";
 import { generateJSON } from "@/lib/ai";
 import { examKey } from "@/lib/attempts";
 import type { Track } from "@/lib/exams";
+import type { SkillId } from "@/lib/exams";
+import { findTestSet, validateTestSet } from "@/lib/practice/content";
+import type { PracticeSkill, TestSet } from "@/lib/practice/types";
 import { prisma } from "@/lib/prisma";
 import { findSpeakingSet, validateSpeakingSet } from "@/lib/speaking/content";
 import type { SpeakingSet } from "@/lib/speaking/types";
@@ -29,7 +32,7 @@ const AVOID_RECENT = 12;
 
 /**
  * Ask the AI for a fresh set of one kind, validate it against the real exam
- * format, and save it. Throws AiError (provider problems) or Error (a set
+ * format (listening/reading: a shorter paper in the real format), and save it. Throws AiError (provider problems) or Error (a set
  * that fails validation, which shouldn't happen given the schema).
  */
 export async function generateSet(
@@ -64,10 +67,11 @@ export async function generateSet(
   const setId = `${AI_SET_PREFIX}${row.id}`;
   try {
     // Builders are typed per kind; the union here is safe because b and data match.
-    const set = (b.build as (id: string, d: unknown) => WritingSet | SpeakingSet)(setId, data);
+    const set = (b.build as (id: string, d: unknown) => WritingSet | SpeakingSet | TestSet)(setId, data);
     try {
       if (option.skill === "writing") validateWritingSet(set as WritingSet);
-      else validateSpeakingSet(set as SpeakingSet);
+      else if (option.skill === "speaking") validateSpeakingSet(set as SpeakingSet);
+      else validateTestSet(set as TestSet, option.skill, false);
     } catch (error) {
       throw new SetFormatError(error);
     }
@@ -79,7 +83,7 @@ export async function generateSet(
   return { id: setId, skill: option.skill };
 }
 
-async function loadGenerated(track: Track, skill: "writing" | "speaking", setId: string) {
+async function loadGenerated(track: Track, skill: SkillId, setId: string) {
   if (!isGeneratedSetId(setId)) return null;
   await io();
   const row = await prisma.generatedSet.findFirst({
@@ -115,16 +119,29 @@ export async function resolveSpeakingSet(track: Track, setId: string): Promise<S
   }
 }
 
+/** A listening or reading set from the content files or, for "ai-…" ids, from the database. */
+export async function resolveTestSet(track: Track, skill: PracticeSkill, setId: string): Promise<TestSet | undefined> {
+  const fromFile = findTestSet(track, skill, setId);
+  if (fromFile) return fromFile;
+  const data = await loadGenerated(track, skill, setId);
+  if (!data) return undefined;
+  try {
+    return validateTestSet(data as TestSet, skill, false);
+  } catch {
+    return undefined;
+  }
+}
+
 export type GeneratedSummary = {
   setId: string;
-  skill: "writing" | "speaking";
+  skill: SkillId;
   title: string;
   summary: string;
   createdAt: Date;
 };
 
 /** Generated sets for this track, newest first. */
-export async function listGeneratedSets(track: Track, skill?: "writing" | "speaking"): Promise<GeneratedSummary[]> {
+export async function listGeneratedSets(track: Track, skill?: SkillId): Promise<GeneratedSummary[]> {
   await io();
   const rows = await prisma.generatedSet.findMany({
     where: { exam: examKey(track), ...(skill ? { skill } : {}), NOT: { title: "pending" } },
@@ -133,7 +150,7 @@ export async function listGeneratedSets(track: Track, skill?: "writing" | "speak
   });
   return rows.map((r) => ({
     setId: `${AI_SET_PREFIX}${r.id}`,
-    skill: r.skill as "writing" | "speaking",
+    skill: r.skill as SkillId,
     title: r.title,
     summary: (r.data as { summary?: string }).summary ?? "",
     createdAt: r.createdAt,

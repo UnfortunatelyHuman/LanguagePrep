@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { PhraseCard } from "@/components/phrases/PhraseCard";
 import { PhraseQuiz, buildDeck } from "@/components/phrases/PhraseQuiz";
 import type { Track } from "@/lib/exams";
+import { deleteSavedPhrase } from "@/lib/phrase-actions";
 import type { Phrase, PhraseCategory } from "@/lib/phrases";
 
 const ALL = "all";
@@ -30,11 +31,31 @@ export function PhraseBank({
   const [query, setQuery] = useState("");
   const [known, setKnown] = useState(initialKnown);
   const [deck, setDeck] = useState<Phrase[] | null>(null);
+  const [removed, setRemoved] = useState<ReadonlySet<string>>(new Set());
 
-  const inCategory = useMemo(
-    () => categories.filter((c) => category === ALL || c.id === category).flatMap((c) => c.phrases),
-    [categories, category],
+  // Saved phrases deleted on this page disappear at once; the server catches up on the next visit.
+  const shown = useMemo(
+    () =>
+      categories
+        .map((c) => ({ ...c, phrases: c.phrases.filter((p) => !removed.has(p.key)) }))
+        .filter((c) => c.phrases.length),
+    [categories, removed],
   );
+  const inCategory = useMemo(
+    () => shown.filter((c) => category === ALL || c.id === category).flatMap((c) => c.phrases),
+    [shown, category],
+  );
+
+  async function remove(key: string) {
+    if (!window.confirm("Remove this saved phrase from your bank?")) return;
+    const result = await deleteSavedPhrase({ track, key }).catch(() => ({ ok: false }));
+    if (result.ok) {
+      setRemoved((prev) => new Set(prev).add(key));
+      if (!shown.find((c) => c.id === category)?.phrases.some((p) => p.key !== key)) setCategory(ALL);
+    } else {
+      window.alert("Couldn't remove the phrase. Check that the app server is running.");
+    }
+  }
   const visible = inCategory.filter((p) => matches(p, query.trim()));
 
   if (deck) {
@@ -72,12 +93,12 @@ export function PhraseBank({
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-2" role="group" aria-label="Categories">
-        {chip(ALL, "All", categories.flatMap((c) => c.phrases))}
-        {categories.map((c) => chip(c.id, c.title, c.phrases))}
+        {chip(ALL, "All", shown.flatMap((c) => c.phrases))}
+        {shown.map((c) => chip(c.id, c.title, c.phrases))}
       </div>
 
       {category !== ALL ? (
-        <p className="text-sm text-muted">{categories.find((c) => c.id === category)?.description}</p>
+        <p className="text-sm text-muted">{shown.find((c) => c.id === category)?.description}</p>
       ) : null}
 
       <div className="flex flex-wrap items-center gap-3">
@@ -104,7 +125,13 @@ export function PhraseBank({
       {visible.length ? (
         <ul className="grid gap-3 sm:grid-cols-2">
           {visible.map((p) => (
-            <PhraseCard key={p.key} phrase={p} lang={lang} known={known[p.key]} />
+            <PhraseCard
+              key={p.key}
+              phrase={p}
+              lang={lang}
+              known={known[p.key]}
+              onRemove={p.saved ? () => void remove(p.key) : undefined}
+            />
           ))}
         </ul>
       ) : (

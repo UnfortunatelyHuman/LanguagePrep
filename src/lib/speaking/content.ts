@@ -56,6 +56,14 @@ export function validateSpeakingSet(set: SpeakingSet): SpeakingSet {
       const optionIds = task.options?.map((o) => o.id).join(",");
       if (optionIds !== "A,B") fail(`${task.id} needs options A and B`);
     }
+    if (task.rival) {
+      // Optional even on task 5, so AI sets generated before the third option existed still load.
+      if (task.kind !== "celpip-compare") fail(`${task.id}: only task 5 has a third option`);
+      const { who, intro, title, details } = task.rival;
+      if (!who?.trim() || !intro?.trim() || !title?.trim() || !details?.length) {
+        fail(`${task.id}: the third option needs who, intro, title and details`);
+      }
+    }
   });
   return set;
 }

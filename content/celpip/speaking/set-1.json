@@ -81,7 +81,13 @@
       "chooseSeconds": 60,
       "prepSeconds": 60,
       "speakSeconds": 60,
-      "prompt": "Your family needs a second car, and you have found two used cars for sale. Choose the one you prefer. Then persuade your spouse, who prefers the other car, that your choice is better.",
+      "prompt": "Your family needs a second car, and you have found two used cars for sale. Choose the one you prefer.",
+      "rival": {
+        "who": "Your spouse",
+        "intro": "Your spouse has found a third car and prefers it.",
+        "title": "Electric sedan",
+        "details": ["Price: $24,000", "3 years old, 40,000 km", "Very low running costs; charging at home", "Range drops in very cold weather"]
+      },
       "options": [
         {
           "id": "A",

@@ -4,7 +4,7 @@ import { isTrack } from "@/lib/exams";
 import { resolveWritingSet } from "@/lib/generate/sets";
 import { gradeWriting } from "@/lib/writing/grade";
 import { saveWritingAttempt } from "@/lib/writing/store";
-import { clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
+import { bodyTooLarge, clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
 import type { TaskTexts } from "@/lib/writing/types";
 import { countWords } from "@/lib/writing/words";
 
@@ -12,6 +12,8 @@ import { countWords } from "@/lib/writing/words";
 const MIN_TOTAL_WORDS = 15;
 /** Generous per-task ceiling so a paste accident can't send a novel to the API. */
 const MAX_CHARS = 6000;
+/** Three tasks at the ceiling, as UTF-8 JSON, with room to spare. */
+const MAX_BODY_BYTES = 128 * 1024;
 
 const Body = z.object({
   track: z.string(),
@@ -26,6 +28,8 @@ const Body = z.object({
  */
 export async function POST(request: Request) {
   try {
+    const tooLarge = bodyTooLarge(request, MAX_BODY_BYTES);
+    if (tooLarge) return tooLarge;
     const parsed = Body.safeParse(await request.json().catch(() => null));
     if (!parsed.success) return fail(400, "bad_request", "The request was malformed.");
     const { track, setId, durationSeconds } = parsed.data;

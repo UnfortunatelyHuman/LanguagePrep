@@ -66,6 +66,8 @@ model StudySettings {
   examDate     DateTime?
   /// Minutes per day the learner wants to study.
   dailyMinutes Int       @default(45)
+  /// IANA time zone for "today" in the plan, e.g. "America/Toronto". Null: the server's zone.
+  timeZone     String?
   updatedAt    DateTime  @updatedAt
 }
 
@@ -110,4 +112,26 @@ model GeneratedSet {
   createdAt DateTime @default(now())
 
   @@index([exam, skill, createdAt])
+}
+
+/// A phrase the learner saved from AI feedback, practised with the phrase bank's self-test.
+model SavedPhrase {
+  id        String   @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam      String
+  /// The better wording to learn (a fix's "after").
+  phrase    String
+  /// Why it's better, from the fix.
+  note      String
+  /// What the learner wrote or said instead (a fix's "before").
+  before    String?
+  /// "writing" | "speaking"
+  source    String
+  /// Last self-test result; null until tested.
+  known     Boolean?
+  reviews   Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@unique([exam, phrase])
+  @@index([exam, createdAt])
 }

@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { FeedbackErrorPanel } from "@/components/feedback/FeedbackErrorPanel";
 import { Countdown } from "@/components/practice/Countdown";
+import { ExaminerPanel } from "@/components/speaking/ExaminerPanel";
+import { Playback } from "@/components/speaking/Playback";
 import { SpeakingFeedback } from "@/components/speaking/SpeakingFeedback";
 import { SpeakingPrompt } from "@/components/speaking/SpeakingPrompt";
 import type { Track } from "@/lib/exams";
@@ -18,7 +20,7 @@ import {
   openMicrophone,
   speechLang,
 } from "@/lib/speaking/capture";
-import type { SpeakingResult, SpeakingSet, SpeakingTask } from "@/lib/speaking/types";
+import type { DialogueTurn, SpeakingResult, SpeakingSet, SpeakingTask } from "@/lib/speaking/types";
 import { countWords } from "@/lib/writing/words";
 
 type Phase = "intro" | "task" | "grading" | "error" | "results";
@@ -128,8 +130,10 @@ function Intro({
         <li>Use Chrome or Edge with a headset or a quiet room. Transcription needs an internet connection.</li>
         {tcf ? (
           <li>
-            In the real test an examiner talks with you. Here you answer the examiner&apos;s questions in turn
-            (tâche 1) and ask your own questions aloud (tâche 2).
+            In the real test an examiner talks with you. Here you answer the listed questions in turn (tâche 1).
+            In tâche 2 an AI examiner plays the other person: ask a question aloud, press{" "}
+            <strong>Ask the examiner</strong>, and it answers out loud. Use headphones so the microphone
+            doesn&apos;t pick up its voice. Each answer takes a few seconds, and the timer keeps running.
           </li>
         ) : null}
       </ul>
@@ -197,7 +201,10 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
   const [endsAt, setEndsAt] = useState(0);
   const [choices, setChoices] = useState<Record<string, "A" | "B">>({});
   const [answers, setAnswers] = useState<Record<string, Answer>>({});
+  const [dialogues, setDialogues] = useState<Record<string, DialogueTurn[]>>({});
   const [heard, setHeard] = useState("");
+  /** The same transcript split into settled and still-changing text (for the AI examiner). */
+  const [speech, setSpeech] = useState({ final: "", interim: "" });
   const [micMessage, setMicMessage] = useState<string | null>(null);
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState<FeedbackError | null>(null);
@@ -238,7 +245,11 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
     // Guard against a double start (button and timer on the same tick).
     capture.current?.cancel();
     setHeard("");
-    const c = new Capture(stream.current, speechLang(set.exam), setHeard);
+    setSpeech({ final: "", interim: "" });
+    const c = new Capture(stream.current, speechLang(set.exam), (text, final, interim) => {
+      setHeard(text);
+      setSpeech({ final, interim });
+    });
     capture.current = c;
     c.start();
   }
@@ -265,6 +276,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
     setIndex(0);
     setAnswers({});
     setChoices({});
+    setDialogues({});
     setPhase("task");
     enterStage(firstStage(tasks[0]), tasks[0]);
   }
@@ -319,6 +331,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
           transcript: answers[t.id].transcript,
           seconds: Math.round(answers[t.id].seconds * 10) / 10,
           choice: answers[t.id].choice,
+          dialogue: dialogues[t.id],
         })),
     };
     const audio = queue.flatMap((t) => {
@@ -402,6 +415,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
             <SpeakingPrompt
               task={task}
               choice={choices[task.id]}
+              showRival={stage !== "choose"}
               onChoose={
                 // Options stay selectable during prep, so a choose timer that runs out isn't final.
                 task.options && (stage === "choose" || stage === "prep")
@@ -414,7 +428,10 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
           <div className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-4 text-sm">
             {stage === "choose" ? (
               <>
-                <p>Pick the option you prefer. Preparation starts when the timer ends.</p>
+                <p>
+                  Pick the option you prefer. Preparation starts when the timer ends
+                  {task.rival ? ", and you'll then see the option you have to argue against" : ""}.
+                </p>
                 <button
                   type="button"
                   disabled={!choices[task.id]}
@@ -448,6 +465,17 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
                 <p className="text-muted">
                   {countWords(heard)} words recognized so far
                 </p>
+                {task.kind === "tcf-roleplay" ? (
+                  <ExaminerPanel
+                    track={track}
+                    setId={set.id}
+                    task={task}
+                    finalText={speech.final}
+                    interimText={speech.interim}
+                    dialogue={dialogues[task.id] ?? []}
+                    onDialogue={(d) => setDialogues((prev) => ({ ...prev, [task.id]: d }))}
+                  />
+                ) : null}
                 <button
                   type="button"
                   onClick={() => void finishSpeaking()}
@@ -471,7 +499,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
                   <p className="rounded-lg bg-warn/10 p-2 text-warn">{answer.recognitionError}</p>
                 ) : null}
                 {answer.url ? (
-                  <audio controls src={answer.url} className="w-full" />
+                  <Playback src={answer.url} preload="metadata" />
                 ) : null}
                 <details>
                   <summary className="cursor-pointer text-accent">Transcript</summary>

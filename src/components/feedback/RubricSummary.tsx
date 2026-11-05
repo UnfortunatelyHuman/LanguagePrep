@@ -1,4 +1,6 @@
 import { formatClock } from "@/lib/practice/numbering";
+import { SavePhraseButton } from "@/components/phrases/SavePhraseButton";
+import type { Track } from "@/lib/exams";
 import type { Fix } from "@/lib/writing/types";
 
 /** The parts of an AI rubric result the summary card needs (writing and speaking). */
@@ -87,10 +89,13 @@ export function Fixes({
   fixes,
   lang,
   beforeLabel = "You wrote",
+  saveTo,
 }: {
   fixes: Fix[];
   lang: "en" | "fr";
   beforeLabel?: string;
+  /** Offer "save to phrase bank" on each fix that has a better version. */
+  saveTo?: { track: Track; source: "writing" | "speaking" };
 }) {
   return (
     <section className="rounded-xl border border-border bg-surface p-5">
@@ -116,6 +121,7 @@ export function Fixes({
                   </p>
                 </div>
               ) : null}
+              {saveTo && f.after.trim() ? <SavePhraseButton {...saveTo} fix={f} /> : null}
             </div>
           </li>
         ))}

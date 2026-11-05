@@ -76,7 +76,11 @@ export function WritingFeedback({ set, result }: { set: WritingSet; result: Writ
       />
       <div className="grid gap-5 lg:grid-cols-2">
         <Strengths items={result.strengths} />
-        <Fixes fixes={result.fixes} lang={lang} />
+        <Fixes
+          fixes={result.fixes}
+          lang={lang}
+          saveTo={{ track: set.exam === "tcf" ? "fr" : "en", source: "writing" }}
+        />
       </div>
       {result.tasks.map((t) => (
         <TaskCorrection key={t.taskId} set={set} task={t} lang={lang} />

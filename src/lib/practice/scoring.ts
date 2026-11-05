@@ -176,7 +176,12 @@ export function scoreTest(
     };
   }
 
-  const score = Math.min(TCF_MAX, Math.max(TCF_MIN, points));
+  // A full paper's points add up to 699; shorter (AI) sets are scaled to the same range.
+  const maxPoints = set.parts
+    .flatMap((p) => p.sections.flatMap((s) => s.questions))
+    .reduce((n, q) => n + (q.level ? TCF_POINTS[q.level] : 0), 0);
+  const scaled = maxPoints ? Math.round((points * TCF_MAX) / maxPoints) : 0;
+  const score = Math.min(TCF_MAX, Math.max(TCF_MIN, scaled));
   const level = tcfNclc(set.skill, score);
   return {
     correct,

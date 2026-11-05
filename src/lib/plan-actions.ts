@@ -6,12 +6,13 @@ import { examKey } from "@/lib/attempts";
 import { isTrack } from "@/lib/exams";
 import { prisma } from "@/lib/prisma";
 import { MAX_DAILY_MINUTES, MIN_DAILY_MINUTES, daysUntil } from "@/lib/study-plan";
+import { isTimeZone, wallClock } from "@/lib/time-zone";
 
 export type SettingsFormState = {
   ok: boolean;
   message: string | null;
   /** What was submitted, so the form can keep it after a validation error. */
-  values?: { examDate: string; dailyMinutes: string };
+  values?: { examDate: string; dailyMinutes: string; timeZone: string };
 };
 
 /** Furthest ahead an exam date can be; anything later is almost surely a typo. */
@@ -28,6 +29,10 @@ const Form = z.object({
     .int("Use whole minutes.")
     .min(MIN_DAILY_MINUTES, `At least ${MIN_DAILY_MINUTES} minutes a day.`)
     .max(MAX_DAILY_MINUTES, `At most ${MAX_DAILY_MINUTES} minutes a day.`),
+  timeZone: z
+    .string()
+    .trim()
+    .refine((v) => v === "" || isTimeZone(v), "Pick a time zone from the list."),
 });
 
 /** Save the exam date and daily time for the study plan (used with useActionState). */
@@ -38,15 +43,18 @@ export async function saveStudySettings(
   const values = {
     examDate: String(formData.get("examDate") ?? ""),
     dailyMinutes: String(formData.get("dailyMinutes") ?? ""),
+    timeZone: String(formData.get("timeZone") ?? ""),
   };
   const fail = (message: string): SettingsFormState => ({ ok: false, message, values });
   const parsed = Form.safeParse({
     track: formData.get("track"),
     examDate: formData.get("examDate") ?? "",
     dailyMinutes: formData.get("dailyMinutes"),
+    timeZone: formData.get("timeZone") ?? "",
   });
   if (!parsed.success) return fail(parsed.error.issues[0]?.message ?? "Check the form.");
   const { track, examDate, dailyMinutes } = parsed.data;
+  const timeZone = parsed.data.timeZone || null;
   if (!isTrack(track)) return fail("Unknown exam track.");
 
   let date: Date | null = null;
@@ -56,7 +64,7 @@ export async function saveStudySettings(
     if (Number.isNaN(date.getTime()) || date.toISOString().slice(0, 10) !== examDate) {
       return fail("That date doesn't exist.");
     }
-    const days = daysUntil(new Date(), date);
+    const days = daysUntil(wallClock(new Date(), timeZone), date);
     if (days < 0) return fail("The exam date can't be in the past.");
     if (days > MAX_DAYS_AHEAD) return fail("Pick a date within the next two years.");
   }
@@ -64,8 +72,8 @@ export async function saveStudySettings(
   const exam = examKey(track);
   await prisma.studySettings.upsert({
     where: { exam },
-    create: { exam, examDate: date, dailyMinutes },
-    update: { examDate: date, dailyMinutes },
+    create: { exam, examDate: date, dailyMinutes, timeZone },
+    update: { examDate: date, dailyMinutes, timeZone },
   });
   revalidatePath(`/${track}`, "layout");
   return { ok: true, message: "Saved. Your plan is updated.", values };

@@ -4,7 +4,8 @@ import { revalidatePath } from "next/cache";
 import { examKey } from "@/lib/attempts";
 import { isTrack } from "@/lib/exams";
 import { prisma } from "@/lib/prisma";
-import { findTestSet, isPracticeSkill, totalMinutes } from "@/lib/practice/content";
+import { resolveTestSet } from "@/lib/generate/sets";
+import { isPracticeSkill, totalMinutes } from "@/lib/practice/content";
 import { sanitizeAnswers, scoreTest } from "@/lib/practice/scoring";
 import type { TestResult } from "@/lib/practice/types";
 
@@ -22,7 +23,7 @@ export async function submitAttempt(input: {
 }): Promise<TestResult> {
   if (!isTrack(input.track)) throw new Error("Unknown track");
   if (!isPracticeSkill(input.skill)) throw new Error("Unknown skill");
-  const set = findTestSet(input.track, input.skill, input.setId);
+  const set = await resolveTestSet(input.track, input.skill, input.setId);
   if (!set) throw new Error("Unknown practice set");
 
   const answers = sanitizeAnswers(set, input.answers);
