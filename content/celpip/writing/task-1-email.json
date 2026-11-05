@@ -1,0 +1,140 @@
+[
+  {
+    "id": "celpip-email-1",
+    "exam": "celpip",
+    "title": "Email 1: Renovation noise",
+    "summary": "Formal complaint to a building manager about early-morning construction.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "You live in a rental apartment building. For the past three weeks, the unit above yours has been under renovation. The work often starts before 7:00 a.m., including on weekends, and there is dust in the shared hallway. You work night shifts at a hospital and sleep during the day.",
+        "instructions": "Write an email to the building manager, Ms. Okafor. In your email, do the following:",
+        "bullets": [
+          "Describe the problem and how long it has been going on.",
+          "Explain how it is affecting you.",
+          "Suggest what the building management should do about it."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-email-2",
+    "exam": "celpip",
+    "title": "Email 2: Cancelled course",
+    "summary": "Formal email to a community centre about a course that stopped halfway.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "You paid $180 for an eight-week evening course in basic home repair at your local community centre. After the fourth class, the course was cancelled. You only found out when you arrived for the fifth class and the room was locked. Nobody has contacted you since.",
+        "instructions": "Write an email to the program coordinator at the community centre. In your email, do the following:",
+        "bullets": [
+          "Explain what happened.",
+          "Describe why this was disappointing for you.",
+          "Say what you would like the centre to do now."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-email-3",
+    "exam": "celpip",
+    "title": "Email 3: A friend is moving to your city",
+    "summary": "Informal email giving advice to a friend who is relocating.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "An old friend of yours, Daniel, has just accepted a job in the city where you live. He will move in two months with his wife and their six-year-old daughter. He has never visited your city and has asked you for help.",
+        "instructions": "Write an email to Daniel. In your email, do the following:",
+        "bullets": [
+          "Recommend a neighbourhood for his family and explain why.",
+          "Give him some advice about getting around the city.",
+          "Offer to help him in a specific way when he arrives."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-email-4",
+    "exam": "celpip",
+    "title": "Email 4: Damaged delivery",
+    "summary": "Formal email to an online store about a damaged order.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "You ordered a dining table and four chairs from an online furniture store. The delivery arrived a week late, and when you opened the boxes, the tabletop had a deep crack and one chair was missing a leg. The delivery driver left before you could check the boxes.",
+        "instructions": "Write an email to the store's customer service department. In your email, do the following:",
+        "bullets": [
+          "Describe your order and what went wrong.",
+          "Explain why this situation is especially inconvenient for you.",
+          "State clearly what you want the company to do."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-email-5",
+    "exam": "celpip",
+    "title": "Email 5: Asking for time off",
+    "summary": "Semi-formal email to a manager requesting leave for a family event.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Your younger sister is getting married overseas next month, and you would like to attend. You need two weeks off work, but your team is in a busy period and you have already used most of your vacation days this year.",
+        "instructions": "Write an email to your manager, Mr. Lindqvist. In your email, do the following:",
+        "bullets": [
+          "Explain why you are asking for time off and when you need it.",
+          "Describe how your work could be covered while you are away.",
+          "Ask when he can give you an answer, and explain why you need to know soon."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-email-6",
+    "exam": "celpip",
+    "title": "Email 6: Thanking a neighbour",
+    "summary": "Informal email thanking a neighbour who helped during a storm.",
+    "minutes": 27,
+    "tasks": [
+      {
+        "id": "task-1",
+        "kind": "celpip-email",
+        "label": "Task 1: Writing an Email",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Last weekend, while you were out of town, a strong windstorm knocked a large branch onto your house. Your neighbour, Priya, noticed water coming in through a broken window, covered it, and arranged for a tree service to remove the branch.",
+        "instructions": "Write an email to Priya. In your email, do the following:",
+        "bullets": [
+          "Thank her and describe what she did.",
+          "Explain what might have happened if she had not helped.",
+          "Suggest a way you would like to show your appreciation."
+        ]
+      }
+    ]
+  }
+]

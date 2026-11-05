@@ -1,0 +1,170 @@
+[
+  {
+    "id": "celpip-survey-1",
+    "exam": "celpip",
+    "title": "Survey 1: Sports complex or library",
+    "summary": "City budget: a new indoor sports complex, or longer library hours and a new branch.",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Your city council has received extra funding and can afford only one new project. It is asking residents which project it should choose.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Build an indoor sports complex with a pool, a gym and courts that are open all year."
+          },
+          {
+            "id": "B",
+            "text": "Extend public library hours to evenings and weekends, and open a new branch in a growing neighbourhood."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-survey-2",
+    "exam": "celpip",
+    "title": "Survey 2: Four-day week or hybrid work",
+    "summary": "Your employer is choosing a new work schedule for all staff.",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "The company you work for wants to improve work-life balance and is asking employees to choose between two new schedules.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "A four-day week: everyone works four 10-hour days in the office and has a three-day weekend."
+          },
+          {
+            "id": "B",
+            "text": "A hybrid week: everyone works five 8-hour days, with two days a week from home."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-survey-3",
+    "exam": "celpip",
+    "title": "Survey 3: Phones in classrooms",
+    "summary": "School board policy: a full classroom phone ban, or limited use for learning.",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Your local school board is reviewing its policy on students' mobile phones and has asked parents and community members for their opinion.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Ban phones in all classrooms. Students must keep them in their lockers during class time."
+          },
+          {
+            "id": "B",
+            "text": "Allow phones in class for learning activities only, when the teacher permits it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-survey-4",
+    "exam": "celpip",
+    "title": "Survey 4: Community garden or parking",
+    "summary": "What to do with an empty lot near local shops.",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "There is an empty lot beside the small shopping street in your neighbourhood. The neighbourhood association is deciding what to do with it.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Turn the lot into a community garden where residents can rent small plots to grow vegetables and flowers."
+          },
+          {
+            "id": "B",
+            "text": "Turn the lot into a public parking area for 40 cars to make it easier to visit the local shops."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-survey-5",
+    "exam": "celpip",
+    "title": "Survey 5: Free transit or better service",
+    "summary": "Public transit: free fares paid for by taxes, or the same fares with more frequent buses.",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Your city wants more people to use public transit and is asking residents to choose between two plans.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Make all buses and trains free, paid for by a small increase in property taxes."
+          },
+          {
+            "id": "B",
+            "text": "Keep the current fares, and use the money to run buses and trains twice as often."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "celpip-survey-6",
+    "exam": "celpip",
+    "title": "Survey 6: Volunteer hours for graduation",
+    "summary": "Should high-school students have to volunteer in order to graduate?",
+    "minutes": 26,
+    "tasks": [
+      {
+        "id": "task-2",
+        "kind": "celpip-survey",
+        "label": "Task 2: Responding to Survey Questions",
+        "minWords": 150,
+        "maxWords": 200,
+        "scenario": "Your provincial government is considering a change to high-school graduation requirements and has opened a public survey.",
+        "instructions": "Choose the option that you prefer. Explain the reasons for your choice.",
+        "options": [
+          {
+            "id": "A",
+            "text": "Require every student to complete 60 hours of community volunteering before graduating."
+          },
+          {
+            "id": "B",
+            "text": "Make volunteering optional, but give students course credit for the hours they complete."
+          }
+        ]
+      }
+    ]
+  }
+]

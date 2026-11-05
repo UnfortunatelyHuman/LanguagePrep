@@ -1,0 +1,46 @@
+{
+  "id": "tcf-ecrit-3",
+  "exam": "tcf",
+  "title": "Série 3 : Réunion, apprendre une langue, réseaux sociaux",
+  "summary": "Missing a work meeting, advice on learning a language for a forum, and social media for teenagers.",
+  "minutes": 60,
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-message",
+      "label": "Tâche 1 : Message",
+      "minWords": 60,
+      "maxWords": 120,
+      "scenario": "Votre équipe a une réunion importante lundi matin, mais vous ne pourrez pas y assister.",
+      "instructions": "Écrivez un courriel à votre collègue Julien. Expliquez pourquoi vous serez absent(e), dites ce que vous aviez préparé pour la réunion et proposez une solution pour rester informé(e)."
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-article",
+      "label": "Tâche 2 : Message sur un forum",
+      "minWords": 120,
+      "maxWords": 150,
+      "scenario": "Sur un forum en ligne, un internaute demande : « J'ai 35 ans et je veux apprendre une nouvelle langue. Est-ce trop tard ? Comment faire ? »",
+      "instructions": "Répondez-lui sur le forum. Racontez votre propre expérience d'apprentissage d'une langue et donnez-lui des conseils concrets."
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-argument",
+      "label": "Tâche 3 : Comparer deux points de vue",
+      "minWords": 120,
+      "maxWords": 180,
+      "scenario": "Les réseaux sociaux sont-ils une bonne chose pour les adolescents ?",
+      "instructions": "Lisez les deux documents. Rédigez un texte de 120 à 180 mots. Dans une première partie (40 à 60 mots), présentez les deux points de vue. Dans une deuxième partie (80 à 120 mots), donnez votre opinion sur le sujet en la justifiant.",
+      "documents": [
+        {
+          "title": "Document 1",
+          "text": "Ma fille de quinze ans passe des heures sur son téléphone, et je m'inquiète. Elle compare sans cesse son corps et sa vie à ceux d'inconnus qui ne montrent que le meilleur d'eux-mêmes. Elle dort mal, car elle consulte ses messages la nuit. Les plateformes sont conçues pour qu'on ne puisse pas s'arrêter : à cet âge, on n'a pas encore les moyens de se défendre."
+        },
+        {
+          "title": "Document 2",
+          "text": "Grâce aux réseaux sociaux, mon fils, qui est timide, a trouvé une communauté de passionnés de dessin. Il publie ses œuvres, reçoit des conseils et a même vendu ses premières illustrations. Il suit aussi l'actualité et des vidéos scientifiques. Interdire ces outils serait une erreur : il vaut mieux apprendre aux jeunes à les utiliser intelligemment."
+        }
+      ]
+    }
+  ]
+}

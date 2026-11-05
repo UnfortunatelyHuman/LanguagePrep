@@ -1,0 +1,46 @@
+{
+  "id": "tcf-ecrit-2",
+  "exam": "tcf",
+  "title": "Série 2 : Voisin, fête de quartier, voitures en ville",
+  "summary": "A favour from a neighbour, a local event for the neighbourhood paper, and car-free city centres.",
+  "minutes": 60,
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-message",
+      "label": "Tâche 1 : Message",
+      "minWords": 60,
+      "maxWords": 120,
+      "scenario": "Vous partez deux semaines en vacances le mois prochain.",
+      "instructions": "Écrivez un message à votre voisin(e), M. ou Mme Gagnon, pour lui demander de s'occuper de vos plantes et de votre courrier pendant votre absence. Expliquez ce qu'il faut faire et proposez quelque chose pour le/la remercier."
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-article",
+      "label": "Tâche 2 : Article",
+      "minWords": 120,
+      "maxWords": 150,
+      "scenario": "Le journal de votre quartier cherche des témoignages d'habitants sur la vie locale.",
+      "instructions": "Écrivez un article pour ce journal. Racontez un événement de quartier auquel vous avez participé (fête, marché, nettoyage, tournoi…), décrivez l'ambiance et dites ce que cet événement a apporté aux habitants."
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-argument",
+      "label": "Tâche 3 : Comparer deux points de vue",
+      "minWords": 120,
+      "maxWords": 180,
+      "scenario": "Faut-il interdire les voitures dans les centres-villes ?",
+      "instructions": "Lisez les deux documents. Rédigez un texte de 120 à 180 mots. Dans une première partie (40 à 60 mots), présentez les deux points de vue. Dans une deuxième partie (80 à 120 mots), donnez votre opinion sur le sujet en la justifiant.",
+      "documents": [
+        {
+          "title": "Document 1",
+          "text": "Depuis que notre centre-ville est devenu piéton, je redécouvre ma ville. On entend les oiseaux, les enfants jouent dans la rue, et l'air est plus respirable. Les terrasses se sont multipliées et les commerçants, qui craignaient le pire, constatent que les passants s'arrêtent davantage devant les vitrines. Une ville est faite pour les gens, pas pour les moteurs."
+        },
+        {
+          "title": "Document 2",
+          "text": "J'habite à trente kilomètres du centre et il n'y a qu'un bus par heure dans mon village. Depuis l'interdiction des voitures, je ne vais plus en ville : c'est trop compliqué avec mes courses et mon genou malade. Mon pharmacien et ma librairie préférée m'ont perdu comme client. Interdire, c'est facile pour ceux qui habitent à côté ; pour les autres, c'est une porte fermée."
+        }
+      ]
+    }
+  ]
+}

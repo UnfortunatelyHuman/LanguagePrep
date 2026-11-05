@@ -1,0 +1,46 @@
+{
+  "id": "tcf-ecrit-4",
+  "exam": "tcf",
+  "title": "Série 4 : Petite annonce, nouveau travail, tourisme de masse",
+  "summary": "Replying to a classified ad, a letter about your new job, and limiting tourist numbers.",
+  "minutes": 60,
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-message",
+      "label": "Tâche 1 : Message",
+      "minWords": 60,
+      "maxWords": 120,
+      "scenario": "Vous avez lu cette petite annonce : « Vends vélo de ville, très bon état, 150 $. Contactez Luc. »",
+      "instructions": "Écrivez un message à Luc. Dites que le vélo vous intéresse, posez-lui des questions sur le vélo et proposez un moment pour le voir."
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-article",
+      "label": "Tâche 2 : Lettre",
+      "minWords": 120,
+      "maxWords": 150,
+      "scenario": "Vous avez commencé un nouveau travail il y a un mois.",
+      "instructions": "Écrivez une lettre à un(e) ami(e) qui vit à l'étranger. Décrivez votre nouveau travail et vos collègues, racontez votre premier jour, et dites ce qui vous plaît et ce qui vous plaît moins."
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-argument",
+      "label": "Tâche 3 : Comparer deux points de vue",
+      "minWords": 120,
+      "maxWords": 180,
+      "scenario": "Faut-il limiter le nombre de touristes dans les villes très visitées ?",
+      "instructions": "Lisez les deux documents. Rédigez un texte de 120 à 180 mots. Dans une première partie (40 à 60 mots), présentez les deux points de vue. Dans une deuxième partie (80 à 120 mots), donnez votre opinion sur le sujet en la justifiant.",
+      "documents": [
+        {
+          "title": "Document 1",
+          "text": "J'habite le vieux quartier depuis quarante ans. Aujourd'hui, la moitié des appartements de ma rue sont loués aux vacanciers, les loyers ont doublé et la boulangerie est devenue un magasin de souvenirs. L'été, on ne peut plus marcher sur le trottoir. Il faut fixer un nombre maximal de visiteurs par jour, sinon il n'y aura bientôt plus d'habitants, seulement un décor."
+        },
+        {
+          "title": "Document 2",
+          "text": "Mon restaurant emploie douze personnes, et sans les touristes, il fermerait en trois mois. Comme moi, des milliers de familles vivent du tourisme dans cette ville. Limiter les visiteurs, c'est aussi réserver les voyages aux plus riches, qui pourront payer les billets plus chers. Mieux vaut répartir les touristes dans l'année et dans la région que leur fermer la porte."
+        }
+      ]
+    }
+  ]
+}

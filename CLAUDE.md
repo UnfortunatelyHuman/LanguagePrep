@@ -29,14 +29,16 @@ Personal practice app for Canadian PR (Express Entry) language tests.
 - Storage: SQLite via Prisma (local first; can switch to Postgres later for hosting)
 - Listening audio: browser Web Speech API (`speechSynthesis`), with `en-CA` / `fr-CA` voices
 - Speaking: `MediaRecorder` to record, Web Speech API (`SpeechRecognition`) to transcribe, using Chrome or Edge
-- AI scoring and feedback for writing and speaking, plus generating new questions: Anthropic API (`@anthropic-ai/sdk`). The key lives in `.env.local` as `ANTHROPIC_API_KEY` and must never be committed
+- AI scoring and feedback for writing and speaking, plus generating new questions, go through a provider-agnostic layer in `src/lib/ai/`. App code calls only `generateJSON(prompt, schema)` from `@/lib/ai` (it returns JSON validated against a zod schema) and never imports a provider SDK directly.
+  - `AI_PROVIDER` selects the adapter: `gemini` (default, `@google/genai`, key in `GEMINI_API_KEY`), `anthropic` (`ANTHROPIC_API_KEY`), or `openai-compatible` for OpenRouter/Groq/Ollama (`AI_BASE_URL` + `AI_API_KEY`). `AI_MODEL` picks the model.
+  - Keys live in `.env.local`, which must never be committed.
 - Mobile-friendly (responsive) so it can be used on a phone
 
 ## Build phases (do in order, commit after each)
 1. **Scaffold**: Next.js app, layout with EN/FR switch, home dashboard showing targets. Set up Prisma + SQLite with models: `Attempt` (exam, skill, task, score, estimatedLevel, createdAt), `Response` (text/transcript, feedback JSON).
 2. **Reading**: question bank in `/content/{celpip,tcf}/reading/*.json`, timed test runner, auto-scoring, an explanation per question, attempt saved.
 3. **Listening**: same runner, with passages read aloud by TTS (replay limits that match the real exam: CELPIP plays once).
-4. **Writing**: timed editor with a live word count, then submission to `/api/feedback`. Claude scores against the official rubric (CELPIP: content/coherence, vocabulary, readability, task fulfillment, on a 1–12 scale; TCF: 0–20 scale, mapped to NCLC). It returns a score, strengths, a corrected version and 3 concrete fixes.
+4. **Writing**: timed editor with a live word count, then submission to `/api/feedback`. The AI layer scores against the official rubric (CELPIP: content/coherence, vocabulary, readability, task fulfillment, on a 1–12 scale; TCF: 0–20 scale, mapped to NCLC). It returns a score, strengths, a corrected version and 3 concrete fixes.
 5. **Speaking**: prep timer, then record timer, then transcript, then AI feedback (fluency, vocabulary, grammar, task completion). Keep the audio for playback.
 6. **Progress**: per-skill trend charts, estimated CLB/NCLC vs target, weakest-skill highlight.
 7. **Extras**: full mock exams, AI-generated fresh question sets, vocabulary/phrase bank (French connectors, CELPIP email phrases), daily study plan.

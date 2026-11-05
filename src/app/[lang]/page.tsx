@@ -43,7 +43,7 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
               key={skill.id}
               skill={skill}
               href={
-                skill.id === "reading" || skill.id === "listening"
+                skill.id !== "speaking"
                   ? `/${lang}/${skill.id}`
                   : undefined
               }
@@ -60,10 +60,10 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
       <section className="rounded-xl border border-dashed border-border p-5 text-sm text-muted sm:p-6">
         <h2 className="text-sm font-semibold text-foreground">What is next</h2>
         <p className="mt-2 leading-relaxed">
-          Reading and listening practice are ready: timed {exam} sets with an
-          explanation for every question and an estimated level after each test.
-          Writing and speaking with AI feedback, and progress tracking, are still
-          being built.
+          Reading, listening and writing practice are ready: timed {exam} sets
+          with an explanation for every question, AI-graded writing with a corrected
+          version, and an estimated level after each attempt. Speaking and progress
+          tracking are still being built.
         </p>
         {lang === "fr" ? (
           <p className="mt-3 leading-relaxed">

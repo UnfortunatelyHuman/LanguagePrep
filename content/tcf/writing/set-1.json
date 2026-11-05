@@ -1,0 +1,46 @@
+{
+  "id": "tcf-ecrit-1",
+  "exam": "tcf",
+  "title": "Série 1 : Nouvel appartement, voyage, télétravail",
+  "summary": "Invitation to a housewarming, a travel memory for a blog, and remote work: for or against?",
+  "minutes": 60,
+  "tasks": [
+    {
+      "id": "tache-1",
+      "kind": "tcf-message",
+      "label": "Tâche 1 : Message",
+      "minWords": 60,
+      "maxWords": 120,
+      "scenario": "Vous venez d'emménager dans un nouvel appartement dans une autre ville.",
+      "instructions": "Écrivez un message à votre ami(e) Camille pour l'inviter à une petite fête chez vous. Décrivez votre nouveau logement et donnez les informations pratiques (date, heure, comment venir)."
+    },
+    {
+      "id": "tache-2",
+      "kind": "tcf-article",
+      "label": "Tâche 2 : Article de blog",
+      "minWords": 120,
+      "maxWords": 150,
+      "scenario": "Un blog de voyageurs publie les souvenirs de ses lecteurs sous le titre « Le voyage qui m'a changé ».",
+      "instructions": "Écrivez un article pour ce blog. Racontez un voyage qui vous a marqué(e) : où vous êtes allé(e), ce qui s'est passé, et pourquoi ce voyage a été important pour vous."
+    },
+    {
+      "id": "tache-3",
+      "kind": "tcf-argument",
+      "label": "Tâche 3 : Comparer deux points de vue",
+      "minWords": 120,
+      "maxWords": 180,
+      "scenario": "Le télétravail : progrès ou piège ?",
+      "instructions": "Lisez les deux documents. Rédigez un texte de 120 à 180 mots. Dans une première partie (40 à 60 mots), présentez les deux points de vue. Dans une deuxième partie (80 à 120 mots), donnez votre opinion sur le sujet en la justifiant.",
+      "documents": [
+        {
+          "title": "Document 1",
+          "text": "Depuis que je travaille de chez moi trois jours par semaine, je ne perds plus deux heures dans les transports. Ce temps, je le consacre à mes enfants et au sport. Je suis aussi plus concentrée : pas de collègues qui m'interrompent, pas de réunions inutiles dans le couloir. Mon employeur y gagne également, puisque mon travail est rendu plus vite. Pour moi, le télétravail est une évidence."
+        },
+        {
+          "title": "Document 2",
+          "text": "Au début, travailler en pyjama me semblait un luxe. Mais après un an, je me sens isolé. Les échanges informels avec mes collègues me manquent, et c'est souvent devant la machine à café qu'on règle les vrais problèmes. Surtout, je n'arrive plus à couper : mon ordinateur est dans mon salon, alors je réponds aux courriels jusqu'à 22 heures. Le bureau, au moins, avait une porte de sortie."
+        }
+      ]
+    }
+  ]
+}
