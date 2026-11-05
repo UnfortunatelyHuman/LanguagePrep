@@ -56,7 +56,7 @@ don't fall back, so they stay visible. Example with Groq:
 AI_FALLBACK_PROVIDERS=openai-compatible
 AI_BASE_URL=https://api.groq.com/openai/v1
 AI_API_KEY=...            # your Groq key
-AI_FALLBACK_MODEL=llama-3.3-70b-versatile
+AI_FALLBACK_MODEL=openai/gpt-oss-120b,qwen/qwen3.8-27b
 ```
 
 Speaking is graded from the browser's transcript, never from the audio, so it works the
