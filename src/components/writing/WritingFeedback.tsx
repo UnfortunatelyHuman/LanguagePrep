@@ -15,6 +15,8 @@ function TaskCorrection({
 }) {
   const info = set.tasks.find((t) => t.id === task.taskId)!;
   const blank = !task.text.trim();
+  // Computed once: the diff is an LCS table over both texts.
+  const parts = task.corrected ? diffWords(task.text, task.corrected) : [];
   return (
     <section className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-5">
       <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -31,13 +33,13 @@ function TaskCorrection({
             <h3 className="text-sm font-medium">
               Corrected version, with changes{" "}
               <span className="font-normal text-muted">
-                ({changedWordCount(diffWords(task.text, task.corrected))} words changed)
+                ({changedWordCount(parts)} words changed)
               </span>
             </h3>
             <DiffLegend />
           </div>
           <div className="rounded-lg bg-surface-subtle p-3">
-            <CorrectionDiff original={task.text} corrected={task.corrected} lang={lang} />
+            <CorrectionDiff parts={parts} lang={lang} />
           </div>
           <details>
             <summary className="cursor-pointer text-sm text-accent">Clean corrected text</summary>

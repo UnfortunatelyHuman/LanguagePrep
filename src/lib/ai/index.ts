@@ -28,6 +28,16 @@ const OVERLOAD_PAUSE_MS = 3000;
  * hang for minutes, and the next one usually answers in well under a minute.
  */
 const FALLBACK_TIMEOUT_MS = 60_000;
+/** Ceiling for one generateJSON call, fallbacks and corrective retry included. */
+const TOTAL_TIMEOUT_MS = 180_000;
+/** Don't start a call (or the corrective retry) with less time than this left. */
+const MIN_CALL_MS = 15_000;
+
+function outOfTime(): AiError {
+  return new AiError("provider", "The AI took too long overall (over 3 minutes). Try again in a moment.", {
+    modelProblem: "timeout",
+  });
+}
 
 /** Provider in use and the models to try, in order. */
 export function activeModels(): { provider: AiProviderName; models: string[] } {
@@ -51,19 +61,27 @@ async function callWithFallback(
   adapter: ProviderAdapter,
   models: string[],
   request: Omit<JsonRequest, "model">,
+  deadline: number,
 ): Promise<{ text: string; model: string }> {
   const problems: string[] = [];
+  /** This call's timeout: its own limit, capped by what's left of the overall deadline. */
+  const budget = (limit: number | undefined) => {
+    const left = deadline - Date.now();
+    if (left < MIN_CALL_MS) throw outOfTime();
+    return Math.min(limit ?? left, left);
+  };
   for (let i = 0; i < models.length; i++) {
     const model = models[i];
     const isLast = i === models.length - 1;
     const started = Date.now();
-    const timeoutMs = isLast
-      ? request.timeoutMs
-      : Math.min(request.timeoutMs ?? FALLBACK_TIMEOUT_MS, FALLBACK_TIMEOUT_MS);
+    const timeoutMs = budget(
+      isLast ? request.timeoutMs : Math.min(request.timeoutMs ?? FALLBACK_TIMEOUT_MS, FALLBACK_TIMEOUT_MS),
+    );
     try {
       return { text: await adapter.generateJSON({ ...request, model, timeoutMs }), model };
-    } catch (error) {
-      if (!(error instanceof AiError) || !error.modelProblem) throw error;
+    } catch (caught) {
+      if (!(caught instanceof AiError) || !caught.modelProblem) throw caught;
+      let error = caught;
       problems.push(`${model} (${error.modelProblem})`);
 
       if (!isLast) {
@@ -76,9 +94,11 @@ async function callWithFallback(
       if (error.modelProblem === "overloaded") {
         await new Promise((resolve) => setTimeout(resolve, OVERLOAD_PAUSE_MS));
         try {
-          return { text: await adapter.generateJSON({ ...request, model }), model };
+          return { text: await adapter.generateJSON({ ...request, model, timeoutMs: budget(request.timeoutMs) }), model };
         } catch (retryError) {
           if (!(retryError instanceof AiError) || !retryError.modelProblem) throw retryError;
+          // Report what the retry ran into (it may now be a rate limit with a wait time).
+          error = retryError;
         }
       }
       if (models.length === 1) throw error;
@@ -126,6 +146,7 @@ export async function generateJSON<T extends z.ZodType>(
 ): Promise<z.output<T>> {
   const { provider, models } = activeModels();
   const adapter = ADAPTERS[provider];
+  const deadline = Date.now() + TOTAL_TIMEOUT_MS;
   const jsonSchema = z.toJSONSchema(schema, { io: "output", unrepresentable: "any" }) as Record<
     string,
     unknown
@@ -134,6 +155,7 @@ export async function generateJSON<T extends z.ZodType>(
   let candidates = models;
   let lastProblem = "";
   for (let attempt = 0; attempt < 2; attempt++) {
+    if (attempt > 0 && deadline - Date.now() < MIN_CALL_MS) break;
     const fullPrompt = lastProblem
       ? `${prompt}\n\nYour previous answer was rejected: ${lastProblem}\nReply again with JSON that matches the schema exactly.`
       : prompt;
@@ -141,7 +163,7 @@ export async function generateJSON<T extends z.ZodType>(
       ...options,
       prompt: fullPrompt,
       jsonSchema,
-    });
+    }, deadline);
     // A corrective retry starts from the model that just answered.
     candidates = models.slice(models.indexOf(model));
 

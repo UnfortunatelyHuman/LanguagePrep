@@ -28,11 +28,11 @@ const STATUS: Record<AiErrorKind, number> = {
 
 /**
  * Why trying another model might help: the model is overloaded right now,
- * didn't answer in time, hit its own quota (Gemini's free tier limits each
+ * didn't answer in time, ran out of output tokens, hit its own quota (Gemini's free tier limits each
  * model separately), or is retired / unknown. Set by adapters; read by the
  * fallback loop.
  */
-export type ModelProblem = "overloaded" | "timeout" | "rate_limited" | "unavailable";
+export type ModelProblem = "overloaded" | "timeout" | "truncated" | "rate_limited" | "unavailable";
 
 export class AiError extends Error {
   readonly kind: AiErrorKind;

@@ -96,25 +96,18 @@ export type MockView = {
 };
 
 /**
- * Bring a stored mock up to date with the attempts made since it started.
- * Records completedAt the first time every step is done (idempotent).
+ * A stored mock brought up to date with the attempts made since it started.
+ * Completion is always derived from attempts, so rendering never writes.
  */
-async function toView(
+function toView(
   track: Track,
-  mock: { id: string; steps: unknown; startedAt: Date; completedAt: Date | null },
+  mock: { id: string; steps: unknown; startedAt: Date },
   attempts: MockAttempt[],
-): Promise<MockView | null> {
+): MockView | null {
   const parsed = MockStepsSchema.safeParse(mock.steps);
   if (!parsed.success) return null;
   const steps = stepStatuses(parsed.data, mock.startedAt, attempts);
-  const outcome = mockOutcome(track, steps);
-  if (outcome.complete && !mock.completedAt && outcome.finishedAt) {
-    await prisma.mockExam.updateMany({
-      where: { id: mock.id, completedAt: null },
-      data: { completedAt: outcome.finishedAt },
-    });
-  }
-  return { id: mock.id, startedAt: mock.startedAt, steps, outcome };
+  return { id: mock.id, startedAt: mock.startedAt, steps, outcome: mockOutcome(track, steps) };
 }
 
 /** One mock exam on this track, or null if it doesn't exist (or belongs to the other track). */
@@ -135,6 +128,6 @@ export async function listMockExams(track: Track, take = 10): Promise<MockView[]
   });
   if (!mocks.length) return [];
   const attempts = await trackAttempts(track);
-  const views = await Promise.all(mocks.map((m) => toView(track, m, attempts)));
+  const views = mocks.map((m) => toView(track, m, attempts));
   return views.filter((v): v is MockView => v !== null);
 }

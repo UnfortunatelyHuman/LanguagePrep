@@ -90,10 +90,9 @@ model MockExam {
   /// "celpip" | "tcf"
   exam        String
   /// Ordered steps: [{ skill, setId }]. A step is done when an attempt at that
-  /// set is saved after startedAt.
-  steps       Json
-  startedAt   DateTime  @default(now())
-  completedAt DateTime?
+  /// set is saved after startedAt; completion is derived, never stored.
+  steps     Json
+  startedAt DateTime @default(now())
 
   @@index([exam, startedAt])
 }

@@ -21,6 +21,10 @@ export function PlanSettingsForm({
   minDate: string;
 }) {
   const [state, action, pending] = useActionState(saveStudySettings, INITIAL);
+  // React resets a form after its action; re-seed it with what was submitted
+  // (the key remounts the inputs) so a validation error doesn't wipe the input.
+  const shown = state.values ?? { examDate, dailyMinutes: String(dailyMinutes) };
+  const formKey = JSON.stringify(shown);
 
   return (
     <form action={action} className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-5 text-sm">
@@ -32,7 +36,8 @@ export function PlanSettingsForm({
           <input
             type="date"
             name="examDate"
-            defaultValue={examDate}
+            key={`date-${formKey}`}
+            defaultValue={shown.examDate}
             min={minDate}
             className="rounded-lg border border-border bg-surface px-3 py-1.5 outline-none focus:border-accent"
           />
@@ -42,7 +47,8 @@ export function PlanSettingsForm({
           <input
             type="number"
             name="dailyMinutes"
-            defaultValue={dailyMinutes}
+            key={`min-${formKey}`}
+            defaultValue={shown.dailyMinutes}
             min={15}
             max={240}
             step={5}

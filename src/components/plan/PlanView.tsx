@@ -4,7 +4,7 @@ import type { Track } from "@/lib/exams";
 import { testSets, totalMinutes } from "@/lib/practice/content";
 import { progressSummary } from "@/lib/progress";
 import { buildStudyPlan, type PlanBlock } from "@/lib/study-plan";
-import { lastMockStart, studySettings } from "@/lib/study-settings";
+import { latestMock, studySettings } from "@/lib/study-settings";
 
 const ICONS: Record<PlanBlock["skill"], string> = {
   listening: "🎧",
@@ -33,10 +33,10 @@ const utcIso = (d: Date) => d.toISOString().slice(0, 10);
 
 /** Today's plan, the countdown, and the settings that drive them. */
 export async function PlanView({ track }: { track: Track }) {
-  const [summary, settings, lastMockAt] = await Promise.all([
+  const [summary, settings, lastMock] = await Promise.all([
     progressSummary(track),
     studySettings(track),
-    lastMockStart(track),
+    latestMock(track),
   ]);
   // Read after the database calls, so it's request time, not build time.
   const today = new Date();
@@ -54,7 +54,7 @@ export async function PlanView({ track }: { track: Track }) {
     settings,
     today,
     sets,
-    lastMockAt,
+    lastMock,
   });
   const total = plan.blocks.reduce((n, b) => n + b.minutes, 0);
 
@@ -67,7 +67,13 @@ export async function PlanView({ track }: { track: Track }) {
             {plan.daysLeft === null ? "—" : plan.daysLeft}
           </p>
           <p className="text-sm text-muted">
-            {plan.daysLeft === null ? "no date set" : plan.daysLeft === 1 ? "day" : "days"}
+            {plan.daysLeft === null
+              ? settings.examDate
+                ? "date has passed"
+                : "no date set"
+              : plan.daysLeft === 1
+                ? "day"
+                : "days"}
           </p>
         </div>
         <div className="flex flex-col justify-center gap-1 rounded-xl border border-border bg-surface p-5">

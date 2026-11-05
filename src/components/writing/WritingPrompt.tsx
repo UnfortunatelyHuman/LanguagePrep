@@ -11,8 +11,8 @@ export function WritingPrompt({ task }: { task: WritingTask }) {
 
       {task.bullets ? (
         <ul className="list-disc space-y-1 pl-5">
-          {task.bullets.map((b) => (
-            <li key={b}>{b}</li>
+          {task.bullets.map((b, i) => (
+            <li key={i}>{b}</li>
           ))}
         </ul>
       ) : null}

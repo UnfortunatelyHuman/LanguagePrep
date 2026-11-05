@@ -108,6 +108,8 @@ export class Capture {
   private active = false;
   private startedAt = 0;
   private error: string | null = null;
+  /** Set after a non-routine recognition error so onend doesn't restart in a tight loop. */
+  private recognitionStopped = false;
 
   constructor(
     private readonly stream: MediaStream,
@@ -154,10 +156,12 @@ export class Capture {
       this.onTranscript(this.text());
     };
     rec.onerror = (e) => {
-      // "no-speech" and "aborted" are routine; the restart below handles them.
+      // "no-speech" and "aborted" are routine; the restart in onend handles them.
+      // Every other error would just fail again on restart, so stop transcribing
+      // (the audio recording carries on) and tell the user.
       if (RECOGNITION_ERRORS[e.error]) {
         this.error = RECOGNITION_ERRORS[e.error];
-        this.active = this.active && e.error !== "not-allowed" && e.error !== "service-not-allowed";
+        this.recognitionStopped = true;
       }
     };
     rec.onend = () => {
@@ -166,7 +170,7 @@ export class Capture {
         this.finalText += `${this.interimText.trim()} `;
         this.interimText = "";
       }
-      if (this.active && this.recognition === rec) {
+      if (this.active && !this.recognitionStopped && this.recognition === rec) {
         try {
           rec.start();
         } catch {

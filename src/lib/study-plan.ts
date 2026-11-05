@@ -41,9 +41,11 @@ export type PlanInput = {
   today: Date;
   /** Reading/listening sets to rotate through, with their full length. */
   sets: Partial<Record<SkillId, { id: string; minutes: number }[]>>;
-  /** Start of the most recent mock exam, if any. */
-  lastMockAt: Date | null;
+  /** The most recent mock exam, if any. */
+  lastMock: LatestMock | null;
 };
+
+export type LatestMock = { id: string; startedAt: Date; complete: boolean };
 
 export const MIN_DAILY_MINUTES = 15;
 export const MAX_DAILY_MINUTES = 240;
@@ -65,8 +67,11 @@ function dayOfYear(d: Date): number {
   return Math.floor((Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) - Date.UTC(d.getFullYear(), 0, 0)) / DAY_MS);
 }
 
+/** Whole local calendar days since `then` (yesterday 9 pm is 1 day ago at 8 am today). */
 function daysSince(today: Date, then: Date): number {
-  return Math.floor((today.getTime() - then.getTime()) / DAY_MS);
+  const a = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const b = Date.UTC(then.getFullYear(), then.getMonth(), then.getDate());
+  return Math.round((a - b) / DAY_MS);
 }
 
 /** Round down to 5 minutes, never below 5. */
@@ -206,7 +211,8 @@ export function buildStudyPlan(input: PlanInput): StudyPlan {
   }
 
   if (daysLeft !== null && daysLeft <= TAPER_DAYS) {
-    const weakest = rankSkills(input)[0];
+    // Review only makes sense for a skill that has feedback to reread.
+    const weakest = rankSkills(input).find((r) => r.skill.latest);
     const reviewMinutes = Math.min(20, budget - 5);
     return {
       daysLeft,
@@ -215,8 +221,10 @@ export function buildStudyPlan(input: PlanInput): StudyPlan {
         {
           skill: "review",
           minutes: reviewMinutes,
-          href: `/${track}/progress`,
-          activity: `Reread your latest ${weakest.skill.name.toLowerCase()} feedback and the 3 fixes`,
+          href: weakest ? `/${track}/${weakest.skill.skill}` : `/${track}/progress`,
+          activity: weakest
+            ? `Reread your latest ${weakest.skill.name.toLowerCase()} feedback and fixes in its history`
+            : "Look over the exam format for each skill once more",
           why: "Light review only now; new full tests this close to the exam mostly add fatigue",
         },
         phraseBlock(track, Math.min(15, budget - reviewMinutes)),
@@ -227,8 +235,8 @@ export function buildStudyPlan(input: PlanInput): StudyPlan {
 
   if (daysLeft !== null && daysLeft <= FINAL_WEEK) {
     const windowStart = settings.examDate!.getTime() - FINAL_WEEK * DAY_MS;
-    const mockDone = input.lastMockAt !== null && input.lastMockAt.getTime() >= windowStart;
-    if (!mockDone) {
+    const mock = input.lastMock && input.lastMock.startedAt.getTime() >= windowStart ? input.lastMock : null;
+    if (!mock) {
       return {
         daysLeft,
         mode: "final-week",
@@ -246,6 +254,23 @@ export function buildStudyPlan(input: PlanInput): StudyPlan {
           phraseBlock(track, 10),
         ],
         note: `${daysLeft} days to go: time for one full mock exam.`,
+      };
+    }
+    if (!mock.complete) {
+      return {
+        daysLeft,
+        mode: "final-week",
+        blocks: [
+          {
+            skill: "mock",
+            minutes: Math.max(budget - 10, 5),
+            href: `/${track}/mock/${mock.id}`,
+            activity: "Finish the remaining steps of your mock exam",
+            why: "A half-done rehearsal doesn't show your stamina; complete it before switching to targeted practice",
+          },
+          phraseBlock(track, 10),
+        ],
+        note: `${daysLeft} days to go: finish your mock exam first.`,
       };
     }
     return {

@@ -9,7 +9,7 @@ import { dimensionRows } from "@/lib/rubric/schema";
 import { countWords } from "@/lib/writing/words";
 import { resolveSpeakingSet } from "@/lib/generate/sets";
 import type { GradedSpeaking } from "./grade";
-import { saveRecording } from "./recordings";
+import { deleteRecording, saveRecording } from "./recordings";
 import { SPEAKING_DIMENSIONS, wordsPerMinute } from "./rubric";
 import type { SpeakingResult, SpeakingSet, SpeakingTaskFeedback, SpokenAnswer } from "./types";
 
@@ -108,6 +108,7 @@ export async function saveSpeakingAttempt(input: {
       audioIds.set(response.questionId!, response.id);
     } catch (error) {
       console.error(`[speaking] couldn't save recording for ${response.questionId}`, error);
+      await deleteRecording(response.id);
     }
   }
 

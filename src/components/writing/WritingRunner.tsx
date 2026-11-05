@@ -8,11 +8,16 @@ import { WritingEditor } from "@/components/writing/WritingEditor";
 import { WritingFeedback } from "@/components/writing/WritingFeedback";
 import { WritingPrompt } from "@/components/writing/WritingPrompt";
 import type { Track } from "@/lib/exams";
-import type { FeedbackError } from "@/lib/feedback/types";
+import { REQUEST_TIMEOUT_MS, type FeedbackError } from "@/lib/feedback/types";
 import type { TaskTexts, WritingResult, WritingSet } from "@/lib/writing/types";
 import { countWords, wordStatus } from "@/lib/writing/words";
 
 type Phase = "intro" | "writing" | "grading" | "error" | "results";
+
+/** Milliseconds until a wall-clock time. Called only from event handlers. */
+function msUntil(time: number): number {
+  return time - Date.now();
+}
 
 function emptyTexts(set: WritingSet): TaskTexts {
   return Object.fromEntries(set.tasks.map((t) => [t.id, ""]));
@@ -28,6 +33,8 @@ async function requestFeedback(body: {
   try {
     const res = await fetch("/api/feedback", {
       method: "POST",
+      // The server gives up after ~3 minutes; don't wait forever if it never answers.
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
@@ -35,7 +42,10 @@ async function requestFeedback(body: {
     if (res.ok && data?.attemptId) return { result: data as WritingResult };
     if (data?.error?.message) return { error: data.error as FeedbackError };
     return { error: { kind: "server", message: `The server answered with HTTP ${res.status}.` } };
-  } catch {
+  } catch (e) {
+    if (e instanceof DOMException && e.name === "TimeoutError") {
+      return { error: { kind: "provider", message: "Grading took too long (over 4 minutes). Try again in a moment." } };
+    }
     return {
       error: {
         kind: "server",
@@ -93,6 +103,7 @@ export function WritingRunner({ set, track }: { set: WritingSet; track: Track })
   const [endsAt, setEndsAt] = useState(0);
   const [timeUp, setTimeUp] = useState(false);
   const [error, setError] = useState<FeedbackError | null>(null);
+  const [canEdit, setCanEdit] = useState(false);
   const [result, setResult] = useState<WritingResult | null>(null);
   const startedAt = useRef(0);
   const duration = useRef(0);
@@ -137,6 +148,8 @@ export function WritingRunner({ set, track }: { set: WritingSet; track: Track })
       window.scrollTo({ top: 0 });
     } else {
       setError(outcome.error);
+      // Editing again only makes sense while the exam clock still has time on it.
+      setCanEdit(!timeUp && msUntil(endsAt) > 5000);
       setPhase("error");
     }
   }
@@ -248,7 +261,8 @@ export function WritingRunner({ set, track }: { set: WritingSet; track: Track })
       {phase === "error" && error ? (
         <FeedbackErrorPanel
           error={error}
-          canEdit={!timeUp}
+          canEdit={canEdit}
+          onDiscard={restart}
           onRetry={() => void submit()}
           onEdit={() => {
             setError(null);

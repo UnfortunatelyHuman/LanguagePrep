@@ -102,7 +102,7 @@ function buildPrompt(set: SpeakingSet, answers: SpokenAnswer[]): string {
 ${describeTask(task)}
 ${answer.choice ? `Option the candidate chose: ${answer.choice}\n` : ""}Spoke for ${Math.round(answer.seconds)} s of ${task.speakSeconds} s; ${words} words (${wordsPerMinute(words, answer.seconds)} words per minute).
 <transcript>
-${answer.transcript.trim() || "[nothing recognized]"}
+${answer.transcript.replace(/<\/?transcript>/gi, "").trim() || "[nothing recognized]"}
 </transcript>`;
     })
     .join("\n\n");

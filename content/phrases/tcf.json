@@ -5,15 +5,60 @@
       "title": "Connecteurs : cause et conséquence",
       "description": "Explain why something happens and what follows from it.",
       "phrases": [
-        { "phrase": "parce que", "meaning": "Because: the everyday way to give a reason; answers « pourquoi ? ».", "example": "Je préfère le télétravail parce que je gagne deux heures par jour.", "register": "neutral" },
-        { "phrase": "puisque", "meaning": "Since: the reason is already known or obvious to the listener.", "example": "Puisque tout le monde est d'accord, nous pouvons commencer.", "register": "neutral" },
-        { "phrase": "étant donné que", "meaning": "Given that: formal cause, often at the start of the sentence.", "example": "Étant donné que les loyers augmentent, beaucoup de familles quittent le centre-ville.", "register": "formal" },
-        { "phrase": "grâce à", "meaning": "Thanks to: a positive cause, followed by a noun.", "example": "Grâce aux réseaux sociaux, mon fils a trouvé une communauté de dessinateurs.", "register": "neutral" },
-        { "phrase": "à cause de", "meaning": "Because of: a negative cause, followed by a noun.", "example": "À cause des travaux, je n'arrive plus à dormir le matin.", "register": "neutral" },
-        { "phrase": "donc", "meaning": "So / therefore: the most common consequence word.", "example": "Il n'y a qu'un bus par heure, donc je prends la voiture.", "register": "neutral" },
-        { "phrase": "c'est pourquoi", "meaning": "That is why: introduces a consequence in a new clause.", "example": "Le quartier manque d'espaces verts ; c'est pourquoi nous proposons un jardin communautaire.", "register": "neutral" },
-        { "phrase": "par conséquent", "meaning": "Consequently: formal consequence, good in written tasks.", "example": "Les commerces ont perdu des clients ; par conséquent, plusieurs ont fermé.", "register": "formal" },
-        { "phrase": "si bien que", "meaning": "So that / with the result that: shows a result, followed by the indicative.", "example": "Il a beaucoup neigé, si bien que les écoles sont restées fermées.", "register": "formal" }
+        {
+          "phrase": "parce que",
+          "meaning": "Because: the everyday way to give a reason; answers « pourquoi ? ».",
+          "example": "Je préfère le télétravail parce que je gagne deux heures par jour.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "puisque",
+          "meaning": "Since: the reason is already known or obvious to the listener.",
+          "example": "Puisque tout le monde est d'accord, nous pouvons commencer.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "étant donné que",
+          "meaning": "Given that: formal cause, often at the start of the sentence.",
+          "example": "Étant donné que les loyers augmentent, beaucoup de familles quittent le centre-ville.",
+          "register": "formal"
+        },
+        {
+          "phrase": "grâce à",
+          "meaning": "Thanks to: a positive cause, followed by a noun.",
+          "example": "Grâce aux réseaux sociaux, mon fils a trouvé une communauté de dessinateurs.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "à cause de",
+          "meaning": "Because of: a negative cause, followed by a noun.",
+          "example": "À cause des travaux, je n'arrive plus à dormir le matin.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "donc",
+          "meaning": "So / therefore: the most common consequence word.",
+          "example": "Il n'y a qu'un bus par heure, donc je prends la voiture.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "c'est pourquoi",
+          "meaning": "That is why: introduces a consequence in a new clause.",
+          "example": "Le quartier manque d'espaces verts ; c'est pourquoi nous proposons un jardin communautaire.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "par conséquent",
+          "meaning": "Consequently: formal consequence, good in written tasks.",
+          "example": "Les commerces ont perdu des clients ; par conséquent, plusieurs ont fermé.",
+          "register": "formal"
+        },
+        {
+          "phrase": "si bien que",
+          "meaning": "So that / with the result that: shows a result, followed by the indicative.",
+          "example": "Il a beaucoup neigé, si bien que les écoles sont restées fermées.",
+          "register": "formal"
+        }
       ]
     },
     {
@@ -21,15 +66,60 @@
       "title": "Connecteurs : opposition et concession",
       "description": "Contrast two ideas or admit a point before answering it.",
       "phrases": [
-        { "phrase": "mais", "meaning": "But: simple contrast.", "example": "Le vélo est pratique, mais il est difficile à utiliser en hiver.", "register": "neutral" },
-        { "phrase": "cependant / toutefois", "meaning": "However: more formal contrast, often after a full stop or a semicolon.", "example": "Le télétravail a des avantages. Cependant, il peut isoler les employés.", "register": "formal" },
-        { "phrase": "par contre / en revanche", "meaning": "On the other hand: contrasts two facts; « en revanche » is more formal.", "example": "Le centre-ville est animé ; en revanche, les loyers y sont très élevés.", "register": "neutral" },
-        { "phrase": "alors que / tandis que", "meaning": "Whereas: contrasts two situations in the same sentence.", "example": "Le premier document défend le télétravail, alors que le second le critique.", "register": "neutral" },
-        { "phrase": "bien que + subjonctif", "meaning": "Although: concession; the verb must be in the subjunctive.", "example": "Bien que ce projet soit coûteux, il me semble nécessaire.", "register": "formal" },
-        { "phrase": "même si + indicatif", "meaning": "Even if / even though: concession with the indicative.", "example": "Même si les réseaux sociaux sont utiles, ils peuvent nuire au sommeil.", "register": "neutral" },
-        { "phrase": "malgré + nom", "meaning": "Despite: concession followed by a noun.", "example": "Malgré la pluie, la fête de quartier a attiré beaucoup de monde.", "register": "neutral" },
-        { "phrase": "certes…, mais…", "meaning": "Admittedly…, but…: concede a point, then counter it.", "example": "Certes, le tourisme crée des emplois, mais il transforme la vie des habitants.", "register": "formal" },
-        { "phrase": "pourtant", "meaning": "Yet / and yet: introduces a surprising contrast.", "example": "Il habite à côté du parc ; pourtant, il n'y va jamais.", "register": "neutral" }
+        {
+          "phrase": "mais",
+          "meaning": "But: simple contrast.",
+          "example": "Le vélo est pratique, mais il est difficile à utiliser en hiver.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "cependant / toutefois",
+          "meaning": "However: more formal contrast, often after a full stop or a semicolon.",
+          "example": "Le télétravail a des avantages. Cependant, il peut isoler les employés.",
+          "register": "formal"
+        },
+        {
+          "phrase": "par contre / en revanche",
+          "meaning": "On the other hand: contrasts two facts; « en revanche » is more formal.",
+          "example": "Le centre-ville est animé ; en revanche, les loyers y sont très élevés.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "alors que / tandis que",
+          "meaning": "Whereas: contrasts two situations in the same sentence.",
+          "example": "Le premier document défend le télétravail, alors que le second le critique.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "bien que + subjonctif",
+          "meaning": "Although: concession; the verb must be in the subjunctive.",
+          "example": "Bien que ce projet soit coûteux, il me semble nécessaire.",
+          "register": "formal"
+        },
+        {
+          "phrase": "même si + indicatif",
+          "meaning": "Even if / even though: concession with the indicative.",
+          "example": "Même si les réseaux sociaux sont utiles, ils peuvent nuire au sommeil.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "malgré + nom",
+          "meaning": "Despite: concession followed by a noun.",
+          "example": "Malgré la pluie, la fête de quartier a attiré beaucoup de monde.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "certes…, mais…",
+          "meaning": "Admittedly…, but…: concede a point, then counter it.",
+          "example": "Certes, le tourisme crée des emplois, mais il transforme la vie des habitants.",
+          "register": "formal"
+        },
+        {
+          "phrase": "pourtant",
+          "meaning": "Yet / and yet: introduces a surprising contrast.",
+          "example": "Il habite à côté du parc ; pourtant, il n'y va jamais.",
+          "register": "neutral"
+        }
       ]
     },
     {
@@ -37,14 +127,54 @@
       "title": "Connecteurs : addition et conclusion",
       "description": "Add arguments and wrap up your text or talk.",
       "phrases": [
-        { "phrase": "de plus / en outre", "meaning": "Moreover / furthermore: adds an argument; « en outre » is more formal.", "example": "De plus, les transports en commun sont moins chers que la voiture.", "register": "neutral" },
-        { "phrase": "par ailleurs", "meaning": "Besides / also: introduces a related but separate point.", "example": "Par ailleurs, il faudrait penser aux personnes âgées.", "register": "formal" },
-        { "phrase": "non seulement…, mais aussi…", "meaning": "Not only…, but also…: stresses two advantages.", "example": "Ce jardin serait non seulement beau, mais aussi utile pour les familles.", "register": "neutral" },
-        { "phrase": "ensuite / puis", "meaning": "Then / next: orders ideas or events.", "example": "Nous avons visité Lima, puis nous sommes partis pour Cusco.", "register": "neutral" },
-        { "phrase": "enfin", "meaning": "Finally: introduces the last point of a list.", "example": "Enfin, ce projet renforcerait les liens entre voisins.", "register": "neutral" },
-        { "phrase": "en conclusion / pour conclure", "meaning": "In conclusion: opens the final paragraph.", "example": "En conclusion, je pense que le télétravail hybride est la meilleure solution.", "register": "formal" },
-        { "phrase": "en somme / bref", "meaning": "In short: quick summary; « bref » is more conversational.", "example": "Bref, c'était un voyage inoubliable.", "register": "informal" },
-        { "phrase": "en définitive", "meaning": "All things considered: a final judgement.", "example": "En définitive, les avantages l'emportent sur les inconvénients.", "register": "formal" }
+        {
+          "phrase": "de plus / en outre",
+          "meaning": "Moreover / furthermore: adds an argument; « en outre » is more formal.",
+          "example": "De plus, les transports en commun sont moins chers que la voiture.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "par ailleurs",
+          "meaning": "Besides / also: introduces a related but separate point.",
+          "example": "Par ailleurs, il faudrait penser aux personnes âgées.",
+          "register": "formal"
+        },
+        {
+          "phrase": "non seulement…, mais aussi…",
+          "meaning": "Not only…, but also…: stresses two advantages.",
+          "example": "Ce jardin serait non seulement beau, mais aussi utile pour les familles.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "ensuite / puis",
+          "meaning": "Then / next: orders ideas or events.",
+          "example": "Nous avons visité Lima, puis nous sommes partis pour Cusco.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "enfin",
+          "meaning": "Finally: introduces the last point of a list.",
+          "example": "Enfin, ce projet renforcerait les liens entre voisins.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "en conclusion / pour conclure",
+          "meaning": "In conclusion: opens the final paragraph.",
+          "example": "En conclusion, je pense que le télétravail hybride est la meilleure solution.",
+          "register": "formal"
+        },
+        {
+          "phrase": "en somme / bref",
+          "meaning": "In short: « en somme » is neutral and fine in writing; « bref » is more conversational.",
+          "example": "Bref, c'était un voyage inoubliable.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "en définitive",
+          "meaning": "All things considered: a final judgement.",
+          "example": "En définitive, les avantages l'emportent sur les inconvénients.",
+          "register": "formal"
+        }
       ]
     },
     {
@@ -52,15 +182,60 @@
       "title": "Exprimer son opinion",
       "description": "Give your view clearly; note which expressions take the subjunctive.",
       "phrases": [
-        { "phrase": "À mon avis, …", "meaning": "In my opinion: the safest way to start giving your view.", "example": "À mon avis, il faut limiter le nombre de touristes en été.", "register": "neutral" },
-        { "phrase": "Selon moi, … / D'après moi, …", "meaning": "According to me: same as « à mon avis ».", "example": "Selon moi, l'école doit apprendre aux jeunes à utiliser les réseaux sociaux.", "register": "neutral" },
-        { "phrase": "Je pense que / Je crois que + indicatif", "meaning": "I think that: affirmative opinion with the indicative.", "example": "Je pense que ce projet est une bonne idée.", "register": "neutral" },
-        { "phrase": "Je ne pense pas que + subjonctif", "meaning": "I don't think that: the negative form takes the subjunctive.", "example": "Je ne pense pas que cette interdiction soit efficace.", "register": "neutral" },
-        { "phrase": "Il me semble que …", "meaning": "It seems to me that: softer, more nuanced opinion.", "example": "Il me semble que les deux documents exagèrent un peu.", "register": "formal" },
-        { "phrase": "Je suis convaincu(e) que …", "meaning": "I am convinced that: strong opinion; agree « convaincu » with yourself.", "example": "Je suis convaincue que le bénévolat aide à s'intégrer.", "register": "neutral" },
-        { "phrase": "Je suis tout à fait d'accord avec …", "meaning": "I completely agree with: agreement with a person or idea.", "example": "Je suis tout à fait d'accord avec l'auteur du premier document.", "register": "neutral" },
-        { "phrase": "Je ne partage pas l'avis de …", "meaning": "I don't share the view of: polite disagreement.", "example": "Je ne partage pas l'avis de ceux qui veulent interdire les voitures.", "register": "formal" },
-        { "phrase": "Il est essentiel que + subjonctif", "meaning": "It is essential that: requires the subjunctive.", "example": "Il est essentiel que les entreprises fixent des règles claires.", "register": "formal" }
+        {
+          "phrase": "À mon avis, …",
+          "meaning": "In my opinion: the safest way to start giving your view.",
+          "example": "À mon avis, il faut limiter le nombre de touristes en été.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Selon moi, … / D'après moi, …",
+          "meaning": "According to me: same as « à mon avis ».",
+          "example": "Selon moi, l'école doit apprendre aux jeunes à utiliser les réseaux sociaux.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Je pense que / Je crois que + indicatif",
+          "meaning": "I think that: affirmative opinion with the indicative.",
+          "example": "Je pense que ce projet est une bonne idée.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Je ne pense pas que + subjonctif",
+          "meaning": "I don't think that: the negative form takes the subjunctive.",
+          "example": "Je ne pense pas que cette interdiction soit efficace.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Il me semble que …",
+          "meaning": "It seems to me that: softer, more nuanced opinion.",
+          "example": "Il me semble que les deux documents exagèrent un peu.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Je suis convaincu(e) que …",
+          "meaning": "I am convinced that: strong opinion; agree « convaincu » with yourself.",
+          "example": "Je suis convaincue que le bénévolat aide à s'intégrer.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Je suis tout à fait d'accord avec …",
+          "meaning": "I completely agree with: agreement with a person or idea.",
+          "example": "Je suis tout à fait d'accord avec l'auteur du premier document.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Je ne partage pas l'avis de …",
+          "meaning": "I don't share the view of: polite disagreement.",
+          "example": "Je ne partage pas l'avis de ceux qui veulent interdire les voitures.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Il est essentiel que + subjonctif",
+          "meaning": "It is essential that: requires the subjunctive.",
+          "example": "Il est essentiel que les entreprises fixent des règles claires.",
+          "register": "formal"
+        }
       ]
     },
     {
@@ -68,14 +243,54 @@
       "title": "Structurer un exposé",
       "description": "Signpost your speaking or writing so the examiner can follow your plan.",
       "phrases": [
-        { "phrase": "Je vais d'abord parler de …, puis de …", "meaning": "Announces your plan at the start.", "example": "Je vais d'abord parler des avantages, puis des inconvénients.", "register": "neutral" },
-        { "phrase": "Tout d'abord, …", "meaning": "First of all: opens the first point.", "example": "Tout d'abord, le télétravail fait gagner du temps.", "register": "neutral" },
-        { "phrase": "En ce qui concerne …,", "meaning": "As far as … is concerned: introduces a topic.", "example": "En ce qui concerne le prix, l'abonnement mensuel est le plus intéressant.", "register": "formal" },
-        { "phrase": "Quant à …,", "meaning": "As for: moves to another person or topic.", "example": "Quant aux commerçants, ils craignent de perdre des clients.", "register": "formal" },
-        { "phrase": "Prenons l'exemple de …", "meaning": "Let's take the example of: introduces an example.", "example": "Prenons l'exemple de Montréal, où plusieurs rues sont piétonnes l'été.", "register": "neutral" },
-        { "phrase": "D'un côté…, de l'autre…", "meaning": "On one hand…, on the other…: balances two sides.", "example": "D'un côté, les jeunes s'informent en ligne ; de l'autre, ils dorment moins.", "register": "neutral" },
-        { "phrase": "Pour résumer, …", "meaning": "To summarize: signals the end of your talk.", "example": "Pour résumer, je suis plutôt favorable à cette mesure.", "register": "neutral" },
-        { "phrase": "Le premier document affirme que …, tandis que le second soutient que …", "meaning": "Summarizes two opposing documents (writing task 3).", "example": "Le premier document affirme que le télétravail améliore la qualité de vie, tandis que le second soutient qu'il isole les employés.", "register": "formal" }
+        {
+          "phrase": "Je vais d'abord parler de …, puis de …",
+          "meaning": "Announces your plan at the start.",
+          "example": "Je vais d'abord parler des avantages, puis des inconvénients.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Tout d'abord, …",
+          "meaning": "First of all: opens the first point.",
+          "example": "Tout d'abord, le télétravail fait gagner du temps.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "En ce qui concerne …,",
+          "meaning": "As far as … is concerned: introduces a topic.",
+          "example": "En ce qui concerne le prix, l'abonnement mensuel est le plus intéressant.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Quant à …,",
+          "meaning": "As for: moves to another person or topic.",
+          "example": "Quant aux commerçants, ils craignent de perdre des clients.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Prenons l'exemple de …",
+          "meaning": "Let's take the example of: introduces an example.",
+          "example": "Prenons l'exemple de Montréal, où plusieurs rues sont piétonnes l'été.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "D'un côté…, de l'autre…",
+          "meaning": "On one hand…, on the other…: balances two sides.",
+          "example": "D'un côté, les jeunes s'informent en ligne ; de l'autre, ils dorment moins.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Pour résumer, …",
+          "meaning": "To summarize: signals the end of your talk.",
+          "example": "Pour résumer, je suis plutôt favorable à cette mesure.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Le premier document affirme que …, tandis que le second soutient que …",
+          "meaning": "Summarizes two opposing documents (writing task 3).",
+          "example": "Le premier document affirme que le télétravail améliore la qualité de vie, tandis que le second soutient qu'il isole les employés.",
+          "register": "formal"
+        }
       ]
     },
     {
@@ -83,15 +298,60 @@
       "title": "Formules de lettre et de courriel",
       "description": "Openings and closings for messages, from friendly to formal.",
       "phrases": [
-        { "phrase": "Salut … ! / Coucou … !", "meaning": "Hi!: greeting for a friend; « coucou » is very casual.", "example": "Salut Camille ! J'espère que tu vas bien.", "register": "informal" },
-        { "phrase": "Cher … / Chère …,", "meaning": "Dear: friendly or semi-formal; agree with the person's gender.", "example": "Chère Madame Gagnon, je me permets de vous écrire au sujet de mes plantes.", "register": "neutral" },
-        { "phrase": "Madame, Monsieur,", "meaning": "Formal greeting when you don't know the reader.", "example": "Madame, Monsieur, je vous écris pour obtenir des renseignements sur vos cours.", "register": "formal" },
-        { "phrase": "Je vous écris au sujet de …", "meaning": "I am writing about: states the purpose formally.", "example": "Je vous écris au sujet de l'annonce parue sur votre site.", "register": "formal" },
-        { "phrase": "Je te remercie d'avance pour …", "meaning": "Thanks in advance (informal « te »; use « vous » formally).", "example": "Je te remercie d'avance pour ton aide pendant mon absence.", "register": "informal" },
-        { "phrase": "Dans l'attente de votre réponse, …", "meaning": "Looking forward to your reply: formal closing line.", "example": "Dans l'attente de votre réponse, je vous prie d'agréer mes salutations distinguées.", "register": "formal" },
-        { "phrase": "Veuillez agréer, Madame, Monsieur, mes salutations distinguées.", "meaning": "Standard formal sign-off for a letter.", "example": "Je vous remercie de votre attention. Veuillez agréer, Madame, Monsieur, mes salutations distinguées.", "register": "formal" },
-        { "phrase": "Cordialement, / Bien cordialement,", "meaning": "Kind regards: neutral sign-off for emails.", "example": "Merci pour votre retour rapide. Cordialement, Karim Benali", "register": "neutral" },
-        { "phrase": "Bises, / À bientôt !", "meaning": "Love / See you soon: friendly sign-offs.", "example": "Dis-moi si tu peux venir. À bientôt ! Bises, Karim", "register": "informal" }
+        {
+          "phrase": "Salut … ! / Coucou … !",
+          "meaning": "Hi!: greeting for a friend; « coucou » is very casual.",
+          "example": "Salut Camille ! J'espère que tu vas bien.",
+          "register": "informal"
+        },
+        {
+          "phrase": "Cher … / Chère …,",
+          "meaning": "Dear: « Cher Paul, » / « Chère Camille, » for people you know; for a formal letter use « Madame, » or « Monsieur, » alone.",
+          "example": "Chère Camille, merci pour ton message !",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Madame, Monsieur,",
+          "meaning": "Formal greeting when you don't know the reader.",
+          "example": "Madame, Monsieur, je vous écris pour obtenir des renseignements sur vos cours.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Je vous écris au sujet de …",
+          "meaning": "I am writing about: states the purpose formally.",
+          "example": "Je vous écris au sujet de l'annonce parue sur votre site.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Je te remercie d'avance pour …",
+          "meaning": "Thanks in advance (informal « te »; use « vous » formally).",
+          "example": "Je te remercie d'avance pour ton aide pendant mon absence.",
+          "register": "informal"
+        },
+        {
+          "phrase": "Dans l'attente de votre réponse, …",
+          "meaning": "Looking forward to your reply: formal closing line.",
+          "example": "Dans l'attente de votre réponse, je vous prie d'agréer mes salutations distinguées.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Veuillez agréer, Madame, Monsieur, mes salutations distinguées.",
+          "meaning": "Standard formal sign-off for a letter.",
+          "example": "Je vous remercie de votre attention. Veuillez agréer, Madame, Monsieur, mes salutations distinguées.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Cordialement, / Bien cordialement,",
+          "meaning": "Kind regards: neutral sign-off for emails.",
+          "example": "Merci pour votre retour rapide. Cordialement, Karim Benali",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Bises, / À bientôt !",
+          "meaning": "Love / See you soon: friendly sign-offs.",
+          "example": "Dis-moi si tu peux venir. À bientôt ! Bises, Karim",
+          "register": "informal"
+        }
       ]
     },
     {
@@ -99,15 +359,60 @@
       "title": "Poser des questions polies",
       "description": "For the role-play (Tâche 2): ask for information politely and keep the exchange going.",
       "phrases": [
-        { "phrase": "Excusez-moi, est-ce que je pourrais vous poser quelques questions ?", "meaning": "Opens the conversation politely.", "example": "Bonjour, excusez-moi, est-ce que je pourrais vous poser quelques questions sur l'appartement ?", "register": "formal" },
-        { "phrase": "Pourriez-vous me dire … ?", "meaning": "Could you tell me…?: polite indirect question (no inversion after it).", "example": "Pourriez-vous me dire combien coûte le loyer par mois ?", "register": "formal" },
-        { "phrase": "J'aimerais savoir si …", "meaning": "I'd like to know whether: indirect yes/no question.", "example": "J'aimerais savoir si le chauffage est compris dans le loyer.", "register": "neutral" },
-        { "phrase": "Est-ce qu'il est possible de … ?", "meaning": "Is it possible to…?: asks about options.", "example": "Est-ce qu'il est possible de suivre un cours d'essai ?", "register": "neutral" },
-        { "phrase": "Qu'est-ce qui est compris dans … ?", "meaning": "What is included in…?", "example": "Qu'est-ce qui est compris dans l'abonnement mensuel ?", "register": "neutral" },
-        { "phrase": "À quelle heure / À partir de quand … ?", "meaning": "At what time / From when…?", "example": "À partir de quand l'appartement est-il disponible ?", "register": "neutral" },
-        { "phrase": "Et si jamais …, comment ça se passe ?", "meaning": "And if…, what happens?: asks about conditions.", "example": "Et si jamais je dois annuler mon abonnement, comment ça se passe ?", "register": "informal" },
-        { "phrase": "D'accord, je vois. Et en ce qui concerne … ?", "meaning": "Acknowledges an answer, then moves to the next question.", "example": "D'accord, je vois. Et en ce qui concerne le stationnement ?", "register": "neutral" },
-        { "phrase": "Merci beaucoup pour ces renseignements.", "meaning": "Thanks for the information: closes the exchange.", "example": "Merci beaucoup pour ces renseignements, je vous rappellerai demain.", "register": "neutral" }
+        {
+          "phrase": "Excusez-moi, est-ce que je pourrais vous poser quelques questions ?",
+          "meaning": "Opens the conversation politely.",
+          "example": "Bonjour, excusez-moi, est-ce que je pourrais vous poser quelques questions sur l'appartement ?",
+          "register": "formal"
+        },
+        {
+          "phrase": "Pourriez-vous me dire … ?",
+          "meaning": "Could you tell me…?: polite indirect question. No « est-ce que » and no subject-pronoun inversion after it (a noun subject may still follow the verb).",
+          "example": "Pourriez-vous me dire combien coûte le loyer par mois ?",
+          "register": "formal"
+        },
+        {
+          "phrase": "J'aimerais savoir si …",
+          "meaning": "I'd like to know whether: indirect yes/no question.",
+          "example": "J'aimerais savoir si le chauffage est compris dans le loyer.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Est-ce qu'il est possible de … ?",
+          "meaning": "Is it possible to…?: asks about options.",
+          "example": "Est-ce qu'il est possible de suivre un cours d'essai ?",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Qu'est-ce qui est compris dans … ?",
+          "meaning": "What is included in…?",
+          "example": "Qu'est-ce qui est compris dans l'abonnement mensuel ?",
+          "register": "neutral"
+        },
+        {
+          "phrase": "À quelle heure / À partir de quand … ?",
+          "meaning": "At what time / From when…?",
+          "example": "À partir de quand l'appartement est-il disponible ?",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Et si jamais …, comment ça se passe ?",
+          "meaning": "And if…, what happens?: asks about conditions.",
+          "example": "Et si jamais je dois annuler mon abonnement, comment ça se passe ?",
+          "register": "informal"
+        },
+        {
+          "phrase": "D'accord, je vois. Et en ce qui concerne … ?",
+          "meaning": "Acknowledges an answer, then moves to the next question.",
+          "example": "D'accord, je vois. Et en ce qui concerne le stationnement ?",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Merci beaucoup pour ces renseignements.",
+          "meaning": "Thanks for the information: closes the exchange.",
+          "example": "Merci beaucoup pour ces renseignements, je vous rappellerai demain.",
+          "register": "neutral"
+        }
       ]
     },
     {
@@ -115,14 +420,54 @@
       "title": "Nuancer son propos",
       "description": "Avoid sounding absolute: qualify claims, weigh both sides and show critical thinking.",
       "phrases": [
-        { "phrase": "Dans une certaine mesure, …", "meaning": "To some extent: partly agree.", "example": "Dans une certaine mesure, je comprends les inquiétudes des parents.", "register": "formal" },
-        { "phrase": "Tout dépend de …", "meaning": "It all depends on: shows the answer is not black and white.", "example": "Tout dépend de l'âge de l'enfant et de l'usage qu'il en fait.", "register": "neutral" },
-        { "phrase": "Il faut reconnaître que …", "meaning": "One must admit that: concedes a fair point.", "example": "Il faut reconnaître que le tourisme fait vivre de nombreuses familles.", "register": "formal" },
-        { "phrase": "Ce n'est pas si simple.", "meaning": "It's not that simple: introduces complexity.", "example": "Interdire les voitures ? Ce n'est pas si simple pour ceux qui habitent loin.", "register": "neutral" },
-        { "phrase": "plutôt / assez / relativement", "meaning": "Rather / fairly / relatively: soften an adjective.", "example": "Je suis plutôt favorable au télétravail, mais pas tous les jours.", "register": "neutral" },
-        { "phrase": "Il serait exagéré de dire que …", "meaning": "It would be an exaggeration to say that.", "example": "Il serait exagéré de dire que les réseaux sociaux sont toujours dangereux.", "register": "formal" },
-        { "phrase": "Sans doute, mais …", "meaning": "No doubt, but…: accepts a point and adds a limit.", "example": "Sans doute, le centre serait plus calme, mais les commerces en souffriraient.", "register": "neutral" },
-        { "phrase": "À condition que + subjonctif", "meaning": "Provided that: sets a condition; requires the subjunctive.", "example": "Le télétravail est une bonne solution, à condition que l'entreprise fixe des limites.", "register": "formal" }
+        {
+          "phrase": "Dans une certaine mesure, …",
+          "meaning": "To some extent: partly agree.",
+          "example": "Dans une certaine mesure, je comprends les inquiétudes des parents.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Tout dépend de …",
+          "meaning": "It all depends on: shows the answer is not black and white.",
+          "example": "Tout dépend de l'âge de l'enfant et de l'usage qu'il en fait.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Il faut reconnaître que …",
+          "meaning": "One must admit that: concedes a fair point.",
+          "example": "Il faut reconnaître que le tourisme fait vivre de nombreuses familles.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Ce n'est pas si simple.",
+          "meaning": "It's not that simple: introduces complexity.",
+          "example": "Interdire les voitures ? Ce n'est pas si simple pour ceux qui habitent loin.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "plutôt / assez / relativement",
+          "meaning": "Rather / fairly / relatively: soften an adjective.",
+          "example": "Je suis plutôt favorable au télétravail, mais pas tous les jours.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "Il serait exagéré de dire que …",
+          "meaning": "It would be an exaggeration to say that.",
+          "example": "Il serait exagéré de dire que les réseaux sociaux sont toujours dangereux.",
+          "register": "formal"
+        },
+        {
+          "phrase": "Sans doute, mais …",
+          "meaning": "No doubt, but…: accepts a point and adds a limit.",
+          "example": "Sans doute, le centre serait plus calme, mais les commerces en souffriraient.",
+          "register": "neutral"
+        },
+        {
+          "phrase": "À condition que + subjonctif",
+          "meaning": "Provided that: sets a condition; requires the subjunctive.",
+          "example": "Le télétravail est une bonne solution, à condition que l'entreprise fixe des limites.",
+          "register": "formal"
+        }
       ]
     }
   ]

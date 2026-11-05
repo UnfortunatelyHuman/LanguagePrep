@@ -126,7 +126,9 @@ async function generateJSON(request: JsonRequest): Promise<string> {
     }
     const finish = response.candidates?.[0]?.finishReason;
     if (finish === "MAX_TOKENS") {
-      throw new AiError("invalid_response", "Gemini's answer was cut off before it finished.");
+      throw new AiError("invalid_response", "Gemini's answer was cut off before it finished.", {
+        modelProblem: "truncated",
+      });
     }
     if (finish && finish !== "STOP") {
       throw new AiError("provider", `Gemini stopped early (${finish}).`);

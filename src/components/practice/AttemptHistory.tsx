@@ -59,8 +59,10 @@ export async function AttemptHistory({ track, skill }: { track: Track; skill: Sk
               </p>
             </div>
             <p className="shrink-0">
-              <span className="font-medium">{a.estimatedLevel}</span>
-              <span className="text-muted"> ({formatScore(a.score, a.maxScore)})</span>
+              <span className="font-medium">{a.estimatedLevel ?? "Not scored"}</span>
+              {a.score !== null ? (
+                <span className="text-muted"> ({formatScore(a.score, a.maxScore)})</span>
+              ) : null}
             </p>
           </li>
         );

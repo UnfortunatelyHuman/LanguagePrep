@@ -92,9 +92,9 @@ export function PhraseQuiz({
   }
 
   return (
-    <section className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5" aria-live="polite">
+    <section className="flex flex-col gap-4 rounded-xl border border-border bg-surface p-5">
       <div className="flex items-center justify-between gap-3 text-sm text-muted">
-        <span>
+        <span aria-live="polite">
           Card {index + 1} of {deck.length}
         </span>
         <button type="button" onClick={onExit} className="text-accent">
@@ -110,6 +110,8 @@ export function PhraseQuiz({
         </div>
       </div>
 
+      {/* Announce only the revealed answer, not the whole card. */}
+      <div aria-live="polite">
       {revealed ? (
         <div className="rounded-lg bg-surface-subtle p-3">
           <p lang={lang} className="font-semibold">
@@ -120,6 +122,7 @@ export function PhraseQuiz({
           </p>
         </div>
       ) : null}
+      </div>
 
       <div className="flex flex-wrap gap-2">
         {revealed ? (

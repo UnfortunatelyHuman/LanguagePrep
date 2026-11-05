@@ -11,7 +11,11 @@ export const REGISTERS = ["formal", "neutral", "informal"] as const;
 export type Register = (typeof REGISTERS)[number];
 
 export type Phrase = {
-  /** Stable key "<categoryId>:<index>", used by PhraseReview. */
+  /**
+   * Stable key "<categoryId>:<slug of the phrase>", used by PhraseReview. Built
+   * from the text, not the position, so adding or reordering phrases in the
+   * JSON never moves a learner's marks onto a different phrase.
+   */
   key: string;
   categoryId: string;
   phrase: string;
@@ -62,7 +66,7 @@ function validate(name: string, raw: RawBank): PhraseCategory[] {
           fail(`${c.id}:${i} has an unknown register "${p.register}"`);
         }
         return {
-          key: `${c.id}:${i}`,
+          key: `${c.id}:${slug(p.phrase)}`,
           categoryId: c.id,
           phrase: p.phrase,
           meaning: p.meaning,
@@ -72,6 +76,16 @@ function validate(name: string, raw: RawBank): PhraseCategory[] {
       }),
     };
   });
+}
+
+/** Lowercase ASCII slug: accents stripped, other runs of non-letters become "-". */
+function slug(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 
 const BANKS: Record<Track, PhraseCategory[]> = {

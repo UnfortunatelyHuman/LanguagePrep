@@ -1,5 +1,5 @@
 import "server-only";
-import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 /**
@@ -42,6 +42,17 @@ export async function saveRecording(responseId: string, file: File): Promise<str
   await mkdir(DIR, { recursive: true });
   await writeFile(path.join(DIR, name), Buffer.from(await file.arrayBuffer()));
   return name;
+}
+
+/** Remove any file saved for a response (cleanup after a failed save). */
+export async function deleteRecording(responseId: string): Promise<void> {
+  if (!/^[a-z0-9]+$/.test(responseId)) return;
+  const names = await readdir(DIR).catch(() => [] as string[]);
+  await Promise.all(
+    names
+      .filter((n) => n.startsWith(`${responseId}.`) && FILE_NAME.test(n))
+      .map((n) => unlink(path.join(DIR, n)).catch(() => undefined)),
+  );
 }
 
 /** Read a stored recording, or null if the name is unsafe or the file is gone. */

@@ -31,7 +31,7 @@ tick items as they land and note anything half-done under "In flight".
 ## Quality gates (after each phase)
 - [x] lint + build clean, commit
 - [x] Manual browser test as a user (headless Chrome via puppeteer; speaking with stubbed mic/recognition)
-- [ ] Code review (agents) and fixes
+- [x] Code review (3 agents: AI/writing/generate, speaking, progress/plan/mock/phrases) and fixes
 
 ## In flight
-- Phase 7 committed; code review of phases 4–7 (agents) + fixes next
+- All phases and quality gates done. Remaining ideas are listed in the final summary, not required.

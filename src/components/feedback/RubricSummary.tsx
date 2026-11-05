@@ -75,8 +75,8 @@ export function Strengths({ items }: { items: string[] }) {
     <section className="rounded-xl border border-border bg-surface p-5">
       <h2 className="font-semibold tracking-tight">What worked</h2>
       <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
-        {items.map((s) => (
-          <li key={s}>{s}</li>
+        {items.map((s, i) => (
+          <li key={i}>{s}</li>
         ))}
       </ul>
     </section>

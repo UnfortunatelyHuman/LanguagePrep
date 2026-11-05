@@ -18,7 +18,7 @@ const NOTE: Record<WordStatus, string> = {
 export function WordCount({ count, min, max }: { count: number; min: number; max: number }) {
   const status = wordStatus(count, min, max);
   return (
-    <p aria-live="polite" className={`text-sm tabular-nums ${STYLE[status]}`}>
+    <p className={`text-sm tabular-nums ${STYLE[status]}`}>
       <span className="font-semibold">{count}</span> {count === 1 ? "word" : "words"}
       <span className="text-muted">
         {" "}

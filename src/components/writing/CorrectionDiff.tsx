@@ -1,16 +1,7 @@
-import { diffWords } from "@/lib/writing/diff";
+import type { DiffPart } from "@/lib/writing/diff";
 
 /** The writer's text turned into the corrected one: removed words struck through, added words highlighted. */
-export function CorrectionDiff({
-  original,
-  corrected,
-  lang,
-}: {
-  original: string;
-  corrected: string;
-  lang: "en" | "fr";
-}) {
-  const parts = diffWords(original, corrected);
+export function CorrectionDiff({ parts, lang }: { parts: DiffPart[]; lang: "en" | "fr" }) {
   return (
     <p lang={lang} className="whitespace-pre-wrap text-sm leading-7">
       {parts.map((p, i) =>

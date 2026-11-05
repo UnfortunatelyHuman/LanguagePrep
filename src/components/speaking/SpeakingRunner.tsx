@@ -7,7 +7,7 @@ import { Countdown } from "@/components/practice/Countdown";
 import { SpeakingFeedback } from "@/components/speaking/SpeakingFeedback";
 import { SpeakingPrompt } from "@/components/speaking/SpeakingPrompt";
 import type { Track } from "@/lib/exams";
-import type { FeedbackError } from "@/lib/feedback/types";
+import { REQUEST_TIMEOUT_MS, type FeedbackError } from "@/lib/feedback/types";
 import { formatClock } from "@/lib/practice/numbering";
 import {
   Capture,
@@ -38,7 +38,7 @@ const noSubscribe = () => () => {};
 let supportSnapshot: ReturnType<typeof captureSupport> | null = null;
 const getSupport = () => (supportSnapshot ??= captureSupport());
 
-/** Wall-clock end of a timer that starts now. */
+/** Wall-clock end of a timer that starts now. Called only from event handlers. */
 function deadline(seconds: number): number {
   return Date.now() + seconds * 1000;
 }
@@ -72,12 +72,20 @@ async function requestFeedback(
     form.set(`audio-${taskId}`, blob, `${taskId}.${audioExtension(blob.type)}`);
   }
   try {
-    const res = await fetch("/api/speaking/feedback", { method: "POST", body: form });
+    const res = await fetch("/api/speaking/feedback", {
+      method: "POST",
+      body: form,
+      // The server gives up after ~3 minutes; don't wait forever if it never answers.
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    });
     const data = await res.json().catch(() => null);
     if (res.ok && data?.attemptId) return { result: data as SpeakingResult };
     if (data?.error?.message) return { error: data.error as FeedbackError };
     return { error: { kind: "server", message: `The server answered with HTTP ${res.status}.` } };
-  } catch {
+  } catch (e) {
+    if (e instanceof DOMException && e.name === "TimeoutError") {
+      return { error: { kind: "provider", message: "Grading took too long (over 4 minutes). Try again in a moment." } };
+    }
     return {
       error: {
         kind: "server",
@@ -227,6 +235,8 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
 
   function beginCapture() {
     if (!stream.current) return;
+    // Guard against a double start (button and timer on the same tick).
+    capture.current?.cancel();
     setHeard("");
     const c = new Capture(stream.current, speechLang(set.exam), setHeard);
     capture.current = c;
@@ -236,6 +246,12 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
   async function start(tasks: SpeakingTask[]) {
     setStarting(true);
     setMicMessage(null);
+    // A stream whose track ended (mic unplugged, headset disconnected) can't record.
+    if (stream.current?.getAudioTracks().some((t) => t.readyState === "ended")) {
+      closeMicrophone(stream.current);
+      stream.current = null;
+    }
+    revokeUrls();
     try {
       stream.current ??= await openMicrophone();
     } catch (e) {
@@ -244,7 +260,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
       return;
     }
     setStarting(false);
-    startedAt.current = Date.now();
+    startedAt.current = deadline(0);
     setQueue(tasks);
     setIndex(0);
     setAnswers({});
@@ -280,7 +296,16 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
     enterStage(firstStage(queue[next]), queue[next]);
   }
 
+  /** Free the previous run's playback URLs. */
+  function revokeUrls() {
+    urls.current.forEach((u) => URL.revokeObjectURL(u));
+    urls.current = [];
+  }
+
   async function submit() {
+    // Every answer is recorded by now; turn the mic (and its browser indicator) off.
+    closeMicrophone(stream.current);
+    stream.current = null;
     setPhase("grading");
     setError(null);
     const meta = {
@@ -302,8 +327,6 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
     });
     const outcome = await requestFeedback(meta, audio);
     if ("result" in outcome) {
-      closeMicrophone(stream.current);
-      stream.current = null;
       setResult(outcome.result);
       setPhase("results");
       window.scrollTo({ top: 0 });
@@ -370,7 +393,7 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
         </p>
       ) : null}
       {phase === "error" && error ? (
-        <FeedbackErrorPanel error={error} canEdit={false} onRetry={() => void submit()} onEdit={restart} />
+        <FeedbackErrorPanel error={error} canEdit={false} onRetry={() => void submit()} onDiscard={restart} />
       ) : null}
 
       {phase === "task" && task ? (
@@ -380,7 +403,8 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
               task={task}
               choice={choices[task.id]}
               onChoose={
-                stage === "choose" || (stage === "prep" && !task.chooseSeconds && task.options)
+                // Options stay selectable during prep, so a choose timer that runs out isn't final.
+                task.options && (stage === "choose" || stage === "prep")
                   ? (c) => setChoices((prev) => ({ ...prev, [task.id]: c }))
                   : undefined
               }
@@ -404,8 +428,8 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
             {stage === "prep" ? (
               <>
                 <p>Plan your answer. Recording starts automatically when preparation ends.</p>
-                {task.options && !task.chooseSeconds ? (
-                  <p className="text-muted">Decide which option you&apos;ll talk about and mention it clearly.</p>
+                {task.options && !choices[task.id] ? (
+                  <p className="text-warn">Pick the option you&apos;ll talk about, and say it clearly in your answer.</p>
                 ) : null}
                 <button
                   type="button"
@@ -418,8 +442,10 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
             ) : null}
             {stage === "speak" ? (
               <>
-                <p className="font-medium text-warn">Recording… speak now.</p>
-                <p className="text-muted" aria-live="polite">
+                <p role="status" className="font-medium text-warn">
+                  Recording… speak now.
+                </p>
+                <p className="text-muted">
                   {countWords(heard)} words recognized so far
                 </p>
                 <button
@@ -431,7 +457,11 @@ export function SpeakingRunner({ set, track }: { set: SpeakingSet; track: Track 
                 </button>
               </>
             ) : null}
-            {stage === "saving" ? <p className="text-muted">Saving your answer…</p> : null}
+            {stage === "saving" ? (
+              <p role="status" className="text-muted">
+                Saving your answer…
+              </p>
+            ) : null}
             {stage === "done" && answer ? (
               <>
                 <p className="font-medium">

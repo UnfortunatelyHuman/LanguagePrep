@@ -15,3 +15,6 @@ export type FeedbackError = {
   message: string;
   retryAfterSeconds?: number;
 };
+
+/** How long the browser waits for a grading request (the server stops at ~3 min). */
+export const REQUEST_TIMEOUT_MS = 240_000;

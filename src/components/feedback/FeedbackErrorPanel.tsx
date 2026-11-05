@@ -27,12 +27,17 @@ export function FeedbackErrorPanel({
   onRetry,
   onEdit,
   editLabel = "Keep writing",
+  onDiscard,
+  discardLabel = "Discard and start over",
 }: {
   error: FeedbackError;
   canEdit: boolean;
   onRetry: () => void;
-  onEdit: () => void;
+  onEdit?: () => void;
   editLabel?: string;
+  /** Always offered, so the panel is never a dead end. */
+  onDiscard: () => void;
+  discardLabel?: string;
 }) {
   const retryable = error.kind !== "too_short" && error.kind !== "bad_request";
   return (
@@ -51,11 +56,20 @@ export function FeedbackErrorPanel({
             Try again
           </button>
         ) : null}
-        {canEdit ? (
+        {canEdit && onEdit ? (
           <button type="button" onClick={onEdit} className="rounded-lg border border-border bg-surface px-3 py-1.5 font-medium">
             {editLabel}
           </button>
         ) : null}
+        <button
+          type="button"
+          onClick={() => {
+            if (window.confirm("Discard this attempt? Your answers won't be saved.")) onDiscard();
+          }}
+          className="rounded-lg px-3 py-1.5 font-medium text-muted hover:text-foreground"
+        >
+          {discardLabel}
+        </button>
       </div>
     </section>
   );

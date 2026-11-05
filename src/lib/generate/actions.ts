@@ -6,7 +6,7 @@ import { z } from "zod";
 import { isAiError } from "@/lib/ai";
 import { isTrack } from "@/lib/exams";
 import { findGenerateOption } from "./kinds";
-import { generateSet } from "./sets";
+import { SetFormatError, generateSet } from "./sets";
 
 export type GenerateState = { error: string | null };
 
@@ -34,7 +34,12 @@ export async function generateSetAction(_prev: GenerateState, form: FormData): P
       return { error: error.message };
     }
     console.error("[generate] failed", error);
-    return { error: "The AI's set didn't pass the format checks. Please try again." };
+    return {
+      error:
+        error instanceof SetFormatError
+          ? "The AI's set didn't pass the format checks. Please try again."
+          : "Something went wrong on the server while saving the set. Please try again.",
+    };
   }
 
   revalidatePath(`/${track}`, "layout");

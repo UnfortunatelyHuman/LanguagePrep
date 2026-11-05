@@ -1,9 +1,9 @@
 import type { TrendPoint } from "@/lib/progress";
 
-/** Fixed level axis so the four small multiples compare at a glance. */
-const Y_MIN = 3;
+/** Fixed level axis (the whole CLB/NCLC range) so the small multiples compare at a glance. */
+const Y_MIN = 1;
 const Y_MAX = 12;
-const GRID = [4, 6, 8, 10, 12];
+const GRID = [2, 4, 6, 8, 10, 12];
 
 const W = 320;
 const H = 150;
@@ -22,8 +22,11 @@ const shortDate = (d: Date) => d.toLocaleDateString("en-CA", { month: "short", d
  * attempt (practice is irregular, so a time axis would bunch them up).
  * Hovering a point shows its date and level via the native SVG tooltip.
  */
+/** Most recent attempts drawn; beyond this the 8px markers overlap. */
+const MAX_POINTS = 20;
+
 export function TrendChart({
-  points,
+  points: allPoints,
   target,
   scale,
   title,
@@ -33,6 +36,7 @@ export function TrendChart({
   scale: string;
   title: string;
 }) {
+  const points = allPoints.slice(-MAX_POINTS);
   const x = (i: number) =>
     points.length === 1 ? M.left + PLOT_W / 2 : M.left + (PLOT_W * i) / (points.length - 1);
   const path = points.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.level).toFixed(1)}`).join("");

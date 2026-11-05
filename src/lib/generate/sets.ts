@@ -11,6 +11,14 @@ import type { WritingSet } from "@/lib/writing/types";
 import { BUILDERS } from "./builders";
 import { AI_SET_PREFIX, isGeneratedSetId, type GenerateOption } from "./kinds";
 
+/** The AI's set broke the exam format (as opposed to a provider or database failure). */
+export class SetFormatError extends Error {
+  constructor(cause: unknown) {
+    super("Generated set failed validation", { cause });
+    this.name = "SetFormatError";
+  }
+}
+
 const SYSTEM = `You write ORIGINAL practice material for Canadian immigration language tests (CELPIP-General and TCF Canada).
 Never copy or paraphrase official or commercial prep material. Use realistic, everyday Canadian situations
 (work, housing, community, family, services), neutral and inclusive, no brand names, no sensitive or
@@ -57,11 +65,15 @@ export async function generateSet(
   try {
     // Builders are typed per kind; the union here is safe because b and data match.
     const set = (b.build as (id: string, d: unknown) => WritingSet | SpeakingSet)(setId, data);
-    if (option.skill === "writing") validateWritingSet(set as WritingSet);
-    else validateSpeakingSet(set as SpeakingSet);
+    try {
+      if (option.skill === "writing") validateWritingSet(set as WritingSet);
+      else validateSpeakingSet(set as SpeakingSet);
+    } catch (error) {
+      throw new SetFormatError(error);
+    }
     await prisma.generatedSet.update({ where: { id: row.id }, data: { title: set.title, data: set } });
   } catch (error) {
-    await prisma.generatedSet.delete({ where: { id: row.id } });
+    await prisma.generatedSet.delete({ where: { id: row.id } }).catch(() => undefined);
     throw error;
   }
   return { id: setId, skill: option.skill };

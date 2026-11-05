@@ -2,8 +2,9 @@ import "server-only";
 import { io } from "next/cache";
 import { examKey } from "@/lib/attempts";
 import type { Track } from "@/lib/exams";
+import { listMockExams } from "@/lib/mock";
 import { prisma } from "@/lib/prisma";
-import type { PlanSettings } from "@/lib/study-plan";
+import type { LatestMock, PlanSettings } from "@/lib/study-plan";
 
 export const DEFAULT_DAILY_MINUTES = 45;
 
@@ -17,13 +18,8 @@ export async function studySettings(track: Track): Promise<PlanSettings> {
   };
 }
 
-/** Start of the most recent mock exam on this track, for the final-week plan. */
-export async function lastMockStart(track: Track): Promise<Date | null> {
-  await io();
-  const row = await prisma.mockExam.findFirst({
-    where: { exam: examKey(track) },
-    orderBy: { startedAt: "desc" },
-    select: { startedAt: true },
-  });
-  return row?.startedAt ?? null;
+/** The most recent mock exam on this track and whether it's finished, for the final-week plan. */
+export async function latestMock(track: Track): Promise<LatestMock | null> {
+  const [mock] = await listMockExams(track, 1);
+  return mock ? { id: mock.id, startedAt: mock.startedAt, complete: mock.outcome.complete } : null;
 }

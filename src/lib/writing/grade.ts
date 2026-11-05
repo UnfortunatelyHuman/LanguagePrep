@@ -100,7 +100,7 @@ ${describeTask(task)}
 
 Candidate's text (${countWords(text)} words, counted by the exam software):
 <candidate_text>
-${text.trim() || "[left blank]"}
+${text.replace(/<\/?candidate_text>/gi, "").trim() || "[left blank]"}
 </candidate_text>`;
     })
     .join("\n\n");

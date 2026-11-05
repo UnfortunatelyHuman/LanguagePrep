@@ -1,16 +1,8 @@
 import Link from "next/link";
+import { Suspense } from "react";
+import { ActiveNav, NavList } from "@/components/MainNav";
 import { TrackSwitch } from "@/components/TrackSwitch";
 import { getTrack, type Track } from "@/lib/exams";
-
-/** Main sections, relative to the track root. */
-const NAV = [
-  { href: "", label: "Dashboard" },
-  { href: "/progress", label: "Progress" },
-  { href: "/plan", label: "Study plan" },
-  { href: "/mock", label: "Mock exam" },
-  { href: "/phrases", label: "Phrases" },
-  { href: "/generate", label: "New AI sets" },
-];
 
 export function AppHeader({ track }: { track: Track }) {
   const { exam, language } = getTrack(track);
@@ -27,17 +19,9 @@ export function AppHeader({ track }: { track: Track }) {
           </span>
         </Link>
         <TrackSwitch current={track} />
-        <nav aria-label="Main" className="-mx-1 flex w-full gap-1 overflow-x-auto text-sm">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={`/${track}${item.href}`}
-              className="shrink-0 rounded-md px-2 py-1 text-muted hover:bg-surface-subtle hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <Suspense fallback={<NavList track={track} pathname={null} />}>
+          <ActiveNav track={track} />
+        </Suspense>
       </div>
     </header>
   );
