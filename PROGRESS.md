@@ -19,8 +19,8 @@ tick items as they land and note anything half-done under "In flight".
 - [x] Routes: `/[lang]/speaking`, `/[lang]/speaking/[setId]`, `/[lang]/speaking/attempts/[attemptId]` (instant = false)
 
 ## Phase 6: Progress
-- [ ] `/[lang]/progress`: per-skill trend charts, latest estimated level vs target, weakest-skill highlight
-- [ ] Dashboard link
+- [x] `/[lang]/progress`: per-skill trend charts, latest estimated level vs target, weakest-skill highlight
+- [x] Dashboard link
 
 ## Phase 7: Extras
 - [ ] Vocabulary / phrase bank (French connectors, CELPIP email phrases) with search + self-test
