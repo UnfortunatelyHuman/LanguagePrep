@@ -26,6 +26,6 @@ async function generateJSON(request: JsonRequest): Promise<string> {
 
 export const anthropic: ProviderAdapter = {
   name: "anthropic",
-  defaultModel: "claude-sonnet-5-5",
+  defaultModels: ["claude-sonnet-5-5"],
   generateJSON,
 };

@@ -141,8 +141,24 @@ async function generateJSON(request: JsonRequest): Promise<string> {
   }
 }
 
+/**
+ * Tried in order when AI_MODEL is empty. On the free tier each model has its
+ * own daily quota, so a long list keeps working after the first ones run out;
+ * the Flash-Lite models come last (cheaper, a little weaker at grading).
+ */
+const DEFAULT_MODELS = [
+  "gemini-3.8-flash",
+  "gemini-3.7-flash",
+  "gemini-3.6-flash",
+  "gemini-3.5-flash",
+  "gemini-2.5-flash",
+  "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-2.5-flash-lite",
+];
+
 export const gemini: ProviderAdapter = {
   name: "gemini",
-  defaultModel: "gemini-3.5-flash",
+  defaultModels: DEFAULT_MODELS,
   generateJSON,
 };

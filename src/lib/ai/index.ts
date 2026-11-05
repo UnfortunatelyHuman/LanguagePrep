@@ -1,9 +1,10 @@
 import "server-only";
 import { z } from "zod";
-import { aiModels, aiProvider } from "./config";
+import { aiFallbackProviders, aiModels, aiProvider } from "./config";
 import { AiError } from "./errors";
 import { anthropic } from "./providers/anthropic";
 import { gemini } from "./providers/gemini";
+import { mock } from "./providers/mock";
 import { openaiCompatible } from "./providers/openai-compatible";
 import type { AiProviderName, GenerateOptions, JsonRequest, ProviderAdapter } from "./types";
 
@@ -19,6 +20,7 @@ const ADAPTERS: Record<AiProviderName, ProviderAdapter> = {
   gemini,
   anthropic,
   "openai-compatible": openaiCompatible,
+  mock,
 };
 
 /** Pause before retrying the last model when every model is overloaded. */
@@ -39,17 +41,42 @@ function outOfTime(): AiError {
   });
 }
 
-/** Provider in use and the models to try, in order. */
-export function activeModels(): { provider: AiProviderName; models: string[] } {
-  const adapter = ADAPTERS[aiProvider()];
-  const models = aiModels(adapter.defaultModel);
-  if (!models.length) {
-    throw new AiError(
-      "config",
-      `AI_MODEL isn't set. The ${adapter.name} provider needs a model name in .env.local.`,
-    );
+type Step = { provider: AiProviderName; models: string[] };
+
+/**
+ * Providers to try, in order, each with its models: the main one (AI_PROVIDER
+ * + AI_MODEL), then any in AI_FALLBACK_PROVIDERS with AI_FALLBACK_MODEL.
+ */
+export function activeChain(): Step[] {
+  const primary = aiProvider();
+  const steps: Step[] = [{ provider: primary, models: aiModels("AI_MODEL", ADAPTERS[primary].defaultModels) }];
+  if (!steps[0].models.length) {
+    throw new AiError("config", `AI_MODEL isn't set. The ${primary} provider needs a model name in .env.local.`);
   }
-  return { provider: adapter.name, models };
+  for (const provider of aiFallbackProviders(primary)) {
+    const models = aiModels("AI_FALLBACK_MODEL", ADAPTERS[provider].defaultModels);
+    if (!models.length) {
+      throw new AiError(
+        "config",
+        `AI_FALLBACK_MODEL isn't set. The ${provider} fallback provider needs a model name in .env.local.`,
+      );
+    }
+    steps.push({ provider, models });
+  }
+  return steps;
+}
+
+/**
+ * Hand over to the next provider only when the whole main list is out of
+ * quota or overloaded (or timing out); bad keys and config errors don't move on.
+ */
+function shouldFallBack(error: AiError): boolean {
+  return (
+    error.kind === "rate_limit" ||
+    error.modelProblem === "rate_limited" ||
+    error.modelProblem === "overloaded" ||
+    error.modelProblem === "timeout"
+  );
 }
 
 /**
@@ -106,21 +133,21 @@ async function callWithFallback(
         // Keep the rate-limit kind and wait time so the UI can say how long to wait.
         throw new AiError(
           "rate_limit",
-          `Every model in AI_MODEL is busy or out of quota (${problems.join(", ")}). ${error.message}`,
-          { cause: error, retryAfterSeconds: error.retryAfterSeconds },
+          `Every ${adapter.name} model is busy or out of quota (${problems.join(", ")}). ${error.message}`,
+          { cause: error, retryAfterSeconds: error.retryAfterSeconds, modelProblem: "rate_limited" },
         );
       }
       throw new AiError(
         error.modelProblem === "unavailable" ? "config" : "provider",
-        `None of the models in AI_MODEL could answer: ${problems.join(", ")}. ` +
+        `None of the ${adapter.name} models could answer: ${problems.join(", ")}. ` +
           (error.modelProblem === "unavailable"
-            ? "Check AI_MODEL in .env.local and restart the dev server."
+            ? "Check the model names in .env.local and restart the dev server."
             : "Try again in a moment."),
-        { cause: error },
+        { cause: error, modelProblem: error.modelProblem },
       );
     }
   }
-  throw new AiError("config", "AI_MODEL lists no models.");
+  throw new AiError("config", `No models are configured for ${adapter.name}.`);
 }
 
 /** Models occasionally wrap JSON in a ```json fence despite JSON mode. */
@@ -135,6 +162,42 @@ export type JsonOptions = GenerateOptions & {
 };
 
 /**
+ * Try each provider in the chain in turn (each with its own model list), from
+ * `start`. Moves on only when a provider is out of quota or overloaded.
+ */
+async function callChain(
+  chain: Step[],
+  start: { step: number; model: number },
+  request: Omit<JsonRequest, "model">,
+  deadline: number,
+): Promise<{ text: string; model: string; step: number }> {
+  let firstError: AiError | null = null;
+  for (let step = start.step; step < chain.length; step++) {
+    const { provider, models } = chain[step];
+    const from = step === start.step ? start.model : 0;
+    try {
+      const { text, model } = await callWithFallback(ADAPTERS[provider], models.slice(from), request, deadline);
+      return { text, model, step };
+    } catch (caught) {
+      if (!(caught instanceof AiError)) throw caught;
+      if (firstError) {
+        // A fallback failed too: say both, keep the main provider's kind (and wait time).
+        throw new AiError(
+          firstError.kind,
+          `${firstError.message} The fallback (${provider}) didn't work either: ${caught.message}`,
+          { cause: caught, retryAfterSeconds: firstError.retryAfterSeconds, modelProblem: firstError.modelProblem },
+        );
+      }
+      const next = chain[step + 1];
+      if (!next || !shouldFallBack(caught)) throw caught;
+      firstError = caught;
+      console.warn(`[ai] ${provider}: ${caught.modelProblem ?? caught.kind}; falling back to ${next.provider}`);
+    }
+  }
+  throw firstError ?? new AiError("config", "No AI provider is configured.");
+}
+
+/**
  * Ask the configured model(s) for JSON matching `schema`, and return it parsed
  * and validated. If the reply doesn't parse or validate, ask once more, telling
  * the model what was wrong. Throws AiError for every failure.
@@ -144,28 +207,23 @@ export async function generateJSON<T extends z.ZodType>(
   schema: T,
   { onModel, ...options }: JsonOptions = {},
 ): Promise<z.output<T>> {
-  const { provider, models } = activeModels();
-  const adapter = ADAPTERS[provider];
+  const chain = activeChain();
   const deadline = Date.now() + TOTAL_TIMEOUT_MS;
   const jsonSchema = z.toJSONSchema(schema, { io: "output", unrepresentable: "any" }) as Record<
     string,
     unknown
   >;
 
-  let candidates = models;
+  let start = { step: 0, model: 0 };
   let lastProblem = "";
   for (let attempt = 0; attempt < 2; attempt++) {
     if (attempt > 0 && deadline - Date.now() < MIN_CALL_MS) break;
     const fullPrompt = lastProblem
       ? `${prompt}\n\nYour previous answer was rejected: ${lastProblem}\nReply again with JSON that matches the schema exactly.`
       : prompt;
-    const { text, model } = await callWithFallback(adapter, candidates, {
-      ...options,
-      prompt: fullPrompt,
-      jsonSchema,
-    }, deadline);
-    // A corrective retry starts from the model that just answered.
-    candidates = models.slice(models.indexOf(model));
+    const { text, model, step } = await callChain(chain, start, { ...options, prompt: fullPrompt, jsonSchema }, deadline);
+    // A corrective retry starts from the provider and model that just answered.
+    start = { step, model: chain[step].models.indexOf(model) };
 
     let data: unknown;
     try {
@@ -176,7 +234,7 @@ export async function generateJSON<T extends z.ZodType>(
     }
     const result = schema.safeParse(data);
     if (result.success) {
-      onModel?.(model);
+      onModel?.(step === 0 ? model : `${chain[step].provider}:${model}`);
       return result.data;
     }
     lastProblem = z.prettifyError(result.error).slice(0, 1500);

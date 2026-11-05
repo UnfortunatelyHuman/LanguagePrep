@@ -35,6 +35,35 @@ To add a paper to the app's own content instead, put a JSON file in `content/` a
 in `src/lib/practice/content.ts`. Full-length papers must have exactly 38 (CELPIP) or
 39 (TCF) questions, and the build checks this.
 
+## AI providers
+
+All AI calls (writing and speaking feedback, the TCF examiner, generated sets) go through
+`generateJSON()` in `src/lib/ai/`. Settings go in `.env.local`; see `.env.example`.
+
+| `AI_PROVIDER` | What it uses |
+|---|---|
+| `gemini` (default) | `GEMINI_API_KEY`. Models from `AI_MODEL`, or the built-in list: 3.8/3.7/3.6/3.5 Flash, 2.5 Flash, then the Flash-Lite models. Free-tier quotas are per model, so the list keeps working as models run out. |
+| `openai-compatible` | Any OpenAI-style `/chat/completions` server (Groq, OpenRouter, Ollama, LM Studio…): `AI_BASE_URL`, `AI_API_KEY`, `AI_MODEL`. Uses structured output, and switches to JSON mode for servers that don't support it. |
+| `mock` | Realistic fake feedback, no network and no quota. Use it for all automated tests: `AI_PROVIDER=mock npm run dev`. `AI_MOCK_ERROR=rate_limit` or `overloaded` simulates failures. |
+| `anthropic` | Stub, not finished. |
+
+**Fallback.** With `AI_FALLBACK_PROVIDERS=openai-compatible` and `AI_FALLBACK_MODEL=…`,
+when every model of the main provider is out of quota (429), overloaded or timing out,
+the request moves to the fallback provider and its models. Bad keys and config errors
+don't fall back, so they stay visible. Example with Groq:
+
+```bash
+AI_FALLBACK_PROVIDERS=openai-compatible
+AI_BASE_URL=https://api.groq.com/openai/v1
+AI_API_KEY=...            # your Groq key
+AI_FALLBACK_MODEL=llama-3.3-70b-versatile
+```
+
+Speaking is graded from the browser's transcript, never from the audio, so it works the
+same with every provider; recordings are only kept for playback.
+
+`GEMINI.md` imports `CLAUDE.md`, so Gemini CLI follows the same project plan.
+
 ## Running it
 
 ```bash
@@ -76,8 +105,7 @@ prisma/schema.prisma
   CELPIP or TCF results.
 - The TCF band minimums in `src/lib/exams.ts` are approximate — verify current
   thresholds on canada.ca.
-- `.env` and `.env.local` are gitignored. `ANTHROPIC_API_KEY` goes in `.env.local`
-  from phase 4 onward.
+- `.env` and `.env.local` are gitignored; API keys go in `.env.local`.
 - Database reads go through `await io()` so attempt history is read per request
   instead of being baked into the prerendered shell (better-sqlite3 is a
   synchronous driver).

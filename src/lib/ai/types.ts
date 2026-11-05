@@ -1,5 +1,5 @@
 /** Names accepted in AI_PROVIDER. */
-export const AI_PROVIDERS = ["gemini", "anthropic", "openai-compatible"] as const;
+export const AI_PROVIDERS = ["gemini", "anthropic", "openai-compatible", "mock"] as const;
 export type AiProviderName = (typeof AI_PROVIDERS)[number];
 
 /** Options every adapter understands. All optional. */
@@ -26,6 +26,7 @@ export type JsonRequest = GenerateOptions & {
  */
 export type ProviderAdapter = {
   name: AiProviderName;
-  defaultModel: string;
+  /** Models tried, in order, when no model is configured. Empty: one must be set. */
+  defaultModels: string[];
   generateJSON(request: JsonRequest): Promise<string>;
 };

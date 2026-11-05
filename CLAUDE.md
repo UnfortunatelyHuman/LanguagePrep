@@ -31,6 +31,8 @@ Personal practice app for Canadian PR (Express Entry) language tests.
 - Speaking: `MediaRecorder` to record, Web Speech API (`SpeechRecognition`) to transcribe, using Chrome or Edge
 - AI scoring and feedback for writing and speaking, plus generating new questions, go through a provider-agnostic layer in `src/lib/ai/`. App code calls only `generateJSON(prompt, schema)` from `@/lib/ai` (it returns JSON validated against a zod schema) and never imports a provider SDK directly.
   - `AI_PROVIDER` selects the adapter: `gemini` (default, `@google/genai`, key in `GEMINI_API_KEY`), `anthropic` (`ANTHROPIC_API_KEY`), or `openai-compatible` for OpenRouter/Groq/Ollama (`AI_BASE_URL` + `AI_API_KEY`). `AI_MODEL` picks the model, or a comma-separated fallback list: if a model is overloaded (503) or retired, the next one is tried.
+  - `AI_FALLBACK_PROVIDERS` (e.g. `openai-compatible`) with `AI_FALLBACK_MODEL`: when every model of the main provider is out of quota (429) or overloaded, the request moves to the next provider.
+  - `AI_PROVIDER=mock` returns realistic fake answers with no API call. **All automated tests must run with `AI_PROVIDER=mock`** so they never use real quota (`AI_MOCK_ERROR=rate_limit|overloaded` simulates failures).
   - Keys live in `.env.local`, which must never be committed.
 - Mobile-friendly (responsive) so it can be used on a phone
 
