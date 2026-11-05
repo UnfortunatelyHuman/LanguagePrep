@@ -133,6 +133,11 @@ function Intro({
           Chrome or Edge to practise speaking.
         </p>
       ) : null}
+      {starting ? (
+        <p role="status" className="text-sm text-muted">
+          If your browser shows a permission prompt, choose <strong>Allow</strong> to use the microphone.
+        </p>
+      ) : null}
       {micMessage ? (
         <p role="alert" className="rounded-lg bg-warn/10 p-3 text-sm text-warn">
           {micMessage}
@@ -146,7 +151,7 @@ function Intro({
           onClick={() => onStart(set.tasks)}
           className="rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white disabled:opacity-50"
         >
-          {starting ? "Starting the microphone…" : `Start the full test (${set.tasks.length} tasks)`}
+          {starting ? "Waiting for the microphone…" : `Start the full test (${set.tasks.length} tasks)`}
         </button>
       </div>
 

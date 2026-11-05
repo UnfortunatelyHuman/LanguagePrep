@@ -3,17 +3,19 @@ import { skillAttempts } from "@/lib/attempts";
 import type { SkillId, Track } from "@/lib/exams";
 import { formatClock } from "@/lib/practice/numbering";
 import { isPracticeSkill, testSets } from "@/lib/practice/content";
+import { listGeneratedSets } from "@/lib/generate/sets";
 import { speakingSets } from "@/lib/speaking/content";
 import { writingSets } from "@/lib/writing/content";
 
-/** Set id → title for the skill, so history rows read as names, not ids. */
-function setTitles(track: Track, skill: SkillId): Map<string, string> {
-  const sets = isPracticeSkill(skill)
-    ? testSets(track, skill)
-    : skill === "writing"
-      ? writingSets(track)
-      : speakingSets(track);
-  return new Map(sets.map((s) => [s.id, s.title]));
+/** Set id → title for the skill (file sets and AI-generated ones), so rows read as names. */
+async function setTitles(track: Track, skill: SkillId): Promise<Map<string, string>> {
+  if (isPracticeSkill(skill)) return new Map(testSets(track, skill).map((s) => [s.id, s.title]));
+  const files = skill === "writing" ? writingSets(track) : speakingSets(track);
+  const generated = await listGeneratedSets(track, skill);
+  return new Map([
+    ...files.map((s) => [s.id, s.title] as const),
+    ...generated.map((g) => [g.setId, `${g.title} (AI)`] as const),
+  ]);
 }
 
 function formatScore(score: number | null, maxScore: number | null): string {
@@ -28,7 +30,7 @@ export async function AttemptHistory({ track, skill }: { track: Track; skill: Sk
     return <p className="text-sm text-muted">No {skill} attempts yet.</p>;
   }
 
-  const titles = setTitles(track, skill);
+  const titles = await setTitles(track, skill);
   // AI feedback is worth rereading, so writing and speaking rows open the saved review.
   const reviewable = skill === "writing" || skill === "speaking";
 

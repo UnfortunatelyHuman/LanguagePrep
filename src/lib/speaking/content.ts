@@ -30,8 +30,8 @@ const TCF_RULES: Rule[] = [
 const NEEDS_SCENE = new Set<SpeakingKind>(["celpip-scene", "celpip-predictions", "celpip-unusual"]);
 const NEEDS_OPTIONS = new Set<SpeakingKind>(["celpip-compare", "celpip-difficult"]);
 
-/** Fails the build if a speaking file doesn't match the real exam's structure. */
-function validate(set: SpeakingSet): SpeakingSet {
+/** Throws if a speaking set breaks the real exam's structure (build time for files, runtime for AI sets). */
+export function validateSpeakingSet(set: SpeakingSet): SpeakingSet {
   const fail = (msg: string): never => {
     throw new Error(`Speaking set ${set.id}: ${msg}`);
   };
@@ -61,8 +61,8 @@ function validate(set: SpeakingSet): SpeakingSet {
 }
 
 const SETS: Record<Track, SpeakingSet[]> = {
-  en: [celpipSet1, celpipSet2].map((s) => validate(s as SpeakingSet)),
-  fr: [tcfSet1, tcfSet2, tcfSet3, tcfSet4].map((s) => validate(s as SpeakingSet)),
+  en: [celpipSet1, celpipSet2].map((s) => validateSpeakingSet(s as SpeakingSet)),
+  fr: [tcfSet1, tcfSet2, tcfSet3, tcfSet4].map((s) => validateSpeakingSet(s as SpeakingSet)),
 };
 
 export function speakingSets(track: Track): SpeakingSet[] {

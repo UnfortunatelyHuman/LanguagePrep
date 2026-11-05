@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { isTrack } from "@/lib/exams";
-import { findWritingSet } from "@/lib/writing/content";
+import { resolveWritingSet } from "@/lib/generate/sets";
 import { gradeWriting } from "@/lib/writing/grade";
 import { saveWritingAttempt } from "@/lib/writing/store";
 import { clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     const { track, setId, durationSeconds } = parsed.data;
 
     if (!isTrack(track)) return fail(400, "bad_request", "Unknown exam track.");
-    const set = findWritingSet(track, setId);
+    const set = await resolveWritingSet(track, setId);
     if (!set) return fail(404, "bad_request", "That writing set doesn't exist.");
 
     // Keep only this set's tasks, trimmed to a sane length.

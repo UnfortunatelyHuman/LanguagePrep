@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { SpeakingRunner } from "@/components/speaking/SpeakingRunner";
 import { isTrack } from "@/lib/exams";
-import { findSpeakingSet, speakingSets } from "@/lib/speaking/content";
+import { resolveSpeakingSet } from "@/lib/generate/sets";
+import { speakingSets } from "@/lib/speaking/content";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -18,7 +19,8 @@ export function generateStaticParams({
 export default async function SpeakingTest({ params }: PageProps<"/[lang]/speaking/[setId]">) {
   const { lang, setId } = await params;
   if (!isTrack(lang)) notFound();
-  const set = findSpeakingSet(lang, setId);
+  // File sets are prerendered; AI-generated ("ai-…") sets load from the database.
+  const set = await resolveSpeakingSet(lang, setId);
   if (!set) notFound();
   return <SpeakingRunner set={set} track={lang} />;
 }

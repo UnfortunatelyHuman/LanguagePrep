@@ -43,8 +43,8 @@ export function activeModels(): { provider: AiProviderName; models: string[] } {
 }
 
 /**
- * Call the adapter with each model in turn. A model that is overloaded, slow
- * or retired hands over to the next one; if the last one is overloaded, wait a
+ * Call the adapter with each model in turn. A model that is overloaded, slow,
+ * out of quota or retired hands over to the next one; if the last one is overloaded, wait a
  * moment and give it one more try. Any other error stops immediately.
  */
 async function callWithFallback(
@@ -82,6 +82,14 @@ async function callWithFallback(
         }
       }
       if (models.length === 1) throw error;
+      if (error.modelProblem === "rate_limited") {
+        // Keep the rate-limit kind and wait time so the UI can say how long to wait.
+        throw new AiError(
+          "rate_limit",
+          `Every model in AI_MODEL is busy or out of quota (${problems.join(", ")}). ${error.message}`,
+          { cause: error, retryAfterSeconds: error.retryAfterSeconds },
+        );
+      }
       throw new AiError(
         error.modelProblem === "unavailable" ? "config" : "provider",
         `None of the models in AI_MODEL could answer: ${problems.join(", ")}. ` +

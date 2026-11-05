@@ -7,7 +7,7 @@ import { prisma } from "@/lib/prisma";
 import { RUBRIC_TARGET, SCORE_RANGE, rubricLevel } from "@/lib/rubric/levels";
 import { dimensionRows } from "@/lib/rubric/schema";
 import { countWords } from "@/lib/writing/words";
-import { findSpeakingSet } from "./content";
+import { resolveSpeakingSet } from "@/lib/generate/sets";
 import type { GradedSpeaking } from "./grade";
 import { saveRecording } from "./recordings";
 import { SPEAKING_DIMENSIONS, wordsPerMinute } from "./rubric";
@@ -144,7 +144,7 @@ export async function loadSpeakingAttempt(
     include: { responses: true },
   });
   if (!attempt?.task) return null;
-  const set = findSpeakingSet(track, attempt.task);
+  const set = await resolveSpeakingSet(track, attempt.task);
   if (!set) return null;
 
   const summaryRow = attempt.responses.find((r) => r.questionId === SUMMARY_ID);

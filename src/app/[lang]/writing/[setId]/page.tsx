@@ -1,7 +1,8 @@
 import { notFound } from "next/navigation";
 import { WritingRunner } from "@/components/writing/WritingRunner";
 import { isTrack } from "@/lib/exams";
-import { findWritingSet, writingSets } from "@/lib/writing/content";
+import { resolveWritingSet } from "@/lib/generate/sets";
+import { writingSets } from "@/lib/writing/content";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -18,7 +19,8 @@ export function generateStaticParams({
 export default async function WritingTest({ params }: PageProps<"/[lang]/writing/[setId]">) {
   const { lang, setId } = await params;
   if (!isTrack(lang)) notFound();
-  const set = findWritingSet(lang, setId);
+  // File sets are prerendered; AI-generated ("ai-…") sets load from the database.
+  const set = await resolveWritingSet(lang, setId);
   if (!set) notFound();
 
   // Prompts hold no secrets (grading happens on the server), so the full set ships.

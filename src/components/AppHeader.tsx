@@ -6,6 +6,10 @@ import { getTrack, type Track } from "@/lib/exams";
 const NAV = [
   { href: "", label: "Dashboard" },
   { href: "/progress", label: "Progress" },
+  { href: "/plan", label: "Study plan" },
+  { href: "/mock", label: "Mock exam" },
+  { href: "/phrases", label: "Phrases" },
+  { href: "/generate", label: "New AI sets" },
 ];
 
 export function AppHeader({ track }: { track: Track }) {

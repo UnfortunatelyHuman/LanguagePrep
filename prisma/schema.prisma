@@ -57,3 +57,58 @@ model Response {
 
   @@index([attemptId])
 }
+
+/// Per-track study settings for the daily plan.
+model StudySettings {
+  /// "celpip" | "tcf"
+  exam         String    @id
+  /// Booked (or planned) test date, if any.
+  examDate     DateTime?
+  /// Minutes per day the learner wants to study.
+  dailyMinutes Int       @default(45)
+  updatedAt    DateTime  @updatedAt
+}
+
+/// Self-test state for one phrase-bank entry.
+model PhraseReview {
+  id        String   @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam      String
+  /// Stable key of the phrase: "<categoryId>:<index>".
+  phraseKey String
+  /// The learner marked it as known in the last self-test.
+  known     Boolean
+  reviews   Int      @default(1)
+  updatedAt DateTime @updatedAt
+
+  @@unique([exam, phraseKey])
+}
+
+/// A full mock exam: the four skills in exam order, one set each.
+model MockExam {
+  id          String    @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam        String
+  /// Ordered steps: [{ skill, setId }]. A step is done when an attempt at that
+  /// set is saved after startedAt.
+  steps       Json
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+
+  @@index([exam, startedAt])
+}
+
+/// A practice set written by the AI (writing or speaking prompts).
+model GeneratedSet {
+  id        String   @id @default(cuid())
+  /// "celpip" | "tcf"
+  exam      String
+  /// "writing" | "speaking"
+  skill     String
+  title     String
+  /// The full WritingSet / SpeakingSet JSON, validated before saving.
+  data      Json
+  createdAt DateTime @default(now())
+
+  @@index([exam, skill, createdAt])
+}

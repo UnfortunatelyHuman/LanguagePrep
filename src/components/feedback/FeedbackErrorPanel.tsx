@@ -17,7 +17,7 @@ const HINTS: Partial<Record<FeedbackErrorKind, string>> = {
   missing_key: "Your work is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
   auth: "Your work is still here. After fixing the key and restarting `npm run dev`, press Try again.",
   config: "Your work is still here. After fixing .env.local and restarting `npm run dev`, press Try again.",
-  rate_limit: "Free tiers allow only a few requests per minute. Your work is still here.",
+  rate_limit: "Free tiers have per-minute and daily limits. Your work is still here.",
 };
 
 /** Explains a failed grading request and offers the next step. Nothing is lost. */

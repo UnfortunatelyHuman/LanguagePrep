@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
+import { GeneratedList } from "@/components/generate/GeneratedList";
 import { AttemptHistory } from "@/components/practice/AttemptHistory";
 import { getTrack, type Track } from "@/lib/exams";
 import { speakingSeconds, speakingSets } from "@/lib/speaking/content";
@@ -46,6 +47,18 @@ export function SpeakingIndex({ track }: { track: Track }) {
             <span className="text-sm font-medium text-accent">Start →</span>
           </Link>
         ))}
+      </section>
+
+      <section className="flex flex-col gap-3">
+        <div className="flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-lg font-semibold tracking-tight">AI-generated sets</h2>
+          <Link href={`/${track}/generate`} className="text-sm font-medium text-accent">
+            Generate a new one →
+          </Link>
+        </div>
+        <Suspense fallback={<p className="text-sm text-muted">Loading…</p>}>
+          <GeneratedList track={track} skill="speaking" empty="None yet." />
+        </Suspense>
       </section>
 
       <section className="flex flex-col gap-3">

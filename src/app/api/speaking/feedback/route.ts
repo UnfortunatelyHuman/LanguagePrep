@@ -2,7 +2,8 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { isTrack } from "@/lib/exams";
 import { clampSeconds, feedbackErrorResponse, feedbackFailure as fail } from "@/lib/feedback/http";
-import { findSpeakingSet, speakingSeconds } from "@/lib/speaking/content";
+import { resolveSpeakingSet } from "@/lib/generate/sets";
+import { speakingSeconds } from "@/lib/speaking/content";
 import { gradeSpeaking } from "@/lib/speaking/grade";
 import { isAcceptedRecording } from "@/lib/speaking/recordings";
 import { saveSpeakingAttempt } from "@/lib/speaking/store";
@@ -50,7 +51,7 @@ export async function POST(request: Request) {
 
     const { track, setId, durationSeconds } = parsed.data;
     if (!isTrack(track)) return fail(400, "bad_request", "Unknown exam track.");
-    const set = findSpeakingSet(track, setId);
+    const set = await resolveSpeakingSet(track, setId);
     if (!set) return fail(404, "bad_request", "That speaking set doesn't exist.");
 
     // Keep only this set's tasks, once each, in set order, with sane values.

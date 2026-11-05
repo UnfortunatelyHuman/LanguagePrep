@@ -38,6 +38,13 @@ function retryDelaySeconds(message: string): number | undefined {
   return match ? Math.ceil(Number(match[1])) : undefined;
 }
 
+/** "Try again in about 40 s" / "about 56 minutes", or a generic hint. */
+function waitText(seconds: number | undefined): string {
+  if (!seconds) return "Wait a minute and try again.";
+  if (seconds < 120) return `Try again in about ${seconds} s.`;
+  return `Try again in about ${Math.ceil(seconds / 60)} minutes (free-tier daily or hourly quota).`;
+}
+
 function toAiError(error: unknown, model: string): AiError {
   if (error instanceof AiError) return error;
   if (error instanceof ApiError) {
@@ -46,8 +53,8 @@ function toAiError(error: unknown, model: string): AiError {
       const wait = retryDelaySeconds(message);
       return new AiError(
         "rate_limit",
-        `Gemini's rate limit or quota was reached.${wait ? ` Try again in about ${wait} s.` : " Wait a minute and try again."}`,
-        { cause: error, retryAfterSeconds: wait },
+        `Gemini's rate limit or quota for "${model}" was reached. ${waitText(wait)}`,
+        { cause: error, retryAfterSeconds: wait, modelProblem: "rate_limited" },
       );
     }
     if (status === 401 || status === 403 || /API key not valid|API_KEY_INVALID/i.test(message)) {

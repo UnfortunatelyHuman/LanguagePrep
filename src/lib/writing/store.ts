@@ -4,7 +4,7 @@ import { z } from "zod";
 import { examKey } from "@/lib/attempts";
 import type { Track } from "@/lib/exams";
 import { prisma } from "@/lib/prisma";
-import { findWritingSet } from "./content";
+import { resolveWritingSet } from "@/lib/generate/sets";
 import { keepParagraphs } from "./diff";
 import type { GradedWriting } from "./grade";
 import { RUBRIC_TARGET, SCORE_RANGE, rubricLevel } from "@/lib/rubric/levels";
@@ -122,7 +122,7 @@ export async function loadWritingAttempt(
     include: { responses: true },
   });
   if (!attempt?.task) return null;
-  const set = findWritingSet(track, attempt.task);
+  const set = await resolveWritingSet(track, attempt.task);
   if (!set) return null;
 
   const summaryRow = attempt.responses.find((r) => r.questionId === SUMMARY_ID);

@@ -23,15 +23,15 @@ tick items as they land and note anything half-done under "In flight".
 - [x] Dashboard link
 
 ## Phase 7: Extras
-- [ ] Vocabulary / phrase bank (French connectors, CELPIP email phrases) with search + self-test
-- [ ] Daily study plan (from attempts: weakest + least recently practised skill; optional exam date)
-- [ ] Full mock exams (all four skills in order, with progress through the steps)
-- [ ] AI-generated fresh question sets (writing + speaking prompts via `lib/ai`, validated, saved, runnable)
+- [x] Vocabulary / phrase bank (French connectors, CELPIP email phrases) with search + self-test
+- [x] Daily study plan (from attempts: weakest + least recently practised skill; optional exam date)
+- [x] Full mock exams (all four skills in order, with progress through the steps)
+- [x] AI-generated fresh question sets (writing + speaking prompts via `lib/ai`, validated, saved, runnable)
 
 ## Quality gates (after each phase)
-- [ ] lint + build clean, commit
-- [ ] Manual browser test as a user
+- [x] lint + build clean, commit
+- [x] Manual browser test as a user (headless Chrome via puppeteer; speaking with stubbed mic/recognition)
 - [ ] Code review (agents) and fixes
 
 ## In flight
-- Phase 5 committed; browser test + code review of phases 4–5 pending (do with phases 6–7 review pass)
+- Phase 7 committed; code review of phases 4–7 (agents) + fixes next

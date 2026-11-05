@@ -16,8 +16,8 @@ const KIND_RULES: Record<WritingKind, { min: number; max: number }> = {
   "tcf-argument": { min: 120, max: 180 },
 };
 
-/** Fails the build if a prompt file is malformed. */
-function validate(set: WritingSet): WritingSet {
+/** Throws if a writing set breaks the real exam's rules (build time for files, runtime for AI sets). */
+export function validateWritingSet(set: WritingSet): WritingSet {
   const fail = (msg: string) => {
     throw new Error(`Writing set ${set.id}: ${msg}`);
   };
@@ -49,8 +49,8 @@ function validate(set: WritingSet): WritingSet {
 }
 
 const SETS: Record<Track, WritingSet[]> = {
-  en: [...(celpipEmail as WritingSet[]), ...(celpipSurvey as WritingSet[])].map(validate),
-  fr: [tcfSet1, tcfSet2, tcfSet3, tcfSet4].map((s) => validate(s as WritingSet)),
+  en: [...(celpipEmail as WritingSet[]), ...(celpipSurvey as WritingSet[])].map(validateWritingSet),
+  fr: [tcfSet1, tcfSet2, tcfSet3, tcfSet4].map((s) => validateWritingSet(s as WritingSet)),
 };
 
 export function writingSets(track: Track): WritingSet[] {
