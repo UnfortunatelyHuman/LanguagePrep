@@ -33,6 +33,16 @@ export default async function LearnPage({ params }: PageProps<"/[lang]/learn">) 
         <span className="text-sm font-semibold text-accent">Open →</span>
       </Link>
       <Link
+        href="/fr/learn/chat"
+        className="flex flex-col gap-1 rounded-xl border border-border bg-surface p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
+      >
+        <span>
+          <span className="block font-semibold">Conversation partner</span>
+          <span className="block text-sm text-muted">Role-play in French with gentle corrections after each message.</span>
+        </span>
+        <span className="text-sm font-semibold text-accent">Open →</span>
+      </Link>
+      <Link
         href="/fr/learn/placement"
         className="flex flex-col gap-1 rounded-xl border border-border bg-surface p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
       >

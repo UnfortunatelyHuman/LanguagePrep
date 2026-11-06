@@ -1,15 +1,25 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { isAiError } from "@/lib/ai";
 import { ResultsSchema, saveExerciseResults } from "./attempts";
-import { addLessonCards, countActivity, reviewCard, saveCourseSettings } from "./cards";
+import { addCards, addLessonCards, countActivity, reviewCard, saveCourseSettings } from "./cards";
+import {
+  ConversationClosed,
+  MAX_MESSAGE_CHARS,
+  deleteConversation,
+  endConversation,
+  sendMessage,
+  startConversation,
+  type StoredConversation,
+} from "./conversation";
 import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
 import { GRADES, type Grade } from "./srs";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
 import { missingLevels, savePlacement, writeLevel } from "./placement-store";
 import { TOTAL_QUESTIONS } from "./placement";
-import { CEFR_LEVELS, getLesson, getUnit, type Cefr } from "./syllabus";
+import { CEFR_LEVELS, getLesson, getScenario, getUnit, type Cefr } from "./syllabus";
 import { z } from "zod";
 import { countWords } from "@/lib/writing/words";
 
@@ -166,5 +176,64 @@ export async function setNewCardsPerDayAction(count: number): Promise<ActionResu
   if (!Number.isInteger(count) || count < 0 || count > 50) return { ok: false, error: "Choose 0–50." };
   await saveCourseSettings({ newCardsPerDay: count });
   revalidatePath("/fr/learn", "layout");
+  return { ok: true };
+}
+
+/** Start a conversation (no AI request: the learner speaks first) and open it. */
+export async function startConversationAction(form: FormData): Promise<void> {
+  const raw = String(form.get("scenarioId") ?? "");
+  const scenarioId = raw && getScenario(raw) ? raw : null;
+  const id = await startConversation(scenarioId);
+  redirect(`/fr/learn/chat/${id}`);
+}
+
+/** One message to the partner (one AI request); returns the updated conversation. */
+export async function sendMessageAction(
+  conversationId: string,
+  text: string,
+): Promise<{ ok: true; conversation: StoredConversation } | { ok: false; error: string }> {
+  const message = String(text ?? "").trim();
+  if (!message) return { ok: false, error: "Write something first." };
+  if (message.length > MAX_MESSAGE_CHARS) return { ok: false, error: `Keep messages under ${MAX_MESSAGE_CHARS} characters.` };
+  try {
+    return { ok: true, conversation: await sendMessage(String(conversationId), message) };
+  } catch (error) {
+    if (error instanceof ConversationClosed) return { ok: false, error: "This conversation has ended. Start a new one." };
+    const result = failure("chat", error);
+    return result.ok ? { ok: false, error: "Unexpected result." } : result;
+  }
+}
+
+export async function endConversationAction(conversationId: string): Promise<ActionResult> {
+  await endConversation(String(conversationId));
+  revalidatePath("/fr/learn/chat");
+  return { ok: true };
+}
+
+export async function deleteConversationAction(form: FormData): Promise<void> {
+  await deleteConversation(String(form.get("conversationId") ?? ""));
+  revalidatePath("/fr/learn/chat");
+  redirect("/fr/learn/chat");
+}
+
+const ChatCard = z.object({
+  conversationId: z.string().min(1).max(40),
+  kind: z.enum(["vocab", "phrase"]),
+  front: z.string().trim().min(1).max(300),
+  back: z.string().trim().min(1).max(600),
+});
+
+/** Save a new word or a correction from a conversation to the daily review. */
+export async function saveChatCardAction(input: unknown): Promise<ActionResult> {
+  const parsed = ChatCard.safeParse(input);
+  if (!parsed.success) return { ok: false, error: "Nothing to save." };
+  const { conversationId, kind, front, back } = parsed.data;
+  await addCards("chat", conversationId, [{ kind, front, back }]);
+  return { ok: true };
+}
+
+/** Read the partner's replies aloud automatically. */
+export async function setTtsRepliesAction(on: boolean): Promise<ActionResult> {
+  await saveCourseSettings({ ttsReplies: !!on });
   return { ok: true };
 }

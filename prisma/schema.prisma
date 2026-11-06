@@ -276,3 +276,20 @@ model CourseSettings {
   ttsReplies     Boolean  @default(false)
   updatedAt      DateTime @updatedAt
 }
+
+/// French course conversation with the AI partner.
+model Conversation {
+  id         String   @id @default(cuid())
+  /// Scenario from content/french-course/scenarios.json; null for free conversation.
+  scenarioId String?
+  title      String
+  /// CEFR level the partner speaks at.
+  level      String
+  /// [{ role: "learner" | "partner", text, correction?, replyEn?, newWords? }]
+  messages   Json
+  ended      Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([updatedAt])
+}
