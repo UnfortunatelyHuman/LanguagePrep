@@ -83,6 +83,13 @@ const ICONS = {
       <path d="M14 3.5v4h4M10 12h5M10 15.5h5" />
     </Icon>
   ),
+  course: (
+    <Icon>
+      <path d="M3 8l9-4 9 4-9 4z" />
+      <path d="M7 10v5c0 1.5 2.2 3 5 3s5-1.5 5-3v-5" />
+      <path d="M21 8v5" />
+    </Icon>
+  ),
   ai: (
     <Icon>
       <path d="M12 4l1.7 4.3L18 10l-4.3 1.7L12 16l-1.7-4.3L6 10l4.3-1.7z" />
@@ -108,6 +115,11 @@ const MORE: Item[] = [
   { href: "/papers", label: "My papers", icon: ICONS.papers },
   { href: "/generate", label: "New AI sets", icon: ICONS.ai },
 ];
+
+/** The French course: on the French track only, first after the primary links. */
+const COURSE: Item = { href: "/learn", label: "French course", icon: ICONS.course };
+
+const moreFor = (track: Track): Item[] => (track === "fr" ? [COURSE, ...MORE] : MORE);
 
 function isCurrent(pathname: string | null, href: string) {
   if (pathname === null) return false;
@@ -173,7 +185,7 @@ function MoreMenu({
 function DesktopNav({ track, pathname }: { track: Track; pathname: string | null }) {
   return (
     <nav aria-label="Main" className="hidden items-center gap-0.5 sm:flex">
-      {[...PRIMARY, MORE[0]].map((item) => {
+      {[...PRIMARY, moreFor(track)[0]].map((item) => {
         const href = `/${track}${item.href}`;
         const current = isCurrent(pathname, href);
         return (
@@ -189,7 +201,7 @@ function DesktopNav({ track, pathname }: { track: Track; pathname: string | null
           </Link>
         );
       })}
-      <MoreMenu track={track} pathname={pathname} items={MORE.slice(1)} placement="down" />
+      <MoreMenu track={track} pathname={pathname} items={moreFor(track).slice(1)} placement="down" />
     </nav>
   );
 }
@@ -224,7 +236,7 @@ function TabBar({ track, pathname }: { track: Track; pathname: string | null }) 
           );
         })}
         <div className="flex justify-center">
-          <MoreMenu track={track} pathname={pathname} items={MORE} placement="up" />
+          <MoreMenu track={track} pathname={pathname} items={moreFor(track)} placement="up" />
         </div>
       </div>
     </nav>

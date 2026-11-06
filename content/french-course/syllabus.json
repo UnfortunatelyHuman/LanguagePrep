@@ -1,0 +1,418 @@
+{
+  "levels": [
+    {
+      "id": "A1",
+      "goal": "Survive everyday exchanges: introduce yourself, ask simple questions, understand signs and numbers."
+    },
+    {
+      "id": "A2",
+      "goal": "Talk about the past and plans, handle errands and services, read short personal and practical texts."
+    },
+    {
+      "id": "B1",
+      "goal": "Tell a story, give and justify an opinion, follow the radio and everyday official texts."
+    },
+    {
+      "id": "B2",
+      "goal": "Argue, compare and nuance in speech and writing; follow longer articles and discussions. NCLC 7 territory."
+    }
+  ],
+  "units": [
+    {
+      "id": "u01",
+      "level": "A1",
+      "title": "Bonjour !",
+      "grammar": "être, avoir, subject pronouns, definite and indefinite articles",
+      "vocabulary": "Greetings, introducing yourself, countries and jobs",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Present yourself (Expression orale, task 1)"
+      }
+    },
+    {
+      "id": "u02",
+      "level": "A1",
+      "title": "Ma journée",
+      "grammar": "Present tense of -er verbs; negation ne … pas",
+      "vocabulary": "Daily routine, days of the week, telling the time",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Catch numbers, days and times"
+      }
+    },
+    {
+      "id": "u03",
+      "level": "A1",
+      "title": "La famille",
+      "grammar": "Gender and plural of nouns and adjectives; adjective position",
+      "vocabulary": "Family members, describing people",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Understand short notices and labels"
+      }
+    },
+    {
+      "id": "u04",
+      "level": "A1",
+      "title": "En ville",
+      "grammar": "aller and venir; à / de + article; prepositions of place",
+      "vocabulary": "The town, shops, transport",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Follow simple directions"
+      }
+    },
+    {
+      "id": "u05",
+      "level": "A1",
+      "title": "Au magasin",
+      "grammar": "Questions: est-ce que, inversion, question words",
+      "vocabulary": "Shopping, clothes, prices, colours",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Ask for information in a shop"
+      }
+    },
+    {
+      "id": "u06",
+      "level": "A1",
+      "title": "Au restaurant",
+      "grammar": "Futur proche; partitive articles; quantities",
+      "vocabulary": "Food, meals, ordering",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write a short message (Expression écrite, task 1)"
+      }
+    },
+    {
+      "id": "u07",
+      "level": "A2",
+      "title": "Le week-end dernier",
+      "grammar": "Passé composé with avoir; regular and common irregular participles",
+      "vocabulary": "Weekend and leisure activities",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write a message about a past event"
+      }
+    },
+    {
+      "id": "u08",
+      "level": "A2",
+      "title": "En voyage",
+      "grammar": "Passé composé with être; past participle agreement",
+      "vocabulary": "Travel, airports, hotels",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Understand station and airport announcements"
+      }
+    },
+    {
+      "id": "u09",
+      "level": "A2",
+      "title": "La santé",
+      "grammar": "Reflexive verbs in the present and passé composé",
+      "vocabulary": "Health, the body, at the clinic",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Describe your routine and a health problem"
+      }
+    },
+    {
+      "id": "u10",
+      "level": "A2",
+      "title": "Quand j'étais petit",
+      "grammar": "Imparfait for description and habits",
+      "vocabulary": "Childhood, school, memories",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Read a personal letter or email"
+      }
+    },
+    {
+      "id": "u11",
+      "level": "A2",
+      "title": "Chercher un logement",
+      "grammar": "Direct object pronouns le, la, les, l'",
+      "vocabulary": "Housing, renting, rooms and furniture",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Role-play: call about an apartment (Expression orale, task 2)"
+      }
+    },
+    {
+      "id": "u12",
+      "level": "A2",
+      "title": "Au travail",
+      "grammar": "Indirect object pronouns lui, leur; verbs that take à",
+      "vocabulary": "Work, colleagues, schedules",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Understand a workplace email"
+      }
+    },
+    {
+      "id": "u13",
+      "level": "A2",
+      "title": "Ici ou là-bas ?",
+      "grammar": "Comparatives and superlatives; meilleur, mieux",
+      "vocabulary": "Cities, weather and seasons",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Compare two places in a short text"
+      }
+    },
+    {
+      "id": "u14",
+      "level": "A2",
+      "title": "Mes projets",
+      "grammar": "Futur simple; time expressions for the future",
+      "vocabulary": "Plans, goals, studies",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Talk about your plans"
+      }
+    },
+    {
+      "id": "u15",
+      "level": "A2",
+      "title": "Les démarches",
+      "grammar": "Pronouns y and en",
+      "vocabulary": "Errands: bank, post office, government services",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Understand phone and voicemail messages"
+      }
+    },
+    {
+      "id": "u16",
+      "level": "A2",
+      "title": "Sorties et culture",
+      "grammar": "Relative pronouns qui and que",
+      "vocabulary": "Culture, events, invitations",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Read event announcements and ads"
+      }
+    },
+    {
+      "id": "u17",
+      "level": "B1",
+      "title": "Ça m'est arrivé",
+      "grammar": "Passé composé vs imparfait in a narrative",
+      "vocabulary": "Life events, surprises, anecdotes",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write an article about an experience (Expression écrite, task 2)"
+      }
+    },
+    {
+      "id": "u18",
+      "level": "B1",
+      "title": "Service à la clientèle",
+      "grammar": "Conditionnel présent; polite requests",
+      "vocabulary": "Customer service, complaints, refunds",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Role-play: solve a problem politely"
+      }
+    },
+    {
+      "id": "u19",
+      "level": "B1",
+      "title": "Notre planète",
+      "grammar": "Hypotheses: si + present, si + imparfait",
+      "vocabulary": "Environment, recycling, climate",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Give and justify an opinion"
+      }
+    },
+    {
+      "id": "u20",
+      "level": "B1",
+      "title": "Les règles",
+      "grammar": "Subjonctif présent after il faut que, vouloir que",
+      "vocabulary": "Rules, civic life, neighbours",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Understand regulations and instructions"
+      }
+    },
+    {
+      "id": "u21",
+      "level": "B1",
+      "title": "S'installer au Canada",
+      "grammar": "Relative pronouns où and dont",
+      "vocabulary": "Immigration, settling in, paperwork",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Follow a radio interview"
+      }
+    },
+    {
+      "id": "u22",
+      "level": "B1",
+      "title": "Les nouvelles",
+      "grammar": "Plus-que-parfait; time markers (avant, après, depuis)",
+      "vocabulary": "News, events, accidents",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Understand a news item"
+      }
+    },
+    {
+      "id": "u23",
+      "level": "B1",
+      "title": "Il m'a dit que…",
+      "grammar": "Reported speech in the present",
+      "vocabulary": "Phone calls, messages, passing on information",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Identify who said what in a text"
+      }
+    },
+    {
+      "id": "u24",
+      "level": "B1",
+      "title": "Études et formation",
+      "grammar": "Connectors of cause and consequence",
+      "vocabulary": "Education, training, career changes",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write an argued paragraph"
+      }
+    },
+    {
+      "id": "u25",
+      "level": "B1",
+      "title": "Consommer autrement",
+      "grammar": "Demonstrative and possessive pronouns",
+      "vocabulary": "Shopping habits, technology, online services",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Compare two offers or products"
+      }
+    },
+    {
+      "id": "u26",
+      "level": "B1",
+      "title": "En forme",
+      "grammar": "Gérondif (en + -ant)",
+      "vocabulary": "Sport, wellbeing, habits",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Give advice and recommendations"
+      }
+    },
+    {
+      "id": "u27",
+      "level": "B2",
+      "title": "Débattre",
+      "grammar": "Subjonctif after emotion, doubt and opinion",
+      "vocabulary": "Debates, opinions, society",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "Defend a point of view (Expression orale, task 3)"
+      }
+    },
+    {
+      "id": "u28",
+      "level": "B2",
+      "title": "Travail et vie privée",
+      "grammar": "Concession and opposition: bien que, pourtant, alors que, malgré",
+      "vocabulary": "Work-life balance, remote work",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Compare two documents and take a position (Expression écrite, task 3)"
+      }
+    },
+    {
+      "id": "u29",
+      "level": "B2",
+      "title": "Les médias",
+      "grammar": "Passive voice; on and se faire",
+      "vocabulary": "Media, news sources, misinformation",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Understand a press article"
+      }
+    },
+    {
+      "id": "u30",
+      "level": "B2",
+      "title": "Si c'était à refaire",
+      "grammar": "Conditionnel passé; regrets and reproaches",
+      "vocabulary": "Life choices, decisions, careers",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write a letter about a decision"
+      }
+    },
+    {
+      "id": "u31",
+      "level": "B2",
+      "title": "Les tournants de l'histoire",
+      "grammar": "Past hypotheses: si + plus-que-parfait",
+      "vocabulary": "History, turning points, Canada's past",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Follow a documentary extract"
+      }
+    },
+    {
+      "id": "u32",
+      "level": "B2",
+      "title": "Les services publics",
+      "grammar": "Relative pronouns lequel, auquel, duquel",
+      "vocabulary": "Health care, public services, administration",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Understand an official text"
+      }
+    },
+    {
+      "id": "u33",
+      "level": "B2",
+      "title": "Enjeux de société",
+      "grammar": "Nominalisation (from verbs and adjectives to nouns)",
+      "vocabulary": "Social issues, housing, inequality",
+      "skillFocus": {
+        "skill": "reading",
+        "text": "Follow the argument of an opinion piece"
+      }
+    },
+    {
+      "id": "u34",
+      "level": "B2",
+      "title": "En réunion",
+      "grammar": "Reported speech in the past; sequence of tenses",
+      "vocabulary": "Meetings, projects, decisions at work",
+      "skillFocus": {
+        "skill": "listening",
+        "text": "Follow a discussion between several speakers"
+      }
+    },
+    {
+      "id": "u35",
+      "level": "B2",
+      "title": "Lettres formelles",
+      "grammar": "Formal register; participe présent",
+      "vocabulary": "Formal letters, complaints, requests",
+      "skillFocus": {
+        "skill": "writing",
+        "text": "Write a formal letter"
+      }
+    },
+    {
+      "id": "u36",
+      "level": "B2",
+      "title": "Ville ou campagne ?",
+      "grammar": "Emphasis (c'est … qui / que) and structuring an argument",
+      "vocabulary": "City vs country, lifestyle choices",
+      "skillFocus": {
+        "skill": "speaking",
+        "text": "TCF-style task: argue, compare and conclude"
+      }
+    }
+  ]
+}

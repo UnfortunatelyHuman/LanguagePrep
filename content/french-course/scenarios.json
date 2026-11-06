@@ -1,0 +1,124 @@
+{
+  "scenarios": [
+    {
+      "id": "bakery",
+      "level": "A1",
+      "title": "À la boulangerie",
+      "situation": "You're buying bread and pastries for a small party.",
+      "partnerRole": "the baker",
+      "goal": "Buy what you need and ask the price."
+    },
+    {
+      "id": "cafe",
+      "level": "A1",
+      "title": "Au café",
+      "situation": "You meet a new neighbour at a café.",
+      "partnerRole": "your new neighbour",
+      "goal": "Introduce yourself and ask about them."
+    },
+    {
+      "id": "directions",
+      "level": "A1",
+      "title": "Demander son chemin",
+      "situation": "You're lost downtown and need the metro.",
+      "partnerRole": "a passer-by",
+      "goal": "Find out how to get to the metro."
+    },
+    {
+      "id": "doctor",
+      "level": "A2",
+      "title": "Chez le médecin",
+      "situation": "You've had a sore throat for three days.",
+      "partnerRole": "the doctor",
+      "goal": "Explain your symptoms and understand the advice."
+    },
+    {
+      "id": "landlord",
+      "level": "A2",
+      "title": "Appeler un propriétaire",
+      "situation": "You call about an apartment for rent.",
+      "partnerRole": "the landlord",
+      "goal": "Ask about the rent, what's included and when you can visit."
+    },
+    {
+      "id": "weekend",
+      "level": "A2",
+      "title": "Raconter son week-end",
+      "situation": "A colleague asks about your weekend on Monday.",
+      "partnerRole": "your colleague",
+      "goal": "Tell what you did and ask about theirs."
+    },
+    {
+      "id": "bank",
+      "level": "A2",
+      "title": "À la banque",
+      "situation": "You want to open an account.",
+      "partnerRole": "a bank advisor",
+      "goal": "Open an account and ask about fees."
+    },
+    {
+      "id": "complaint",
+      "level": "B1",
+      "title": "Un colis perdu",
+      "situation": "Your online order never arrived.",
+      "partnerRole": "a customer service agent",
+      "goal": "Explain the problem and get a refund or replacement."
+    },
+    {
+      "id": "interview",
+      "level": "B1",
+      "title": "Entretien d'embauche",
+      "situation": "You're interviewing for an office job in Montréal.",
+      "partnerRole": "the hiring manager",
+      "goal": "Present your experience and ask about the job."
+    },
+    {
+      "id": "neighbour",
+      "level": "B1",
+      "title": "Un voisin bruyant",
+      "situation": "Your neighbour's music keeps you up at night.",
+      "partnerRole": "your neighbour",
+      "goal": "Solve the problem politely."
+    },
+    {
+      "id": "course",
+      "level": "B1",
+      "title": "S'inscrire à un cours",
+      "situation": "You want to sign up for an evening French course.",
+      "partnerRole": "the school receptionist",
+      "goal": "Find out the schedule, price and level test."
+    },
+    {
+      "id": "remote",
+      "level": "B2",
+      "title": "Le télétravail",
+      "situation": "Your manager wants everyone back at the office.",
+      "partnerRole": "your manager",
+      "goal": "Argue for keeping two days of remote work."
+    },
+    {
+      "id": "city",
+      "level": "B2",
+      "title": "Ville ou campagne",
+      "situation": "A friend is thinking of leaving the city.",
+      "partnerRole": "your friend",
+      "goal": "Discuss the pros and cons and give your view."
+    },
+    {
+      "id": "cars",
+      "level": "B2",
+      "title": "Interdire les voitures au centre-ville",
+      "situation": "A local radio debate on car-free downtowns.",
+      "partnerRole": "the radio host",
+      "goal": "Take a position and defend it with examples."
+    },
+    {
+      "id": "tech",
+      "level": "B2",
+      "title": "Les écrans et les enfants",
+      "situation": "A parents' meeting at school about screen time.",
+      "partnerRole": "another parent",
+      "goal": "Compare views and suggest a compromise."
+    }
+  ]
+}

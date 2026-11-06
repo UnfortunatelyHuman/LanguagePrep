@@ -38,6 +38,21 @@ export default async function Dashboard({ params }: PageProps<"/[lang]">) {
         <TodaySection track={lang} />
       </Suspense>
 
+      {lang === "fr" ? (
+        <Link
+          href="/fr/learn"
+          className="flex flex-col gap-1 rounded-xl border border-accent/40 bg-accent-soft p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between sm:p-5"
+        >
+          <span>
+            <span className="block font-bold">French course · A1 → B2</span>
+            <span className="mt-1 block text-sm leading-snug text-muted">
+              Lessons, daily review and a conversation partner to build the level behind NCLC 7.
+            </span>
+          </span>
+          <span className="text-sm font-semibold text-accent">Open the course →</span>
+        </Link>
+      ) : null}
+
       <Suspense fallback={<StandingSectionPending />}>
         <StandingSection track={lang} />
       </Suspense>
