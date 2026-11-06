@@ -80,6 +80,14 @@ function toAiError(error: unknown, model: string): AiError {
         { cause: error, modelProblem: "overloaded" },
       );
     }
+    if (status === 400) {
+      // Usually the response schema is too complex for this model; another model may accept it.
+      const detail = (/"message":\s*"([^"]{1,200})"/.exec(message)?.[1] ?? message.slice(0, 200)).replace(/AIza[\w-]+/g, "[key]");
+      return new AiError("provider", `Gemini's "${model}" model rejected the request (HTTP 400: ${detail}).`, {
+        cause: error,
+        modelProblem: "rejected",
+      });
+    }
     return new AiError(
       "provider",
       status >= 500

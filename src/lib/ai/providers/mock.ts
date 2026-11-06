@@ -11,7 +11,7 @@ import type { JsonRequest, ProviderAdapter } from "../types";
  * A caller can pass `mockFixture` for replies the generic filler can't make
  * consistent (exercises whose answer must match their options).
  *
- * AI_MOCK_ERROR=rate_limit | overloaded makes every call fail that way, to
+ * AI_MOCK_ERROR=rate_limit | overloaded | rejected makes every call fail that way, to
  * test the fallbacks without spending real quota.
  */
 
@@ -191,6 +191,9 @@ async function generateJSON(request: JsonRequest): Promise<string> {
       retryAfterSeconds: 60,
       modelProblem: "rate_limited",
     });
+  }
+  if (failure === "rejected") {
+    throw new AiError("provider", `Mock "${request.model}" rejected the request (AI_MOCK_ERROR).`, { modelProblem: "rejected" });
   }
   if (failure === "overloaded") {
     throw new AiError("provider", `Mock "${request.model}" is overloaded (AI_MOCK_ERROR).`, { modelProblem: "overloaded" });

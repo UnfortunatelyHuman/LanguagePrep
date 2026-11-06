@@ -28,6 +28,7 @@ const OVERLOAD_PAUSE_MS = 3000;
 /**
  * A model with fallbacks behind it gets less time: an overloaded model can
  * hang for minutes, and the next one usually answers in well under a minute.
+ * Calls that ask for longer (a whole lesson) keep their own timeout.
  */
 const FALLBACK_TIMEOUT_MS = 60_000;
 /** Ceiling for one generateJSON call, fallbacks and corrective retry included. */
@@ -77,7 +78,9 @@ function shouldFallBack(error: AiError): boolean {
     error.kind === "rate_limit" ||
     error.modelProblem === "rate_limited" ||
     error.modelProblem === "overloaded" ||
-    error.modelProblem === "timeout"
+    error.modelProblem === "timeout" ||
+    // Every main model refused the request (e.g. its schema): another provider may accept it.
+    error.modelProblem === "rejected"
   );
 }
 
@@ -104,7 +107,9 @@ async function callWithFallback(
     const isLast = i === models.length - 1;
     const started = Date.now();
     const timeoutMs = budget(
-      isLast ? request.timeoutMs : Math.min(request.timeoutMs ?? FALLBACK_TIMEOUT_MS, FALLBACK_TIMEOUT_MS),
+      isLast || (request.timeoutMs ?? 0) > FALLBACK_TIMEOUT_MS
+        ? request.timeoutMs
+        : Math.min(request.timeoutMs ?? FALLBACK_TIMEOUT_MS, FALLBACK_TIMEOUT_MS),
     );
     try {
       return { text: await adapter.generateJSON({ ...request, model, timeoutMs }), model };
@@ -144,7 +149,9 @@ async function callWithFallback(
         `None of the ${adapter.name} models could answer: ${problems.join(", ")}. ` +
           (error.modelProblem === "unavailable"
             ? "Check the model names in .env.local and restart the dev server."
-            : "Try again in a moment."),
+            : error.modelProblem === "rejected"
+              ? error.message
+              : "Try again in a moment."),
         { cause: error, modelProblem: error.modelProblem },
       );
     }
@@ -216,7 +223,8 @@ export async function generateJSON<T extends z.ZodType>(
   { onModel, ...options }: JsonOptions = {},
 ): Promise<z.output<T>> {
   const chain = activeChain();
-  const deadline = Date.now() + TOTAL_TIMEOUT_MS;
+  // Long calls (a whole lesson) get room for a second model after a slow first one.
+  const deadline = Date.now() + Math.max(TOTAL_TIMEOUT_MS, (options.timeoutMs ?? 0) * 2 + 30_000);
   const jsonSchema = z.toJSONSchema(schema, { io: "output", unrepresentable: "any" }) as Record<
     string,
     unknown
