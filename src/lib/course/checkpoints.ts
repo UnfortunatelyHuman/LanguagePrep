@@ -3,7 +3,8 @@ import { io } from "next/cache";
 import { prisma } from "@/lib/prisma";
 import { shuffled } from "./check";
 import { LessonSchema, type Exercise } from "./schemas";
-import { COURSE_LEVELS, unitsAt, type CourseLevel } from "./syllabus";
+import { COURSE_LEVELS, type CourseLevel } from "./syllabus";
+import { allUnits } from "./units";
 
 /**
  * Level checkpoints: up to 20 questions drawn from the cached exercises of the
@@ -20,7 +21,7 @@ export const isCourseLevel = (v: string): v is CourseLevel => (COURSE_LEVELS as 
 /** Exercises for a checkpoint, spread across the level's lessons (round-robin), in a fresh order each time. */
 export async function checkpointExercises(level: CourseLevel): Promise<{ exercises: Exercise[]; lessonsReady: number; lessonsTotal: number }> {
   await io();
-  const ids = unitsAt(level).flatMap((u) => u.lessons.map((l) => l.id));
+  const ids = (await allUnits()).filter((u) => u.level === level).flatMap((u) => u.lessons.map((l) => l.id));
   const rows = await prisma.courseLesson.findMany({ where: { id: { in: ids }, status: "ready" } });
   const seed = Date.now() % 100_000;
   const pools = rows.flatMap((row, i) => {

@@ -21,7 +21,9 @@ import { GRADES, type Grade } from "./srs";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
 import { missingLevels, savePlacement, writeLevel } from "./placement-store";
 import { TOTAL_QUESTIONS } from "./placement";
-import { CEFR_LEVELS, getLesson, getScenario, getUnit, type Cefr } from "./syllabus";
+import { CEFR_LEVELS, getScenario, type Cefr } from "./syllabus";
+import { addUnits, deleteUnit, findCourseLesson, findUnit, suggestUnits, updateUnit } from "./units";
+import { UnitSuggestionSchema, type UnitSuggestion } from "./schemas";
 import { z } from "zod";
 import { countWords } from "@/lib/writing/words";
 
@@ -38,7 +40,7 @@ function failure(where: string, error: unknown): ActionResult {
 
 /** Make sure a lesson exists, generating it the first time. */
 export async function prepareLessonAction(lessonId: string): Promise<ActionResult> {
-  if (!getLesson(lessonId)) return { ok: false, error: "Unknown lesson." };
+  if (!(await findCourseLesson(lessonId))) return { ok: false, error: "Unknown lesson." };
   try {
     await getOrCreateLesson(lessonId);
   } catch (error) {
@@ -50,7 +52,7 @@ export async function prepareLessonAction(lessonId: string): Promise<ActionResul
 
 /** Write a lesson again (asked for explicitly when the content came out wrong). */
 export async function regenerateLessonAction(lessonId: string): Promise<ActionResult> {
-  if (!getLesson(lessonId)) return { ok: false, error: "Unknown lesson." };
+  if (!(await findCourseLesson(lessonId))) return { ok: false, error: "Unknown lesson." };
   try {
     await regenerateLesson(lessonId);
   } catch (error) {
@@ -91,7 +93,7 @@ export async function gradeTaskAction(
 ): Promise<{ ok: true; attemptId: string; feedback: GradedTask } | { ok: false; error: string }> {
   if (kind !== "writing" && kind !== "speaking") return { ok: false, error: "Unknown task kind." };
   const stored = await findLesson(lessonId);
-  const unit = stored && getUnit(stored.unitId);
+  const unit = stored && (await findUnit(stored.unitId));
   if (!stored || !unit) return { ok: false, error: "Unknown lesson." };
   const answer = String(text ?? "").trim().slice(0, MAX_TASK_CHARS);
   if (countWords(answer) < MIN_TASK_WORDS) {
@@ -113,7 +115,7 @@ export async function completeLessonAction(
   lessonId: string,
   attemptId: string | null,
 ): Promise<{ ok: true; attemptId: string; cardsAdded: number } | { ok: false; error: string }> {
-  if (!getLesson(lessonId)) return { ok: false, error: "Unknown lesson." };
+  if (!(await findCourseLesson(lessonId))) return { ok: false, error: "Unknown lesson." };
   try {
     const id = await attemptFor(lessonId, attemptId);
     await completeAttempt(id);
@@ -290,4 +292,43 @@ export async function saveCheckpointAction(
   const row = await saveCheckpoint(level, correct, parsed.data.length);
   revalidatePath("/fr/learn", "layout");
   return { ok: true, passed: row.passed };
+}
+
+/** One AI request: suggest 1–5 units for what the learner describes. */
+export async function suggestUnitsAction(
+  request: string,
+): Promise<{ ok: true; units: UnitSuggestion[] } | { ok: false; error: string }> {
+  const text = String(request ?? "").trim();
+  if (text.length < 5) return { ok: false, error: "Describe what you'd like to study (a topic, a grammar point, a skill)." };
+  try {
+    return { ok: true, units: await suggestUnits(text.slice(0, 500)) };
+  } catch (error) {
+    const result = failure("unit suggestions", error);
+    return result.ok ? { ok: false, error: "Unexpected result." } : result;
+  }
+}
+
+const Units = z.array(UnitSuggestionSchema).min(1).max(10);
+
+/** Save the chosen (and possibly edited) units to the syllabus. */
+export async function saveUnitsAction(units: unknown, source: "ai" | "user"): Promise<ActionResult> {
+  const parsed = Units.safeParse(units);
+  if (!parsed.success) return { ok: false, error: "Every unit needs a level, title, grammar point, vocabulary theme and skill focus." };
+  await addUnits(parsed.data, source === "ai" ? "ai" : "user");
+  revalidatePath("/fr/learn", "layout");
+  return { ok: true };
+}
+
+export async function updateUnitAction(id: string, unit: unknown): Promise<ActionResult> {
+  const parsed = UnitSuggestionSchema.safeParse(unit);
+  if (!parsed.success) return { ok: false, error: "Every field is needed." };
+  const ok = await updateUnit(String(id), parsed.data);
+  revalidatePath("/fr/learn", "layout");
+  return ok ? { ok: true } : { ok: false, error: "Only units you added can be edited." };
+}
+
+export async function deleteUnitAction(form: FormData): Promise<void> {
+  await deleteUnit(String(form.get("unitId") ?? ""));
+  revalidatePath("/fr/learn", "layout");
+  redirect("/fr/learn");
 }

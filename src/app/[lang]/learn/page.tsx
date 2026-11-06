@@ -4,12 +4,12 @@ import { Suspense } from "react";
 import { LevelBars } from "@/components/course/LevelBars";
 import { UnitList } from "@/components/course/UnitList";
 import { courseProgress } from "@/lib/course/progress";
-import { UNITS } from "@/lib/course/syllabus";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
 
 const TOOLS = [
+  { href: "/fr/learn/units/new", title: "Add units", text: "Extend the syllabus: AI suggestions or your own topics." },
   { href: "/fr/learn/review", title: "Daily review", text: "Spaced repetition of your words, grammar and phrases." },
   { href: "/fr/learn/chat", title: "Conversation", text: "Role-play in French with gentle corrections." },
   { href: "/fr/learn/notes", title: "My notes", text: "Turn class notes into cards and exercises." },
@@ -75,7 +75,7 @@ async function Dashboard() {
         <Link href="/fr/learn/review" className="rounded-xl hover:ring-2 hover:ring-accent/40">
           <Stat label="Due for review" value={String(progress.due)} note={`${progress.cards} cards in all`} />
         </Link>
-        <Stat label="Lessons done" value={`${progress.completed.size} / ${progress.lessonsTotal}`} note={`${UNITS.length} units, A1 → B2`} />
+        <Stat label="Lessons done" value={`${progress.completed.size} / ${progress.lessonsTotal}`} note={`${progress.units.length} units, A1 → B2`} />
         <Stat
           label="Checkpoints passed"
           value={`${Object.values(progress.checkpoints).filter((c) => c?.passed).length} / 4`}
@@ -85,7 +85,7 @@ async function Dashboard() {
 
       <LevelBars skills={progress.skills} />
 
-      <nav aria-label="Course tools" className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <nav aria-label="Course tools" className="grid grid-cols-2 gap-3 sm:grid-cols-5">
         {TOOLS.map((t) => (
           <Link key={t.href} href={t.href} className="rounded-xl border border-border p-4 text-sm hover:border-accent/60 hover:bg-surface">
             <span className="block font-bold">{t.title}</span>
@@ -94,7 +94,7 @@ async function Dashboard() {
         ))}
       </nav>
 
-      <UnitList completed={progress.completed} checkpoints={progress.checkpoints} startUnitId={progress.startUnitId} />
+      <UnitList units={progress.units} completed={progress.completed} checkpoints={progress.checkpoints} startUnitId={progress.startUnitId} />
     </>
   );
 }
@@ -110,7 +110,7 @@ export default async function LearnPage({ params }: PageProps<"/[lang]/learn">) 
         <p className="text-sm text-muted">French course · A1 → B2</p>
         <h1 className="mt-1 text-3xl font-extrabold tracking-tight sm:text-4xl">Reach B2 for NCLC 7</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted">
-          {UNITS.length} units, two 15-minute lessons each: explanation, vocabulary with audio, exercises and a small
+          Units from A1 to B2, two 15-minute lessons each: explanation, vocabulary with audio, exercises and a small
           writing or speaking task. Lessons are written by AI the first time you open them and then kept, so they work
           offline afterwards. Levels shown here are estimates, not official results.
         </p>

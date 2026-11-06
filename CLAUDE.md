@@ -59,7 +59,7 @@ Personal practice app for Canadian PR (Express Entry) language tests.
    - [x] 9.11 Notes import → review cards + exercises
    - [x] 9.12 Level checkpoints
    - [x] 9.13 Course dashboard complete (current unit, streak, due, level per skill); export covers course tables
-   - [ ] 9.14 Add syllabus units later: AI suggestions (or by hand) saved in `CourseUnit`, edit/delete
+   - [x] 9.14 Add syllabus units later: AI suggestions (or by hand) saved in `CourseUnit`, edit/delete
    - [ ] 9.15 README, mock-mode browser run, code review + fixes
 
 ## Rules

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { COURSE_LEVELS, LEVEL_GOALS, unitsAt, type CourseLevel } from "@/lib/course/syllabus";
+import { COURSE_LEVELS, LEVEL_GOALS, UNITS, type CourseLevel, type CourseUnit } from "@/lib/course/syllabus";
 
 const SKILL_LABEL = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" } as const;
 
@@ -8,10 +8,12 @@ const SKILL_LABEL = { listening: "Listening", reading: "Reading", writing: "Writ
  * skill focus, with lessons done and the level checkpoint.
  */
 export function UnitList({
+  units = [...UNITS],
   completed = new Set(),
   checkpoints = {},
   startUnitId = null,
 }: {
+  units?: CourseUnit[];
   completed?: Set<string>;
   checkpoints?: Partial<Record<CourseLevel, { passed: boolean; best: number }>>;
   startUnitId?: string | null;
@@ -19,8 +21,8 @@ export function UnitList({
   return (
     <div className="flex flex-col gap-8">
       {COURSE_LEVELS.map((level) => {
-        const units = unitsAt(level);
-        const done = units.flatMap((u) => u.lessons).filter((l) => completed.has(l.id)).length;
+        const atLevel = units.filter((u) => u.level === level);
+        const done = atLevel.flatMap((u) => u.lessons).filter((l) => completed.has(l.id)).length;
         const checkpoint = checkpoints[level];
         return (
           <section key={level} aria-labelledby={`level-${level}`} className="flex flex-col gap-3">
@@ -29,14 +31,14 @@ export function UnitList({
                 {level}
                 {level === "B2" ? <span className="text-sm font-medium text-accent">target · NCLC 7</span> : null}
                 <span className="text-sm font-normal text-muted">
-                  {done} / {units.length * 2} lessons
+                  {done} / {atLevel.length * 2} lessons
                   {checkpoint?.passed ? " · checkpoint passed ✓" : ""}
                 </span>
               </h2>
               <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted">{LEVEL_GOALS[level]}</p>
             </div>
             <ol className="grid gap-3 sm:grid-cols-2">
-              {units.map((unit) => {
+              {atLevel.map((unit) => {
                 const unitDone = unit.lessons.filter((l) => completed.has(l.id)).length;
                 return (
                   <li key={unit.id}>
@@ -58,6 +60,9 @@ export function UnitList({
                             </span>
                           ) : unit.id === startUnitId ? (
                             <span className="text-xs font-medium text-accent">start here</span>
+                          ) : null}
+                          {unit.id.startsWith("my-") ? (
+                            <span className="rounded-full bg-accent-soft px-2 py-0.5 text-xs text-accent">added</span>
                           ) : null}
                           <span className="rounded-full bg-surface-subtle px-2 py-0.5 text-xs text-muted">
                             {SKILL_LABEL[unit.skillFocus.skill]}

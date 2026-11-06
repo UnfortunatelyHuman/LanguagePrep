@@ -54,8 +54,8 @@ tick items as they land and note anything half-done under "In flight".
 - [x] 9.11 `NoteImport` (migration `course_notes`), `/fr/learn/notes` paste → preview cards → add; exercises practised like a lesson
 - [x] 9.12 Level checkpoints `/fr/learn/checkpoint/[level]` from cached exercises (70% to pass)
 - [x] 9.13 Course dashboard: current unit, streak, due count, level per skill vs B2; `/api/export` includes course tables
-- [ ] 9.14 `CourseUnit` (migration `course_units`), `/fr/learn/units/new`: describe → AI suggests 1–5 units → edit/untick → save; hand form without AI; edit/delete; shown at the end of their level
+- [x] 9.14 `CourseUnit` (migration `course_units`), `/fr/learn/units/new`: describe → AI suggests 1–5 units → edit/untick → save; hand form without AI; edit/delete; shown at the end of their level
 - [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
 
 ## In flight
-- Phase 9: next is 9.14.
+- Phase 9: next is 9.15.

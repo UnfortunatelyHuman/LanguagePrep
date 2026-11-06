@@ -324,3 +324,22 @@ model CheckpointResult {
 
   @@index([level, createdAt])
 }
+
+/// A syllabus unit the learner added (by hand or from AI suggestions). Ids "my-u01"…
+model CourseUnit {
+  id         String   @id
+  /// "A1" | "A2" | "B1" | "B2"
+  level      String
+  title      String
+  grammar    String
+  vocabulary String
+  /// "listening" | "reading" | "writing" | "speaking"
+  focusSkill String
+  focusText  String
+  /// "ai" (accepted suggestion) | "user" (written by hand)
+  source     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([level, createdAt])
+}

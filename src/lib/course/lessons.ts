@@ -5,7 +5,7 @@ import { prisma } from "@/lib/prisma";
 import { lessonFixture } from "./fixtures";
 import { lessonPrompt } from "./prompts";
 import { LessonSchema, type Lesson } from "./schemas";
-import { getLesson } from "./syllabus";
+import { findCourseLesson } from "./units";
 
 /**
  * Lessons are generated once, the first time they're opened, and kept. A row
@@ -45,7 +45,7 @@ export async function readyLessonIds(ids: string[]): Promise<Set<string>> {
 }
 
 async function write(lessonId: string): Promise<{ data: Lesson; model: string }> {
-  const found = getLesson(lessonId);
+  const found = await findCourseLesson(lessonId);
   if (!found) throw new Error(`Unknown lesson ${lessonId}`);
   const { unit, lesson } = found;
   const { system, prompt } = lessonPrompt(unit, lesson.part);
@@ -80,7 +80,7 @@ async function claim(lessonId: string, unitId: string, level: string): Promise<b
  * claim is released so a retry can run).
  */
 export async function getOrCreateLesson(lessonId: string): Promise<StoredLesson> {
-  const found = getLesson(lessonId);
+  const found = await findCourseLesson(lessonId);
   if (!found) throw new Error(`Unknown lesson ${lessonId}`);
   const deadline = Date.now() + WAIT_MAX_MS;
 

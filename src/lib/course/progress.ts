@@ -6,7 +6,8 @@ import { cardCounts, today } from "./cards";
 import { checkpointStatus } from "./checkpoints";
 import { latestPlacement } from "./placement-store";
 import { TaskFeedbackSchema } from "./schemas";
-import { CEFR_LEVELS, COURSE_LEVELS, UNITS, type Cefr, type CourseLevel, type CourseUnit } from "./syllabus";
+import { CEFR_LEVELS, COURSE_LEVELS, type Cefr, type CourseLevel, type CourseUnit } from "./syllabus";
+import { allUnits } from "./units";
 
 /**
  * Everything the course dashboard shows: where to continue, the streak,
@@ -19,6 +20,7 @@ export type CourseSkill = (typeof COURSE_SKILLS)[number];
 export type SkillEstimate = { level: Cefr | null; source: string };
 
 export type CourseProgress = {
+  units: CourseUnit[];
   next: { unit: CourseUnit; lessonId: string; label: string } | null;
   startUnitId: string | null;
   completed: Set<string>;
@@ -94,7 +96,8 @@ async function productiveEstimate(kind: "writing" | "speaking"): Promise<SkillEs
 
 export async function courseProgress(): Promise<CourseProgress> {
   await io();
-  const [placement, done, days, todayKey, counts, checkpoints, writing, speaking] = await Promise.all([
+  const [units, placement, done, days, todayKey, counts, checkpoints, writing, speaking] = await Promise.all([
+    allUnits(),
     latestPlacement(),
     prisma.lessonAttempt.findMany({ where: { completedAt: { not: null } }, select: { lessonId: true }, distinct: ["lessonId"] }),
     prisma.studyDay.findMany({ where: { OR: [{ lessons: { gt: 0 } }, { reviews: { gt: 0 } }, { messages: { gt: 0 } }] }, select: { day: true } }),
@@ -108,8 +111,8 @@ export async function courseProgress(): Promise<CourseProgress> {
   const startUnitId = placement?.startUnitId ?? null;
 
   // Continue from the placement's start unit: the first lesson there or after it not yet done.
-  const startIndex = Math.max(0, UNITS.findIndex((u) => u.id === startUnitId));
-  const ordered = [...UNITS.slice(startIndex), ...UNITS.slice(0, startIndex)];
+  const startIndex = Math.max(0, units.findIndex((u) => u.id === startUnitId));
+  const ordered = [...units.slice(startIndex), ...units.slice(0, startIndex)];
   let next: CourseProgress["next"] = null;
   for (const unit of ordered) {
     const lesson = unit.lessons.find((l) => !completed.has(l.id));
@@ -131,10 +134,11 @@ export async function courseProgress(): Promise<CourseProgress> {
   };
 
   return {
+    units,
     next,
     startUnitId,
     completed,
-    lessonsTotal: UNITS.length * 2,
+    lessonsTotal: units.length * 2,
     ...streakFrom(new Set(days.map((d) => d.day)), todayKey),
     due: counts.due,
     cards: counts.total,
