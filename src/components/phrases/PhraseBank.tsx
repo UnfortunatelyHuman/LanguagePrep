@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { PhraseCard } from "@/components/phrases/PhraseCard";
 import { PhraseQuiz, buildDeck } from "@/components/phrases/PhraseQuiz";
 import type { Track } from "@/lib/exams";
-import { deleteSavedPhrase } from "@/lib/phrase-actions";
+import { addPhraseToReviewAction, deleteSavedPhrase } from "@/lib/phrase-actions";
 import type { Phrase, PhraseCategory } from "@/lib/phrases";
 
 const ALL = "all";
@@ -20,11 +20,14 @@ export function PhraseBank({
   track,
   categories,
   initialKnown,
+  initialInReview,
 }: {
   track: Track;
   categories: PhraseCategory[];
   /** Phrase key → known, from the last self-tests. Missing = never tested. */
   initialKnown: Record<string, boolean>;
+  /** French track: keys already in the course's daily review. Undefined on English. */
+  initialInReview?: string[];
 }) {
   const lang = track === "fr" ? "fr" : "en";
   const [category, setCategory] = useState(ALL);
@@ -32,6 +35,13 @@ export function PhraseBank({
   const [known, setKnown] = useState(initialKnown);
   const [deck, setDeck] = useState<Phrase[] | null>(null);
   const [removed, setRemoved] = useState<ReadonlySet<string>>(new Set());
+  const [inReview, setInReview] = useState<ReadonlySet<string>>(new Set(initialInReview));
+
+  async function addToReview(key: string) {
+    const result = await addPhraseToReviewAction({ key }).catch(() => ({ ok: false }));
+    if (result.ok) setInReview((prev) => new Set(prev).add(key));
+    else window.alert("Couldn't add the phrase. Check that the app server is running.");
+  }
 
   // Saved phrases deleted on this page disappear at once; the server catches up on the next visit.
   const shown = useMemo(
@@ -131,6 +141,12 @@ export function PhraseBank({
               lang={lang}
               known={known[p.key]}
               onRemove={p.saved ? () => void remove(p.key) : undefined}
+              review={
+                initialInReview
+                  ? // Saved phrases join automatically; bank phrases on request.
+                    { inReview: inReview.has(p.key) || !!p.saved, onAdd: p.saved ? undefined : () => void addToReview(p.key) }
+                  : undefined
+              }
             />
           ))}
         </ul>

@@ -20,6 +20,7 @@ export function PhraseCard({
   lang,
   known,
   onRemove,
+  review,
 }: {
   phrase: Phrase;
   lang: "en" | "fr";
@@ -27,6 +28,8 @@ export function PhraseCard({
   known: boolean | undefined;
   /** Saved phrases only: remove from the bank. */
   onRemove?: () => void;
+  /** French track: the phrase's place in the course's daily review. */
+  review?: { inReview: boolean; onAdd?: () => void };
 }) {
   return (
     <li className="flex flex-col gap-1.5 rounded-xl border border-border bg-surface p-4">
@@ -68,6 +71,15 @@ export function PhraseCard({
           </p>
         </>
       )}
+      {review ? (
+        review.inReview ? (
+          <span className="self-start text-xs text-good">✓ In your daily review</span>
+        ) : review.onAdd ? (
+          <button type="button" onClick={review.onAdd} className="self-start text-xs font-medium text-accent hover:underline">
+            + Add to daily review
+          </button>
+        ) : null
+      ) : null}
     </li>
   );
 }

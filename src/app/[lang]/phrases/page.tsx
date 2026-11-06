@@ -5,6 +5,7 @@ import { getTrack, isTrack, type Track } from "@/lib/exams";
 import { phraseReviewState } from "@/lib/phrase-reviews";
 import { phraseCategories } from "@/lib/phrases";
 import { savedPhraseCategory } from "@/lib/saved-phrases";
+import { phraseKeysInReview } from "@/lib/course/phrase-cards";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -16,7 +17,11 @@ const INTRO: Record<Track, string> = {
 
 /** Reads the self-test marks; the bank itself is static content. */
 async function BankWithReviews({ track }: { track: Track }) {
-  const [reviews, saved] = await Promise.all([phraseReviewState(track), savedPhraseCategory(track)]);
+  const [reviews, saved, inReview] = await Promise.all([
+    phraseReviewState(track),
+    savedPhraseCategory(track),
+    track === "fr" ? phraseKeysInReview() : null,
+  ]);
   const known = {
     ...Object.fromEntries(Object.entries(reviews).map(([k, v]) => [k, v.known])),
     ...saved?.known,
@@ -31,7 +36,12 @@ async function BankWithReviews({ track }: { track: Track }) {
           their own self-test deck.
         </p>
       )}
-      <PhraseBank track={track} categories={categories} initialKnown={known} />
+      <PhraseBank
+        track={track}
+        categories={categories}
+        initialKnown={known}
+        initialInReview={inReview ? [...inReview] : undefined}
+      />
     </>
   );
 }

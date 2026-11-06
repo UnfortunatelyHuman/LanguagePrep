@@ -54,7 +54,7 @@ Personal practice app for Canadian PR (Express Entry) language tests.
    - [x] 9.6 Mini writing/speaking task graded by AI, summary, lesson completion
    - [x] 9.7 Placement test: cached pool, adaptive runner, CEFR per skill, starting unit
    - [x] 9.8 Spaced repetition: `ReviewCard`, `StudyDay`, `CourseSettings`, SM-2, daily review page
-   - [ ] 9.9 Phrase bank sharing with the review queue
+   - [x] 9.9 Phrase bank sharing with the review queue
    - [ ] 9.10 Conversation partner with corrections, speech input, optional TTS
    - [ ] 9.11 Notes import → review cards + exercises
    - [ ] 9.12 Level checkpoints

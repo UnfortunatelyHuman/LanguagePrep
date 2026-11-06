@@ -4,6 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { studySettings } from "@/lib/study-settings";
 import { wallClock } from "@/lib/time-zone";
 import { findLesson } from "./lessons";
+// Circular with phrase-cards, which is fine: each only calls the other at runtime.
+import { syncSavedPhrases } from "./phrase-cards";
 import { dayKey, review, type Grade } from "./srs";
 
 /**
@@ -100,6 +102,8 @@ const toQueue = (c: {
 /** Today's queue: every due card already started (oldest first), then new cards up to the daily limit. */
 export async function dailyQueue(): Promise<{ cards: QueueCard[]; newLeft: number; newTotal: number }> {
   await io();
+  // Phrases saved from TCF feedback before the course existed get their cards here.
+  await syncSavedPhrases();
   const [day, { newCardsPerDay }] = await Promise.all([today(), courseSettings()]);
   const [due, introducedToday, newTotal] = await Promise.all([
     prisma.reviewCard.findMany({

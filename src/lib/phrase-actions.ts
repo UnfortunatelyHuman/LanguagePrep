@@ -7,6 +7,7 @@ import { isTrack } from "@/lib/exams";
 import { allPhraseKeys } from "@/lib/phrases";
 import { prisma } from "@/lib/prisma";
 import { SAVED_PREFIX } from "@/lib/saved-phrases";
+import { addPhraseToReview, countSelfTest, removeSavedPhraseCard, syncSavedPhrases } from "@/lib/course/phrase-cards";
 
 const Input = z.object({
   track: z.string(),
@@ -26,6 +27,8 @@ export async function recordPhraseReview(input: unknown): Promise<{ ok: boolean 
       where: { id: key.slice(SAVED_PREFIX.length), exam },
       data: { known, reviews: { increment: 1 } },
     });
+    // French: the self-test also counts as a review of the phrase's course card.
+    if (track === "fr" && count === 1) await countSelfTest(key, known);
     revalidatePath(`/${track}/phrases`);
     return { ok: count === 1 };
   }
@@ -37,6 +40,7 @@ export async function recordPhraseReview(input: unknown): Promise<{ ok: boolean 
     create: { exam, phraseKey: key, known },
     update: { known, reviews: { increment: 1 } },
   });
+  if (track === "fr") await countSelfTest(key, known);
   revalidatePath(`/${track}/phrases`);
   return { ok: true };
 }
@@ -61,6 +65,8 @@ export async function savePhrase(input: unknown): Promise<{ ok: boolean }> {
     create: { exam, phrase, note, before: before || null, source },
     update: {},
   });
+  // TCF phrases join the French course's daily review.
+  if (track === "fr") await syncSavedPhrases();
   revalidatePath(`/${track}/phrases`);
   return { ok: true };
 }
@@ -72,7 +78,18 @@ export async function deleteSavedPhrase(input: unknown): Promise<{ ok: boolean }
     return { ok: false };
   }
   const { track, key } = parsed.data;
-  await prisma.savedPhrase.deleteMany({ where: { id: key.slice(SAVED_PREFIX.length), exam: examKey(track) } });
+  const id = key.slice(SAVED_PREFIX.length);
+  const { count } = await prisma.savedPhrase.deleteMany({ where: { id, exam: examKey(track) } });
+  if (count && track === "fr") await removeSavedPhraseCard(id);
   revalidatePath(`/${track}/phrases`);
   return { ok: true };
+}
+
+/** French phrase bank: add an entry to the course's daily review. */
+export async function addPhraseToReviewAction(input: unknown): Promise<{ ok: boolean }> {
+  const parsed = z.object({ key: z.string().max(100) }).safeParse(input);
+  if (!parsed.success) return { ok: false };
+  const ok = await addPhraseToReview(parsed.data.key);
+  if (ok) revalidatePath("/fr", "layout");
+  return { ok };
 }
