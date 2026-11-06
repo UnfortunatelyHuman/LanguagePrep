@@ -27,6 +27,7 @@ export function LessonSummary({
   onSaved: (attemptId: string) => void;
 }) {
   const [state, setState] = useState<"idle" | "saved" | "error">("idle");
+  const [cards, setCards] = useState(0);
   const done = useRef(false);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ export function LessonSummary({
       .then((r) => {
         if (r.ok) {
           setState("saved");
+          setCards(r.cardsAdded);
           onSaved(r.attemptId);
         } else setState("error");
       })
@@ -66,7 +68,7 @@ export function LessonSummary({
       </section>
       <p className="text-sm text-muted" role="status">
         {state === "saved"
-          ? "Lesson complete and saved."
+          ? `Lesson complete and saved.${cards ? ` ${cards} new cards added to your daily review.` : ""}`
           : state === "error"
             ? "Couldn't save your progress; reload the page to try again."
             : "Saving…"}
@@ -77,6 +79,9 @@ export function LessonSummary({
             Next lesson →
           </Link>
         ) : null}
+        <Link href="/fr/learn/review" className="rounded-lg border border-border px-5 py-2 text-sm">
+          Daily review
+        </Link>
         <Link href="/fr/learn" className="rounded-lg border border-border px-5 py-2 text-sm">
           Back to the course
         </Link>

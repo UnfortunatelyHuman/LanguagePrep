@@ -229,3 +229,50 @@ model PlacementResult {
 
   @@index([createdAt])
 }
+
+/// French course spaced-repetition card (SM-2). Days are "YYYY-MM-DD" in the learner's time zone.
+model ReviewCard {
+  id             String    @id @default(cuid())
+  /// "vocab" (French → English) | "grammar" (sentence with a blank) | "phrase" (phrase bank)
+  kind           String
+  /// "lesson" | "notes" | "chat" | "phrase-bank" | "saved-phrase"
+  source         String
+  /// Lesson id, note import id, conversation id, phrase key or saved phrase id.
+  sourceId       String
+  front          String
+  back           String
+  /// vocab: a French example; grammar: the rule.
+  example        String?
+  ease           Float     @default(2.5)
+  intervalDays   Int       @default(0)
+  repetitions    Int       @default(0)
+  lapses         Int       @default(0)
+  /// Day the card is next due.
+  due            String
+  /// Day it was first reviewed (new cards per day are limited); null while new.
+  introducedDay  String?
+  lastReviewedAt DateTime?
+  createdAt      DateTime  @default(now())
+
+  @@unique([source, sourceId, front])
+  @@index([due])
+  @@index([introducedDay])
+}
+
+/// Course activity per day, for the streak.
+model StudyDay {
+  /// "YYYY-MM-DD" in the learner's time zone.
+  day      String @id
+  lessons  Int    @default(0)
+  reviews  Int    @default(0)
+  messages Int    @default(0)
+}
+
+/// French course settings (one row, id "fr").
+model CourseSettings {
+  id             String   @id @default("fr")
+  newCardsPerDay Int      @default(10)
+  /// Read the conversation partner's replies aloud.
+  ttsReplies     Boolean  @default(false)
+  updatedAt      DateTime @updatedAt
+}

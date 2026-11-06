@@ -23,6 +23,16 @@ export default async function LearnPage({ params }: PageProps<"/[lang]/learn">) 
         </p>
       </header>
       <Link
+        href="/fr/learn/review"
+        className="flex flex-col gap-1 rounded-xl border border-border bg-surface p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
+      >
+        <span>
+          <span className="block font-semibold">Daily review</span>
+          <span className="block text-sm text-muted">Spaced repetition of the words and grammar from your lessons.</span>
+        </span>
+        <span className="text-sm font-semibold text-accent">Open →</span>
+      </Link>
+      <Link
         href="/fr/learn/placement"
         className="flex flex-col gap-1 rounded-xl border border-border bg-surface p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
       >

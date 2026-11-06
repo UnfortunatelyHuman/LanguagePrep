@@ -3,7 +3,9 @@
 import { revalidatePath } from "next/cache";
 import { isAiError } from "@/lib/ai";
 import { ResultsSchema, saveExerciseResults } from "./attempts";
+import { addLessonCards, countActivity, reviewCard, saveCourseSettings } from "./cards";
 import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
+import { GRADES, type Grade } from "./srs";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
 import { missingLevels, savePlacement, writeLevel } from "./placement-store";
 import { TOTAL_QUESTIONS } from "./placement";
@@ -98,13 +100,15 @@ export async function gradeTaskAction(
 export async function completeLessonAction(
   lessonId: string,
   attemptId: string | null,
-): Promise<{ ok: true; attemptId: string } | { ok: false; error: string }> {
+): Promise<{ ok: true; attemptId: string; cardsAdded: number } | { ok: false; error: string }> {
   if (!getLesson(lessonId)) return { ok: false, error: "Unknown lesson." };
   try {
     const id = await attemptFor(lessonId, attemptId);
     await completeAttempt(id);
+    const cardsAdded = await addLessonCards(lessonId);
+    await countActivity("lessons");
     revalidatePath("/fr/learn", "layout");
-    return { ok: true, attemptId: id };
+    return { ok: true, attemptId: id, cardsAdded };
   } catch (error) {
     console.error("[course] completing lesson failed", error);
     return { ok: false, error: "Couldn't save your progress. Please try again." };
@@ -141,6 +145,26 @@ export async function savePlacementAction(picks: unknown): Promise<ActionResult>
   } catch (error) {
     return failure("saving placement", error);
   }
+  revalidatePath("/fr/learn", "layout");
+  return { ok: true };
+}
+
+/** Record one review in the daily queue. */
+export async function reviewCardAction(cardId: string, grade: string): Promise<ActionResult> {
+  if (typeof cardId !== "string" || !GRADES.includes(grade as Grade)) return { ok: false, error: "Bad review." };
+  try {
+    const due = await reviewCard(cardId, grade as Grade);
+    return due ? { ok: true } : { ok: false, error: "That card no longer exists." };
+  } catch (error) {
+    console.error("[course] review failed", error);
+    return { ok: false, error: "Couldn't save the review." };
+  }
+}
+
+/** How many new cards the daily queue introduces. */
+export async function setNewCardsPerDayAction(count: number): Promise<ActionResult> {
+  if (!Number.isInteger(count) || count < 0 || count > 50) return { ok: false, error: "Choose 0–50." };
+  await saveCourseSettings({ newCardsPerDay: count });
   revalidatePath("/fr/learn", "layout");
   return { ok: true };
 }

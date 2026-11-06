@@ -48,7 +48,7 @@ tick items as they land and note anything half-done under "In flight".
 - [x] 9.5 Exercise runner: MCQ, fill-in-the-blank, reorder, translate, listen-and-choose; lenient local checking; answers saved
 - [x] 9.6 Mini task (writing or speaking transcript) graded by AI on 0–20 + CEFR; summary step; lesson marked complete
 - [x] 9.7 `PlacementQuestion` + `PlacementResult` (migration `course_placement`), pool generated once, adaptive staircase (~20 questions), level per skill, starting unit
-- [ ] 9.8 `ReviewCard`, `StudyDay`, `CourseSettings` (migration `course_review_cards`), `lib/course/srs.ts` SM-2, cards from finished lessons, `/fr/learn/review`
+- [x] 9.8 `ReviewCard`, `StudyDay`, `CourseSettings` (migration `course_review_cards`), `lib/course/srs.ts` SM-2, cards from finished lessons, `/fr/learn/review`
 - [ ] 9.9 Phrase bank: "Add to daily review", TCF saved phrases auto-added, self-test counts as a review
 - [ ] 9.10 `Conversation` (migration `course_conversations`), `/fr/learn/chat` scenarios + chat with corrections, speech input, optional TTS, save to cards
 - [ ] 9.11 `NoteImport` (migration `course_notes`), `/fr/learn/notes` paste → preview cards → add; exercises practised like a lesson
@@ -58,4 +58,4 @@ tick items as they land and note anything half-done under "In flight".
 - [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
 
 ## In flight
-- Phase 9: next is 9.8.
+- Phase 9: next is 9.9.
