@@ -5,7 +5,7 @@ import { GenerateLesson } from "@/components/course/GenerateLesson";
 import { LessonPlayer } from "@/components/course/LessonPlayer";
 import { RegenerateLessonButton } from "@/components/course/RegenerateLessonButton";
 import { findLesson } from "@/lib/course/lessons";
-import { UNITS, getLesson } from "@/lib/course/syllabus";
+import { UNITS, getLesson, nextLessonId } from "@/lib/course/syllabus";
 
 // Awaits params and blocks on navigation; opt out of instant validation.
 export const instant = false;
@@ -36,7 +36,11 @@ async function LessonBody({ lessonId }: { lessonId: string }) {
           ))}
         </ul>
       </div>
-      <LessonPlayer lessonId={lessonId} lesson={lesson} />
+      <LessonPlayer
+        lessonId={lessonId}
+        lesson={lesson}
+        nextHref={nextLessonId(lessonId) ? `/fr/learn/lessons/${nextLessonId(lessonId)}` : null}
+      />
       <div className="border-t border-border pt-4">
         <RegenerateLessonButton lessonId={lessonId} />
       </div>

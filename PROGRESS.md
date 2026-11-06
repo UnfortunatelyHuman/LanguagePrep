@@ -46,7 +46,7 @@ tick items as they land and note anything half-done under "In flight".
 - [x] 9.3 `mockFixture` option in `generateJSON` (mock adapter only), `lib/course/schemas.ts`, `prompts.ts`, `fixtures.ts`
 - [x] 9.4 `CourseLesson` + `LessonAttempt` (migration `course_lessons`), `getOrCreateLesson` (generate once, cache), `/fr/learn/lessons/[lessonId]` explanation + vocabulary with TTS, `/fr/learn/units/[unitId]`
 - [x] 9.5 Exercise runner: MCQ, fill-in-the-blank, reorder, translate, listen-and-choose; lenient local checking; answers saved
-- [ ] 9.6 Mini task (writing or speaking transcript) graded by AI on 0–20 + CEFR; summary step; lesson marked complete
+- [x] 9.6 Mini task (writing or speaking transcript) graded by AI on 0–20 + CEFR; summary step; lesson marked complete
 - [ ] 9.7 `PlacementQuestion` + `PlacementResult` (migration `course_placement`), pool generated once, adaptive staircase (~20 questions), level per skill, starting unit
 - [ ] 9.8 `ReviewCard`, `StudyDay`, `CourseSettings` (migration `course_review_cards`), `lib/course/srs.ts` SM-2, cards from finished lessons, `/fr/learn/review`
 - [ ] 9.9 Phrase bank: "Add to daily review", TCF saved phrases auto-added, self-test counts as a review
@@ -58,4 +58,4 @@ tick items as they land and note anything half-done under "In flight".
 - [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
 
 ## In flight
-- Phase 9: next is 9.6.
+- Phase 9: next is 9.7.

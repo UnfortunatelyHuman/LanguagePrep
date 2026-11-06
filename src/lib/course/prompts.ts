@@ -57,9 +57,10 @@ export function taskGradingPrompt(
   lesson: Pick<Lesson, "title" | "task">,
   level: CourseLevel,
   answer: string,
+  kind: "writing" | "speaking" = lesson.task.kind,
 ): Prompt {
   const { task } = lesson;
-  const spoken = task.kind === "speaking";
+  const spoken = kind === "speaking";
   return {
     system: `${TEACHER}
 You grade short practice tasks kindly but honestly, on the TCF Canada 0–20 scale for ${spoken ? "Expression orale" : "Expression écrite"} (10 ≈ B2 / NCLC 7, 6 ≈ B1, 4 ≈ A2).

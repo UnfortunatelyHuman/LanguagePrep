@@ -3,8 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { isAiError } from "@/lib/ai";
 import { ResultsSchema, saveExerciseResults } from "./attempts";
+import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
-import { getLesson } from "./syllabus";
+import { getLesson, getUnit } from "./syllabus";
+import { countWords } from "@/lib/writing/words";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
 
@@ -56,5 +58,52 @@ export async function saveExercisesAction(
   } catch (error) {
     console.error("[course] saving exercise results failed", error);
     return { ok: false, error: "Couldn't save your results. Please try again." };
+  }
+}
+
+/** Fewest words worth sending for feedback (saves quota on accidental submits). */
+const MIN_TASK_WORDS = 5;
+const MAX_TASK_CHARS = 4000;
+
+/** Grade the lesson's mini task (one AI request) and save it on the attempt. */
+export async function gradeTaskAction(
+  lessonId: string,
+  attemptId: string | null,
+  text: string,
+  kind: "writing" | "speaking",
+): Promise<{ ok: true; attemptId: string; feedback: GradedTask } | { ok: false; error: string }> {
+  if (kind !== "writing" && kind !== "speaking") return { ok: false, error: "Unknown task kind." };
+  const stored = await findLesson(lessonId);
+  const unit = stored && getUnit(stored.unitId);
+  if (!stored || !unit) return { ok: false, error: "Unknown lesson." };
+  const answer = String(text ?? "").trim().slice(0, MAX_TASK_CHARS);
+  if (countWords(answer) < MIN_TASK_WORDS) {
+    return { ok: false, error: `Write or say at least ${MIN_TASK_WORDS} words before asking for feedback.` };
+  }
+  try {
+    const feedback = await gradeTask(stored.lesson, unit.level, answer, kind);
+    const id = await attemptFor(lessonId, attemptId);
+    await saveTask(id, kind, answer, feedback);
+    return { ok: true, attemptId: id, feedback };
+  } catch (error) {
+    const result = failure(`task ${lessonId}`, error);
+    return result.ok ? { ok: false, error: "Unexpected result." } : result;
+  }
+}
+
+/** Mark the lesson done (reaching the summary). */
+export async function completeLessonAction(
+  lessonId: string,
+  attemptId: string | null,
+): Promise<{ ok: true; attemptId: string } | { ok: false; error: string }> {
+  if (!getLesson(lessonId)) return { ok: false, error: "Unknown lesson." };
+  try {
+    const id = await attemptFor(lessonId, attemptId);
+    await completeAttempt(id);
+    revalidatePath("/fr/learn", "layout");
+    return { ok: true, attemptId: id };
+  } catch (error) {
+    console.error("[course] completing lesson failed", error);
+    return { ok: false, error: "Couldn't save your progress. Please try again." };
   }
 }

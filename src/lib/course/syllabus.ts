@@ -153,3 +153,10 @@ export function getLesson(lessonId: string): { unit: CourseUnit; lesson: CourseL
 
 export const unitsAt = (level: CourseLevel) => UNITS.filter((u) => u.level === level);
 export const getScenario = (id: string) => SCENARIOS.find((s) => s.id === id);
+
+/** The lesson after this one in course order, or null at the end. */
+export function nextLessonId(lessonId: string): string | null {
+  const all = UNITS.flatMap((u) => u.lessons.map((l) => l.id));
+  const i = all.indexOf(lessonId);
+  return i >= 0 && i + 1 < all.length ? all[i + 1] : null;
+}

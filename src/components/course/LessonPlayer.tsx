@@ -1,24 +1,30 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useCallback, useState, type ReactNode } from "react";
 import { saveExercisesAction } from "@/lib/course/actions";
-import type { ExerciseResult } from "@/lib/course/check";
+import { isRight, type ExerciseResult } from "@/lib/course/check";
 import type { Lesson } from "@/lib/course/schemas";
 import { stopSpeaking } from "@/lib/course/useSpeak";
 import { ExerciseRunner } from "./ExerciseRunner";
 import { LessonExplanation } from "./LessonExplanation";
+import { LessonSummary } from "./LessonSummary";
+import { LessonTask } from "./LessonTask";
 import { VocabList } from "./VocabList";
 
 type Step = { id: string; label: string; render: () => ReactNode };
 
-/** A lesson, one step at a time: explanation, vocabulary, exercises. */
-export function LessonPlayer({ lessonId, lesson }: { lessonId: string; lesson: Lesson }) {
+/** A lesson, one step at a time: explanation, vocabulary, exercises, task, summary. */
+export function LessonPlayer({ lessonId, lesson, nextHref }: { lessonId: string; lesson: Lesson; nextHref: string | null }) {
   const [index, setIndex] = useState(0);
   const [attemptId, setAttemptId] = useState<string | null>(null);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [exerciseScore, setExerciseScore] = useState<{ right: number; total: number } | null>(null);
+  const [taskScore, setTaskScore] = useState<number | null>(null);
+  const onSaved = useCallback((id: string) => setAttemptId(id), []);
 
   const finishExercises = async (results: ExerciseResult[]) => {
     setSaveError(null);
+    setExerciseScore({ right: results.filter(isRight).length, total: results.length });
     const saved = await saveExercisesAction(lessonId, results).catch(() => null);
     if (saved?.ok) setAttemptId(saved.attemptId);
     else setSaveError(saved?.error ?? "Couldn't reach the server to save your results.");
@@ -41,6 +47,37 @@ export function LessonPlayer({ lessonId, lesson }: { lessonId: string; lesson: L
             <p className="text-xs text-muted">Results saved.</p>
           ) : null}
         </div>
+      ),
+    },
+    {
+      id: "task",
+      label: lesson.task.kind === "speaking" ? "Speak" : "Write",
+      render: () => (
+        <LessonTask
+          lessonId={lessonId}
+          task={lesson.task}
+          attemptId={attemptId}
+          onGraded={(id, feedback) => {
+            setAttemptId(id);
+            setTaskScore(feedback.score);
+          }}
+        />
+      ),
+    },
+    {
+      id: "summary",
+      label: "Summary",
+      render: () => (
+        <LessonSummary
+          lessonId={lessonId}
+          lesson={lesson}
+          attemptId={attemptId}
+          exercises={exerciseScore}
+          taskScore={taskScore}
+          nextHref={nextHref}
+          active={steps[index]?.id === "summary"}
+          onSaved={onSaved}
+        />
       ),
     },
   ];
@@ -92,7 +129,7 @@ export function LessonPlayer({ lessonId, lesson }: { lessonId: string; lesson: L
             onClick={() => go(index + 1)}
             className="rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-white"
           >
-            Next: {steps[index + 1].label}
+            {steps[index].id === "task" && taskScore === null ? "Skip the task" : `Next: ${steps[index + 1].label}`}
           </button>
         ) : null}
       </div>
