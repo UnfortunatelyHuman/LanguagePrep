@@ -44,7 +44,7 @@ tick items as they land and note anything half-done under "In flight".
 - [x] 9.1 Plan: `docs/french-course-plan.md`, Phase 9 in CLAUDE.md and here (approved 2026-11-06: 10 new cards/day, Regenerate kept, add-units feature added)
 - [x] 9.2 `content/french-course/syllabus.json` (36 units A1→B2, topics only) + `scenarios.json`, `lib/course/syllabus.ts` with validation, `/fr/learn` skeleton with unit list, "French course" nav item (French track only), card on the French dashboard
 - [x] 9.3 `mockFixture` option in `generateJSON` (mock adapter only), `lib/course/schemas.ts`, `prompts.ts`, `fixtures.ts`
-- [ ] 9.4 `CourseLesson` + `LessonAttempt` (migration `course_lessons`), `getOrCreateLesson` (generate once, cache), `/fr/learn/lessons/[lessonId]` explanation + vocabulary with TTS, `/fr/learn/units/[unitId]`
+- [x] 9.4 `CourseLesson` + `LessonAttempt` (migration `course_lessons`), `getOrCreateLesson` (generate once, cache), `/fr/learn/lessons/[lessonId]` explanation + vocabulary with TTS, `/fr/learn/units/[unitId]`
 - [ ] 9.5 Exercise runner: MCQ, fill-in-the-blank, reorder, translate, listen-and-choose; lenient local checking; answers saved
 - [ ] 9.6 Mini task (writing or speaking transcript) graded by AI on 0–20 + CEFR; summary step; lesson marked complete
 - [ ] 9.7 `PlacementQuestion` + `PlacementResult` (migration `course_placement`), pool generated once, adaptive staircase (~20 questions), level per skill, starting unit
@@ -58,4 +58,4 @@ tick items as they land and note anything half-done under "In flight".
 - [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
 
 ## In flight
-- Phase 9: next is 9.4.
+- Phase 9: next is 9.5.

@@ -49,7 +49,7 @@ Personal practice app for Canadian PR (Express Entry) language tests.
    - [x] 9.1 Plan (`docs/french-course-plan.md`)
    - [x] 9.2 Syllabus + scenarios JSON, loader, `/fr/learn` skeleton, nav + dashboard links
    - [x] 9.3 AI plumbing: `mockFixture`, course schemas, prompts, fixtures
-   - [ ] 9.4 Lessons: `CourseLesson` + `LessonAttempt`, cached generation, explanation + vocabulary (TTS), unit page
+   - [x] 9.4 Lessons: `CourseLesson` + `LessonAttempt`, cached generation, explanation + vocabulary (TTS), unit page
    - [ ] 9.5 Exercises: MCQ, fill-in, reorder, translate, listen-and-choose; local checking; results saved
    - [ ] 9.6 Mini writing/speaking task graded by AI, summary, lesson completion
    - [ ] 9.7 Placement test: cached pool, adaptive runner, CEFR per skill, starting unit

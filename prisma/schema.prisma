@@ -155,3 +155,48 @@ model MistakeReview {
 
   @@unique([exam, setId, questionId])
 }
+
+/// French course: one generated lesson, cached forever (id "u07-a").
+model CourseLesson {
+  /// "<unitId>-<a|b>"
+  id        String   @id
+  unitId    String
+  /// CEFR level of the unit: "A1" | "A2" | "B1" | "B2"
+  level     String
+  /// "generating" while the AI writes it (claim for that request), then "ready".
+  status    String   @default("generating")
+  /// The validated lesson JSON (LessonSchema). Null while generating.
+  data      Json?
+  /// Model that wrote it, e.g. "gemini-3.8-flash".
+  model     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attempts LessonAttempt[]
+
+  @@index([unitId])
+}
+
+/// One time through a lesson: exercise answers, the mini task and its feedback.
+model LessonAttempt {
+  id           String       @id @default(cuid())
+  lessonId     String
+  lesson       CourseLesson @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+  startedAt    DateTime     @default(now())
+  /// Set when the summary is reached.
+  completedAt  DateTime?
+  /// Exercises answered right on the first try, out of `total`.
+  correct      Int          @default(0)
+  total        Int          @default(0)
+  /// Per exercise: { index, answer, correct }.
+  answers      Json?
+  /// "writing" | "speaking"; null when the task was skipped.
+  taskKind     String?
+  taskText     String?
+  /// TCF 0–20 estimate from the AI.
+  taskScore    Int?
+  /// TaskFeedbackSchema JSON.
+  taskFeedback Json?
+
+  @@index([lessonId, startedAt])
+}

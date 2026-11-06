@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { COURSE_LEVELS, LEVEL_GOALS, unitsAt } from "@/lib/course/syllabus";
 
 const SKILL_LABEL = { listening: "Listening", reading: "Reading", writing: "Writing", speaking: "Speaking" } as const;
@@ -17,7 +18,11 @@ export function UnitList() {
           </div>
           <ol className="grid gap-3 sm:grid-cols-2">
             {unitsAt(level).map((unit) => (
-              <li key={unit.id} className="flex flex-col gap-2 rounded-xl border border-border bg-surface p-4">
+              <li key={unit.id}>
+                <Link
+                  href={`/fr/learn/units/${unit.id}`}
+                  className="flex h-full flex-col gap-2 rounded-xl border border-border bg-surface p-4 hover:border-accent"
+                >
                 <div className="flex items-baseline justify-between gap-2">
                   <h3 className="font-semibold" lang="fr">
                     <span className="mr-2 font-mono text-xs text-muted">{unit.number}</span>
@@ -35,6 +40,7 @@ export function UnitList() {
                   <dt className="text-muted">Skill</dt>
                   <dd>{unit.skillFocus.text}</dd>
                 </dl>
+                </Link>
               </li>
             ))}
           </ol>

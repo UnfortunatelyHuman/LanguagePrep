@@ -49,7 +49,9 @@ type Step = { provider: AiProviderName; models: string[] };
  */
 export function activeChain(): Step[] {
   const primary = aiProvider();
-  const steps: Step[] = [{ provider: primary, models: aiModels("AI_MODEL", ADAPTERS[primary].defaultModels) }];
+  // The mock ignores AI_MODEL, so rows written in tests never name a real model.
+  const models = primary === "mock" ? mock.defaultModels : aiModels("AI_MODEL", ADAPTERS[primary].defaultModels);
+  const steps: Step[] = [{ provider: primary, models }];
   if (!steps[0].models.length) {
     throw new AiError("config", `AI_MODEL isn't set. The ${primary} provider needs a model name in .env.local.`);
   }
