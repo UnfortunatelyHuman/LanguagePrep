@@ -44,6 +44,12 @@ export function UnitList() {
               </li>
             ))}
           </ol>
+          <Link
+            href={`/fr/learn/checkpoint/${level}`}
+            className="self-start rounded-lg border border-border px-4 py-2 text-sm hover:border-accent"
+          >
+            {level} checkpoint: test the whole level →
+          </Link>
         </section>
       ))}
     </div>

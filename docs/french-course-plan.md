@@ -206,6 +206,7 @@ tabs or a double effect never generate it twice.
 | `Conversation` | `id`, `scenarioId?`, `title`, `level`, `messages` Json, `ended`, `createdAt`, `updatedAt` | `course_conversations` |
 | `NoteImport` | `id`, `title`, `rawText`, `exercises` Json, `model`, `createdAt` (cards live in `ReviewCard` with `source: "notes"`) | `course_notes` |
 | `CourseUnit` | `id` ("my-u01"), `level`, `title`, `grammar`, `vocabulary`, `skillFocus`, `source` ("ai" \| "user"), `createdAt` | `course_units` |
+| `CheckpointResult` | `id`, `level`, `correct`, `total`, `passed`, `createdAt` (added while building 9.12) | `course_checkpoints` |
 | `CourseSettings` | `id` ("fr"), `newCardsPerDay` 10, `ttsReplies` Boolean, `updatedAt` | `course_review_cards` |
 
 Rows are deleted by id only. The data export (`/api/export`) includes these tables.

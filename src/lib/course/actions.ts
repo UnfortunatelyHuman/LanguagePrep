@@ -15,6 +15,7 @@ import {
   type StoredConversation,
 } from "./conversation";
 import { MAX_NOTES_CHARS, addNoteCards, deleteNotes, importNotes } from "./notes";
+import { isCourseLevel, saveCheckpoint } from "./checkpoints";
 import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
 import { GRADES, type Grade } from "./srs";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
@@ -276,4 +277,17 @@ export async function deleteNotesAction(form: FormData): Promise<void> {
   await deleteNotes(String(form.get("noteId") ?? ""));
   revalidatePath("/fr/learn/notes");
   redirect("/fr/learn/notes");
+}
+
+/** Save a checkpoint run (first-try results, checked in the browser like lesson exercises). */
+export async function saveCheckpointAction(
+  level: string,
+  results: unknown,
+): Promise<{ ok: true; passed: boolean } | { ok: false; error: string }> {
+  const parsed = ResultsSchema.safeParse(results);
+  if (!isCourseLevel(level) || !parsed.success || !parsed.data.length) return { ok: false, error: "Those results don't look right." };
+  const correct = parsed.data.filter((r) => r.verdict !== "wrong" || r.overridden).length;
+  const row = await saveCheckpoint(level, correct, parsed.data.length);
+  revalidatePath("/fr/learn", "layout");
+  return { ok: true, passed: row.passed };
 }

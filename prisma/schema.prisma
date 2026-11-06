@@ -310,3 +310,17 @@ model NoteImport {
 
   @@index([createdAt])
 }
+
+/// French course level checkpoint: a quiz from the level's cached lesson exercises.
+model CheckpointResult {
+  id        String   @id @default(cuid())
+  /// "A1" | "A2" | "B1" | "B2"
+  level     String
+  correct   Int
+  total     Int
+  /// 70% or more.
+  passed    Boolean
+  createdAt DateTime @default(now())
+
+  @@index([level, createdAt])
+}
