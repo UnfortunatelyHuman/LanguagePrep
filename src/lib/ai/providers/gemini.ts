@@ -11,26 +11,63 @@ const SUPPORTED_KEYWORDS = new Set([
   "propertyOrdering",
 ]);
 
-/** Recursively keep only the keywords Gemini understands (zod emits a few more). */
-function toGeminiSchema(node: unknown): unknown {
-  if (Array.isArray(node)) return node.map(toGeminiSchema);
+const LIMIT_KEYWORDS = ["minItems", "maxItems", "minimum", "maximum"] as const;
+
+/** "Between 8 and 10 items." / "At most 3 items." / "From 0 to 20." for a node's limits. */
+function limitsText(node: Record<string, unknown>): string {
+  const [minI, maxI, min, max] = LIMIT_KEYWORDS.map((k) => node[k] as number | undefined);
+  const range = (lo: number | undefined, hi: number | undefined, unit: string) =>
+    lo !== undefined && hi !== undefined
+      ? lo === hi
+        ? `Exactly ${lo}${unit}.`
+        : `Between ${lo} and ${hi}${unit}.`
+      : lo !== undefined
+        ? `At least ${lo}${unit}.`
+        : hi !== undefined
+          ? `At most ${hi}${unit}.`
+          : "";
+  return [range(minI, maxI, " items"), range(min, max, "")].filter(Boolean).join(" ");
+}
+
+/**
+ * Recursively keep only the keywords Gemini understands (zod emits a few more).
+ * With `relaxed`, size and range limits move into the descriptions instead:
+ * Gemini rejects large schemas with many limits ("invalid argument"), and zod
+ * still enforces them on the answer.
+ */
+export function toGeminiSchema(node: unknown, relaxed = false): unknown {
+  if (Array.isArray(node)) return node.map((n) => toGeminiSchema(n, relaxed));
   if (!node || typeof node !== "object") return node;
+  const source = node as Record<string, unknown>;
   const out: Record<string, unknown> = {};
-  for (const [key, value] of Object.entries(node)) {
+  for (const [key, value] of Object.entries(source)) {
     if (!SUPPORTED_KEYWORDS.has(key)) continue;
+    if (relaxed && (LIMIT_KEYWORDS as readonly string[]).includes(key)) continue;
     if (key === "properties" || key === "$defs") {
       out[key] = Object.fromEntries(
-        Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, toGeminiSchema(v)]),
+        Object.entries(value as Record<string, unknown>).map(([k, v]) => [k, toGeminiSchema(v, relaxed)]),
       );
     } else if (key === "additionalProperties" && typeof value === "boolean") {
       // Gemini rejects `additionalProperties: false`; zod still validates strictly.
       continue;
     } else {
-      out[key] = toGeminiSchema(value);
+      out[key] = toGeminiSchema(value, relaxed);
+    }
+  }
+  if (relaxed) {
+    const limits = limitsText(source);
+    if (limits) {
+      const own = typeof source.description === "string" ? source.description.trim().replace(/([^.!?])$/, "$1.") : "";
+      out.description = [own, limits].filter(Boolean).join(" ");
     }
   }
   return out;
 }
+
+/** Schemas each model rejected with their limits ("model|schema"): sent relaxed from then on. */
+const relaxedSchemas = new Set<string>();
+
+const hasLimits = (schema: unknown) => /"(minItems|maxItems|minimum|maximum)"/.test(JSON.stringify(schema));
 
 /** Gemini puts "retryDelay": "37s" in the body of a 429. */
 function retryDelaySeconds(message: string): number | undefined {
@@ -112,21 +149,36 @@ function toAiError(error: unknown, model: string): AiError {
 async function generateJSON(request: JsonRequest): Promise<string> {
   const apiKey = requireEnv("GEMINI_API_KEY", "gemini");
   const ai = new GoogleGenAI({ apiKey });
-
-  try {
-    const response = await ai.models.generateContent({
+  const key = `${request.model}|${JSON.stringify(request.jsonSchema)}`;
+  const signal = AbortSignal.timeout(request.timeoutMs ?? 90_000);
+  const send = (relaxed: boolean) =>
+    ai.models.generateContent({
       model: request.model,
       contents: request.prompt,
       config: {
         systemInstruction: request.system,
         temperature: request.temperature,
         responseMimeType: "application/json",
-        responseJsonSchema: toGeminiSchema(request.jsonSchema),
+        responseJsonSchema: toGeminiSchema(request.jsonSchema, relaxed),
         // Thinking tokens count against this, so leave room.
         maxOutputTokens: 16384,
-        abortSignal: AbortSignal.timeout(request.timeoutMs ?? 90_000),
+        abortSignal: signal,
       },
     });
+
+  try {
+    let response;
+    try {
+      response = await send(relaxedSchemas.has(key));
+    } catch (error) {
+      // Too many limits for this model: send them as descriptions instead, once, and remember.
+      if (!(error instanceof ApiError) || error.status !== 400 || relaxedSchemas.has(key) || !hasLimits(request.jsonSchema)) {
+        throw error;
+      }
+      console.warn(`[ai] ${request.model}: schema rejected; retrying with its limits as descriptions`);
+      relaxedSchemas.add(key);
+      response = await send(true);
+    }
 
     const blocked = response.promptFeedback?.blockReason;
     if (blocked) {
