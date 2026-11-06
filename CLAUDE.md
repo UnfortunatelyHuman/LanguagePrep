@@ -48,7 +48,7 @@ Personal practice app for Canadian PR (Express Entry) language tests.
 9. **French course** (`/fr/learn`, plan in `docs/french-course-plan.md`): A1→B2 course to reach NCLC 7. Hand-written syllabus (topics only) in `content/french-course/`; all lesson content AI-generated on demand through `generateJSON`, validated and cached in the database, never regenerated. Placement test, ~15-minute lessons (explanation, vocabulary with TTS, 8–10 exercises, AI-graded mini task, summary), SM-2 daily review shared with the phrase bank, AI conversation partner, notes import, course dashboard. Every AI call passes a `mockFixture` so `AI_PROVIDER=mock` covers it. Never copy goFluent or other paid material.
    - [x] 9.1 Plan (`docs/french-course-plan.md`)
    - [x] 9.2 Syllabus + scenarios JSON, loader, `/fr/learn` skeleton, nav + dashboard links
-   - [ ] 9.3 AI plumbing: `mockFixture`, course schemas, prompts, fixtures
+   - [x] 9.3 AI plumbing: `mockFixture`, course schemas, prompts, fixtures
    - [ ] 9.4 Lessons: `CourseLesson` + `LessonAttempt`, cached generation, explanation + vocabulary (TTS), unit page
    - [ ] 9.5 Exercises: MCQ, fill-in, reorder, translate, listen-and-choose; local checking; results saved
    - [ ] 9.6 Mini writing/speaking task graded by AI, summary, lesson completion

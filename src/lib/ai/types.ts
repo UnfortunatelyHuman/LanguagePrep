@@ -17,6 +17,8 @@ export type JsonRequest = GenerateOptions & {
   prompt: string;
   /** JSON Schema (from zod) the reply must follow. */
   jsonSchema: Record<string, unknown>;
+  /** Only the mock provider uses it: a ready-made valid answer instead of its generic filler. */
+  mockFixture?: () => unknown;
 };
 
 /**

@@ -159,6 +159,12 @@ function parseJson(text: string): unknown {
 export type JsonOptions = GenerateOptions & {
   /** Told which model actually answered (after any fallback). */
   onModel?: (model: string) => void;
+  /**
+   * With AI_PROVIDER=mock, this answer is returned instead of the mock's
+   * schema-driven filler. For replies whose parts must agree with each other
+   * (an exercise's answer and its options). Real providers ignore it.
+   */
+  mockFixture?: () => unknown;
 };
 
 /**

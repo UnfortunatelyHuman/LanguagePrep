@@ -8,6 +8,9 @@ import type { JsonRequest, ProviderAdapter } from "../types";
  * targets, three fixes, the candidate's own text echoed as the "corrected" or
  * "improved" version, an examiner reply in French, valid practice sets.
  *
+ * A caller can pass `mockFixture` for replies the generic filler can't make
+ * consistent (exercises whose answer must match their options).
+ *
  * AI_MOCK_ERROR=rate_limit | overloaded makes every call fail that way, to
  * test the fallbacks without spending real quota.
  */
@@ -194,6 +197,7 @@ async function generateJSON(request: JsonRequest): Promise<string> {
   }
 
   await new Promise((resolveDelay) => setTimeout(resolveDelay, 150));
+  if (request.mockFixture) return JSON.stringify(request.mockFixture());
   // French graders and the examiner have French system prompts; generation prompts name one exam.
   const french =
     /^Vous (êtes|jouez)/.test(request.system ?? "") || (/TCF/.test(request.prompt) && !/CELPIP/.test(request.prompt));
