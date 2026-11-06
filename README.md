@@ -451,6 +451,15 @@ courses.
 Neither CELPIP nor TCF publishes an exact conversion table, so check the current thresholds on
 canada.ca before you book.
 
+**French course levels (A1–C1)** are rougher guides:
+
+- **Grammar, vocabulary, reading, listening:** from your latest placement test. A skill's level
+  is the highest level where you got at least 2 questions right. Passing a level checkpoint raises
+  grammar and vocabulary to that level.
+- **Writing and speaking:** the middle of your last 3 estimates, from lesson tasks (graded on the
+  TCF 0–20 scale) or TCF writing/speaking practice, whichever is higher. NCLC is converted roughly:
+  7–8 ≈ B2, 5–6 ≈ B1, 4 ≈ A2, 9+ ≈ C1.
+
 ---
 
 ## 7. Using it on your phone
@@ -503,8 +512,16 @@ AI_FALLBACK_MODEL=openai/gpt-oss-120b
 Check Groq's and Google's model lists for current model names; old models get retired. If a
 model in your list is retired, the app tells you and moves on to the next one.
 
-**Testing without using quota:** `AI_PROVIDER=mock npm run dev` returns realistic fake feedback.
-`AI_MOCK_ERROR=rate_limit` (or `overloaded`) simulates failures.
+**How the French course uses quota:** each lesson costs one request the first time you open it,
+then it's saved for good. The placement questions cost 5 requests once. Each lesson task grade,
+conversation message, unit suggestion and notes import (per ~5,000 characters) is one request.
+Daily review, exercises and checkpoints never use AI.
+
+**Testing without using quota:** `AI_PROVIDER=mock npm run dev` returns realistic fake feedback,
+and fake French lessons, placement questions, chats and notes. The mock ignores `AI_MODEL`, so
+nothing it writes claims to come from a real model. `AI_MOCK_ERROR=rate_limit` (or `overloaded`)
+simulates failures. Lessons and placement questions made in mock mode are saved like real
+ones; delete them before switching back if you tried the course in mock mode.
 
 **Privacy:** on Gemini's free tier, Google may use what you send to improve its products. Don't
 type personal details into writing or speaking tasks.
@@ -539,6 +556,10 @@ type personal details into writing or speaking tasks.
 | **`Port 3000 is in use`** | Another copy is running. Stop it with `Ctrl + C`, or open the address the terminal shows instead. |
 | **`git` errors like `src refspec # does not match any`** | Your terminal (zsh) doesn't treat `#` as a comment. Run commands without anything after them, or run `echo 'setopt interactive_comments' >> ~/.zshrc` once. |
 | **`git` says a `.lock` file exists** | Make sure no other Git command is running, then delete the named `.lock` file in `.git/`. |
+| **"Preparing your lesson…" fails** | The AI couldn't answer (quota, overload). Press **Try again**; nothing was saved, so it costs nothing extra. If it keeps failing, see the quota row above. |
+| **A lesson has a mistake or doesn't match the unit** | Use **Regenerate** at the bottom of the lesson (one request). Edited units keep their old lessons until you regenerate them. |
+| **Placement test or course pages show an error after updating** | Run `npm run db:migrate`, then restart `npm run dev`. |
+| **Speaking or the 🎤 button does nothing in the conversation** | Speech input needs Chrome or Edge and microphone access; you can always type instead. |
 | **The page looks stuck after an update** | Stop the server, run `npm install` and `npm run db:migrate`, then `npm run dev` again. |
 
 ---
