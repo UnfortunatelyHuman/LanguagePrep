@@ -200,3 +200,32 @@ model LessonAttempt {
 
   @@index([lessonId, startedAt])
 }
+
+/// French course placement: one AI-written question, cached and reused across retakes.
+model PlacementQuestion {
+  id        String   @id @default(cuid())
+  /// CEFR level it targets: "A1" … "C1"
+  level     String
+  /// "grammar" | "vocabulary" | "reading" | "listening"
+  skill     String
+  /// PlacementItemSchema JSON.
+  data      Json
+  model     String?
+  createdAt DateTime @default(now())
+
+  @@index([level, skill])
+}
+
+/// One finished placement test.
+model PlacementResult {
+  id          String   @id @default(cuid())
+  /// { grammar: "B1", vocabulary: "A2", reading: …, listening: … }
+  levels      Json
+  /// [{ questionId, skill, level, picked, correct }] in the order asked.
+  answers     Json
+  /// Unit the course suggests starting from.
+  startUnitId String
+  createdAt   DateTime @default(now())
+
+  @@index([createdAt])
+}

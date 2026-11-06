@@ -5,7 +5,10 @@ import { isAiError } from "@/lib/ai";
 import { ResultsSchema, saveExerciseResults } from "./attempts";
 import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
-import { getLesson, getUnit } from "./syllabus";
+import { missingLevels, savePlacement, writeLevel } from "./placement-store";
+import { TOTAL_QUESTIONS } from "./placement";
+import { CEFR_LEVELS, getLesson, getUnit, type Cefr } from "./syllabus";
+import { z } from "zod";
 import { countWords } from "@/lib/writing/words";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
@@ -106,4 +109,38 @@ export async function completeLessonAction(
     console.error("[course] completing lesson failed", error);
     return { ok: false, error: "Couldn't save your progress. Please try again." };
   }
+}
+
+/** Write the questions for one placement level (one AI request, once ever). */
+export async function preparePlacementAction(level: string): Promise<ActionResult> {
+  if (!(CEFR_LEVELS as readonly string[]).includes(level)) return { ok: false, error: "Unknown level." };
+  try {
+    await writeLevel(level as Cefr);
+    return { ok: true };
+  } catch (error) {
+    return failure(`placement ${level}`, error);
+  }
+}
+
+/** Levels still to write (the page asks for them one at a time, with progress). */
+export async function placementMissingAction(): Promise<Cefr[]> {
+  return missingLevels();
+}
+
+const Picks = z
+  .array(z.object({ questionId: z.string().min(1).max(40), picked: z.number().int().min(0).max(3) }))
+  .min(1)
+  .max(TOTAL_QUESTIONS);
+
+/** Save a finished placement test; levels are computed on the server. */
+export async function savePlacementAction(picks: unknown): Promise<ActionResult> {
+  const parsed = Picks.safeParse(picks);
+  if (!parsed.success) return { ok: false, error: "Those answers don't look right." };
+  try {
+    await savePlacement(parsed.data);
+  } catch (error) {
+    return failure("saving placement", error);
+  }
+  revalidatePath("/fr/learn", "layout");
+  return { ok: true };
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { UnitList } from "@/components/course/UnitList";
 import { UNITS } from "@/lib/course/syllabus";
@@ -21,6 +22,16 @@ export default async function LearnPage({ params }: PageProps<"/[lang]/learn">) 
           work offline afterwards. Levels shown in the course are estimates, not official results.
         </p>
       </header>
+      <Link
+        href="/fr/learn/placement"
+        className="flex flex-col gap-1 rounded-xl border border-border bg-surface p-4 hover:border-accent sm:flex-row sm:items-center sm:justify-between"
+      >
+        <span>
+          <span className="block font-semibold">Placement test</span>
+          <span className="block text-sm text-muted">About 10 minutes: find your level per skill and where to start.</span>
+        </span>
+        <span className="text-sm font-semibold text-accent">Open →</span>
+      </Link>
       <UnitList />
     </div>
   );
