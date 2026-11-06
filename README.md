@@ -29,7 +29,8 @@ skill has to reach the target on its own. A high average with one weak skill isn
      [Answer keys](#57-answer-keys) · [Mistakes notebook](#58-mistakes-notebook) ·
      [Progress](#59-progress) · [Mock exam](#510-mock-exam) · [Phrase bank](#511-phrase-bank) ·
      [Exam guide](#512-exam-guide) · [CRS points](#513-crs-points) ·
-     [New AI sets](#514-new-ai-sets) · [My papers](#515-my-papers)
+     [New AI sets](#514-new-ai-sets) · [My papers](#515-my-papers) ·
+     [French course](#516-french-course)
 6. [How scores and levels are estimated](#6-how-scores-and-levels-are-estimated)
 7. [Using it on your phone](#7-using-it-on-your-phone)
 8. [AI settings](#8-ai-settings)
@@ -103,7 +104,8 @@ npm run db:migrate
   The English track is blue and the French track is red, so you always know which one you're in.
   Each track keeps its own history, plan and settings.
 - **Theme button** (circle icon, top right): cycles between *match system*, *light* and *dark*.
-- **On a computer**, the header shows Home, Study plan, Progress, Mistakes and Mock exam. The rest
+- **On a computer**, the header shows Home, Study plan, Progress, Mistakes and Mock exam (on the
+  French track, **French course** takes Mock exam's place, which moves under More). The rest
   (Exam guide, Phrase bank, CRS points, My papers, New AI sets) are under **More**.
 - **On a phone**, the same links are in a tab bar at the bottom of the screen. The tab bar hides
   while a test is open, so a stray tap can't take you out of it and lose your answers.
@@ -118,6 +120,7 @@ npm run db:migrate
 3. Spend 5–10 minutes in the **Mistakes notebook** retrying questions you got wrong.
 4. Self-test 10 phrases in the **Phrase bank**.
 5. In the final week before your exam, take one **Mock exam**. The study plan reminds you.
+6. French: one lesson of the **French course** and its **Daily review** (about 20 minutes).
 
 Short daily practice works better than long weekend sessions. The streak on the dashboard is
 there to help with that.
@@ -398,6 +401,39 @@ tests are shorter than the real exam, so use them for practice and full papers f
 Your papers are timed, scored, tracked in your progress, get an answer key, and can be edited or
 deleted. They're stored only in your local database.
 
+### 5.16 French course
+
+On the French track, **French course** (in the header, or the card on the French dashboard)
+takes you from your current level to **B2**, the level behind NCLC 7, in 36 units of two
+15-minute lessons. Everything in it is original and written by AI; nothing is copied from paid
+courses.
+
+- **Placement test:** about 20 questions (grammar, vocabulary, reading, listening) that get
+  harder when you're right and easier when you're not. You get a CEFR level per skill (A1–C1) and
+  the unit to start from. The questions are written once (5 AI requests in all) and reused.
+- **Lessons:** a short explanation in English with French examples, vocabulary with audio,
+  8–10 exercises (multiple choice, fill-in-the-blank, reorder words, translate, listen and choose)
+  checked on your device, then a small writing or speaking task graded by AI on the TCF 0–20
+  scale, and a summary. A lesson is written by AI the first time you open it (about a minute,
+  one request) and saved, so it never costs quota again and works offline. If one comes out
+  wrong, **Regenerate** at the bottom rewrites it.
+- **Daily review:** words, grammar and phrases from your lessons come back just before you'd
+  forget them (spaced repetition, SM-2). Up to 10 new cards a day (change it at the bottom of
+  the page). French phrase-bank entries have **+ Add to daily review**, phrases you save from TCF
+  feedback join automatically, and a phrase-bank self-test counts as a review.
+- **Conversation:** role-play a scenario (bakery, landlord, job interview, a debate…) or chat
+  freely, by typing or speaking. After each message you get a gentle correction and new words,
+  which you can add to your review. One AI request per message.
+- **My notes:** paste notes from your classes (goFluent or anything else). The AI turns them into
+  review cards and exercises from only what you pasted; untick cards you don't want.
+- **Checkpoints:** at the end of each level, a quiz from that level's lessons (no AI request);
+  70% marks the level as done.
+- **Add units:** **Add units** on the course page extends the syllabus. Describe what you want
+  ("more B2 workplace units") and the AI suggests units, or write your own. Added units can be
+  edited or deleted.
+- **Course dashboard:** where to continue, your streak, cards due, lessons done, and an estimated
+  level per skill against the B2 target.
+
 ---
 
 ## 6. How scores and levels are estimated
@@ -480,6 +516,7 @@ type personal details into writing or speaking tasks.
 - Everything is stored **on your computer** in `prisma/dev.db` (a SQLite file). Speaking
   recordings are in `data/recordings/`. Neither is ever committed to Git.
 - **Back up** regularly: Progress → **Download all my data (JSON)**, or copy `prisma/dev.db`.
+  The download includes the French course (lessons, cards, conversations, notes).
 - **Delete** single attempts from each skill's history list (recordings are deleted with them).
 - Your light/dark theme choice is remembered in your browser only.
 - Your AI key stays in `.env.local` on your computer.
@@ -543,7 +580,13 @@ src/lib/study-plan.ts    the daily plan (pure); today-plan.ts loads its inputs
 src/lib/activity.ts      streak and heatmap
 src/lib/review.ts        mistakes notebook
 src/lib/crs.ts           CRS language-points tables and maths (pure)
+src/lib/course/          French course: syllabus, AI schemas/prompts/fixtures, lessons,
+                         placement, SM-2 review, conversation, notes, checkpoints, units
+content/french-course/   syllabus.json (36 units, topics only) and scenarios.json
 ```
+
+The French course plan is in `docs/french-course-plan.md`. Every course AI call passes a
+`mockFixture`, so `AI_PROVIDER=mock` exercises all of it without quota.
 
 ### Adding built-in content
 

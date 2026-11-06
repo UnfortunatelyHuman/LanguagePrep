@@ -48,6 +48,32 @@ export async function saveCourseSettings(data: { newCardsPerDay?: number; ttsRep
   await prisma.courseSettings.upsert({ where: { id: "fr" }, create: { id: "fr", ...data }, update: data });
 }
 
+type CardRow = { source: string; sourceId: string; kind: string; front: string; back: string; example: string | null; due: string };
+
+/**
+ * Insert cards, tolerating ones another request inserted a moment earlier
+ * (two page loads syncing at once would otherwise hit the unique index).
+ */
+export async function insertCards(rows: CardRow[]): Promise<number> {
+  if (!rows.length) return 0;
+  try {
+    return (await prisma.reviewCard.createMany({ data: rows })).count;
+  } catch {
+    let added = 0;
+    for (const row of rows) {
+      const existing = await prisma.reviewCard.findUnique({
+        where: { source_sourceId_front: { source: row.source, sourceId: row.sourceId, front: row.front } },
+        select: { id: true },
+      });
+      if (!existing) {
+        await prisma.reviewCard.create({ data: row });
+        added++;
+      }
+    }
+    return added;
+  }
+}
+
 /** Add cards, skipping any that already exist for that source. Returns how many were new. */
 export async function addCards(source: CardSource, sourceId: string, cards: NewCard[]): Promise<number> {
   const due = await today();
@@ -55,11 +81,9 @@ export async function addCards(source: CardSource, sourceId: string, cards: NewC
     (await prisma.reviewCard.findMany({ where: { source, sourceId }, select: { front: true } })).map((c) => c.front),
   );
   const fresh = cards.filter((c, i) => !existing.has(c.front) && cards.findIndex((d) => d.front === c.front) === i);
-  if (!fresh.length) return 0;
-  await prisma.reviewCard.createMany({
-    data: fresh.map((c) => ({ source, sourceId, kind: c.kind, front: c.front, back: c.back, example: c.example ?? null, due })),
-  });
-  return fresh.length;
+  return insertCards(
+    fresh.map((c) => ({ source, sourceId, kind: c.kind, front: c.front, back: c.back, example: c.example ?? null, due })),
+  );
 }
 
 /** A finished lesson's vocabulary and grammar cards. */

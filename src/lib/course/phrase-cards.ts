@@ -3,7 +3,7 @@ import { io } from "next/cache";
 import { phraseCategories } from "@/lib/phrases";
 import { prisma } from "@/lib/prisma";
 import { SAVED_PREFIX } from "@/lib/saved-phrases";
-import { addCards, reviewCard, today } from "./cards";
+import { addCards, insertCards, reviewCard, today } from "./cards";
 
 /**
  * The French phrase bank and the course's review queue share cards:
@@ -52,7 +52,7 @@ export async function syncSavedPhrases(): Promise<void> {
   const missing = saved.filter((s) => !have.has(s.id));
   if (!missing.length) return;
   const due = await today();
-  await prisma.reviewCard.createMany({ data: missing.map((row) => ({ ...savedCard(row), due })) });
+  await insertCards(missing.map((row) => ({ ...savedCard(row), due })));
 }
 
 /** A saved phrase was removed from the bank: drop its card too. */

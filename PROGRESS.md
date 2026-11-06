@@ -55,7 +55,7 @@ tick items as they land and note anything half-done under "In flight".
 - [x] 9.12 Level checkpoints `/fr/learn/checkpoint/[level]` from cached exercises (70% to pass)
 - [x] 9.13 Course dashboard: current unit, streak, due count, level per skill vs B2; `/api/export` includes course tables
 - [x] 9.14 `CourseUnit` (migration `course_units`), `/fr/learn/units/new`: describe → AI suggests 1–5 units → edit/untick → save; hand form without AI; edit/delete; shown at the end of their level
-- [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
+- [x] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
 
 ## In flight
-- Phase 9: next is 9.15.
+- Phase 9 (French course) complete. All automated runs used AI_PROVIDER=mock; no lesson has been generated with a real model yet.
