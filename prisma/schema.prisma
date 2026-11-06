@@ -293,3 +293,20 @@ model Conversation {
 
   @@index([updatedAt])
 }
+
+/// Class notes the learner pasted, turned by AI into review cards and exercises.
+model NoteImport {
+  id         String   @id @default(cuid())
+  title      String
+  rawText    String
+  /// Proposed cards (NoteCardSchema[]); the chosen ones are copied into ReviewCard (source "notes").
+  cards      Json
+  /// ExerciseSchema[] practised like a lesson's.
+  exercises  Json
+  /// Set once the learner has picked which cards to keep.
+  cardsAdded Boolean  @default(false)
+  model      String?
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+}

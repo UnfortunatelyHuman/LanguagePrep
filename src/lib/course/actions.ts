@@ -14,6 +14,7 @@ import {
   startConversation,
   type StoredConversation,
 } from "./conversation";
+import { MAX_NOTES_CHARS, addNoteCards, deleteNotes, importNotes } from "./notes";
 import { attemptFor, completeAttempt, gradeTask, saveTask, type GradedTask } from "./grade-task";
 import { GRADES, type Grade } from "./srs";
 import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
@@ -236,4 +237,43 @@ export async function saveChatCardAction(input: unknown): Promise<ActionResult> 
 export async function setTtsRepliesAction(on: boolean): Promise<ActionResult> {
   await saveCourseSettings({ ttsReplies: !!on });
   return { ok: true };
+}
+
+export type NotesState = { error: string | null };
+
+/** Form action: notes → proposed cards and exercises (one AI request per ~5,000 characters), then open them. */
+export async function importNotesAction(_prev: NotesState, form: FormData): Promise<NotesState> {
+  const title = String(form.get("title") ?? "").trim().slice(0, 120);
+  const text = String(form.get("notes") ?? "").trim();
+  if (text.length < 20) return { error: "Paste a few notes first (at least a couple of words with their meaning)." };
+  if (text.length > MAX_NOTES_CHARS) return { error: `That's more than ${MAX_NOTES_CHARS.toLocaleString("en-CA")} characters. Import it in parts.` };
+  let id: string;
+  try {
+    id = await importNotes(title, text);
+  } catch (error) {
+    const result = failure("notes import", error);
+    return { error: result.ok ? "Unexpected result." : result.error };
+  }
+  revalidatePath("/fr/learn/notes");
+  redirect(`/fr/learn/notes/${id}`);
+}
+
+/** Add the ticked cards from an import to the daily review. */
+export async function addNoteCardsAction(noteId: string, keep: number[]): Promise<{ ok: true; added: number } | { ok: false; error: string }> {
+  const indexes = z.array(z.number().int().min(0).max(100)).max(100).safeParse(keep);
+  if (!indexes.success) return { ok: false, error: "Pick the cards to add." };
+  try {
+    const added = await addNoteCards(String(noteId), indexes.data);
+    revalidatePath("/fr/learn", "layout");
+    return { ok: true, added };
+  } catch (error) {
+    console.error("[course] adding note cards failed", error);
+    return { ok: false, error: "Couldn't add the cards." };
+  }
+}
+
+export async function deleteNotesAction(form: FormData): Promise<void> {
+  await deleteNotes(String(form.get("noteId") ?? ""));
+  revalidatePath("/fr/learn/notes");
+  redirect("/fr/learn/notes");
 }
