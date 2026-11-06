@@ -44,6 +44,23 @@ Personal practice app for Canadian PR (Express Entry) language tests.
 5. **Speaking**: prep timer, then record timer, then transcript, then AI feedback (fluency, vocabulary, grammar, task completion). Keep the audio for playback.
 6. **Progress**: per-skill trend charts, estimated CLB/NCLC vs target, weakest-skill highlight.
 7. **Extras**: full mock exams, AI-generated fresh question sets, vocabulary/phrase bank (French connectors, CELPIP email phrases), daily study plan.
+8. **UX and new tools**: app shell, dashboard, mistakes notebook, CRS calculator.
+9. **French course** (`/fr/learn`, plan in `docs/french-course-plan.md`): A1→B2 course to reach NCLC 7. Hand-written syllabus (topics only) in `content/french-course/`; all lesson content AI-generated on demand through `generateJSON`, validated and cached in the database, never regenerated. Placement test, ~15-minute lessons (explanation, vocabulary with TTS, 8–10 exercises, AI-graded mini task, summary), SM-2 daily review shared with the phrase bank, AI conversation partner, notes import, course dashboard. Every AI call passes a `mockFixture` so `AI_PROVIDER=mock` covers it. Never copy goFluent or other paid material.
+   - [x] 9.1 Plan (`docs/french-course-plan.md`)
+   - [ ] 9.2 Syllabus + scenarios JSON, loader, `/fr/learn` skeleton, nav + dashboard links
+   - [ ] 9.3 AI plumbing: `mockFixture`, course schemas, prompts, fixtures
+   - [ ] 9.4 Lessons: `CourseLesson` + `LessonAttempt`, cached generation, explanation + vocabulary (TTS), unit page
+   - [ ] 9.5 Exercises: MCQ, fill-in, reorder, translate, listen-and-choose; local checking; results saved
+   - [ ] 9.6 Mini writing/speaking task graded by AI, summary, lesson completion
+   - [ ] 9.7 Placement test: cached pool, adaptive runner, CEFR per skill, starting unit
+   - [ ] 9.8 Spaced repetition: `ReviewCard`, `StudyDay`, `CourseSettings`, SM-2, daily review page
+   - [ ] 9.9 Phrase bank sharing with the review queue
+   - [ ] 9.10 Conversation partner with corrections, speech input, optional TTS
+   - [ ] 9.11 Notes import → review cards + exercises
+   - [ ] 9.12 Level checkpoints
+   - [ ] 9.13 Course dashboard complete (current unit, streak, due, level per skill); export covers course tables
+   - [ ] 9.14 Add syllabus units later: AI suggestions (or by hand) saved in `CourseUnit`, edit/delete
+   - [ ] 9.15 README, mock-mode browser run, code review + fixes
 
 ## Rules
 - Content JSON must be original (don't copy official or paid prep material).

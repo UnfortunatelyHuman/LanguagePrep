@@ -40,5 +40,22 @@ tick items as they land and note anything half-done under "In flight".
 - [x] CRS language-points calculator (`lib/crs.ts`, tables from canada.ca, checked 2026-11-05)
 - [x] TCF accent bar in the writing editor; app icon + web manifest; `npm run phone`
 
+## Phase 9: French course (plan: `docs/french-course-plan.md`)
+- [x] 9.1 Plan: `docs/french-course-plan.md`, Phase 9 in CLAUDE.md and here (approved 2026-11-06: 10 new cards/day, Regenerate kept, add-units feature added)
+- [ ] 9.2 `content/french-course/syllabus.json` (36 units A1→B2, topics only) + `scenarios.json`, `lib/course/syllabus.ts` with validation, `/fr/learn` skeleton with unit list, "French course" nav item (French track only), card on the French dashboard
+- [ ] 9.3 `mockFixture` option in `generateJSON` (mock adapter only), `lib/course/schemas.ts`, `prompts.ts`, `fixtures.ts`
+- [ ] 9.4 `CourseLesson` + `LessonAttempt` (migration `course_lessons`), `getOrCreateLesson` (generate once, cache), `/fr/learn/lessons/[lessonId]` explanation + vocabulary with TTS, `/fr/learn/units/[unitId]`
+- [ ] 9.5 Exercise runner: MCQ, fill-in-the-blank, reorder, translate, listen-and-choose; lenient local checking; answers saved
+- [ ] 9.6 Mini task (writing or speaking transcript) graded by AI on 0–20 + CEFR; summary step; lesson marked complete
+- [ ] 9.7 `PlacementQuestion` + `PlacementResult` (migration `course_placement`), pool generated once, adaptive staircase (~20 questions), level per skill, starting unit
+- [ ] 9.8 `ReviewCard`, `StudyDay`, `CourseSettings` (migration `course_review_cards`), `lib/course/srs.ts` SM-2, cards from finished lessons, `/fr/learn/review`
+- [ ] 9.9 Phrase bank: "Add to daily review", TCF saved phrases auto-added, self-test counts as a review
+- [ ] 9.10 `Conversation` (migration `course_conversations`), `/fr/learn/chat` scenarios + chat with corrections, speech input, optional TTS, save to cards
+- [ ] 9.11 `NoteImport` (migration `course_notes`), `/fr/learn/notes` paste → preview cards → add; exercises practised like a lesson
+- [ ] 9.12 Level checkpoints `/fr/learn/checkpoint/[level]` from cached exercises (70% to pass)
+- [ ] 9.13 Course dashboard: current unit, streak, due count, level per skill vs B2; `/api/export` includes course tables
+- [ ] 9.14 `CourseUnit` (migration `course_units`), `/fr/learn/units/new`: describe → AI suggests 1–5 units → edit/untick → save; hand form without AI; edit/delete; shown at the end of their level
+- [ ] 9.15 README section, full browser run with `AI_PROVIDER=mock`, code review + fixes
+
 ## In flight
-- All phases and quality gates done. Remaining ideas are listed in the final summary, not required.
+- Phase 9: next is 9.2.
