@@ -1,21 +1,49 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import { saveExercisesAction } from "@/lib/course/actions";
+import type { ExerciseResult } from "@/lib/course/check";
 import type { Lesson } from "@/lib/course/schemas";
 import { stopSpeaking } from "@/lib/course/useSpeak";
+import { ExerciseRunner } from "./ExerciseRunner";
 import { LessonExplanation } from "./LessonExplanation";
 import { VocabList } from "./VocabList";
 
 type Step = { id: string; label: string; render: () => ReactNode };
 
-/** A lesson, one step at a time: explanation, then vocabulary (more steps follow). */
-export function LessonPlayer({ lesson }: { lesson: Lesson }) {
+/** A lesson, one step at a time: explanation, vocabulary, exercises. */
+export function LessonPlayer({ lessonId, lesson }: { lessonId: string; lesson: Lesson }) {
+  const [index, setIndex] = useState(0);
+  const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  const finishExercises = async (results: ExerciseResult[]) => {
+    setSaveError(null);
+    const saved = await saveExercisesAction(lessonId, results).catch(() => null);
+    if (saved?.ok) setAttemptId(saved.attemptId);
+    else setSaveError(saved?.error ?? "Couldn't reach the server to save your results.");
+  };
+
   const steps: Step[] = [
     { id: "learn", label: "Learn", render: () => <LessonExplanation lesson={lesson} /> },
     { id: "words", label: "Words", render: () => <VocabList vocabulary={lesson.vocabulary} /> },
+    {
+      id: "practice",
+      label: "Practice",
+      render: () => (
+        <div className="flex flex-col gap-3">
+          <ExerciseRunner exercises={lesson.exercises} idPrefix={lessonId} onFinish={finishExercises} />
+          {saveError ? (
+            <p role="alert" className="text-sm text-warn">
+              {saveError}
+            </p>
+          ) : attemptId ? (
+            <p className="text-xs text-muted">Results saved.</p>
+          ) : null}
+        </div>
+      ),
+    },
   ];
-  const [index, setIndex] = useState(0);
-  const step = steps[index];
 
   const go = (to: number) => {
     stopSpeaking();
@@ -42,7 +70,12 @@ export function LessonPlayer({ lesson }: { lesson: Lesson }) {
         ))}
       </ol>
 
-      <div>{step.render()}</div>
+      {/* Every step stays mounted, so going back to the words keeps exercise progress. */}
+      {steps.map((s, i) => (
+        <div key={s.id} hidden={i !== index}>
+          {s.render()}
+        </div>
+      ))}
 
       <div className="flex justify-between gap-3">
         <button

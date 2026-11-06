@@ -36,7 +36,7 @@ async function LessonBody({ lessonId }: { lessonId: string }) {
           ))}
         </ul>
       </div>
-      <LessonPlayer lesson={lesson} />
+      <LessonPlayer lessonId={lessonId} lesson={lesson} />
       <div className="border-t border-border pt-4">
         <RegenerateLessonButton lessonId={lessonId} />
       </div>

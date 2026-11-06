@@ -2,7 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import { isAiError } from "@/lib/ai";
-import { getOrCreateLesson, regenerateLesson } from "./lessons";
+import { ResultsSchema, saveExerciseResults } from "./attempts";
+import { findLesson, getOrCreateLesson, regenerateLesson } from "./lessons";
 import { getLesson } from "./syllabus";
 
 export type ActionResult = { ok: true } | { ok: false; error: string };
@@ -38,4 +39,22 @@ export async function regenerateLessonAction(lessonId: string): Promise<ActionRe
   }
   revalidatePath("/fr/learn", "layout");
   return { ok: true };
+}
+
+/** Save the first-try results of a lesson's exercises. */
+export async function saveExercisesAction(
+  lessonId: string,
+  results: unknown,
+): Promise<{ ok: true; attemptId: string } | { ok: false; error: string }> {
+  const parsed = ResultsSchema.safeParse(results);
+  const stored = await findLesson(lessonId);
+  if (!parsed.success || !stored || parsed.data.some((r) => r.index >= stored.lesson.exercises.length)) {
+    return { ok: false, error: "Those results don't match this lesson." };
+  }
+  try {
+    return { ok: true, attemptId: await saveExerciseResults(lessonId, parsed.data) };
+  } catch (error) {
+    console.error("[course] saving exercise results failed", error);
+    return { ok: false, error: "Couldn't save your results. Please try again." };
+  }
 }
